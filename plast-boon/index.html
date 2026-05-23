@@ -10,13 +10,13 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #16202E;
     --ink-soft: #45525F;
     --navy: #1E3050;
-    --navy-deep: #15243C;
+    --navy-deep: #122036;
     --paper: #FAF8F3;
     --paper-soft: #FFFFFF;
     --terra: #C46330;
@@ -24,7 +24,7 @@
     --line-green: #06C755;
     --line-green-d: #05A647;
     --border: #E4DECF;
-    --shadow: rgba(21,36,60,0.08);
+    --shadow: rgba(18,32,54,0.10);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -35,215 +35,203 @@
     line-height: 1.9;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 72px; /* sticky bar space (mobile) */
+    padding-bottom: 76px;
+    overflow-x: hidden;
   }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
   .serif { font-family: 'Noto Serif JP', serif; }
 
-  /* ===== Hero ===== */
-  .hero {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: #fff;
-    padding: 56px 0 64px;
-    position: relative;
-    overflow: hidden;
+  /* ===== placeholder image ===== */
+  .ph {
+    background:
+      linear-gradient(135deg, rgba(30,48,80,0.04), rgba(196,99,48,0.06)),
+      repeating-linear-gradient(45deg, #ECE6D8, #ECE6D8 14px, #E6DFCF 14px, #E6DFCF 28px);
+    border: 1px dashed #C3B795;
+    display: flex; align-items: center; justify-content: center;
+    color: #897F63; font-size: 0.82rem; text-align: center;
+    padding: 20px; line-height: 1.6;
   }
-  .hero::after {
-    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px;
-    background: linear-gradient(90deg, var(--terra) 0%, var(--terra-soft) 50%, var(--terra) 100%);
+  .ph.r43 { aspect-ratio: 4 / 3; }
+  .ph.r169 { aspect-ratio: 16 / 9; }
+  .ph.r11 { aspect-ratio: 1 / 1; }
+  .ph.cover { width: 100%; height: 100%; border: none; }
+
+  /* ===== full-bleed photo band ===== */
+  .band { position: relative; width: 100%; }
+  .band-photo { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+  .band-photo .ph { width: 100%; height: 100%; aspect-ratio: auto; border-left: none; border-right: none; }
+  @media (min-width: 720px) { .band-photo { aspect-ratio: 21 / 9; } }
+
+  /* ===== hero ===== */
+  .hero { position: relative; color: #fff; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg .ph { width: 100%; height: 100%; aspect-ratio: auto; border: none; }
+  .hero-overlay {
+    position: relative;
+    background: linear-gradient(180deg, rgba(18,32,54,0.78) 0%, rgba(18,32,54,0.62) 55%, rgba(18,32,54,0.85) 100%);
+    padding: 54px 0 60px;
   }
   .hero .brand {
     font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 0.28em; font-size: 0.82rem; text-transform: uppercase;
-    color: var(--terra-soft); margin-bottom: 20px;
+    letter-spacing: 0.28em; font-size: 0.8rem; text-transform: uppercase;
+    color: var(--terra-soft); margin-bottom: 18px;
   }
   .hero h1 {
     font-family: 'Noto Serif JP', serif; font-weight: 900;
-    font-size: 2.15rem; line-height: 1.45; margin-bottom: 18px;
-    letter-spacing: 0.01em;
+    font-size: 2.1rem; line-height: 1.5; margin-bottom: 16px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.3);
   }
-  .hero p.sub { font-size: 1.02rem; color: rgba(255,255,255,0.88); margin-bottom: 28px; }
-  .hero .db {
-    display: inline-flex; align-items: baseline; gap: 10px;
-    background: rgba(255,255,255,0.07); border: 1px solid rgba(230,203,174,0.4);
-    padding: 14px 22px; border-radius: 8px; margin-bottom: 30px;
-  }
-  .hero .db .num { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: #fff; line-height: 1; }
-  .hero .db .lab { font-size: 0.86rem; color: var(--terra-soft); }
-  .hero-photo {
-    margin-top: 6px; border-radius: 10px; overflow: hidden;
-  }
+  .hero p.sub { font-size: 1.0rem; color: rgba(255,255,255,0.92); margin-bottom: 26px; }
 
-  /* ===== placeholder photo ===== */
-  .ph {
-    background: repeating-linear-gradient(45deg, #ECE6D8, #ECE6D8 12px, #E6DFCF 12px, #E6DFCF 24px);
-    border: 1px dashed #C9BE9F; border-radius: 10px;
-    min-height: 200px; display: flex; align-items: center; justify-content: center;
-    color: #9A8F73; font-size: 0.85rem; text-align: center; padding: 24px; line-height: 1.6;
+  /* ===== stat band（CSSで作る数値ビジュアル＝画像のような帯） ===== */
+  .stat-band {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: #fff; text-align: center; padding: 46px 0;
+    border-top: 4px solid var(--terra); border-bottom: 4px solid var(--terra);
   }
-  .ph.tall { min-height: 240px; }
-  figure { margin: 0; }
-  figcaption { font-size: 0.82rem; color: var(--ink-soft); margin-top: 8px; padding-left: 12px; border-left: 3px solid var(--terra-soft); line-height: 1.6; }
+  .stat-band .k { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.78rem; color: var(--terra-soft); margin-bottom: 6px; }
+  .stat-band .big { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 0.95; }
+  .stat-band .big .num { font-size: 6rem; }
+  .stat-band .big .unit { font-size: 2.2rem; margin-left: 6px; }
+  .stat-band .cap { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; margin-top: 10px; color: rgba(255,255,255,0.9); }
 
-  /* ===== CTA buttons ===== */
+  /* number cards */
+  .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 22px 0 4px; }
+  .stat-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 20px 14px; text-align: center; box-shadow: 0 2px 10px var(--shadow); }
+  .stat-card .n { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.2rem; color: var(--navy); line-height: 1; }
+  .stat-card .t { font-size: 0.82rem; color: var(--ink-soft); margin-top: 6px; }
+
+  /* ===== CTA ===== */
   .cta-line {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     background: var(--line-green); color: #fff; font-weight: 700;
     padding: 16px 26px; border-radius: 999px; text-decoration: none;
-    font-size: 1.05rem; box-shadow: 0 6px 18px rgba(6,199,85,0.32);
+    font-size: 1.05rem; box-shadow: 0 8px 22px rgba(6,199,85,0.36);
     transition: transform 0.12s, background 0.12s;
   }
   .cta-line:hover { background: var(--line-green-d); transform: translateY(-1px); }
-  .cta-line .ico {
-    width: 22px; height: 22px; background: #fff; border-radius: 6px;
-    display: inline-flex; align-items: center; justify-content: center;
-    color: var(--line-green); font-weight: 900; font-size: 0.8rem;
-  }
+  .cta-line .ico { width: 22px; height: 22px; background: #fff; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--line-green); font-weight: 900; font-size: 0.8rem; }
+  .cta-block { text-align: center; margin: 16px 0 2px; }
   .cta-note { display: block; font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px; }
-  .cta-block { text-align: center; margin: 14px 0 4px; }
-  .hero .cta-note { color: rgba(255,255,255,0.7); }
+  .hero .cta-note { color: rgba(255,255,255,0.78); }
 
   /* ===== sections ===== */
-  section { padding: 50px 0; }
-  section.alt { background: var(--paper-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .eyebrow {
-    font-family: 'Cormorant Garamond', serif; letter-spacing: 0.26em; text-transform: uppercase;
-    font-size: 0.74rem; color: var(--terra); margin-bottom: 8px;
-  }
-  h2.sec {
-    font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.55rem;
-    line-height: 1.5; color: var(--ink); margin-bottom: 24px; letter-spacing: 0.01em;
-  }
+  section { padding: 52px 0; }
+  section.alt { background: var(--paper-soft); }
+  .eyebrow { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.26em; text-transform: uppercase; font-size: 0.74rem; color: var(--terra); margin-bottom: 8px; text-align: center; }
+  h2.sec { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.55rem; line-height: 1.55; color: var(--ink); margin-bottom: 24px; letter-spacing: 0.01em; text-align: center; }
   h2.sec .em { color: var(--terra); }
   p { margin-bottom: 16px; }
   .lead-p { font-size: 1.05rem; }
 
-  .pain-list { list-style: none; margin: 8px 0 8px; }
-  .pain-list li {
-    background: var(--paper-soft); border: 1px solid var(--border);
-    border-left: 4px solid var(--terra); border-radius: 6px;
-    padding: 14px 18px; margin-bottom: 12px; font-weight: 500;
-    box-shadow: 0 2px 8px var(--shadow);
-  }
+  /* alternating feature row（画像＋テキスト） */
+  .feature { margin: 26px 0; }
+  .feature .fimg { margin-bottom: 16px; }
+  .feature .tag { display: inline-block; font-size: 0.76rem; font-weight: 700; color: #fff; background: var(--navy); padding: 3px 12px; border-radius: 999px; margin-bottom: 10px; letter-spacing: 0.04em; }
+  .feature.sub .tag { background: var(--ink-soft); }
+  .feature h3 { font-family: 'Noto Serif JP', serif; font-size: 1.22rem; margin-bottom: 8px; }
 
-  .merit { margin: 24px 0; }
-  .merit-item {
-    background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px;
-    padding: 22px; margin-bottom: 16px; box-shadow: 0 2px 10px var(--shadow);
-  }
-  .merit-item .tag {
-    display: inline-block; font-size: 0.78rem; font-weight: 700; color: #fff;
-    background: var(--navy); padding: 3px 12px; border-radius: 999px; margin-bottom: 10px; letter-spacing: 0.04em;
-  }
-  .merit-item.sub .tag { background: var(--ink-soft); }
-  .merit-item h3 { font-family: 'Noto Serif JP', serif; font-size: 1.18rem; margin-bottom: 8px; }
+  /* pain list */
+  .pain-list { list-style: none; margin: 8px 0; }
+  .pain-list li { background: var(--paper-soft); border: 1px solid var(--border); border-left: 4px solid var(--terra); border-radius: 6px; padding: 13px 18px; margin-bottom: 11px; font-weight: 500; box-shadow: 0 2px 8px var(--shadow); }
 
-  blockquote.voice {
-    background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px;
-    padding: 22px 24px 20px; margin: 0 0 16px; position: relative; box-shadow: 0 2px 10px var(--shadow);
-  }
+  /* before/after */
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+  .ba figure { margin: 0; }
+  .ba .label { font-size: 0.8rem; font-weight: 700; text-align: center; padding: 8px; border-radius: 6px 6px 0 0; color: #fff; }
+  .ba .before .label { background: var(--ink-soft); }
+  .ba .after .label { background: var(--terra); }
+
+  blockquote.voice { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px 20px; margin: 0 0 14px; box-shadow: 0 2px 10px var(--shadow); }
   blockquote.voice p { font-family: 'Noto Serif JP', serif; font-size: 1.06rem; margin-bottom: 10px; color: var(--navy-deep); }
   blockquote.voice cite { font-style: normal; font-size: 0.84rem; color: var(--ink-soft); }
   blockquote.voice cite::before { content: '— '; color: var(--terra); }
 
+  figure { margin: 0; }
+  figcaption { font-size: 0.8rem; color: var(--ink-soft); margin-top: 8px; padding-left: 12px; border-left: 3px solid var(--terra-soft); line-height: 1.6; }
+
   .steps { counter-reset: step; list-style: none; margin: 20px 0; }
-  .steps li {
-    counter-increment: step; position: relative; padding: 4px 0 22px 56px; margin: 0;
-  }
-  .steps li::before {
-    content: counter(step); position: absolute; left: 0; top: 0;
-    width: 38px; height: 38px; background: var(--navy); color: #fff; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-weight: 700;
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-  }
-  .steps li:not(:last-child)::after {
-    content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: var(--border);
-  }
+  .steps li { counter-increment: step; position: relative; padding: 4px 0 22px 56px; }
+  .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 38px; height: 38px; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+  .steps li:not(:last-child)::after { content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: var(--border); }
   .steps li h3 { font-size: 1.05rem; font-family: 'Noto Serif JP', serif; margin-bottom: 4px; }
   .steps li p { margin-bottom: 0; font-size: 0.95rem; color: var(--ink-soft); }
 
-  .cost-card {
-    background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px;
-    padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 18px 0;
-  }
+  .cost-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 18px 0; }
   .cost-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.96rem; }
   .cost-row:last-child { border-bottom: none; }
   .cost-row .price { font-weight: 700; color: var(--navy-deep); }
   .note-box { background: #FBF3EA; border: 1px solid var(--terra-soft); border-radius: 8px; padding: 14px 18px; font-size: 0.9rem; color: var(--ink-soft); }
 
-  .faq details {
-    background: var(--paper-soft); border: 1px solid var(--border); border-radius: 8px;
-    margin-bottom: 12px; padding: 0 18px; box-shadow: 0 2px 8px var(--shadow);
-  }
-  .faq summary {
-    list-style: none; cursor: pointer; padding: 16px 0; font-weight: 700; position: relative; padding-right: 28px;
-  }
+  .faq details { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; padding: 0 18px; box-shadow: 0 2px 8px var(--shadow); }
+  .faq summary { list-style: none; cursor: pointer; padding: 16px 0; font-weight: 700; position: relative; padding-right: 28px; }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after { content: '+'; position: absolute; right: 0; top: 14px; color: var(--terra); font-size: 1.4rem; font-weight: 400; }
-  .faq details[open] summary::after { content: '−'; }
+  .faq details[open] summary::after { content: '\2212'; }
   .faq details p { padding-bottom: 16px; margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
 
-  .company {
-    background: var(--navy); color: rgba(255,255,255,0.9); border-radius: 12px; padding: 28px 24px; margin: 8px 0;
-  }
-  .company h3 { font-family: 'Noto Serif JP', serif; color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+  .company { background: var(--navy); color: rgba(255,255,255,0.9); border-radius: 12px; padding: 26px 24px; margin: 8px 0; }
+  .company h3 { font-family: 'Noto Serif JP', serif; color: #fff; font-size: 1.18rem; margin-bottom: 12px; }
   .company .row { font-size: 0.9rem; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
   .company .row:last-child { border-bottom: none; }
 
-  .final {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: #fff; text-align: center;
-  }
-  .final h2 { font-family: 'Noto Serif JP', serif; font-size: 1.7rem; line-height: 1.5; margin-bottom: 18px; }
-  .final p { color: rgba(255,255,255,0.86); margin-bottom: 26px; }
+  .final { position: relative; color: #fff; text-align: center; overflow: hidden; }
+  .final-bg { position: absolute; inset: 0; }
+  .final-bg .ph { width: 100%; height: 100%; aspect-ratio: auto; border: none; }
+  .final-overlay { position: relative; background: linear-gradient(180deg, rgba(18,32,54,0.82), rgba(18,32,54,0.9)); padding: 56px 0; }
+  .final h2 { font-family: 'Noto Serif JP', serif; font-size: 1.7rem; line-height: 1.55; margin-bottom: 16px; text-shadow: 0 2px 14px rgba(0,0,0,0.3); }
+  .final p { color: rgba(255,255,255,0.88); margin-bottom: 24px; }
 
   footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); padding: 28px 0 36px; font-size: 0.82rem; text-align: center; line-height: 1.9; }
   footer a { color: var(--terra-soft); text-decoration: none; }
 
-  /* sticky mobile bar */
-  .sticky-bar {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
-    background: rgba(250,248,243,0.96); border-top: 1px solid var(--border);
-    padding: 10px 16px; box-shadow: 0 -4px 16px rgba(21,36,60,0.10);
-    display: flex; gap: 12px; align-items: center; justify-content: center;
-    backdrop-filter: blur(6px);
-  }
+  .sticky-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: rgba(250,248,243,0.96); border-top: 1px solid var(--border); padding: 10px 16px; box-shadow: 0 -4px 16px rgba(18,32,54,0.12); display: flex; justify-content: center; backdrop-filter: blur(6px); }
   .sticky-bar .cta-line { width: 100%; max-width: 460px; padding: 13px 20px; font-size: 1rem; }
 
-  .draft-note {
-    background: #FFF6E5; border-bottom: 1px solid #E8C98A; color: #7A5A1E;
-    text-align: center; font-size: 0.8rem; padding: 8px 16px; letter-spacing: 0.02em;
-  }
+  .draft-note { background: #FFF6E5; border-bottom: 1px solid #E8C98A; color: #7A5A1E; text-align: center; font-size: 0.8rem; padding: 8px 16px; }
 
   @media (min-width: 720px) {
-    body { padding-bottom: 0; }
+    body { padding-bottom: 0; font-size: 17px; }
     .sticky-bar { display: none; }
-    .hero h1 { font-size: 2.6rem; }
+    .hero h1 { font-size: 2.7rem; }
+    .hero-overlay { padding: 84px 0 90px; }
+    h2.sec { font-size: 1.9rem; }
+    .stat-band .big .num { font-size: 8rem; }
+    .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+    .feature .fimg { margin-bottom: 0; }
+    .feature.flip .ftext { order: 2; }
+    .stat-grid { grid-template-columns: repeat(4, 1fr); }
   }
 </style>
 </head>
 <body>
 
-<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。写真は仮、費用は確定後に差し替えます。</div>
+<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。グレーの斜線部分には写真・図解が入ります（いまは仮）。</div>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO（全幅写真＋オーバーレイ） ===== -->
 <header class="hero">
-  <div class="wrap">
-    <div class="brand">Naimado PLAST &middot; Soundproof</div>
-    <h1 class="serif">外の音に悩む暮らしを、<br>静かに変える。</h1>
-    <p class="sub">道路や線路の音、近隣の生活音。今ある窓の内側にもう1枚、窓を足すだけで、暮らしの音は大きく変わります。壁も床も壊しません。</p>
-    <div class="db">
-      <span class="num">45</span>
-      <span class="lab">最大dBの防音効果<br>内窓PLAST（プラスト）</span>
-    </div>
-    <div class="cta-block">
-      <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料見積もり</a>
-      <span class="cta-note">今ある窓の写真を送るだけ。しつこい営業はいたしません。</span>
-    </div>
-    <div class="hero-photo">
-      <div class="ph tall">ここにファーストビュー写真<br>（内窓PLASTの美しい納まり／施工後の窓辺）</div>
+  <div class="hero-bg"><div class="ph">［ファーストビュー写真］静かな夜の窓辺／内窓PLASTの美しい納まり。全幅で大きく</div></div>
+  <div class="hero-overlay">
+    <div class="wrap">
+      <div class="brand">Naimado PLAST &middot; Soundproof</div>
+      <h1 class="serif">外の音に悩む暮らしを、<br>静かに変える。</h1>
+      <p class="sub">道路や線路の音、近隣の生活音。今ある窓の内側にもう1枚、窓を足すだけで、暮らしの音は大きく変わります。壁も床も壊しません。</p>
+      <div class="cta-block">
+        <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料見積もり</a>
+        <span class="cta-note">今ある窓の写真を送るだけ。しつこい営業はいたしません。</span>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- ===== 数値ビジュアル帯（CSSで作るバナー） ===== -->
+<div class="stat-band">
+  <div class="wrap">
+    <div class="k">Soundproof performance</div>
+    <div class="big serif"><span class="num">45</span><span class="unit">dB</span></div>
+    <div class="cap">内窓PLASTの最大防音効果。窓を二重にして、音をここまで抑えます。</div>
+  </div>
+</div>
 
 <!-- ===== 共感 ===== -->
 <section>
@@ -252,6 +240,9 @@
     <h2 class="sec">こんな音のお悩み、ありませんか</h2>
     <p class="lead-p">夜、布団に入ってひと息ついた頃に、表の道路を車が通り過ぎる。朝はまだ早いのに、電車の音で目が覚めてしまう。日中も、外の音が気になって仕事に集中しきれない。</p>
     <p>音の悩みは、不思議と人に相談しづらいものです。我慢できないほどではないからこそ、まあいいかと後回しになり、毎日少しずつ疲れがたまっていきます。次のような場面に心当たりはないでしょうか。</p>
+  </div>
+  <div class="band band-photo"><div class="ph">［暮らしの情景写真］夜、窓の外を車が通る／在宅ワーク中に外の音が気になる様子。全幅で大きく</div></div>
+  <div class="wrap" style="margin-top:24px;">
     <ul class="pain-list">
       <li>車や電車の走行音で、夜中に目が覚めてしまう</li>
       <li>在宅ワークの会議中、外の音が気になって集中できない</li>
@@ -263,42 +254,48 @@
   </div>
 </section>
 
-<!-- ===== なぜ音は窓から ===== -->
+<!-- ===== 原因（図解） ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow">Why</div>
     <h2 class="sec">音の多くは、<span class="em">窓</span>から出入りしています</h2>
     <p>壁をしっかり作っても音が気になる。その理由はシンプルで、家の中で音がいちばん出入りしているのは、壁ではなく窓だからです。特に1枚ガラスの窓と、サッシのわずかな隙間。ここが音の通り道になっています。</p>
-    <p>イメージとしては、厚いコートを着ていても、襟元が開いていれば冷たい風が入ってくるのと同じです。窓という開口部が、音にとっての襟元になっているわけです。</p>
-    <p>そこで、今ある窓の内側にもう1枚、窓を足します。窓と窓のあいだに空気の層ができると、この層が音をやわらげ、室内に届く音を大きく減らしてくれます。難しい工事ではありません。やることは、襟元を閉じてあげるだけです。</p>
-    <figure>
-      <div class="ph">ここに図解（1枚窓 → 内窓を足して二重窓にする仕組み）</div>
-      <figcaption>窓を二重にして空気層をつくると、音の伝わりが弱まります。仕組みはシンプルです。</figcaption>
+    <figure style="margin:22px 0;">
+      <div class="ph r169">［図解］1枚窓は音が入る → 内窓を足して二重窓にすると空気層が音を防ぐ。Canvaで作成</div>
+      <figcaption>窓を二重にして空気の層をつくると、音の伝わりが弱まります。仕組みはシンプルです。</figcaption>
     </figure>
+    <p>イメージとしては、厚いコートを着ていても、襟元が開いていれば冷たい風が入ってくるのと同じです。窓という開口部が、音にとっての襟元になっているわけです。今ある窓の内側にもう1枚、窓を足してあげれば、その襟元を閉じられます。</p>
   </div>
 </section>
 
-<!-- ===== 解決策 PLAST ===== -->
+<!-- ===== 解決策 PLAST（交互の画像＋テキスト） ===== -->
 <section>
   <div class="wrap">
     <div class="eyebrow">Solution</div>
     <h2 class="sec">防音にいちばん効くのが、<br>内窓<span class="em">PLAST（プラスト）</span></h2>
-    <p>二重窓と聞くと、大がかりな工事を思い浮かべる方が多いです。ここが、最初の一歩をためらわせる一番の理由かもしれません。</p>
-    <p>でも、PLASTは今ある窓の内側に取り付けるだけの内窓です。壁も床も壊しません。1窓あたりおよそ1時間、多くのお宅はその日のうちに終わります。引っ越しも、家具の移動も要りません。生活を止めずに、静かさだけが手に入ります。</p>
-
-    <div class="merit">
-      <div class="merit-item">
+    <p style="text-align:center;max-width:560px;margin:0 auto 8px;">二重窓と聞くと大がかりな工事を思い浮かべがちですが、PLASTは今ある窓の内側に取り付けるだけ。壁も床も壊さず、その日のうちに終わります。生活を止めずに、静かさだけが手に入ります。</p>
+  </div>
+  <div class="wrap">
+    <div class="feature">
+      <div class="fimg"><div class="ph r43">［写真］PLASTを設置した窓のアップ／施工後の窓辺</div></div>
+      <div class="ftext">
         <span class="tag">主役の強み｜防音</span>
         <h3>最大45dBの防音効果</h3>
         <p>PLASTは隙間が小さい構造で、厚い防音ガラスと組み合わせると、窓の防音対策としては最も効果が高い部類に入ります。北海道・東北では防音内窓のトップシェアを占める製品です。</p>
       </div>
-      <div class="merit-item sub">
-        <span class="tag">うれしい副産物｜断熱・結露</span>
+    </div>
+    <div class="feature flip">
+      <div class="fimg"><div class="ph r43">［写真］冬の窓辺・結露のない窓／あたたかい室内</div></div>
+      <div class="ftext">
+        <span class="tag" style="background:var(--ink-soft);">うれしい副産物｜断熱・結露</span>
         <h3>冬の底冷えと結露もやわらぐ</h3>
         <p>窓を二重にすると断熱性も上がります。冬の窓際の冷えがやわらぎ、結露が出にくくなります。防音のために付けて、冬の快適さも一緒に手に入る方が多いです。</p>
       </div>
-      <div class="merit-item sub">
-        <span class="tag">うれしい副産物｜デザイン</span>
+    </div>
+    <div class="feature">
+      <div class="fimg"><div class="ph r43">［写真］PLASTの3色カラー／鍵のないすっきりした見た目</div></div>
+      <div class="ftext">
+        <span class="tag" style="background:var(--ink-soft);">うれしい副産物｜デザイン</span>
         <h3>鍵のない、すっきりした佇まい</h3>
         <p>PLASTは鍵金具が目立たない、すっきりした見た目が特長です。カラーは3色。お部屋の雰囲気を損ないません。</p>
       </div>
@@ -306,13 +303,16 @@
   </div>
 </section>
 
-<!-- ===== 体感の変化・施工事例 ===== -->
+<!-- ===== ビフォーアフター＋お客様の声 ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow">Real voice</div>
     <h2 class="sec">実際に、どれだけ静かになったか</h2>
-    <p>どのくらい静かになるのか、言葉で説明するより、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張ではありません。</p>
-
+    <p style="text-align:center;max-width:560px;margin:0 auto 4px;">どのくらい静かになるのか、言葉で説明するより、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張ではありません。</p>
+    <div class="ba">
+      <figure class="before"><div class="label">設置前</div><div class="ph r11" style="border-radius:0 0 6px 6px;">［写真］施工前の窓</div></figure>
+      <figure class="after"><div class="label">PLAST設置後</div><div class="ph r11" style="border-radius:0 0 6px 6px;">［写真］PLAST設置後の窓</div></figure>
+    </div>
     <blockquote class="voice">
       <p>すぐ近くに踏切があるのですが、カンカンという警告音がほとんど聞こえなくなりました。</p>
       <cite>ピアノ室の防音対策／内窓PLAST＋防音合わせガラスを設置した現場</cite>
@@ -321,34 +321,29 @@
       <p>取り付けた瞬間から、線路を走る電車の音がほとんど聞こえなくなりました。</p>
       <cite>熊本駅近くのマンション／線路沿いの騒音対策</cite>
     </blockquote>
-
-    <figure style="margin-top:20px;">
-      <div class="ph">ここに施工写真（ビフォーアフター／取り付け後の窓）</div>
-      <figcaption>実際の施工写真に差し替えます。音の悩みが伝わる現場の写真を選定します。</figcaption>
-    </figure>
-
-    <div class="cta-block" style="margin-top:26px;">
+    <div class="cta-block" style="margin-top:24px;">
       <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓は静かになる？LINEで相談</a>
       <span class="cta-note">窓の写真を送っていただければ、目安をお返事します。</span>
     </div>
   </div>
 </section>
 
-<!-- ===== 選ばれる理由 ===== -->
+<!-- ===== 選ばれる理由（数値カード） ===== -->
 <section>
   <div class="wrap">
     <div class="eyebrow">Why us</div>
     <h2 class="sec">フクシマ建材が選ばれる理由</h2>
-    <ul class="pain-list">
-      <li>PLASTの施工 約1万枚。内窓施工は九州No.1の実績です</li>
-      <li>施工はわずか2〜4時間。壁も床も壊さず、その日のうちに終わります</li>
-      <li>先進的窓リノベ2026などの補助金に対応しています</li>
-      <li>分かりやすく、丁寧に。専門用語をかみくだいてご説明します</li>
-    </ul>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="n">約1万枚</div><div class="t">PLAST施工実績</div></div>
+      <div class="stat-card"><div class="n">No.1</div><div class="t">内窓施工 九州</div></div>
+      <div class="stat-card"><div class="n">2〜4<span style="font-size:1rem;">時間</span></div><div class="t">施工時間</div></div>
+      <div class="stat-card"><div class="n">補助金</div><div class="t">先進的窓リノベ2026対応</div></div>
+    </div>
+    <p style="margin-top:18px;">壁も床も壊さず、その日のうちに完了します。先進的窓リノベ2026などの補助金にも対応。専門用語をかみくだいて、分かりやすく丁寧にご説明します。</p>
   </div>
 </section>
 
-<!-- ===== 費用と補助金 ===== -->
+<!-- ===== 費用 ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow">Cost</div>
@@ -364,7 +359,7 @@
   </div>
 </section>
 
-<!-- ===== 施工の流れ ===== -->
+<!-- ===== 流れ ===== -->
 <section>
   <div class="wrap">
     <div class="eyebrow">Flow</div>
@@ -393,12 +388,12 @@
   </div>
 </section>
 
-<!-- ===== 会社紹介 ===== -->
+<!-- ===== 会社 ===== -->
 <section>
   <div class="wrap">
     <div class="eyebrow">About</div>
     <h2 class="sec">フクシマ建材について</h2>
-    <p>窓・内窓・玄関ドアのリフォームを専門に、九州一円で施工しています。理念は「分かりやすく、丁寧に」。お客様のお困りごとを、専門外の方にも伝わる言葉で解決することを大切にしています。</p>
+    <p style="text-align:center;max-width:560px;margin:0 auto 18px;">窓・内窓・玄関ドアのリフォームを専門に、九州一円で施工しています。理念は、分かりやすく、丁寧に。お客様のお困りごとを、専門外の方にも伝わる言葉で解決することを大切にしています。</p>
     <div class="company">
       <h3>九州プラスト（フクシマ建材株式会社）</h3>
       <div class="row">内窓PLAST施工 約1万枚／施工実績5,000件以上</div>
@@ -409,14 +404,17 @@
   </div>
 </section>
 
-<!-- ===== 最終CTA ===== -->
-<section class="final" id="line">
-  <div class="wrap">
-    <h2 class="serif">あの夜の音を、<br>そろそろ手放しませんか</h2>
-    <p>夜中に目が覚める音も、朝の電車の音も、慣れる必要はありません。<br>今ある窓の写真を送るだけ。費用の目安も、防音の効果も、LINEでお答えします。<br>無理におすすめすることはありません。まずは気軽にご相談ください。</p>
-    <div class="cta-block">
-      <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料見積もり・相談</a>
-      <span class="cta-note" style="color:rgba(255,255,255,0.7);">受付：平日8:00〜17:00（日・祝定休）</span>
+<!-- ===== 最終CTA（全幅写真＋オーバーレイ） ===== -->
+<section class="final">
+  <div class="final-bg"><div class="ph">［写真］静かな暮らしの窓辺／施工後のリビング。全幅で大きく</div></div>
+  <div class="final-overlay">
+    <div class="wrap">
+      <h2 class="serif">あの夜の音を、<br>そろそろ手放しませんか</h2>
+      <p>夜中に目が覚める音も、朝の電車の音も、慣れる必要はありません。<br>今ある窓の写真を送るだけ。費用の目安も、防音の効果も、LINEでお答えします。<br>無理におすすめすることはありません。まずは気軽にご相談ください。</p>
+      <div class="cta-block">
+        <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料見積もり・相談</a>
+        <span class="cta-note" style="color:rgba(255,255,255,0.72);">受付：平日8:00〜17:00（日・祝定休）</span>
+      </div>
     </div>
   </div>
 </section>
@@ -429,7 +427,6 @@
   </div>
 </footer>
 
-<!-- sticky mobile CTA -->
 <div class="sticky-bar">
   <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料見積もり</a>
 </div>
