@@ -8,6 +8,7 @@
 <meta property="og:title" content="外の音が気にならない。ただそれだけで、毎日は驚くほど変わる。｜防音窓PLAST">
 <meta property="og:description" content="窓から入る騒音を大幅にカット。静けさに包まれる、上質な暮らしへ。防音窓PLAST。九州No.1・施工約1万枚・施工は2〜4時間。">
 <meta property="og:type" content="website">
+<meta property="og:image" content="images/ogp_plast_boon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
@@ -56,14 +57,17 @@
   .ph.r169 { aspect-ratio: 16 / 9; }
   .ph.r11 { aspect-ratio: 1 / 1; }
 
-  /* 実写真（差し替え済み） */
-  .photo { width: 100%; display: block; object-fit: cover; }
-  .photo.r43 { aspect-ratio: 4 / 3; }
-
   /* full-bleed photo band */
   .band-photo { width: 100%; aspect-ratio: 16 / 9; }
   .band-photo .ph { width: 100%; height: 100%; aspect-ratio: auto; border-left: none; border-right: none; }
   @media (min-width: 720px) { .band-photo { aspect-ratio: 21 / 9; } }
+
+  /* 実画像の表示ルール */
+  .scene-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fimg img { width: 100%; display: block; border-radius: 10px; }
+  .zukai-img { display: block; width: 100%; max-width: 460px; margin: 0 auto; border-radius: 10px; border: 1px solid var(--border); }
+  .noise-grid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; border-radius: 5px; }
+  .ba figure img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 0 0 6px 6px; }
 
   /* hero / overlay sections */
   .scene { position: relative; color: #fff; overflow: hidden; }
@@ -100,10 +104,8 @@
   .check { list-style: none; max-width: 420px; }
   .check li { position: relative; padding: 6px 0 6px 30px; font-weight: 500; }
   .check li::before { content: '\2713'; position: absolute; left: 0; top: 6px; width: 20px; height: 20px; background: var(--terra); color:#fff; border-radius: 4px; font-size: 0.75rem; display:flex; align-items:center; justify-content:center; }
-  .noise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 22px; }
-  .noise-grid figure .ph { aspect-ratio: 1/1; border-color: rgba(255,255,255,0.3); background: rgba(0,0,0,0.25); color: rgba(255,255,255,0.85); font-size: 0.66rem; }
+  .noise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 22px; max-width: 460px; }
   .noise-grid figcaption { font-size: 0.66rem; color: rgba(255,255,255,0.85); text-align: center; margin-top: 4px; border:none; padding:0; }
-  @media (max-width: 460px) { .noise-grid { grid-template-columns: repeat(2,1fr); } }
 
   /* 睡眠 scene */
   .sleep .scene-in { background: linear-gradient(90deg, rgba(250,248,243,0.92) 0%, rgba(250,248,243,0.7) 45%, rgba(250,248,243,0) 75%); padding: 56px 0; color: var(--ink); }
@@ -212,11 +214,11 @@
 </head>
 <body>
 
-<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。グレーの斜線部分には写真・図解が入ります。dB値は正式値で裏取り予定（仮）。</div>
+<div class="draft-note">これは試作（たたき台）です。写真・図解を反映済み。LINEボタンは本番URLを設定済み。dB値は正式値で裏取り予定（仮）。</div>
 
 <!-- ===== HERO（夜の窓・全幅写真＋オーバーレイ） ===== -->
 <header class="scene hero">
-  <div class="scene-bg"><div class="ph">［ファーストビュー写真］雨の夜、街明かりの窓辺で安らかに眠る様子。全幅で大きく</div></div>
+  <div class="scene-bg"><img src="images/hero.jpg" alt="雨の夜、街明かりの窓辺で安らかに眠る様子"></div>
   <div class="scene-in">
     <div class="wrap">
       <div class="brand serif">PLAST<small>防音窓プラスト</small></div>
@@ -232,7 +234,7 @@
 
 <!-- ===== 悩み訴求（頭を抱える／全幅写真＋コピー＋チェックリスト＋騒音サムネ） ===== -->
 <section class="scene pain-scene" style="padding:0;">
-  <div class="scene-bg"><div class="ph">［写真］夜中に目が覚め、ベッドで頭を抱える女性。全幅で大きく</div></div>
+  <div class="scene-bg"><img src="images/pain.jpg" alt="夜中に目が覚め、ベッドで頭を抱える女性"></div>
   <div class="scene-in">
     <div class="wrap">
       <h2 class="serif">また起きてしまった。<br>そんな夜を、<br>あと何年続けますか。</h2>
@@ -243,10 +245,9 @@
         <li>集中できず、疲れが取れない</li>
       </ul>
       <div class="noise-grid">
-        <figure><div class="ph">大型トラックの走行音</div></figure>
-        <figure><div class="ph">電車の通過音</div></figure>
-        <figure><div class="ph">バイクのエンジン音</div></figure>
-        <figure><div class="ph">子どもの声・生活音</div></figure>
+        <figure><img src="images/noise_truck.jpg" alt="大型トラックの走行音"><figcaption>大型トラックの走行音</figcaption></figure>
+        <figure><img src="images/noise_train.jpg" alt="電車の通過音"><figcaption>電車の通過音</figcaption></figure>
+        <figure><img src="images/noise_bike.jpg" alt="バイクのエンジン音"><figcaption>バイクのエンジン音</figcaption></figure>
       </div>
     </div>
   </div>
@@ -254,7 +255,7 @@
 
 <!-- ===== 睡眠（安らかに眠る／全幅写真＋コピー） ===== -->
 <section class="scene sleep" style="padding:0;">
-  <div class="scene-bg"><div class="ph">［写真］朝の光の中、ぐっすり眠る女性。あたたかい寝室。全幅で大きく</div></div>
+  <div class="scene-bg"><img src="images/sleep.jpg" alt="朝の光の中、ぐっすり眠る女性"></div>
   <div class="scene-in">
     <div class="wrap">
       <h2 class="serif">静かな夜は、<br>ぐっすり眠れる幸せを<br>運んでくれる。</h2>
@@ -270,8 +271,8 @@
     <h2 class="sec">なぜ、音は<span class="em">窓</span>から<br>入ってくるのか</h2>
     <p class="lead-p" style="max-width:580px;margin:0 auto 18px;">家の中で音が気になるとき、その多くは窓から出入りしています。壁やドアにくらべて、窓は音を通しやすい場所です。とくに一枚ガラスのサッシは、ガラスそのものが薄く、サッシのわずかな隙間からも音がもれ入ってきます。</p>
     <figure style="margin:8px 0 16px;">
-      <div class="ph r169">［図解］左：一枚ガラスのサッシは音がそのまま入る／右：二重窓は間の空気層が音を弱める。矢印で音の伝わり方を表現</div>
-      <figcaption>窓をもう一枚増やして二重にし、間に空気の層をつくると、外の騒音が部屋に届くまでに大きく弱まります。</figcaption>
+      <img class="zukai-img" src="images/zukai_boon.png" alt="内窓PLASTが騒音を軽減する仕組みの図解">
+      <figcaption style="text-align:center;border:none;padding:0;margin-top:8px;">窓をもう一枚足して二重にし、間に空気の層をつくると、音の波がやわらぎます。</figcaption>
     </figure>
     <p style="max-width:580px;margin:0 auto;">解決の考え方はシンプルです。今ある窓の内側にもう一枚の窓を足して、間に空気の層をつくる。この空気層が音のクッションになります。魔法瓶が中の温度を保つのと同じ仕組みで、二重の窓は音を閉じ込めてくれます。</p>
   </div>
@@ -287,21 +288,18 @@
       <div class="cmp-step">
         <div class="lbl">外の騒音レベル（例）</div>
         <div class="s2">幹線道路の騒音</div>
-        <div class="ph">［写真］幹線道路</div>
         <div class="db">80<span class="u">dB</span></div>
       </div>
       <div class="cmp-arrow"><span class="m">↓</span><span class="d">›</span></div>
       <div class="cmp-step">
         <div class="lbl">一般的なアルミサッシ（単板ガラス）</div>
         <div class="s2">室内にそのまま伝わる</div>
-        <div class="ph">［写真］一般窓</div>
         <div class="db"><span class="pre">約</span>75<span class="u">dB</span></div>
       </div>
       <div class="cmp-arrow"><span class="m">↓</span><span class="d">›</span></div>
       <div class="cmp-step">
         <div class="lbl">PLAST（防音窓）</div>
         <div class="s2">騒音を大幅にカット</div>
-        <div class="ph">［写真］PLAST設置窓</div>
         <div class="db"><span class="pre">約</span>40<span class="u">dB</span></div>
       </div>
       <div class="cmp-result">
@@ -321,7 +319,7 @@
   </div>
   <div class="wrap">
     <div class="feature">
-      <div class="fimg"><img class="photo r43" src="img/plast-window-02.jpg" alt="PLASTを設置した窓" style="border-radius:10px;" loading="lazy"></div>
+      <div class="fimg"><img src="images/window.jpg" alt="内窓PLASTを設置した窓"></div>
       <div class="ftext">
         <span class="tag">主役の強み｜防音</span>
         <h3>最大クラスの防音性能</h3>
@@ -329,7 +327,6 @@
       </div>
     </div>
     <div class="feature">
-      <div class="fimg"><div class="ph r43">［写真］結露のない冬の窓辺</div></div>
       <div class="ftext">
         <span class="tag" style="background:var(--ink-soft);">うれしい副産物｜断熱・結露</span>
         <h3>冬の底冷えと結露もやわらぐ</h3>
@@ -337,7 +334,7 @@
       </div>
     </div>
     <div class="feature">
-      <div class="fimg"><div class="ph r43">［写真］PLASTの3色・すっきりした見た目</div></div>
+      <div class="fimg"><img src="images/plast_colors.png" alt="内窓PLASTのカラー3色"></div>
       <div class="ftext">
         <span class="tag" style="background:var(--ink-soft);">うれしい副産物｜デザイン</span>
         <h3>鍵のない、すっきりした佇まい</h3>
@@ -354,8 +351,8 @@
     <h2 class="sec">実際に、どれだけ静かになったか</h2>
     <p style="text-align:center;max-width:560px;margin:0 auto 4px;">どのくらい静かになるのか、言葉より、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張ではありません。</p>
     <div class="ba">
-      <figure class="before"><div class="label">設置前</div><img class="photo r43" src="img/plast-before-01.jpg" alt="PLAST設置前の窓" style="border-radius:0 0 6px 6px;" loading="lazy"></figure>
-      <figure class="after"><div class="label">PLAST設置後</div><img class="photo r43" src="img/plast-after-01.jpg" alt="PLAST設置後の窓" style="border-radius:0 0 6px 6px;" loading="lazy"></figure>
+      <figure class="before"><div class="label">設置前</div><img src="images/before.jpg" alt="施工前のアルミサッシの窓"></figure>
+      <figure class="after"><div class="label">PLAST設置後</div><img src="images/after.jpg" alt="内窓PLAST設置後の窓"></figure>
     </div>
     <blockquote class="voice">
       <p>すぐ近くに踏切があるのですが、カンカンという警告音がほとんど聞こえなくなりました。</p>
@@ -454,7 +451,7 @@
 
 <!-- ===== 最終CTA（家族・全幅写真＋オーバーレイ） ===== -->
 <section class="scene final" style="padding:0;">
-  <div class="scene-bg"><div class="ph">［写真］明るいリビングで笑顔の家族（夫婦と子ども）。全幅で大きく</div></div>
+  <div class="scene-bg"><img src="images/cta.jpg" alt="明るいリビングで笑顔の家族"></div>
   <div class="scene-in">
     <div class="wrap">
       <h2 class="serif">もっと早く付ければよかった。<br>そんな声が、一番多い窓です。</h2>
