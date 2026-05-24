@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="ルーバー雨戸を閉じたまま羽根を開けると、外からの視線はさえぎり、風は通す仕組みの図解">
+  <defs>
+    <linearGradient id="zout" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3D5A86"/>
+      <stop offset="1" stop-color="#6E89B0"/>
+    </linearGradient>
+    <linearGradient id="zin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBF3EA"/>
+      <stop offset="1" stop-color="#FBF9F4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="#FBF9F4"/>
+
+  <!-- 外 side -->
+  <rect x="0" y="60" width="300" height="400" fill="url(#zout)" opacity="0.5"/>
+  <!-- 室内 side -->
+  <rect x="500" y="60" width="300" height="400" fill="url(#zin)"/>
+
+  <text x="120" y="100" font-family="'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#27406A" text-anchor="middle">外</text>
+  <text x="660" y="100" font-family="'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#1E3050" text-anchor="middle">室内</text>
+
+  <!-- person silhouette outside -->
+  <g fill="#27406A" opacity="0.7">
+    <circle cx="90" cy="250" r="26"/>
+    <path d="M58 360 Q90 296 122 360 Z"/>
+  </g>
+
+  <!-- louver shutter in the middle (angled blades) -->
+  <g transform="translate(372,70)">
+    <rect x="0" y="0" width="74" height="380" rx="8" fill="#E9DFCB" stroke="#1E3050" stroke-width="4"/>
+    <!-- angled blades -->
+    <g fill="#4C678F" stroke="#243a5c" stroke-width="1.5">
+      <polygon points="6,24 68,12 68,30 6,42"/>
+      <polygon points="6,66 68,54 68,72 6,84"/>
+      <polygon points="6,108 68,96 68,114 6,126"/>
+      <polygon points="6,150 68,138 68,156 6,168"/>
+      <polygon points="6,192 68,180 68,198 6,210"/>
+      <polygon points="6,234 68,222 68,240 6,252"/>
+      <polygon points="6,276 68,264 68,282 6,294"/>
+      <polygon points="6,318 68,306 68,324 6,336"/>
+      <polygon points="6,360 68,348 68,366 6,378"/>
+    </g>
+  </g>
+  <text x="409" y="478" font-family="'Noto Sans JP', sans-serif" font-size="17" fill="#1E3050" text-anchor="middle" font-weight="700">ルーバー雨戸</text>
+
+  <!-- 視線 arrow blocked at the shutter -->
+  <g stroke="#C0392B" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M130 250 H360"/>
+  </g>
+  <g fill="#C0392B">
+    <polygon points="360,238 380,250 360,262"/>
+  </g>
+  <!-- block mark -->
+  <g stroke="#C0392B" stroke-width="6" stroke-linecap="round">
+    <line x1="396" y1="232" x2="420" y2="268"/>
+    <line x1="420" y1="232" x2="396" y2="268"/>
+  </g>
+  <text x="150" y="232" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#C0392B" font-weight="700">外からの視線</text>
+
+  <!-- 風・光 pass through the gaps -->
+  <g stroke="#BC5C2C" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M150 150 H372"/>
+    <path d="M150 360 H372"/>
+  </g>
+  <g stroke="#BC5C2C" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="9 9">
+    <path d="M446 150 H660"/>
+    <path d="M446 360 H660"/>
+  </g>
+  <g fill="#BC5C2C">
+    <polygon points="660,138 680,150 660,162"/>
+    <polygon points="660,348 680,360 660,372"/>
+  </g>
+  <text x="640" y="130" font-family="'Noto Sans JP', sans-serif" font-size="16" fill="#BC5C2C" text-anchor="middle" font-weight="700">風は通す</text>
+
+  <!-- benefit chips -->
+  <g font-family="'Noto Sans JP', sans-serif" font-size="20" font-weight="700" text-anchor="middle">
+    <rect x="60"  y="525" width="155" height="50" rx="25" fill="#1E3050"/>
+    <text x="137" y="558" fill="#fff">目隠し</text>
+    <rect x="245" y="525" width="155" height="50" rx="25" fill="#1E3050"/>
+    <text x="322" y="558" fill="#fff">通風</text>
+    <rect x="430" y="525" width="155" height="50" rx="25" fill="#1E3050"/>
+    <text x="507" y="558" fill="#fff">台風</text>
+    <rect x="615" y="525" width="155" height="50" rx="25" fill="#BC5C2C"/>
+    <text x="692" y="558" fill="#fff">防犯</text>
+  </g>
+</svg>

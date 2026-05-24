@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="強い風や飛来物から窓の前を守る台風対策のイメージ">
+  <defs>
+    <linearGradient id="storm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#586E8F"/>
+      <stop offset="1" stop-color="#7E93B2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#storm)"/>
+  <!-- wind streaks -->
+  <g stroke="#FBF9F4" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.55">
+    <path d="M40 90 q60 -16 120 0 t120 0"/>
+    <path d="M30 150 q60 -16 120 0 t120 0"/>
+    <path d="M60 360 q60 -16 120 0 t120 0"/>
+  </g>
+  <!-- closed shutter protecting window -->
+  <rect x="300" y="60" width="320" height="330" rx="10" fill="#E9DFCB" stroke="#1E3050" stroke-width="7"/>
+  <g fill="#3C577E" stroke="#243a5c" stroke-width="1.5">
+    <rect x="316" y="78" width="288" height="22" rx="6"/>
+    <rect x="316" y="112" width="288" height="22" rx="6"/>
+    <rect x="316" y="146" width="288" height="22" rx="6"/>
+    <rect x="316" y="180" width="288" height="22" rx="6"/>
+    <rect x="316" y="214" width="288" height="22" rx="6"/>
+    <rect x="316" y="248" width="288" height="22" rx="6"/>
+    <rect x="316" y="282" width="288" height="22" rx="6"/>
+    <rect x="316" y="316" width="288" height="22" rx="6"/>
+    <rect x="316" y="350" width="288" height="22" rx="6"/>
+  </g>
+  <!-- debris bouncing off -->
+  <g fill="#BC5C2C">
+    <circle cx="250" cy="220" r="12"/>
+  </g>
+  <g stroke="#BC5C2C" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M262 210 q26 -20 0 -44"/>
+  </g>
+  <text x="400" y="428" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#FBF9F4" text-anchor="middle" font-weight="700">強い風の日、窓の前に一枚</text>
+  <g>
+    <rect x="24" y="24" width="120" height="34" rx="17" fill="#122036" opacity="0.82"/>
+    <text x="84" y="47" font-family="'Noto Sans JP', sans-serif" font-size="17" fill="#FBF9F4" text-anchor="middle">イメージ</text>
+  </g>
+</svg>

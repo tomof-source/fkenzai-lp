@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="エコ引違い雨戸で、閉めても風は通す。1階の窓の目隠しと防犯。フクシマ建材">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16243B"/>
+      <stop offset="1" stop-color="#1E3050"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <!-- louver motif on right -->
+  <g transform="translate(820,90)">
+    <rect x="0" y="0" width="300" height="450" rx="12" fill="#E9DFCB" opacity="0.96" stroke="#BC5C2C" stroke-width="3"/>
+    <g fill="#4C678F" stroke="#243a5c" stroke-width="1.5">
+      <polygon points="18,28 282,8 282,32 18,52"/>
+      <polygon points="18,78 282,58 282,82 18,102"/>
+      <polygon points="18,128 282,108 282,132 18,152"/>
+      <polygon points="18,178 282,158 282,182 18,202"/>
+      <polygon points="18,228 282,208 282,232 18,252"/>
+      <polygon points="18,278 282,258 282,282 18,302"/>
+      <polygon points="18,328 282,308 282,332 18,352"/>
+      <polygon points="18,378 282,358 282,382 18,402"/>
+    </g>
+  </g>
+  <!-- breeze -->
+  <g stroke="#BC5C2C" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9">
+    <path d="M150 470 q44 -24 88 0 t88 0"/>
+  </g>
+  <text x="80" y="170" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#FBF9F4">閉めても、</text>
+  <text x="80" y="248" font-family="'Noto Serif JP', serif" font-size="58" font-weight="900" fill="#FBF9F4">風は通す。</text>
+  <text x="80" y="340" font-family="'Noto Sans JP', sans-serif" font-size="30" fill="#E6CBAE">1階の窓の、目隠しと防犯の話。</text>
+  <text x="80" y="392" font-family="'Noto Sans JP', sans-serif" font-size="26" fill="#BFD2E6">エコ引違い雨戸 ｜ 不二サッシ</text>
+  <text x="80" y="560" font-family="'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#FBF9F4">フクシマ建材／九州プラスト</text>
+</svg>

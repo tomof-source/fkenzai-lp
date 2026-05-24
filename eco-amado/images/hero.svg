@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="1階の窓に付けたルーバー雨戸を閉めたまま、風を通している暮らしのイメージ">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A3F63"/>
+      <stop offset="0.55" stop-color="#3D5A86"/>
+      <stop offset="1" stop-color="#C9A06B"/>
+    </linearGradient>
+    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF9F4"/>
+      <stop offset="1" stop-color="#EFE7D6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#room)"/>
+
+  <!-- window opening with outside view -->
+  <rect x="470" y="120" width="660" height="640" rx="10" fill="url(#sky)"/>
+  <!-- distant hills / street hint -->
+  <path d="M470 600 Q640 520 800 580 T1130 560 V760 H470 Z" fill="#324B72" opacity="0.5"/>
+  <circle cx="950" cy="430" r="100" fill="#FFE0B0" opacity="0.45"/>
+
+  <!-- louver blades over the window (閉めたまま、羽根を開けている) -->
+  <g>
+    <rect x="470" y="120" width="660" height="640" rx="10" fill="#1E3050" opacity="0.14"/>
+  </g>
+  <!-- explicit slats -->
+  <g>
+    <g>
+      <rect x="486" y="146" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="190" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="234" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="278" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="322" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="366" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="410" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="454" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="498" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="542" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="586" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="630" width="628" height="26" rx="7" fill="#43608A"/>
+      <rect x="486" y="674" width="628" height="26" rx="7" fill="#4C678F"/>
+      <rect x="486" y="718" width="628" height="26" rx="7" fill="#43608A"/>
+    </g>
+    <!-- soft light slipping between blades -->
+    <g fill="#FFF4DF" opacity="0.5">
+      <rect x="486" y="178" width="628" height="10"/>
+      <rect x="486" y="266" width="628" height="10"/>
+      <rect x="486" y="354" width="628" height="10"/>
+      <rect x="486" y="442" width="628" height="10"/>
+      <rect x="486" y="530" width="628" height="10"/>
+      <rect x="486" y="618" width="628" height="10"/>
+      <rect x="486" y="706" width="628" height="10"/>
+    </g>
+  </g>
+
+  <!-- window frame -->
+  <g fill="none" stroke="#1E3050" stroke-width="14">
+    <rect x="470" y="120" width="660" height="640" rx="10"/>
+    <line x1="800" y1="120" x2="800" y2="760"/>
+  </g>
+
+  <!-- sill -->
+  <rect x="440" y="760" width="720" height="26" rx="6" fill="#1E3050"/>
+
+  <!-- plant on sill -->
+  <g>
+    <rect x="520" y="700" width="58" height="60" rx="8" fill="#BC5C2C"/>
+    <path d="M549 700 C520 640 530 600 549 580 C568 600 578 640 549 700 Z" fill="#3E6B4F"/>
+    <path d="M549 700 C580 652 620 640 634 652 C620 688 586 704 549 708 Z" fill="#4C7E5E"/>
+    <path d="M549 700 C518 652 478 640 464 652 C478 688 512 704 549 708 Z" fill="#578a69"/>
+  </g>
+
+  <!-- gentle breeze marks coming in -->
+  <g stroke="#BC5C2C" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.65">
+    <path d="M1180 320 q40 -22 80 0 t80 0"/>
+    <path d="M1180 380 q40 -22 80 0 t80 0"/>
+  </g>
+  <text x="1300" y="280" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#BC5C2C" text-anchor="middle" font-weight="700">風は通す</text>
+
+  <!-- イメージ chip -->
+  <g>
+    <rect x="40" y="40" width="220" height="46" rx="23" fill="#122036" opacity="0.78"/>
+    <text x="150" y="70" font-family="'Noto Sans JP', sans-serif" font-size="22" fill="#FBF9F4" text-anchor="middle">イメージ（写真は手配中）</text>
+  </g>
+</svg>
