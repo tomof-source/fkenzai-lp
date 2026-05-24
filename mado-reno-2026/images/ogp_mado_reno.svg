@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="窓の不満を、補助金が出る今のうちに。先進的窓リノベ2026">
+  <defs>
+    <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16263F"/>
+      <stop offset="1" stop-color="#1E3050"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#obg)"/>
+  <!-- window motif right -->
+  <g opacity="0.9">
+    <rect x="820" y="150" width="300" height="330" rx="10" fill="#33507D"/>
+    <circle cx="970" cy="250" r="48" fill="#E8A24E" opacity="0.8"/>
+    <g fill="none" stroke="#FBF9F4" stroke-width="10"><rect x="820" y="150" width="300" height="330" rx="10"/><line x1="970" y1="150" x2="970" y2="480"/><line x1="820" y1="315" x2="1120" y2="315"/></g>
+    <rect x="836" y="166" width="268" height="298" rx="6" fill="none" stroke="#E6A06B" stroke-width="4" opacity="0.7"/>
+  </g>
+  <!-- badge -->
+  <rect x="80" y="120" width="360" height="54" rx="27" fill="#BC5C2C"/>
+  <text x="260" y="156" font-family="'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#fff" text-anchor="middle">先進的窓リノベ2026 対応</text>
+  <!-- title -->
+  <text font-family="'Noto Serif JP', serif" font-weight="900" fill="#FBF9F4" font-size="64">
+    <tspan x="80" y="290">窓の不満を、</tspan>
+    <tspan x="80" y="372">補助金が出る</tspan>
+    <tspan x="80" y="454" fill="#E6A06B">今のうちに。</tspan>
+  </text>
+  <text x="80" y="530" font-family="'Noto Sans JP', sans-serif" font-size="26" fill="#C7CFDA">寒い・結露・暑い・うるさい。原因の多くは窓にあります。</text>
+  <text x="80" y="582" font-family="'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#E6CBAE">フクシマ建材 ／ 九州プラスト</text>
+</svg>

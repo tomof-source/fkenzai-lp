@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="窓の結露が出にくくなるイメージ">
+  <rect width="800" height="450" fill="#EDEFF1"/>
+  <!-- left: 結露あり -->
+  <rect x="80" y="70" width="280" height="300" rx="10" fill="#9FB6CC"/>
+  <g fill="#CFE0EE" opacity="0.9">
+    <ellipse cx="140" cy="150" rx="9" ry="14"/><ellipse cx="200" cy="200" rx="11" ry="17"/>
+    <ellipse cx="270" cy="160" rx="8" ry="12"/><ellipse cx="170" cy="280" rx="10" ry="15"/>
+    <ellipse cx="300" cy="300" rx="9" ry="14"/><ellipse cx="230" cy="330" rx="8" ry="12"/>
+    <ellipse cx="120" cy="320" rx="7" ry="11"/><ellipse cx="320" cy="220" rx="8" ry="12"/>
+  </g>
+  <rect x="80" y="70" width="280" height="300" rx="10" fill="none" stroke="#1E3050" stroke-width="11"/>
+  <text x="220" y="408" font-family="'Noto Sans JP', sans-serif" font-size="20" fill="#4C5763" text-anchor="middle">結露で濡れた窓</text>
+
+  <!-- arrow -->
+  <g stroke="#BC5C2C" stroke-width="8" fill="#BC5C2C"><line x1="378" y1="220" x2="430" y2="220" stroke-linecap="round"/><polygon points="430,206 460,220 430,234"/></g>
+
+  <!-- right: 乾いた窓 -->
+  <rect x="480" y="70" width="280" height="300" rx="10" fill="#DCEAF4"/>
+  <rect x="480" y="70" width="280" height="300" rx="10" fill="none" stroke="#1E3050" stroke-width="11"/>
+  <rect x="492" y="82" width="256" height="276" rx="6" fill="none" stroke="#BC5C2C" stroke-width="4" opacity="0.5"/>
+  <text x="620" y="408" font-family="'Noto Sans JP', sans-serif" font-size="20" fill="#BC5C2C" text-anchor="middle" font-weight="700">乾いた窓</text>
+
+  <g><rect x="24" y="24" width="120" height="38" rx="19" fill="#122036" opacity="0.78"/><text x="84" y="50" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#FBF9F4" text-anchor="middle">イメージ</text></g>
+</svg>

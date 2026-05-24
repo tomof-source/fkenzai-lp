@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="内窓を設置した後の窓のイメージ">
+  <defs>
+    <linearGradient id="awarm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF3EA"/>
+      <stop offset="1" stop-color="#EFE2D0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#awarm)"/>
+  <!-- outer window (existing) -->
+  <rect x="150" y="100" width="500" height="400" rx="6" fill="#CFE0EE"/>
+  <g fill="none" stroke="#8B949C" stroke-width="14"><rect x="150" y="100" width="500" height="400" rx="6"/><line x1="400" y1="100" x2="400" y2="500"/></g>
+  <!-- inner window (内窓・new) -->
+  <rect x="186" y="132" width="428" height="336" rx="6" fill="#E9F1F8" opacity="0.6"/>
+  <g fill="none" stroke="#BC5C2C" stroke-width="12"><rect x="186" y="132" width="428" height="336" rx="6"/><line x1="400" y1="132" x2="400" y2="468"/></g>
+  <!-- clean, no droplets, soft light -->
+  <circle cx="300" cy="220" r="40" fill="#FFFFFF" opacity="0.45"/>
+  <!-- label -->
+  <rect x="0" y="520" width="800" height="80" fill="#BC5C2C"/>
+  <text x="400" y="570" font-family="'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">内窓設置後：二重窓・すっきり</text>
+  <g><rect x="24" y="24" width="120" height="40" rx="20" fill="#122036" opacity="0.8"/><text x="84" y="51" font-family="'Noto Sans JP', sans-serif" font-size="19" fill="#FBF9F4" text-anchor="middle">イメージ</text></g>
+</svg>

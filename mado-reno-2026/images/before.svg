@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="施工前の単板ガラスの窓のイメージ">
+  <rect width="800" height="600" fill="#D9DEE3"/>
+  <!-- wall -->
+  <rect width="800" height="600" fill="#C9D0D6"/>
+  <!-- single window -->
+  <rect x="170" y="110" width="460" height="380" rx="6" fill="#9FB6CC"/>
+  <g fill="#CFE0EE" opacity="0.85">
+    <ellipse cx="260" cy="220" rx="11" ry="17"/><ellipse cx="360" cy="300" rx="13" ry="20"/>
+    <ellipse cx="470" cy="240" rx="10" ry="15"/><ellipse cx="540" cy="360" rx="12" ry="18"/>
+    <ellipse cx="300" cy="400" rx="11" ry="16"/><ellipse cx="430" cy="420" rx="10" ry="15"/>
+  </g>
+  <g fill="none" stroke="#8B949C" stroke-width="16"><rect x="170" y="110" width="460" height="380" rx="6"/><line x1="400" y1="110" x2="400" y2="490"/></g>
+  <!-- label -->
+  <rect x="0" y="520" width="800" height="80" fill="#4C5763"/>
+  <text x="400" y="570" font-family="'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">設置前：単板ガラス・結露も</text>
+  <g><rect x="24" y="24" width="120" height="40" rx="20" fill="#122036" opacity="0.8"/><text x="84" y="51" font-family="'Noto Sans JP', sans-serif" font-size="19" fill="#FBF9F4" text-anchor="middle">イメージ</text></g>
+</svg>
