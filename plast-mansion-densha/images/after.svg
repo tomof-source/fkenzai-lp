@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="内窓PLAST設置後のマンション窓のイメージ（二重サッシ）">
+  <defs>
+    <linearGradient id="aft_sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9FAEC4"/>
+      <stop offset="1" stop-color="#C9D5E3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#F2ECDF"/>
+  <rect x="60" y="60" width="680" height="480" rx="12" fill="#FFFFFF" stroke="#E6E0D2" stroke-width="2"/>
+  <rect x="120" y="100" width="560" height="400" fill="url(#aft_sky)" opacity="0.72"/>
+  <rect x="120" y="100" width="20" height="400" fill="#A8B5C5"/>
+  <rect x="660" y="100" width="20" height="400" fill="#A8B5C5"/>
+  <rect x="120" y="100" width="560" height="20" fill="#A8B5C5"/>
+  <rect x="120" y="480" width="560" height="20" fill="#A8B5C5"/>
+  <rect x="395" y="120" width="10" height="380" fill="#A8B5C5"/>
+  <rect x="180" y="140" width="440" height="340" fill="#FBF9F4" opacity="0.6"/>
+  <rect x="180" y="140" width="16" height="340" rx="2" fill="#1E3050"/>
+  <rect x="604" y="140" width="16" height="340" rx="2" fill="#1E3050"/>
+  <rect x="180" y="140" width="440" height="16" fill="#1E3050"/>
+  <rect x="180" y="464" width="440" height="16" fill="#1E3050"/>
+  <rect x="392" y="156" width="16" height="308" rx="2" fill="#1E3050"/>
+  <text x="178" y="132" font-family="'Noto Sans JP',sans-serif" font-size="13" font-weight="700" fill="#1E3050">内窓PLAST</text>
+  <line x1="194" y1="138" x2="280" y2="138" stroke="#1E3050"/>
+  <text x="305" y="178" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#1B232E" opacity="0.6">既存のアルミサッシ（残したまま）</text>
+  <g opacity="0.6">
+    <rect x="140" y="378" width="540" height="120" fill="#7080A0"/>
+    <rect x="160" y="430" width="500" height="50" fill="#506A95"/>
+  </g>
+  <g stroke="#BC5C2C" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M540 250 Q 580 280 540 310" stroke-width="5"/>
+    <path d="M560 244 Q 605 280 560 316" stroke-width="4"/>
+  </g>
+  <line x1="615" y1="270" x2="650" y2="290" stroke="#1E3050" stroke-width="2"/>
+  <g stroke="#9FB2C9" stroke-linecap="round" fill="none">
+    <path d="M348 296 Q 354 304 348 312" stroke-width="2"/>
+  </g>
+  <text x="280" y="270" font-family="'Noto Serif JP',serif" font-size="34" font-weight="700" fill="#1E3050">静かに</text>
+  <text x="280" y="304" font-family="'Noto Sans JP',sans-serif" font-size="14" fill="#4C5763">空気の層で音をやわらげる</text>
+  <text x="640" y="232" font-family="'Noto Sans JP',sans-serif" font-size="16" font-weight="700" fill="#BC5C2C">通過音</text>
+  <text x="640" y="252" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#BC5C2C">は届きにくく</text>
+  <g>
+    <rect x="20" y="20" width="120" height="36" rx="6" fill="#122036"/>
+    <text x="80" y="44" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="15" font-weight="700" fill="#FBF9F4">イメージ</text>
+  </g>
+  <g>
+    <rect x="0" y="538" width="800" height="62" fill="#BC5C2C"/>
+    <text x="400" y="578" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="24" font-weight="700" fill="#FFFFFF">内窓PLAST設置後</text>
+  </g>
+</svg>

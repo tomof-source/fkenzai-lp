@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="管理組合・賃貸オーナーへの内窓設置申請の流れを示すイメージ図">
+  <rect width="800" height="450" fill="#FBF9F4"/>
+  <rect x="0" y="0" width="800" height="450" fill="none" stroke="#E6E0D2" stroke-width="2"/>
+  <text x="400" y="48" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="20" font-weight="700" fill="#1E3050">管理組合・賃貸オーナーへの申請の流れ</text>
+  <text x="400" y="74" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="13" fill="#4C5763">専有部の工事として進められる物件が多いです（管理規約による）</text>
+  <g>
+    <rect x="40" y="120" width="140" height="160" rx="10" fill="#FFFFFF" stroke="#E6E0D2"/>
+    <text x="110" y="148" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="22" font-weight="700" fill="#BC5C2C">01</text>
+    <rect x="80" y="160" width="60" height="48" rx="4" fill="#06C755"/>
+    <text x="110" y="190" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="22" font-weight="900" fill="#FFFFFF">L</text>
+    <text x="110" y="232" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#1E3050">LINEで写真</text>
+    <text x="110" y="252" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">気になる窓を1枚。</text>
+    <text x="110" y="268" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">入力フォームなし。</text>
+  </g>
+  <path d="M186 200 L 216 200" stroke="#BC5C2C" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <g>
+    <rect x="220" y="120" width="140" height="160" rx="10" fill="#FFFFFF" stroke="#E6E0D2"/>
+    <text x="290" y="148" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="22" font-weight="700" fill="#BC5C2C">02</text>
+    <rect x="252" y="160" width="76" height="58" rx="3" fill="#F2ECDF" stroke="#9FB2C9"/>
+    <line x1="262" y1="174" x2="318" y2="174" stroke="#9FB2C9"/>
+    <line x1="262" y1="186" x2="318" y2="186" stroke="#9FB2C9"/>
+    <line x1="262" y1="198" x2="306" y2="198" stroke="#9FB2C9"/>
+    <line x1="262" y1="210" x2="318" y2="210" stroke="#9FB2C9"/>
+    <text x="290" y="240" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#1E3050">申請書類の壁打ち</text>
+    <text x="290" y="258" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">管理規約の確認・</text>
+    <text x="290" y="272" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">書類の書き方を相談。</text>
+  </g>
+  <path d="M366 200 L 396 200" stroke="#BC5C2C" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <g>
+    <rect x="400" y="120" width="140" height="160" rx="10" fill="#FFFFFF" stroke="#E6E0D2"/>
+    <text x="470" y="148" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="22" font-weight="700" fill="#BC5C2C">03</text>
+    <g>
+      <circle cx="448" cy="186" r="14" fill="#1E3050"/>
+      <circle cx="448" cy="178" r="5" fill="#FBF9F4"/>
+      <path d="M438 198 Q 448 188 458 198 L 458 204 L 438 204 Z" fill="#FBF9F4"/>
+      <circle cx="478" cy="186" r="14" fill="#1E3050"/>
+      <circle cx="478" cy="178" r="5" fill="#FBF9F4"/>
+      <path d="M468 198 Q 478 188 488 198 L 488 204 L 468 204 Z" fill="#FBF9F4"/>
+      <circle cx="492" cy="186" r="14" fill="#1E3050"/>
+      <circle cx="492" cy="178" r="5" fill="#FBF9F4"/>
+      <path d="M482 198 Q 492 188 502 198 L 502 204 L 482 204 Z" fill="#FBF9F4"/>
+    </g>
+    <text x="470" y="240" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#1E3050">管理組合・</text>
+    <text x="470" y="256" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#1E3050">オーナーの許可</text>
+    <text x="470" y="274" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">専有部の工事として申請。</text>
+  </g>
+  <path d="M546 200 L 576 200" stroke="#BC5C2C" stroke-width="2.5" fill="none" marker-end="url(#arr)"/>
+  <g>
+    <rect x="580" y="120" width="140" height="160" rx="10" fill="#FFFFFF" stroke="#E6E0D2"/>
+    <text x="650" y="148" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="22" font-weight="700" fill="#BC5C2C">04</text>
+    <rect x="612" y="166" width="14" height="56" rx="2" fill="#9FB2C9"/>
+    <rect x="626" y="166" width="36" height="56" fill="#EAF1F8"/>
+    <rect x="662" y="166" width="14" height="56" rx="2" fill="#1E3050"/>
+    <rect x="676" y="166" width="14" height="56" rx="2" fill="#1E3050"/>
+    <text x="650" y="240" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#1E3050">施工</text>
+    <text x="650" y="258" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">壁・床・既存サッシは</text>
+    <text x="650" y="272" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4C5763">触りません。</text>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L 8 4 L 0 8 z" fill="#BC5C2C"/>
+    </marker>
+  </defs>
+  <g>
+    <rect x="40" y="310" width="680" height="110" rx="10" fill="#FFFFFF" stroke="#E6E0D2"/>
+    <text x="60" y="338" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#BC5C2C">分譲マンションの場合</text>
+    <text x="60" y="358" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#4C5763">窓は専有部ですが、申請ルールがある物件が多いです。管理規約を見せていただければ、申請書類の書き方を一緒に整えます。</text>
+    <line x1="60" y1="372" x2="700" y2="372" stroke="#DAD3C2"/>
+    <text x="60" y="392" font-family="'Noto Serif JP',serif" font-size="14" font-weight="700" fill="#BC5C2C">賃貸の場合</text>
+    <text x="60" y="411" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#4C5763">オーナーの許可と原状回復のご相談から。退去時に取り外して持っていける形にできる場合もあります。</text>
+  </g>
+  <g>
+    <rect x="20" y="20" width="86" height="24" rx="5" fill="#122036"/>
+    <text x="63" y="38" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" font-weight="700" fill="#FBF9F4">イメージ</text>
+  </g>
+</svg>

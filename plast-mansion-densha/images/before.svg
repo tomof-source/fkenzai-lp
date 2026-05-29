@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="設置前のマンション窓のイメージ（アルミサッシ・単板ガラス）">
+  <defs>
+    <linearGradient id="bef_sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#92A8C4"/>
+      <stop offset="1" stop-color="#C9D5E3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="#F2ECDF"/>
+  <rect x="60" y="60" width="680" height="480" rx="12" fill="#F8F4E8" stroke="#E6E0D2" stroke-width="2"/>
+  <rect x="120" y="100" width="560" height="400" fill="url(#bef_sky)"/>
+  <rect x="120" y="100" width="20" height="400" fill="#A8B5C5"/>
+  <rect x="660" y="100" width="20" height="400" fill="#A8B5C5"/>
+  <rect x="120" y="100" width="560" height="20" fill="#A8B5C5"/>
+  <rect x="120" y="480" width="560" height="20" fill="#A8B5C5"/>
+  <rect x="395" y="120" width="10" height="380" fill="#A8B5C5"/>
+  <g opacity="0.78">
+    <rect x="140" y="378" width="540" height="120" fill="#5A6A7F"/>
+    <rect x="160" y="430" width="500" height="50" fill="#3A4E72"/>
+    <rect x="160" y="426" width="500" height="10" fill="#506A95"/>
+    <rect x="170" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="210" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="250" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="290" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="330" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="370" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="410" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="450" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="490" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="530" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="570" y="438" width="34" height="34" fill="#FBF3DC"/>
+    <rect x="610" y="438" width="34" height="34" fill="#FBF3DC"/>
+  </g>
+  <g stroke="#BC5C2C" stroke-linecap="round" fill="none">
+    <path d="M540 250 Q 580 280 540 310" stroke-width="5"/>
+    <path d="M560 244 Q 605 280 560 316" stroke-width="4"/>
+    <path d="M580 238 Q 630 280 580 322" stroke-width="3"/>
+    <path d="M600 232 Q 655 280 600 328" stroke-width="2.5"/>
+  </g>
+  <text x="640" y="220" font-family="'Noto Sans JP',sans-serif" font-size="20" font-weight="700" fill="#BC5C2C">通過音</text>
+  <text x="640" y="244" font-family="'Noto Sans JP',sans-serif" font-size="14" fill="#BC5C2C">そのまま室内へ</text>
+  <text x="305" y="178" font-family="'Noto Sans JP',sans-serif" font-size="14" fill="#1B232E" opacity="0.6">アルミサッシ ＋ 単板ガラス</text>
+  <line x1="225" y1="184" x2="295" y2="184" stroke="#1B232E" opacity="0.5"/>
+  <g>
+    <rect x="20" y="20" width="120" height="36" rx="6" fill="#122036"/>
+    <text x="80" y="44" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="15" font-weight="700" fill="#FBF9F4">イメージ</text>
+  </g>
+  <g>
+    <rect x="0" y="538" width="800" height="62" fill="#4C5763"/>
+    <text x="400" y="578" text-anchor="middle" font-family="'Noto Serif JP',serif" font-size="24" font-weight="700" fill="#FFFFFF">設置前</text>
+  </g>
+</svg>
