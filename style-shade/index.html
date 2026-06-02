@@ -200,6 +200,84 @@
 
   .draft-note { background: #FFF6E5; border-bottom: 1px solid #E8C98A; color: #7A5A1E; text-align: center; font-size: 0.8rem; padding: 8px 16px; }
 
+  /* 代表メッセージ（スマホは縦並び、PCは横並び） */
+  .president { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: center; justify-items: center; text-align: center; background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 8px 0; }
+  .president .face { width: 160px; height: 160px; border-radius: 50%; overflow: hidden; background: var(--border); margin: 0 auto; }
+  .president .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .president .name { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.32rem; margin-bottom: 6px; text-align: center; line-height: 1.4; }
+  .president .name small { display: block; font-size: 0.92rem; color: var(--ink-soft); font-weight: 500; margin-top: 6px; letter-spacing: 0.04em; }
+  .president .msg { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+  .president-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.18rem; line-height: 1.7; color: var(--navy-deep); text-align: center; margin: 32px 0 22px; padding: 0 6px; }
+  .president-body { font-size: 0.96rem; line-height: 2.0; color: var(--ink); }
+  .president-body p { margin-bottom: 16px; }
+  .president-body p:last-child { margin-bottom: 0; }
+  .president-sign { text-align: right; margin-top: 26px; font-family: 'Noto Serif JP', serif; font-weight: 700; color: var(--navy-deep); font-size: 1rem; letter-spacing: 0.04em; }
+  .message-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 14px; padding: 28px 22px 30px; box-shadow: 0 2px 14px var(--shadow); margin: 8px 0; }
+  .message-card .president { background: transparent; border: none; box-shadow: none; padding: 0; margin: 0; }
+  .message-card .president-title { margin-top: 26px; }
+
+  /* マイスター紹介 */
+  .master-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 8px 0; }
+  .master-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px 16px; text-align: center; box-shadow: 0 2px 10px var(--shadow); }
+  .master-card .face { width: 76px; height: 76px; margin: 0 auto 10px; border-radius: 50%; overflow: hidden; background: var(--border); }
+  .master-card .face .ph { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 50%; font-size: 0.7rem; padding: 6px; }
+  .master-card h3 { font-family: 'Noto Serif JP', serif; font-size: 0.98rem; margin-bottom: 4px; }
+  .master-card .role { font-size: 0.74rem; color: var(--terra); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .master-card p { font-size: 0.82rem; color: var(--ink-soft); margin: 0; line-height: 1.75; }
+
+  /* 施工事例カードグリッド */
+  .case-list { display: grid; grid-template-columns: 1fr; gap: 22px; margin: 20px 0; }
+  .case-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+  .case-card .case-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+  .case-card .case-imgs figure { margin: 0; }
+  .case-card .case-imgs .label { font-size: 0.78rem; font-weight: 700; text-align: center; padding: 7px; color: #fff; }
+  .case-card .case-imgs .before .label { background: var(--ink-soft); }
+  .case-card .case-imgs .after .label { background: var(--terra); }
+  .case-card .case-imgs .ph { aspect-ratio: 4/3; border: none; border-radius: 0; }
+  .case-card .case-imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 0; }
+  .case-card .case-body { padding: 16px 18px 18px; }
+  .case-card .case-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .case-card .case-meta .date { color: var(--terra); font-weight: 700; }
+  .case-card h3 { font-family: 'Noto Serif JP', serif; font-size: 1.02rem; margin-bottom: 6px; }
+  .case-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; line-height: 1.8; }
+
+  /* 素材待ち小注釈 */
+  .pending-note { font-size: 0.74rem; color: #A8762B; background: #FFF6E5; border: 1px dashed #E8C98A; border-radius: 6px; padding: 6px 12px; display: inline-block; margin: 0 0 14px; }
+
+  /* YouTube CTA */
+  .yt-block { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 14px; padding: 26px 24px; box-shadow: 0 2px 10px var(--shadow); text-align: center; margin: 14px 0 4px; }
+  .yt-block .yt-lead { font-size: 0.96rem; color: var(--ink-soft); margin: 0 0 18px; line-height: 1.85; }
+  .cta-youtube { display: inline-flex; align-items: center; gap: 14px; background: #FF0000; color: #fff; font-weight: 700; padding: 14px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 8px 22px rgba(255,0,0,0.32); transition: transform 0.12s, background 0.12s; }
+  .cta-youtube:hover { background: #D90000; transform: translateY(-1px); }
+  .cta-youtube .yt-ico { width: 34px; height: 24px; background: #fff; color: #FF0000; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 900; }
+  .cta-youtube .yt-text { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.2; }
+  .cta-youtube .yt-text small { font-size: 0.72rem; font-weight: 400; opacity: 0.88; margin-top: 3px; letter-spacing: 0.04em; }
+
+  /* Googleクチコミ 水色ヒーロー（フクシマ建材コーポレートカラー） */
+  .google-hero { background: linear-gradient(135deg, #5FCDE4 0%, #1F8FB8 100%); color: #fff; padding: 56px 0 52px; position: relative; overflow: hidden; }
+  .google-hero .wrap { position: relative; z-index: 2; }
+  .gh-eyebrow { text-align: center; font-size: 0.9rem; font-weight: 700; margin-bottom: 22px; letter-spacing: 0.04em; color: #fff; }
+  .gh-eyebrow .slash { color: #FFE145; font-weight: 900; margin: 0 10px; display: inline-block; }
+  .gh-headline { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 14px 18px; margin-bottom: 22px; }
+  .gh-headline .bubble { position: relative; background: #fff; color: #1F8FB8; font-weight: 900; font-size: 0.9rem; padding: 10px 18px; border-radius: 999px; line-height: 1.3; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+  .gh-headline .bubble::after { content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); border: 8px solid transparent; border-left-color: #fff; }
+  .gh-headline .big-num { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 5rem; color: #FFE145; line-height: 1; text-shadow: 0 4px 14px rgba(0,0,0,0.22); }
+  .gh-headline .gh-tagline { font-weight: 900; font-size: 1.2rem; line-height: 1.4; color: #fff; }
+  .gh-lead { text-align: center; font-size: 0.92rem; line-height: 1.95; max-width: 560px; margin: 0 auto 8px; color: rgba(255,255,255,0.95); }
+  .gh-date { text-align: right; font-size: 0.74rem; color: rgba(255,255,255,0.82); margin: 0 0 22px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .gh-review-row { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 16px 0 22px; }
+  .gh-card { background: #fff; border-radius: 12px; padding: 16px 18px; color: var(--ink); position: relative; text-align: left; box-shadow: 0 6px 18px rgba(0,0,0,0.18); }
+  .gh-card .g-logo { position: absolute; top: 14px; right: 14px; width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid #E0E0E0; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.9rem; color: #4285F4; }
+  .gh-card .gh-user { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; padding-right: 30px; }
+  .gh-card .gh-avatar { width: 36px; height: 36px; border-radius: 50%; background: #DDF3FA; color: #1F8FB8; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.92rem; flex-shrink: 0; }
+  .gh-card .gh-meta { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.3; }
+  .gh-card .gh-meta .name { display: block; font-weight: 700; color: var(--navy); font-size: 0.94rem; margin-bottom: 1px; }
+  .gh-card .gh-stars { color: #F5A623; letter-spacing: 1px; font-size: 0.92rem; margin-bottom: 6px; line-height: 1; }
+  .gh-card .gh-text { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.8; margin: 0; }
+  .cta-google { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #fff; color: #1F8FB8; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; font-size: 1rem; box-shadow: 0 8px 22px rgba(0,0,0,0.22); transition: transform 0.12s; }
+  .cta-google:hover { transform: translateY(-1px); }
+  .cta-google .cta-g-ico { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid #E0E0E0; display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.94rem; color: #4285F4; }
+
   @media (min-width: 720px) {
     body { padding-bottom: 0; font-size: 17px; }
     .sticky-bar { display: none; }
@@ -209,12 +287,31 @@
     .sleep h2 { font-size: 2.1rem; }
     h2.sec { font-size: 1.85rem; }
     .stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .master-grid { grid-template-columns: repeat(4, 1fr); }
+    .president { grid-template-columns: 240px 1fr; justify-items: start; text-align: left; }
+    .president .face { width: 240px; height: 240px; margin: 0; }
+    .president .name { text-align: left; font-size: 1.6rem; }
+    .president .name small { font-size: 1.02rem; margin-top: 8px; }
+    .message-card { padding: 36px 40px 40px; }
+    .case-card .case-body { padding: 22px 26px 24px; }
+    .case-card h3 { font-size: 1.2rem; }
+    .president-title { font-size: 1.5rem; }
+    .president-body { font-size: 1.02rem; }
+    .google-hero { padding: 80px 0 72px; }
+    .gh-headline .big-num { font-size: 7.2rem; }
+    .gh-headline .gh-tagline { font-size: 1.6rem; }
+    .gh-headline .bubble { font-size: 1.02rem; padding: 12px 22px; }
+    .gh-review-row { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  }
+  /* 施工事例は大きく見せたいので、PCでは wrap を超えて広げる */
+  @media (min-width: 1080px) {
+    .case-list { max-width: 1020px; margin-left: -130px; margin-right: -130px; }
   }
 </style>
 </head>
 <body>
 
-<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。施工写真・データ図を反映しました。グレーの斜線部分（暑い部屋の生活シーン等）は今後の差し替え枠です。</div>
+<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。施工事例3組（福嶋自宅／A様邸／B様邸）、お客様の声5件、代表メッセージは実素材を反映済み。マイスター紹介の顔写真と氏名、Googleクチコミカードの本文は仮置きで、素材の準備が整い次第差し替えます。</div>
 
 <!-- ===== HERO（夕方の西日の部屋／全幅写真＋オーバーレイ） ===== -->
 <header class="scene hero">
@@ -245,9 +342,9 @@
         <li>夏のあいだ、電気代がぐっと増える</li>
       </ul>
       <div class="noise-grid">
-        <figure><div class="ph">夕方の強い西日</div><figcaption>夕方の強い西日</figcaption></figure>
-        <figure><div class="ph">2階・子ども部屋の暑さ</div><figcaption>2階・子ども部屋の暑さ</figcaption></figure>
-        <figure><div class="ph">フル稼働のエアコン</div><figcaption>効きづらいエアコン</figcaption></figure>
+        <figure><img src="images/pain_sunset.png" alt="夕方の強い西日が差し込む部屋"><figcaption>夕方の強い西日</figcaption></figure>
+        <figure><img src="images/pain_child.png" alt="2階の子ども部屋で暑そうにしている様子"><figcaption>2階・子ども部屋の暑さ</figcaption></figure>
+        <figure><img src="images/pain_aircon.png" alt="フル稼働しているエアコン"><figcaption>効きづらいエアコン</figcaption></figure>
       </div>
     </div>
   </div>
@@ -343,28 +440,163 @@
   </div>
 </section>
 
-<!-- ===== ビフォーアフター＋お客様の声 ===== -->
+<!-- ===== 施工事例＋お客様の声 ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow">Real voice</div>
     <h2 class="sec">実際に、どれだけ涼しくなったか</h2>
-    <p style="text-align:center;max-width:560px;margin:0 auto 4px;">どのくらい変わるのか、言葉より、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張ではありません。</p>
-    <div class="ba">
-      <figure class="before"><div class="label">設置前（シェードなし）</div><img src="images/before.jpg" alt="シェードを下ろす前の窓。日差しがそのまま入る"></figure>
-      <figure class="after"><div class="label">シェード設置後</div><img src="images/after.jpg" alt="スタイルシェードを下ろした後の窓。日差しが和らぐ"></figure>
+    <p style="text-align:center;max-width:560px;margin:0 auto 12px;">どのくらい変わるのか、言葉より、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張はしません。</p>
+    <div style="text-align:center;"><span class="pending-note">追加事例の写真・地域・担当マイスター名は、素材の準備が整い次第差し替えます。</span></div>
+
+    <div class="case-list">
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case1_home_before.jpg" alt="スタイルシェード設置前の南向きリビング"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case1_home_after.jpg" alt="スタイルシェード設置後の南向きリビング"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>南向きのリビング</span><span>代表 福嶋の自宅</span></div>
+          <h3>代表の自宅で実装した、南向きリビングの日射対策</h3>
+          <p>代表の自宅でも同じ製品を取り付けています。自分が暮らす家で効果を確かめてから、お客様におすすめできるかを判断しています。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case2_ooe_before.jpg" alt="スタイルシェード設置前の西向きの出窓"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case2_ooe_after.jpg" alt="スタイルシェード設置後の西向きの出窓"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>西向きの出窓</span><span>A様邸（大江）</span></div>
+          <h3>西向きの出窓の暑さを、外で止める</h3>
+          <p>出窓は三方向から日射を受けるため、特に夏は熱がこもりやすい窓です。窓の外で日射を止めることで、出窓まわりの熱だまりがやわらぎます。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case3_shutter_before.jpg" alt="シャッター付き西向きの窓 設置前"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case3_shutter_after.jpg" alt="シャッター付き西向きの窓 スタイルシェード設置後"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>西向きの窓（シャッター付き）</span><span>B様邸</span></div>
+          <h3>シャッター付きの窓にも、外付けで取り付け</h3>
+          <p>シャッターがあっても、外付けのスタイルシェードを取り付けられます。シャッターを閉めずに日射だけをカットできるので、暗くせずに涼しさをつくれます。</p>
+        </div>
+      </article>
     </div>
+
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;margin:32px 0 14px;text-align:center;">お客様からいただいた声</h3>
     <blockquote class="voice">
       <p>つけてからエアコンの効きが全然違います。夕方の西日が和らいで、部屋にこもる暑さが減りました。</p>
-      <cite>戸建ての西向きリビング／スタイルシェードを設置した現場</cite>
+      <cite>戸建ての西向きリビング</cite>
     </blockquote>
     <blockquote class="voice">
       <p>暑くてどうにもならなかった2階が、設置後は室温が下がって過ごしやすくなりました。</p>
-      <cite>2階の暑さ対策／スタイルシェードを設置した現場</cite>
+      <cite>2階の暑さ対策</cite>
     </blockquote>
-    <p style="text-align:center;font-size:0.9rem;margin-top:6px;"><a href="https://f-kenzai.com/2026/05/15/%e8%a5%bf%e6%97%a5%e3%81%a7%e9%83%a8%e5%b1%8b%e3%81%8c%e3%82%b5%e3%82%a6%e3%83%8a%e7%8a%b6%e6%85%8b%e3%81%ab%e3%80%82%e7%aa%93%e3%81%ae%e5%a4%96%e3%81%a7%e7%86%b1%e3%82%92%e6%ad%a2%e3%82%81%e3%82%8b/" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;text-decoration:none;border-bottom:1px solid var(--terra-soft);">実際の施工レポートを公式サイトで読む ›</a></p>
+    <blockquote class="voice">
+      <p>子ども部屋が南西向きで、午後はカーテンを閉めても暑かったのですが、スタイルシェードをつけてから日差しがやわらぎ、子どもが昼寝しやすくなりました。</p>
+      <cite>子ども部屋の西日・暑さ対策</cite>
+    </blockquote>
+    <blockquote class="voice">
+      <p>窓の外につけるだけでこんなに違うとは思いませんでした。使わない季節はスッキリまとめておけるので、見た目も気になりません。</p>
+      <cite>使い勝手・収納のしやすさ</cite>
+    </blockquote>
+    <blockquote class="voice">
+      <p>日中はエアコンをつけっぱなしにしていたのですが、設置後は設定温度を上げても涼しく感じるようになりました。電気代も少し下がった気がしています。</p>
+      <cite>節電・電気代</cite>
+    </blockquote>
+
+    <p style="text-align:center;font-size:0.9rem;margin-top:18px;"><a href="https://f-kenzai.com/2026/05/15/%e8%a5%bf%e6%97%a5%e3%81%a7%e9%83%a8%e5%b1%8b%e3%81%8c%e3%82%b5%e3%82%a6%e3%83%8a%e7%8a%b6%e6%85%8b%e3%81%ab%e3%80%82%e7%aa%93%e3%81%ae%e5%a4%96%e3%81%a7%e7%86%b1%e3%82%92%e6%ad%a2%e3%82%81%e3%82%8b/" target="_blank" rel="noopener" style="color:var(--terra);font-weight:700;text-decoration:none;border-bottom:1px solid var(--terra-soft);">実際の施工レポートを公式サイトで読む ›</a></p>
     <div class="cta-block" style="margin-top:24px;">
       <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓は涼しくなる？LINEで相談</a>
       <span class="cta-note">暑い窓の写真を送っていただければ、目安をお返事します。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Googleクチコミ 高評価セクション ===== -->
+<section class="google-hero">
+  <div class="wrap">
+    <div class="gh-eyebrow"><span class="slash">／</span>Googleクチコミで高評価獲得<span class="slash">＼</span></div>
+    <div class="gh-headline">
+      <div class="bubble">おかげさまで</div>
+      <div class="big-num">4.8</div>
+      <div class="gh-tagline">高評価<br>頂いております</div>
+    </div>
+    <p class="gh-lead">フクシマ建材は多くのお客様からGoogleクチコミを見てご依頼をいただいております。平均4.8／160件以上の高評価で、お客様のご希望にお応えします。</p>
+    <p class="gh-date">※2026年6月現在</p>
+    <div class="gh-review-row">
+      <div class="gh-card">
+        <div class="g-logo">G</div>
+        <div class="gh-user">
+          <div class="gh-avatar">K</div>
+          <div class="gh-meta"><span class="name">K様</span>2ヶ月前</div>
+        </div>
+        <div class="gh-stars">★★★★★</div>
+        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
+      </div>
+      <div class="gh-card">
+        <div class="g-logo">G</div>
+        <div class="gh-user">
+          <div class="gh-avatar">A</div>
+          <div class="gh-meta"><span class="name">A様</span>1ヶ月前</div>
+        </div>
+        <div class="gh-stars">★★★★★</div>
+        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
+      </div>
+      <div class="gh-card">
+        <div class="g-logo">G</div>
+        <div class="gh-user">
+          <div class="gh-avatar">B</div>
+          <div class="gh-meta"><span class="name">B様</span>3週間前</div>
+        </div>
+        <div class="gh-stars">★★★★★</div>
+        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-bottom:18px;"><span class="pending-note" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.45);color:#fff;">レビュー本文・氏名は実際のGoogleクチコミから転載予定（氏名はイニシャル表示）。</span></div>
+    <div style="text-align:center;">
+      <a class="cta-google" href="https://www.google.com/maps/search/?api=1&query=フクシマ建材" target="_blank" rel="noopener">
+        <span class="cta-g-ico">G</span>Googleクチコミを見る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== マイスター紹介 ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Our masters</div>
+    <h2 class="sec">現場を担当するマイスター</h2>
+    <p style="text-align:center;max-width:560px;margin:0 auto 12px;">代理店にお任せではなく、自社のマイスター（職人）が伺います。最初のご相談から取り付け当日まで、同じ顔ぶれで対応します。</p>
+    <div style="text-align:center;"><span class="pending-note">マイスター本人の顔写真・氏名・コメントは、本人の合意を確認の上、順次掲載します。</span></div>
+    <div class="master-grid">
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター01</h3>
+        <div class="role">シェード取付 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター02</h3>
+        <div class="role">内窓PLAST 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター03</h3>
+        <div class="role">外窓交換 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター04</h3>
+        <div class="role">現地調査 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -375,12 +607,52 @@
     <div class="eyebrow">Why us</div>
     <h2 class="sec">フクシマ建材が選ばれる理由</h2>
     <div class="stat-grid">
-      <div class="stat-card"><div class="n">No.1</div><div class="t">窓リフォーム 九州</div></div>
+      <div class="stat-card"><div class="n">No.1</div><div class="t">窓リフォーム 熊本・福岡</div></div>
       <div class="stat-card"><div class="n">約1<span style="font-size:1rem;">時間</span></div><div class="t">1箇所の施工時間</div></div>
       <div class="stat-card"><div class="n">足場<span style="font-size:1rem;">不要</span></div><div class="t">多くは室内から施工</div></div>
       <div class="stat-card"><div class="n">後付け</div><div class="t">今ある窓にOK</div></div>
     </div>
-    <p style="margin-top:18px;">窓の専門店として、九州一円で数多くの施工をしてきました。スタイルシェードは多くの場合、室内から短時間で取り付けでき、足場も要りません。専門用語をかみくだいて、分かりやすく丁寧にご説明します。</p>
+    <p style="margin-top:18px;">窓の専門店として、熊本と福岡で数多くの施工をしてきました。スタイルシェードは多くの場合、室内から短時間で取り付けでき、足場も要りません。専門用語をかみくだいて、分かりやすく丁寧にご説明します。</p>
+  </div>
+</section>
+
+<!-- ===== 代表メッセージ ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Message</div>
+    <h2 class="sec">代表からのご挨拶</h2>
+    <div class="message-card">
+      <div class="president">
+        <div class="face"><img src="images/president.jpg" alt="フクシマ建材 代表取締役 福嶋智和"></div>
+        <div>
+          <div class="name">福嶋 智和<small>フクシマ建材株式会社 代表取締役</small></div>
+        </div>
+      </div>
+      <h3 class="president-title">夏の暑さは、窓の外で止めるのがいちばん効率的です</h3>
+      <div class="president-body">
+        <p>夏になると「冷房をつけてもなかなか部屋が涼しくならない」というご相談をよくいただきます。その原因の多くは、窓から差し込む日射です。実は、室内に入ってくる熱の半分以上が窓からと言われています。</p>
+        <p>ここで大切なのが、「どこで日差しを止めるか」という点です。</p>
+        <p>カーテンやブラインドなど室内側で遮るものは手軽ですが、これは一度ガラスを通って入ってきた熱を、部屋の中で受け止めている状態です。熱そのものはすでに室内に入ってしまっているので、どうしても効果は限られます。</p>
+        <p>一方で、窓の外で日差しを遮ってしまえば、熱が部屋に入る前にカットできます。同じ「日よけ」でも、外で止めるか中で止めるかで、体感の涼しさはずいぶん変わってきます。</p>
+        <p>その点で始めやすいのが「スタイルシェード」です。窓の外側に取り付けるシェードで、大がかりな工事は必要ありません。取り付けたその夏から、すぐに効果を実感していただける方が多いです。冷房の効きが変わると、電気代の面でも無理のない負担になります。</p>
+        <p>「うちの窓でも付けられるかな」と気になった方は、まずは気軽にLINEで窓の写真をお送りください。写真を拝見すれば、設置のイメージやおおよそのご案内ができます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== YouTube 公式チャンネル ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">YouTube</div>
+    <h2 class="sec">窓のリフォームを、<br>動画でわかりやすく</h2>
+    <div class="yt-block">
+      <p class="yt-lead">窓の選び方やスタイルシェードの効果、補助金のことを、代表の福嶋がYouTubeで解説しています。文字より動画のほうがすっと入る、というご質問の答えがあるかもしれません。</p>
+      <a class="cta-youtube" href="https://www.youtube.com/channel/UC0ZZcKCk1p4CY9KHSuZIutA" target="_blank" rel="noopener">
+        <span class="yt-ico">▶</span>
+        <span class="yt-text">YouTubeチャンネルを見る<small>フクシマ建材 公式チャンネル</small></span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -437,13 +709,13 @@
   <div class="wrap">
     <div class="eyebrow">About</div>
     <h2 class="sec">フクシマ建材について</h2>
-    <p style="text-align:center;max-width:560px;margin:0 auto 18px;">窓・内窓・玄関ドアのリフォームを専門に、九州一円で施工しています。理念は、分かりやすく、丁寧に。お客様のお困りごとを、専門外の方にも伝わる言葉で解決することを大切にしています。</p>
+    <p style="text-align:center;max-width:560px;margin:0 auto 18px;">窓・内窓・玄関ドアのリフォームを専門に、熊本と福岡で施工しています。理念は、分かりやすく、丁寧に。お客様のお困りごとを、専門外の方にも伝わる言葉で解決することを大切にしています。</p>
     <div class="company">
       <h3>フクシマ建材株式会社</h3>
       <div class="row">窓・内窓・外付け日よけ・玄関ドアのリフォーム専門</div>
       <div class="row">熊本オフィス：熊本県菊池市泗水町南田島1099</div>
       <div class="row">福岡オフィス：福岡市中央区天神2-3-10 天神パインクレスト719</div>
-      <div class="row">対応エリア：九州全域（福岡・熊本を中心に）</div>
+      <div class="row">対応エリア：熊本県・福岡県</div>
       <div class="row">公式サイト：<a href="https://f-kenzai.com/" target="_blank" rel="noopener" style="color:var(--terra-soft);text-decoration:none;">f-kenzai.com</a></div>
     </div>
   </div>
