@@ -244,6 +244,17 @@
   /* YouTube CTA */
   .yt-block { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 14px; padding: 26px 24px; box-shadow: 0 2px 10px var(--shadow); text-align: center; margin: 14px 0 4px; }
   .yt-block .yt-lead { font-size: 0.96rem; color: var(--ink-soft); margin: 0 0 18px; line-height: 1.85; }
+  .yt-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 4px 0 22px; }
+  .yt-video { position: relative; display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px var(--shadow); text-decoration: none; transition: transform 0.18s, box-shadow 0.18s; }
+  .yt-video:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(18,32,54,0.18); }
+  .yt-video img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .yt-video::after { content: ''; position: absolute; top: 50%; left: 50%; width: 62px; height: 62px; border-radius: 50%; background: rgba(255,0,0,0.92); box-shadow: 0 6px 18px rgba(0,0,0,0.4); transform: translate(-50%, -50%); }
+  .yt-video::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; transform: translate(-30%, -50%); z-index: 2; }
+  @media (min-width: 720px) {
+    .yt-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    .yt-video::after { width: 76px; height: 76px; }
+    .yt-video::before { border-left-width: 22px; border-top-width: 14px; border-bottom-width: 14px; }
+  }
   .cta-youtube { display: inline-flex; align-items: center; gap: 14px; background: #FF0000; color: #fff; font-weight: 700; padding: 14px 24px; border-radius: 999px; text-decoration: none; box-shadow: 0 8px 22px rgba(255,0,0,0.32); transition: transform 0.12s, background 0.12s; }
   .cta-youtube:hover { background: #D90000; transform: translateY(-1px); }
   .cta-youtube .yt-ico { width: 34px; height: 24px; background: #fff; color: #FF0000; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 900; }
@@ -312,7 +323,6 @@
 </head>
 <body>
 
-<div class="draft-note">これは試作（たたき台）です。LINEボタンは本番URLを設定済み。施工事例3組（福嶋自宅／A様邸／B様邸）、お客様の声5件、代表メッセージは実素材を反映済み。マイスター紹介の顔写真と氏名、Googleクチコミカードの本文は仮置きで、素材の準備が整い次第差し替えます。</div>
 
 <!-- ===== HERO（夕方の西日の部屋／全幅写真＋オーバーレイ） ===== -->
 <header class="scene hero">
@@ -615,6 +625,14 @@
     <h2 class="sec">窓のリフォームを、<br>動画でわかりやすく</h2>
     <div class="yt-block">
       <p class="yt-lead">窓の選び方やスタイルシェードの効果、補助金のことを、代表の福嶋がYouTubeで解説しています。文字より動画のほうがすっと入る、というご質問の答えがあるかもしれません。</p>
+      <div class="yt-grid">
+        <a class="yt-video" href="https://youtu.be/thWuT3GpbVE" target="_blank" rel="noopener">
+          <img src="images/yt_thumb_1.png" alt="スタイルシェード解説動画 1">
+        </a>
+        <a class="yt-video" href="https://youtu.be/W5j06SQf6j8" target="_blank" rel="noopener">
+          <img src="images/yt_thumb_2.png" alt="スタイルシェード解説動画 2">
+        </a>
+      </div>
       <a class="cta-youtube" href="https://www.youtube.com/channel/UC0ZZcKCk1p4CY9KHSuZIutA" target="_blank" rel="noopener">
         <span class="yt-ico">▶</span>
         <span class="yt-text">YouTubeチャンネルを見る<small>フクシマ建材 公式チャンネル</small></span>
