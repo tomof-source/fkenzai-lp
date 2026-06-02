@@ -271,9 +271,13 @@
   .gh-card .gh-meta .name { display: block; font-weight: 700; color: var(--navy); font-size: 0.94rem; margin-bottom: 1px; }
   .gh-card .gh-stars { color: #F5A623; letter-spacing: 1px; font-size: 0.92rem; margin-bottom: 6px; line-height: 1; }
   .gh-card .gh-text { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.8; margin: 0; }
-  .cta-google { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background: #fff; color: #1F8FB8; font-weight: 700; padding: 14px 28px; border-radius: 999px; text-decoration: none; font-size: 1rem; box-shadow: 0 8px 22px rgba(0,0,0,0.22); transition: transform 0.12s; }
-  .cta-google:hover { transform: translateY(-1px); }
-  .cta-google .cta-g-ico { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 1px solid #E0E0E0; display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 0.94rem; color: #4285F4; }
+  .cta-google { display: inline-flex; align-items: center; justify-content: center; gap: 16px; background: #fff; color: #1F8FB8; font-weight: 900; padding: 22px 44px; border-radius: 999px; text-decoration: none; font-size: 1.28rem; box-shadow: 0 14px 36px rgba(0,0,0,0.28), 0 0 0 6px rgba(255,255,255,0.18); transition: transform 0.18s, box-shadow 0.18s; letter-spacing: 0.04em; }
+  .cta-google:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(0,0,0,0.32), 0 0 0 8px rgba(255,255,255,0.22); }
+  .cta-google .cta-g-ico { width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 1px solid #E0E0E0; display: inline-flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.4rem; color: #4285F4; flex-shrink: 0; }
+  @media (min-width: 720px) {
+    .cta-google { padding: 26px 56px; font-size: 1.5rem; gap: 18px; }
+    .cta-google .cta-g-ico { width: 44px; height: 44px; font-size: 1.6rem; }
+  }
 
   @media (min-width: 720px) {
     body { padding-bottom: 0; font-size: 17px; }
@@ -520,37 +524,7 @@
     </div>
     <p class="gh-lead">フクシマ建材は多くのお客様からGoogleクチコミを見てご依頼をいただいております。平均4.8／160件以上の高評価で、お客様のご希望にお応えします。</p>
     <p class="gh-date">※2026年6月現在</p>
-    <div class="gh-review-row">
-      <div class="gh-card">
-        <div class="g-logo">G</div>
-        <div class="gh-user">
-          <div class="gh-avatar">K</div>
-          <div class="gh-meta"><span class="name">K様</span>2ヶ月前</div>
-        </div>
-        <div class="gh-stars">★★★★★</div>
-        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
-      </div>
-      <div class="gh-card">
-        <div class="g-logo">G</div>
-        <div class="gh-user">
-          <div class="gh-avatar">A</div>
-          <div class="gh-meta"><span class="name">A様</span>1ヶ月前</div>
-        </div>
-        <div class="gh-stars">★★★★★</div>
-        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
-      </div>
-      <div class="gh-card">
-        <div class="g-logo">G</div>
-        <div class="gh-user">
-          <div class="gh-avatar">B</div>
-          <div class="gh-meta"><span class="name">B様</span>3週間前</div>
-        </div>
-        <div class="gh-stars">★★★★★</div>
-        <p class="gh-text">［Googleクチコミの本文がここに入ります。実例から転載予定］</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-bottom:18px;"><span class="pending-note" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.45);color:#fff;">レビュー本文・氏名は実際のGoogleクチコミから転載予定（氏名はイニシャル表示）。</span></div>
-    <div style="text-align:center;">
+    <div style="text-align:center;margin-top:8px;">
       <a class="cta-google" href="https://www.google.com/maps/search/?api=1&query=フクシマ建材" target="_blank" rel="noopener">
         <span class="cta-g-ico">G</span>Googleクチコミを見る
       </a>
