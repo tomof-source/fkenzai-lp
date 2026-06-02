@@ -180,6 +180,41 @@
 
   .draft-note { background: #FFF6E5; border-bottom: 1px solid #E8C98A; color: #7A5A1E; text-align: center; font-size: 0.8rem; padding: 8px 16px; }
 
+  /* 代表メッセージ */
+  .president { display: grid; grid-template-columns: 100px 1fr; gap: 18px; align-items: center; background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 8px 0; }
+  .president .face { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; background: var(--border); }
+  .president .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .president .name { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.02rem; margin-bottom: 6px; }
+  .president .name small { display: block; font-size: 0.78rem; color: var(--ink-soft); font-weight: 400; margin-top: 4px; letter-spacing: 0.04em; }
+  .president .msg { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+
+  /* マイスター紹介 */
+  .master-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 8px 0; }
+  .master-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 18px 14px 16px; text-align: center; box-shadow: 0 2px 10px var(--shadow); }
+  .master-card .face { width: 76px; height: 76px; margin: 0 auto 10px; border-radius: 50%; overflow: hidden; background: var(--border); }
+  .master-card .face .ph { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 50%; font-size: 0.7rem; padding: 6px; }
+  .master-card h3 { font-family: 'Noto Serif JP', serif; font-size: 0.98rem; margin-bottom: 4px; }
+  .master-card .role { font-size: 0.74rem; color: var(--terra); margin-bottom: 8px; letter-spacing: 0.04em; }
+  .master-card p { font-size: 0.82rem; color: var(--ink-soft); margin: 0; line-height: 1.75; }
+
+  /* 施工事例カードグリッド */
+  .case-list { display: grid; grid-template-columns: 1fr; gap: 22px; margin: 20px 0; }
+  .case-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+  .case-card .case-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+  .case-card .case-imgs figure { margin: 0; }
+  .case-card .case-imgs .label { font-size: 0.78rem; font-weight: 700; text-align: center; padding: 7px; color: #fff; }
+  .case-card .case-imgs .before .label { background: var(--ink-soft); }
+  .case-card .case-imgs .after .label { background: var(--terra); }
+  .case-card .case-imgs .ph { aspect-ratio: 4/3; border: none; border-radius: 0; }
+  .case-card .case-body { padding: 16px 18px 18px; }
+  .case-card .case-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .case-card .case-meta .date { color: var(--terra); font-weight: 700; }
+  .case-card h3 { font-family: 'Noto Serif JP', serif; font-size: 1.02rem; margin-bottom: 6px; }
+  .case-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; line-height: 1.8; }
+
+  /* 素材待ち小注釈 */
+  .pending-note { font-size: 0.74rem; color: #A8762B; background: #FFF6E5; border: 1px dashed #E8C98A; border-radius: 6px; padding: 6px 12px; display: inline-block; margin: 0 0 14px; }
+
   @media (min-width: 720px) {
     body { padding-bottom: 0; font-size: 17px; }
     .sticky-bar { display: none; }
@@ -188,12 +223,16 @@
     .pain-scene h2 { font-size: 2rem; }
     h2.sec { font-size: 1.85rem; }
     .stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .master-grid { grid-template-columns: repeat(4, 1fr); }
+    .case-list { grid-template-columns: repeat(2, 1fr); }
+    .president { grid-template-columns: 120px 1fr; }
+    .president .face { width: 120px; height: 120px; }
   }
 </style>
 </head>
 <body>
 
-<div class="draft-note">これは試作（たたき台）です。画像は仮（点線枠）、補助金額・対象・申請期間の数値はすべて仮で、公式情報の裏取り後に確定します。LINEボタンは本番URLを設定済み。</div>
+<div class="draft-note">これは試作（たたき台）です。画像（点線枠）／マイスター紹介・追加のお客様の声・追加の施工事例は仮置きで、実素材の準備が整い次第差し替えます。補助金額・対象・申請期間の数値もすべて仮で、公式情報の裏取り後に確定します。LINEボタンは本番URLを設定済み。代表メッセージのコピーは仮、本人最終確認の上で差し替え予定です。</div>
 
 <!-- ===== HERO（窓辺の家族・全幅写真＋オーバーレイ） ===== -->
 <header class="scene hero">
@@ -205,7 +244,7 @@
       <h1 class="serif">国の補助金が出るうちに、<br>窓の不満を、<br>まとめて片づける。<br><span class="rule"></span></h1>
       <p class="sub">寒い、結露、暑い、うるさい。その原因の多くは、窓にあります。今なら国の補助金を使って、ご負担をおさえてリフォームできます。</p>
       <div class="cta-block" style="text-align:left;">
-        <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>補助金が使えるかLINEで相談</a>
+        <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>補助金が使えるかLINEで相談</a>
         <span class="cta-note">今ある窓の写真を送るだけ。しつこい営業はいたしません。</span>
       </div>
     </div>
@@ -265,7 +304,7 @@
     </div>
     <div class="note-box" style="margin-top:16px;">補助金は条件を満たした場合に対象となります。必ず一定額が受け取れるものではありません。お住まいや窓の状況によって変わりますので、LINEで確認させてください。</div>
     <div class="cta-block" style="margin-top:20px;">
-      <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>うちはいくら戻る？LINEで聞く</a>
+      <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>うちはいくら戻る？LINEで聞く</a>
       <span class="cta-note">窓の写真を送っていただければ、補助金を見込んだ概算をお返事します。</span>
     </div>
   </div>
@@ -314,27 +353,113 @@
   </div>
 </section>
 
-<!-- ===== ビフォーアフター＋お客様の声 ===== -->
+<!-- ===== 施工事例＋お客様の声 ===== -->
 <section class="alt">
   <div class="wrap">
     <div class="eyebrow">Real voice</div>
     <h2 class="sec">実際の施工と、お客様の声</h2>
-    <p style="text-align:center;max-width:560px;margin:0 auto 4px;">どのくらい変わるのか、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張ではありません。</p>
-    <div class="ba">
-      <figure class="before"><div class="label">施工前</div><div class="ph r43" style="border-radius:0 0 6px 6px;">［写真］施工前のアルミサッシの窓</div></figure>
-      <figure class="after"><div class="label">内窓設置後</div><div class="ph r43" style="border-radius:0 0 6px 6px;">［写真］内窓を設置した後の窓</div></figure>
+    <p style="text-align:center;max-width:560px;margin:0 auto 12px;">どのくらい変わるのか、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張はしません。</p>
+    <div style="text-align:center;"><span class="pending-note">追加事例の写真・地域・担当マイスター名は、素材の準備が整い次第差し替えます。</span></div>
+
+    <div class="case-list">
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">施工前</div><div class="ph">［写真］アルミサッシの窓</div></figure>
+          <figure class="after"><div class="label">内窓設置後</div><div class="ph">［写真］内窓PLASTを設置した後の窓</div></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>熊本駅近くのマンション</span><span>担当マイスター：要確認</span></div>
+          <h3>線路沿いの騒音対策に内窓PLAST</h3>
+          <p>取り付けた瞬間から、線路を走る電車の音がほとんど聞こえなくなりました、とのご感想をいただきました。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">施工前</div><div class="ph">［写真］既存窓の状況</div></figure>
+          <figure class="after"><div class="label">施工後</div><div class="ph">［写真］内窓PLAST＋防音合わせガラス設置</div></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>ピアノ室／踏切近く</span><span>担当マイスター：要確認</span></div>
+          <h3>ピアノ室の防音対策</h3>
+          <p>すぐ近くに踏切がありましたが、カンカンという警告音がほとんど聞こえなくなりました、とお伝えいただきました。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">施工前</div><div class="ph">［写真］施工前の様子（仮）</div></figure>
+          <figure class="after"><div class="label">施工後</div><div class="ph">［写真］施工後の様子（仮）</div></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">YYYY.MM.DD</span><span>地域：未設定</span><span>担当マイスター：未設定</span></div>
+          <h3>［事例タイトル］追加事例の見出しが入ります</h3>
+          <p>事例の本文がここに入ります。実例の選定と本人の掲載許諾を取ったうえで、日付・地域・担当マイスター名を添えて差し替えます。</p>
+        </div>
+      </article>
     </div>
-    <blockquote class="voice">
-      <p>すぐ近くに踏切があるのですが、カンカンという警告音がほとんど聞こえなくなりました。</p>
-      <cite>ピアノ室の防音対策／内窓PLAST＋防音合わせガラスを設置した現場</cite>
-    </blockquote>
+
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:1.15rem;margin:32px 0 14px;text-align:center;">お客様からいただいた声</h3>
     <blockquote class="voice">
       <p>取り付けた瞬間から、線路を走る電車の音がほとんど聞こえなくなりました。</p>
       <cite>熊本駅近くのマンション／線路沿いの騒音対策</cite>
     </blockquote>
+    <blockquote class="voice">
+      <p>すぐ近くに踏切があるのですが、カンカンという警告音がほとんど聞こえなくなりました。</p>
+      <cite>ピアノ室の防音対策／内窓PLAST＋防音合わせガラスを設置した現場</cite>
+    </blockquote>
+    <blockquote class="voice" style="opacity:0.85;">
+      <p>［お客様の声・3件目の本文が入ります。Googleクチコミ等から実例を転載予定］</p>
+      <cite>地域・工事内容（未設定）</cite>
+    </blockquote>
+    <blockquote class="voice" style="opacity:0.85;">
+      <p>［お客様の声・4件目の本文が入ります。Googleクチコミ等から実例を転載予定］</p>
+      <cite>地域・工事内容（未設定）</cite>
+    </blockquote>
+    <blockquote class="voice" style="opacity:0.85;">
+      <p>［お客様の声・5件目の本文が入ります。Googleクチコミ等から実例を転載予定］</p>
+      <cite>地域・工事内容（未設定）</cite>
+    </blockquote>
+
     <div class="cta-block" style="margin-top:24px;">
-      <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓も相談してみる</a>
+      <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓も相談してみる</a>
       <span class="cta-note">窓の写真を送っていただければ、効果の目安をお返事します。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== マイスター紹介 ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Our masters</div>
+    <h2 class="sec">現場を担当するマイスター</h2>
+    <p style="text-align:center;max-width:560px;margin:0 auto 12px;">代理店にお任せではなく、自社のマイスター（職人）が伺います。最初のご相談から取り付け当日まで、同じ顔ぶれで対応します。</p>
+    <div style="text-align:center;"><span class="pending-note">マイスター本人の顔写真・氏名・コメントは、本人の合意を確認の上、順次掲載します。</span></div>
+    <div class="master-grid">
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター01</h3>
+        <div class="role">内窓PLAST 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター02</h3>
+        <div class="role">外窓交換 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター03</h3>
+        <div class="role">玄関ドア 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
+      <div class="master-card">
+        <div class="face"><div class="ph">［顔写真］</div></div>
+        <h3>マイスター04</h3>
+        <div class="role">補助金申請 担当</div>
+        <p>担当ひとことコメント（仮）。実装後に本人の言葉に差し替えます。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -354,6 +479,22 @@
   </div>
 </section>
 
+<!-- ===== 代表メッセージ ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Message</div>
+    <h2 class="sec">代表からのご挨拶</h2>
+    <div class="president">
+      <div class="face"><img src="images/president.jpg" alt="フクシマ建材 代表 福嶋智和"></div>
+      <div>
+        <div class="name">福嶋 智和<small>フクシマ建材株式会社 代表</small></div>
+        <p class="msg">窓・内窓・玄関ドアのリフォーム専門に、九州で長くやってきました。補助金の制度は毎年のように変わり、分かりにくいのが正直なところです。だからこそ、お客様にかみくだいてお伝えするのが私たちの役目だと思っています。まずは気軽に、LINEで窓の写真をお送りください。</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px;"><span class="pending-note">コピーは仮。本人の最終確認後に差し替えます。</span></div>
+  </div>
+</section>
+
 <!-- ===== 費用と自己負担イメージ ===== -->
 <section class="alt">
   <div class="wrap">
@@ -368,7 +509,7 @@
     <p style="font-size:0.86rem;color:var(--ink-soft);">※ 税・工賃込みの目安です。補助金を差し引く前の金額です。正確な金額はお見積もりでお出しします。</p>
     <div class="note-box">補助金は条件を満たした場合に対象となります。必ず一定額が受け取れるものではありません。お住まいや窓の状況によって変わりますので、LINEで確認させてください。</div>
     <div class="cta-block" style="margin-top:24px;">
-      <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>補助金込みの金額をLINEで聞く</a>
+      <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>補助金込みの金額をLINEで聞く</a>
       <span class="cta-note">窓の写真を送っていただければ、補助金を見込んだ概算をお返事します。</span>
     </div>
   </div>
@@ -427,7 +568,7 @@
       <h2 class="serif">補助金が使えるうちに。<br>窓の不満を、今年こそ。</h2>
       <p>寒さも、結露も、暑さも、騒音も。<br>国の補助金を上手に使って、住まいの快適さを、もっと手に入れませんか。</p>
       <div class="cta-block">
-        <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>無料で相談してみる</a>
+        <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>無料で相談してみる</a>
         <span class="cta-note" style="color:rgba(255,255,255,0.75);">受付：平日8:00〜17:00（日・祝定休）／補助金のこと、まずはお気軽に</span>
       </div>
     </div>
@@ -443,7 +584,7 @@
 </footer>
 
 <div class="sticky-bar">
-  <a class="cta-line" href="https://line.me/ti/p/AcJ0U8nnXw" target="_blank" rel="noopener"><span class="ico">L</span>補助金が使えるかLINEで相談</a>
+  <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>補助金が使えるかLINEで相談</a>
 </div>
 
 </body>
