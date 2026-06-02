@@ -117,25 +117,22 @@
   .cmp-note { text-align: center; font-size: 0.74rem; color: var(--ink-soft); margin-bottom: 18px; }
   .cmp-flow { display: flex; flex-direction: column; gap: 10px; }
   .cmp-step { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px var(--shadow); }
-  .cmp-step .lbl { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
-  .cmp-step .s2 { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .cmp-result { background: #FBF3EA; border: 3px solid var(--terra); border-radius: 14px; padding: 14px; text-align: center; box-shadow: 0 2px 8px var(--shadow); }
+  .cmp-step .lbl, .cmp-result .lbl { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
+  .cmp-step .s2, .cmp-result .s2 { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 8px; }
   .cmp-step .ph { aspect-ratio: 16/6; margin: 8px 0; }
-  .cmp-step .db { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.3rem; color: var(--navy); line-height: 1; }
-  .cmp-step .db .u { font-size: 1rem; }
+  .cmp-step .db, .cmp-result .db { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.3rem; line-height: 1; }
+  .cmp-step .db { color: var(--navy); }
+  .cmp-result .db { color: var(--terra); }
+  .cmp-step .db .u, .cmp-result .db .u { font-size: 1rem; }
   .cmp-step .db .pre { font-size: 1rem; color: var(--ink-soft); }
   .cmp-arrow { text-align: center; color: var(--terra); font-size: 1.5rem; line-height: 1; }
   .cmp-arrow .d { display: none; }
-  .cmp-result { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 3px solid var(--terra); border-radius: 16px; padding: 18px; background: #FBF3EA; }
-  .cmp-result .rk { font-size: 0.8rem; color: var(--ink-soft); }
-  .cmp-result .rb { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: var(--terra); line-height: 1; }
-  .cmp-result .rb .max { font-size: 0.9rem; color: var(--ink-soft); display:block; }
-  .cmp-result .rb .n { font-size: 3.4rem; }
   @media (min-width: 720px) {
     .cmp-flow { flex-direction: row; align-items: stretch; }
-    .cmp-step { flex: 1; display:flex; flex-direction:column; justify-content:center; }
+    .cmp-step, .cmp-result { flex: 1; display:flex; flex-direction:column; justify-content:center; }
     .cmp-arrow { display: flex; align-items: center; }
     .cmp-arrow .m { display: none; } .cmp-arrow .d { display: inline; }
-    .cmp-result { flex: 0 0 150px; }
   }
 
   /* feature rows */
@@ -388,14 +385,10 @@
         <div class="db">約68<span class="u">%</span></div>
       </div>
       <div class="cmp-arrow"><span class="m">↓</span><span class="d">›</span></div>
-      <div class="cmp-step">
-        <div class="lbl">スタイルシェードを下ろすと</div>
-        <div class="s2">窓ガラスの手前で日差しを遮る</div>
-        <div class="db"><span class="pre">約</span>83<span class="u">%</span></div>
-      </div>
       <div class="cmp-result">
-        <span class="rk">窓からの日射熱を</span>
-        <span class="rb"><span class="max">最大</span><span class="n">83</span>% カット</span>
+        <div class="lbl">スタイルシェードを下ろすと</div>
+        <div class="s2">窓ガラスの手前で日射熱をカット</div>
+        <div class="db">最大83<span class="u">%</span></div>
       </div>
     </div>
     <figure style="margin:22px auto 0;max-width:460px;">
