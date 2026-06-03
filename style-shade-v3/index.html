@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>夕方、西日で部屋がサウナになる家。なぜ年々ひどくなるのか｜フクシマ建材</title>
+<meta property="og:title" content="夕方、西日で部屋がサウナになる家。なぜ年々ひどくなるのか">
+<meta property="og:description" content="夏になると、夕方のリビングだけ妙に暑い。エアコンを強めても効きがいまひとつ。実は、家に入ってくる熱の多くは窓から。窓のプロが、原因と対策を分かりやすくお話しします。">
+<meta property="og:type" content="article">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16202E;
+    --ink-soft: #45525F;
+    --navy: #1E3050;
+    --navy-deep: #122036;
+    --paper: #FAF8F3;
+    --paper-soft: #FFFFFF;
+    --terra: #C46330;
+    --terra-soft: #E6CBAE;
+    --gold: #B08D4F;
+    --line-green: #06C755;
+    --line-green-d: #05A647;
+    --border: #E4DECF;
+    --shadow: rgba(18,32,54,0.10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.9;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 0;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+  .serif { font-family: 'Noto Serif JP', serif; }
+
+  /* ===== 記事感を出す共通スタイル ===== */
+  .article-meta { font-size: 0.78rem; color: var(--ink-soft); text-align: center; margin-bottom: 14px; letter-spacing: 0.04em; }
+  .article-meta .cat { color: var(--terra); font-weight: 700; }
+  .article-body p { margin-bottom: 18px; line-height: 2.0; }
+  .article-body p:first-child::first-letter { font-family: 'Noto Serif JP', serif; font-size: 2.2rem; font-weight: 700; float: left; line-height: 1; padding: 4px 8px 0 0; color: var(--navy-deep); }
+
+  /* 実画像 */
+  .scene-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .fimg img { width: 100%; display: block; border-radius: 10px; }
+  .zukai-img { display: block; width: 100%; max-width: 460px; margin: 0 auto; border-radius: 10px; border: 1px solid var(--border); }
+
+  /* ===== HERO（記事タイトル風／CTAなし／スクロール誘導） ===== */
+  .scene { position: relative; color: #fff; overflow: hidden; }
+  .scene-bg { position: absolute; inset: 0; }
+  .scene-in { position: relative; }
+  .hero .scene-in { background: linear-gradient(180deg, rgba(18,32,54,0.78) 0%, rgba(18,32,54,0.55) 60%, rgba(18,32,54,0.72) 100%); padding: 72px 0 86px; min-height: 86vh; display: flex; flex-direction: column; justify-content: center; }
+  .hero .article-tag { display: inline-block; font-size: 0.74rem; color: var(--terra-soft); letter-spacing: 0.16em; margin-bottom: 14px; font-family: 'Cormorant Garamond', serif; }
+  .hero h1 { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 1.9rem; line-height: 1.7; margin-bottom: 22px; text-shadow: 0 2px 18px rgba(0,0,0,0.45); }
+  .hero p.lede { font-size: 1.0rem; color: rgba(255,255,255,0.92); margin-bottom: 28px; max-width: 480px; line-height: 1.95; }
+  .hero .byline { font-size: 0.82rem; color: rgba(255,255,255,0.74); border-top: 1px solid rgba(255,255,255,0.18); padding-top: 14px; margin-top: 8px; max-width: 480px; }
+  .scroll-cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); color: rgba(255,255,255,0.78); font-size: 0.72rem; letter-spacing: 0.18em; text-align: center; animation: cue 2s ease-in-out infinite; }
+  .scroll-cue::after { content: ''; display: block; width: 1px; height: 22px; background: rgba(255,255,255,0.7); margin: 8px auto 0; }
+  @keyframes cue { 0%, 100% { opacity: 0.5; transform: translate(-50%, 0); } 50% { opacity: 1; transform: translate(-50%, 6px); } }
+
+  /* ===== sections ===== */
+  section { padding: 56px 0; }
+  section.alt { background: var(--paper-soft); }
+  .eyebrow { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.26em; text-transform: uppercase; font-size: 0.74rem; color: var(--terra); margin-bottom: 8px; text-align: center; }
+  h2.sec { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.5rem; line-height: 1.7; color: var(--ink); margin-bottom: 22px; text-align: center; }
+  h2.sec .em { color: var(--terra); }
+  p { margin-bottom: 16px; }
+  .lead-p { font-size: 1.04rem; }
+
+  /* ===== 導入（pain + 快適 統合：読み物エッセイ） ===== */
+  .intro { background: var(--paper); padding: 64px 0 56px; }
+  .intro h2.kicker { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 1.45rem; line-height: 1.7; color: var(--navy-deep); margin-bottom: 22px; }
+  .intro .photo-inline { margin: 24px -22px; }
+  .intro .photo-inline img { width: 100%; display: block; }
+  .intro .photo-caption { font-size: 0.78rem; color: var(--ink-soft); padding: 8px 22px 0; border-left: 3px solid var(--terra-soft); margin-left: 22px; line-height: 1.7; }
+
+  /* ===== 原因解説（zukai） ===== */
+  .reason h2.sec { margin-bottom: 18px; }
+  .reason .conclusion { background: #FBF3EA; border-left: 4px solid var(--terra); border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 26px 0 0; font-weight: 700; color: var(--navy-deep); font-size: 1.04rem; line-height: 1.9; }
+
+  /* ===== 効果数値（cmp-flow） ===== */
+  .cmp-flow { display: flex; flex-direction: column; gap: 10px; margin: 24px 0 18px; }
+  .cmp-step { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 2px 8px var(--shadow); }
+  .cmp-result { background: #FBF3EA; border: 3px solid var(--terra); border-radius: 14px; padding: 14px; text-align: center; box-shadow: 0 2px 8px var(--shadow); }
+  .cmp-step .lbl, .cmp-result .lbl { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
+  .cmp-step .s2, .cmp-result .s2 { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .cmp-step .db, .cmp-result .db { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 2.3rem; line-height: 1; }
+  .cmp-step .db { color: var(--navy); }
+  .cmp-result .db { color: var(--terra); }
+  .cmp-step .db .u, .cmp-result .db .u { font-size: 1rem; }
+  .cmp-arrow { text-align: center; color: var(--terra); font-size: 1.5rem; line-height: 1; }
+  .cmp-arrow .d { display: none; }
+  @media (min-width: 720px) {
+    .cmp-flow { flex-direction: row; align-items: stretch; }
+    .cmp-step, .cmp-result { flex: 1; display:flex; flex-direction:column; justify-content:center; }
+    .cmp-arrow { display: flex; align-items: center; }
+    .cmp-arrow .m { display: none; } .cmp-arrow .d { display: inline; }
+  }
+
+  /* feature rows */
+  .feature { margin: 26px 0; }
+  .feature .fimg { margin-bottom: 14px; }
+  .feature .tag { display: inline-block; font-size: 0.76rem; font-weight: 700; color: #fff; background: var(--navy); padding: 3px 12px; border-radius: 999px; margin-bottom: 10px; }
+  .feature h3 { font-family: 'Noto Serif JP', serif; font-size: 1.18rem; margin-bottom: 8px; }
+
+  /* スペック小カード（選ばれる理由を解決策に統合） */
+  .spec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 22px 0 8px; }
+  .spec-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; box-shadow: 0 2px 8px var(--shadow); }
+  .spec-card .n { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.65rem; color: var(--navy); line-height: 1.1; }
+  .spec-card .t { font-size: 0.76rem; color: var(--ink-soft); margin-top: 4px; line-height: 1.5; }
+
+  /* CTA */
+  .cta-line { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--line-green); color: #fff; font-weight: 700; padding: 16px 28px; border-radius: 999px; text-decoration: none; font-size: 1.05rem; box-shadow: 0 8px 22px rgba(6,199,85,0.36); transition: transform 0.12s, background 0.12s; }
+  .cta-line:hover { background: var(--line-green-d); transform: translateY(-1px); }
+  .cta-line .ico { width: 22px; height: 22px; background: #fff; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; color: var(--line-green); font-weight: 900; font-size: 0.8rem; }
+  .cta-line.soft { background: transparent; color: var(--line-green); border: 2px solid var(--line-green); box-shadow: none; padding: 12px 22px; font-size: 0.96rem; }
+  .cta-line.soft .ico { background: var(--line-green); color: #fff; }
+  .cta-line.soft:hover { background: var(--line-green); color: #fff; }
+  .cta-line.soft:hover .ico { background: #fff; color: var(--line-green); }
+  .cta-block { text-align: center; margin: 16px 0 2px; }
+  .cta-note { display: block; font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px; }
+  .scene .cta-note { color: rgba(255,255,255,0.8); }
+
+  /* 施工事例 */
+  .case-list { display: grid; grid-template-columns: 1fr; gap: 22px; margin: 20px 0; }
+  .case-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px var(--shadow); }
+  .case-card .case-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+  .case-card .case-imgs figure { margin: 0; }
+  .case-card .case-imgs .label { font-size: 0.78rem; font-weight: 700; text-align: center; padding: 7px; color: #fff; }
+  .case-card .case-imgs .before .label { background: var(--ink-soft); }
+  .case-card .case-imgs .after .label { background: var(--terra); }
+  .case-card .case-imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .case-card .case-body { padding: 16px 18px 18px; }
+  .case-card .case-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 8px; }
+  .case-card .case-meta .date { color: var(--terra); font-weight: 700; }
+  .case-card h3 { font-family: 'Noto Serif JP', serif; font-size: 1.02rem; margin-bottom: 6px; }
+  .case-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; line-height: 1.8; }
+
+  /* お客様の声 */
+  blockquote.voice { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px 20px; margin: 0 0 14px; box-shadow: 0 2px 10px var(--shadow); }
+  blockquote.voice p { font-family: 'Noto Serif JP', serif; font-size: 1.04rem; margin-bottom: 10px; color: var(--navy-deep); }
+  blockquote.voice cite { font-style: normal; font-size: 0.84rem; color: var(--ink-soft); }
+  blockquote.voice cite::before { content: '— '; color: var(--terra); }
+
+  /* 費用と流れ（統合） */
+  .cost-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 18px 0; }
+  .cost-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.96rem; }
+  .cost-row:last-child { border-bottom: none; }
+  .cost-row .price { font-weight: 700; color: var(--navy-deep); }
+  .note-box { background: #FBF3EA; border: 1px solid var(--terra-soft); border-radius: 8px; padding: 14px 18px; font-size: 0.9rem; color: var(--ink-soft); margin: 14px 0 22px; }
+  .steps { counter-reset: step; list-style: none; margin: 26px 0 18px; }
+  .steps li { counter-increment: step; position: relative; padding: 4px 0 22px 56px; }
+  .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 38px; height: 38px; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
+  .steps li:not(:last-child)::after { content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: var(--border); }
+  .steps li h3 { font-size: 1.04rem; font-family: 'Noto Serif JP', serif; margin-bottom: 4px; }
+  .steps li p { margin-bottom: 0; font-size: 0.94rem; color: var(--ink-soft); }
+
+  /* 信頼補強（Googleクチコミ＋マイスター＋会社情報を圧縮統合） */
+  .trust-line { display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--paper-soft); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; box-shadow: 0 2px 8px var(--shadow); }
+  .trust-line .icon { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.1rem; color: #fff; }
+  .trust-line .icon.google { background: #fff; color: #4285F4; border: 1px solid #DADCE0; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; }
+  .trust-line .icon.master { background: var(--terra); }
+  .trust-line .icon.area { background: var(--navy); }
+  .trust-line .txt { flex: 1; font-size: 0.92rem; line-height: 1.6; }
+  .trust-line .txt strong { display: block; font-size: 0.98rem; color: var(--navy-deep); margin-bottom: 2px; }
+  .trust-line .txt small { color: var(--ink-soft); font-size: 0.78rem; }
+  .trust-line a.lnk { color: var(--terra); font-weight: 700; text-decoration: none; font-size: 0.82rem; white-space: nowrap; }
+
+  /* 代表メッセージ */
+  .president { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: center; justify-items: center; text-align: center; }
+  .president .face { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; background: var(--border); margin: 0 auto; }
+  .president .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .president .name { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.18rem; margin-bottom: 6px; line-height: 1.4; }
+  .president .name small { display: block; font-size: 0.84rem; color: var(--ink-soft); font-weight: 500; margin-top: 6px; letter-spacing: 0.04em; }
+  .president-title { font-family: 'Noto Serif JP', serif; font-weight: 700; font-size: 1.16rem; line-height: 1.7; color: var(--navy-deep); text-align: center; margin: 26px 0 18px; padding: 0 6px; }
+  .president-body { font-size: 0.96rem; line-height: 2.0; color: var(--ink); }
+  .president-body p { margin-bottom: 16px; }
+  .president-body p:last-child { margin-bottom: 0; }
+  .message-card { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 14px; padding: 26px 22px 28px; box-shadow: 0 2px 14px var(--shadow); margin: 8px 0; }
+
+  /* YouTube 1枚 */
+  .yt-mini { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 12px; padding: 22px; box-shadow: 0 2px 10px var(--shadow); margin: 14px 0; }
+  .yt-mini .yt-lead { font-size: 0.94rem; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.85; }
+  .yt-video { position: relative; display: block; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 14px var(--shadow); text-decoration: none; transition: transform 0.18s; max-width: 480px; margin: 0 auto 14px; }
+  .yt-video:hover { transform: translateY(-2px); }
+  .yt-video img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .yt-video::after { content: ''; position: absolute; top: 50%; left: 50%; width: 62px; height: 62px; border-radius: 50%; background: rgba(255,0,0,0.92); box-shadow: 0 6px 18px rgba(0,0,0,0.4); transform: translate(-50%, -50%); }
+  .yt-video::before { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-left: 18px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent; transform: translate(-30%, -50%); z-index: 2; }
+  .yt-mini .yt-link { text-align: center; font-size: 0.86rem; }
+  .yt-mini .yt-link a { color: #C00; font-weight: 700; text-decoration: none; }
+
+  /* FAQ */
+  .faq details { background: var(--paper-soft); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 12px; padding: 0 18px; box-shadow: 0 2px 8px var(--shadow); }
+  .faq summary { list-style: none; cursor: pointer; padding: 16px 0; font-weight: 700; position: relative; padding-right: 28px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; position: absolute; right: 0; top: 14px; color: var(--terra); font-size: 1.4rem; font-weight: 400; }
+  .faq details[open] summary::after { content: '\2212'; }
+  .faq details p { padding-bottom: 16px; margin: 0; color: var(--ink-soft); font-size: 0.94rem; }
+
+  /* 最終CTA */
+  .final .scene-in { background: linear-gradient(180deg, rgba(18,32,54,0.4), rgba(18,32,54,0.85)); padding: 64px 0; color:#fff; text-align: center; }
+  .final h2 { font-family: 'Noto Serif JP', serif; font-size: 1.6rem; line-height: 1.7; margin-bottom: 16px; text-shadow: 0 2px 16px rgba(0,0,0,0.4); }
+  .final p { color: rgba(255,255,255,0.9); margin-bottom: 26px; }
+  .final .tel-line { display: block; margin-top: 18px; font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+  .final .tel-line a { color: #fff; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
+
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); padding: 28px 0 36px; font-size: 0.82rem; text-align: center; line-height: 1.9; }
+  footer a { color: var(--terra-soft); text-decoration: none; }
+
+  /* スマホ追従LINEバー（Bブロック以降のみ表示・JS制御） */
+  .sticky-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: rgba(250,248,243,0.96); border-top: 1px solid var(--border); padding: 10px 16px; box-shadow: 0 -4px 16px rgba(18,32,54,0.12); display: none; justify-content: center; backdrop-filter: blur(6px); transform: translateY(100%); transition: transform 0.3s ease; }
+  .sticky-bar.show { display: flex; transform: translateY(0); }
+  .sticky-bar .cta-line { width: 100%; max-width: 460px; padding: 13px 20px; font-size: 1rem; }
+  body.sticky-on { padding-bottom: 76px; }
+
+  @media (min-width: 720px) {
+    body.sticky-on { padding-bottom: 0; }
+    .sticky-bar { display: none !important; }
+    .hero h1 { font-size: 2.4rem; }
+    .hero .scene-in { padding: 110px 0; min-height: 80vh; }
+    .intro h2.kicker { font-size: 1.7rem; }
+    h2.sec { font-size: 1.85rem; }
+    .spec-grid { grid-template-columns: repeat(4, 1fr); }
+    .president { grid-template-columns: 200px 1fr; justify-items: start; text-align: left; }
+    .president .face { width: 200px; height: 200px; margin: 0; }
+    .president .name { text-align: left; font-size: 1.4rem; }
+    .president .name small { font-size: 0.92rem; margin-top: 8px; }
+    .message-card { padding: 32px 36px 36px; }
+    .president-title { font-size: 1.4rem; }
+    .president-body { font-size: 1.0rem; }
+    .case-card .case-body { padding: 22px 26px 24px; }
+    .case-card h3 { font-size: 1.18rem; }
+    .intro .photo-inline { margin: 28px -40px; border-radius: 8px; overflow: hidden; }
+    .intro .photo-caption { margin-left: 0; }
+  }
+  /* 施工事例は大きく見せたいので、PCでは wrap を超えて広げる */
+  @media (min-width: 1080px) {
+    .case-list { max-width: 1020px; margin-left: -130px; margin-right: -130px; }
+  }
+</style>
+</head>
+<body>
+
+
+<!-- ===== HERO（記事タイトル風／LINE CTA なし／スクロール誘導のみ） ===== -->
+<header class="scene hero">
+  <div class="scene-bg"><img src="images/hero.jpg" alt="夕方、西日が差し込む住宅"></div>
+  <div class="scene-in">
+    <div class="wrap">
+      <div class="article-tag">— ESSAY ／ 夏の住まいの話</div>
+      <h1 class="serif">夕方、西日で<br>部屋がサウナになる家。<br>なぜ年々、ひどくなるのか。</h1>
+      <p class="lede">エアコンを強めても効きが鈍い。遮光カーテンを閉めても部屋がこもる。実は原因の多くは、窓ガラスより奥ではなく、窓の手前にあります。</p>
+      <p class="byline">熊本・福岡の窓リフォーム専門店 フクシマ建材／代表 福嶋 智和</p>
+    </div>
+  </div>
+  <div class="scroll-cue">READ ON</div>
+</header>
+
+<!-- ===== 導入（pain + 快適 統合／読み物エッセイ） ===== -->
+<section class="intro">
+  <div class="wrap">
+    <h2 class="kicker serif">「夕方になると、リビングだけ妙に暑い」。<br>そんな相談が、毎年6月から増えはじめます。</h2>
+    <div class="article-body">
+      <p>朝夕は涼しくなったはずなのに、西向きの部屋だけは夕方になると蒸し風呂のようになる。エアコンを強めにかけても、なかなか部屋が冷えない。電気代の明細を見て、また少しため息が出る。お客様からよくお聞きするお話です。</p>
+      <p>遮光カーテンを足しても、ブラインドを変えても、いまひとつ。「うちのエアコン、もう寿命かな」と買い替えを検討される方もいらっしゃいます。けれども多くの場合、エアコンに罪はありません。</p>
+      <div class="photo-inline">
+        <img src="images/pain_sunset.png" alt="夕方、強い西日が差し込み暑くなったリビング">
+      </div>
+      <p class="photo-caption">夕方の西日が長く差し込むリビング。問題は「冷やす力」ではなく「入ってくる熱」のほうにあります。</p>
+      <p>窓から入ってくる日差しは、思っているよりずっと多くの熱を運んできます。同じエアコンでも、入ってくる熱を減らしてやれば、効きはすっと戻ります。涼しさと電気代の安心が、同時に手に入る。これは決して大げさな話ではありません。</p>
+      <p>では、その「入ってくる熱」をどこで止めればいいのか。これが、今日お話ししたい本題です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 原因解説（zukai 図解／コア結論はここで完結） ===== -->
+<section class="reason alt">
+  <div class="wrap">
+    <div class="eyebrow">Reason</div>
+    <h2 class="sec">熱の入り口は、ほとんど<span class="em">窓</span>です</h2>
+    <p class="lead-p" style="max-width:580px;margin:0 auto 18px;">夏に家の中へ入ってくる熱の多くは、壁や屋根ではなく窓からです。日ざしが強い時間帯は、家に入る熱のおよそ7割が窓（開口部）からだといわれます。だから、窓の対策が暑さ対策の近道になります。</p>
+    <figure style="margin:8px 0 16px;">
+      <img class="zukai-img" src="images/zukai_shade.png" alt="夏に家へ流入する熱の割合。窓から68%、外壁14%、屋根7%、換気6%、床5%">
+      <figcaption style="text-align:center;font-size:0.8rem;color:var(--ink-soft);padding:0;margin-top:8px;">夏に家へ入る熱のうち、約68％は窓から。</figcaption>
+    </figure>
+    <p style="max-width:580px;margin:0 auto;">ここで大事なのが、遮る場所です。遮光カーテンもブラインドも内窓も、すべて窓ガラスの内側で熱を受け止める対策です。ですが、ガラスを通過した時点で、熱はもう部屋の中に入っています。お湯を浴槽に入れたあとでフタをするようなもので、入ってしまった熱はなかなか外へ逃げてくれません。</p>
+      <div class="conclusion">だからこそ、効くのは「窓の外で日差しを止める」という考え方です。</div>
+  </div>
+</section>
+
+<!-- ===== 解決策＝スタイルシェード（製品名 初出／効果数値・選ばれる理由 統合／軽めCTA） ===== -->
+<section id="b-block-start">
+  <div class="wrap">
+    <div class="eyebrow">Solution</div>
+    <h2 class="sec">窓の外に下ろすだけの<br>外付け日よけ、<span class="em">スタイルシェード</span></h2>
+    <p style="text-align:center;max-width:560px;margin:0 auto 8px;">窓の外で日差しを止める方法はいくつかありますが、最も始めやすいのが外付けの日よけ、LIXIL「スタイルシェード」です。スクリーン状の生地を窓の外側に下ろして、強い日差しを窓ガラスに届く手前でカットします。</p>
+
+    <!-- 効果数値（cmp-flow） -->
+    <div class="cmp-flow">
+      <div class="cmp-step">
+        <div class="lbl">夏に家へ入る熱</div>
+        <div class="s2">そのうち窓から入る割合</div>
+        <div class="db">約68<span class="u">%</span></div>
+      </div>
+      <div class="cmp-arrow"><span class="m">↓</span><span class="d">›</span></div>
+      <div class="cmp-result">
+        <div class="lbl">スタイルシェードを下ろすと</div>
+        <div class="s2">窓ガラスの手前で日射熱をカット</div>
+        <div class="db">最大83<span class="u">%</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:var(--ink-soft);margin:8px 0 0;">※ メーカー公表値。条件により異なります</p>
+  </div>
+
+  <div class="wrap">
+    <div class="feature">
+      <div class="fimg"><img src="images/shade_exterior.jpg" alt="窓の外にスタイルシェードを下ろした外観"></div>
+      <div class="ftext">
+        <span class="tag">主役の強み</span>
+        <h3>窓の外で日射熱をカット</h3>
+        <p>熱が部屋に入る前に、窓ガラスの手前で日差しを遮ります。室内のカーテンやブラインドと違い、入ってくる熱そのものを減らせるのが外付けの強みです。夏の夕方の西日対策として、特に効果を感じやすい製品です。</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="fimg"><img src="images/shade_light.jpg" alt="シェードを下ろした室内。やわらかい光が入り、外からの視線も和らぐ"></div>
+      <div class="ftext">
+        <span class="tag" style="background:var(--ink-soft);">うれしい副産物</span>
+        <h3>暗くしすぎず、視線も和らぐ</h3>
+        <p>生地の色を選べば、真っ暗にせずやわらかい明るさを保てます。外からの視線も適度に遮るので、日よけをしながらプライバシーも確保できます。</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="fimg"><img src="images/shade_roll.jpg" alt="シェードを巻き上げて収納した状態の室内側の窓"></div>
+      <div class="ftext">
+        <span class="tag" style="background:var(--ink-soft);">後付け・収納</span>
+        <h3>後付けでき、使わない時は巻き上げ</h3>
+        <p>今ある窓に後付けできます。必要なときだけ下ろし、使わない時期は巻き上げて収納。施工は1箇所およそ1時間、多くは室内からの取り付けで足場も不要です。</p>
+      </div>
+    </div>
+
+    <!-- 選ばれる理由（スペック小カード／旧 stat-grid 統合） -->
+    <div class="spec-grid">
+      <div class="spec-card"><div class="n">最大83<span style="font-size:1rem;">%</span></div><div class="t">日射熱カット</div></div>
+      <div class="spec-card"><div class="n">約1<span style="font-size:1rem;">時間</span></div><div class="t">1箇所の施工時間</div></div>
+      <div class="spec-card"><div class="n">足場<span style="font-size:1rem;">不要</span></div><div class="t">多くは室内から</div></div>
+      <div class="spec-card"><div class="n">後付け<span style="font-size:1rem;">OK</span></div><div class="t">今ある窓にOK</div></div>
+    </div>
+
+    <!-- 軽めCTA（B ブロック先頭） -->
+    <div class="cta-block" style="margin-top:24px;">
+      <a class="cta-line soft" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓でも付けられる？まず聞いてみる</a>
+      <span class="cta-note">暑い窓の写真を送るだけ。しつこい営業はいたしません。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 施工事例＋お客様の声 ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Real voice</div>
+    <h2 class="sec">実際に、どれだけ涼しくなったか</h2>
+    <p style="text-align:center;max-width:560px;margin:0 auto 18px;">どのくらい変わるのか、言葉より、現場で起きたことをお伝えするのが早いと思います。フクシマ建材の施工事例です。誇張はしません。</p>
+
+    <div class="case-list">
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case1_home_before.jpg" alt="スタイルシェード設置前の南向きリビング"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case1_home_after.jpg" alt="スタイルシェード設置後の南向きリビング"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>南向きのリビング</span><span>代表 福嶋の自宅</span></div>
+          <h3>代表の自宅で実装した、南向きリビングの日射対策</h3>
+          <p>代表の自宅でも同じ製品を取り付けています。自分が暮らす家で効果を確かめてから、お客様におすすめできるかを判断しています。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case2_ooe_before.jpg" alt="スタイルシェード設置前の西向きの出窓"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case2_ooe_after.jpg" alt="スタイルシェード設置後の西向きの出窓"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>西向きの出窓</span><span>A様邸（大江）</span></div>
+          <h3>西向きの出窓の暑さを、外で止める</h3>
+          <p>出窓は三方向から日射を受けるため、特に夏は熱がこもりやすい窓です。窓の外で日射を止めることで、出窓まわりの熱だまりがやわらぎます。</p>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-imgs">
+          <figure class="before"><div class="label">設置前</div><img src="images/case3_shutter_before.jpg" alt="シャッター付き西向きの窓 設置前"></figure>
+          <figure class="after"><div class="label">設置後</div><img src="images/case3_shutter_after.jpg" alt="シャッター付き西向きの窓 スタイルシェード設置後"></figure>
+        </div>
+        <div class="case-body">
+          <div class="case-meta"><span class="date">事例</span><span>西向きの窓（シャッター付き）</span><span>B様邸</span></div>
+          <h3>シャッター付きの窓にも、外付けで取り付け</h3>
+          <p>シャッターがあっても、外付けのスタイルシェードを取り付けられます。シャッターを閉めずに日射だけをカットできるので、暗くせずに涼しさをつくれます。</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:1.12rem;margin:32px 0 14px;text-align:center;">お客様からいただいた声</h3>
+    <blockquote class="voice">
+      <p>つけてからエアコンの効きが全然違います。夕方の西日が和らいで、部屋にこもる暑さが減りました。</p>
+      <cite>戸建ての西向きリビング</cite>
+    </blockquote>
+    <blockquote class="voice">
+      <p>暑くてどうにもならなかった2階が、設置後は室温が下がって過ごしやすくなりました。</p>
+      <cite>2階の暑さ対策</cite>
+    </blockquote>
+    <blockquote class="voice">
+      <p>子ども部屋が南西向きで、午後はカーテンを閉めても暑かったのですが、スタイルシェードをつけてから日差しがやわらぎ、子どもが昼寝しやすくなりました。</p>
+      <cite>子ども部屋の西日・暑さ対策</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== 費用と流れ（統合） ＋ 標準CTA ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Cost & Flow</div>
+    <h2 class="sec">費用と、ご相談の流れ</h2>
+    <p>スタイルシェードは、窓リフォームの中では始めやすい価格です。1箇所あたりおよそ3〜5万円が目安。手が届きやすく、その夏からすぐに効果を感じられる対策です。</p>
+    <div class="cost-card">
+      <div class="cost-row"><span>外付けシェード 1箇所</span><span class="price">3〜5万円</span></div>
+      <div class="cost-row"><span>シェード＋内窓のセット（窓1箇所）</span><span class="price">11〜13万円</span></div>
+    </div>
+    <p style="font-size:0.84rem;color:var(--ink-soft);">※ 商品・工賃込みの目安です。窓のサイズや取り付け条件で変わります。正確な金額はお見積もりでお出しします。</p>
+    <div class="note-box">スタイルシェード（外付け日よけ）単体は、先進的窓リノベ2026などの窓リフォーム補助金の対象外です。そこは正直にお伝えします。暑さと電気代をしっかり抑えたい場合は、補助金対象になる内窓との組み合わせもご相談に乗ります。</div>
+
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:1.12rem;margin:28px 0 6px;">ご相談から施工までの流れ</h3>
+    <ol class="steps">
+      <li><h3>LINEで写真を送る</h3><p>暑さが気になる窓の写真を送ってください。入力フォームは不要です。</p></li>
+      <li><h3>概算をお返事</h3><p>写真をもとに、おおよその費用と効果の目安をお伝えします。</p></li>
+      <li><h3>現地調査</h3><p>ご希望があれば、実際の窓を見て正確なお見積もりをお出しします。</p></li>
+      <li><h3>施工（1箇所およそ1時間）</h3><p>多くは室内からの取り付けで、足場も不要。その日のうちに完了し、すぐに効果を体感いただけます。</p></li>
+    </ol>
+
+    <div class="cta-block" style="margin-top:24px;">
+      <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>うちの窓はいくら？LINEで概算を聞く</a>
+      <span class="cta-note">暑い窓の写真を送っていただければ、おおよその費用をお返事します。</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 信頼補強（Googleクチコミ・マイスター・会社情報を1枚に圧縮統合） ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">Why us</div>
+    <h2 class="sec">どんな会社が施工するのか</h2>
+    <p style="text-align:center;max-width:560px;margin:0 auto 22px;font-size:0.94rem;color:var(--ink-soft);">熊本と福岡で、窓・内窓・玄関ドアのリフォームを専門にしています。代理店任せにせず、自社のマイスター（職人）が伺います。</p>
+
+    <div class="trust-line">
+      <div class="icon google">G</div>
+      <div class="txt">
+        <strong>Googleクチコミ ★4.8（160件以上）</strong>
+        <small>2026年6月現在／熊本・福岡のお客様からの評価</small>
+      </div>
+      <a class="lnk" href="https://www.google.com/maps/search/?api=1&query=フクシマ建材" target="_blank" rel="noopener">見る ›</a>
+    </div>
+
+    <div class="trust-line">
+      <div class="icon master">8</div>
+      <div class="txt">
+        <strong>施工は当社認定マイスター8名が担当</strong>
+        <small>最初のご相談から取り付け当日まで、同じ顔ぶれで対応</small>
+      </div>
+    </div>
+
+    <div class="trust-line">
+      <div class="icon area">熊福</div>
+      <div class="txt">
+        <strong>対応エリア：熊本県・福岡県</strong>
+        <small>熊本オフィス：菊池市泗水町／福岡オフィス：福岡市中央区天神</small>
+      </div>
+      <a class="lnk" href="https://f-kenzai.com/" target="_blank" rel="noopener">公式 ›</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 代表メッセージ（窓のプロ20年・地域工務店ストーリー軸） ===== -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Message</div>
+    <h2 class="sec">窓のプロとして、20年</h2>
+    <div class="message-card">
+      <div class="president">
+        <div class="face"><img src="images/president.jpg" alt="フクシマ建材 代表取締役 福嶋智和"></div>
+        <div>
+          <div class="name">福嶋 智和<small>フクシマ建材株式会社 代表取締役</small></div>
+        </div>
+      </div>
+      <h3 class="president-title">窓のことなら、地域でいちばん詳しい会社でありたい</h3>
+      <div class="president-body">
+        <p>フクシマ建材は、熊本と福岡で窓・内窓・玄関ドアのリフォームを専門にしている地域の工務店です。私自身、窓と向き合う仕事を始めて20年になります。</p>
+        <p>この20年で、お客様のお困りごとはずいぶん変わりました。以前は「冬の寒さ」「結露」のご相談が中心でしたが、ここ数年は「夏の暑さ」「電気代」のご相談が一気に増えました。気候そのものが変わってきていることを、現場でいちばん肌で感じます。</p>
+        <p>私たちが大切にしているのは、商品を売ることではなく、お客様の暮らしの困りごとに向き合うことです。だから「内窓のほうがいいですよ」「シェードよりこちらが向いていますよ」と、商品を選んでいただくお手伝いをしています。今ある窓を全部やりかえるのが正解ではないことも、よくあります。</p>
+        <p>そうやって地域の方々の窓を一軒ずつ見せていただくうちに、おかげさまで多くの方からご紹介をいただけるようになりました。Googleクチコミで★4.8と高い評価をいただけていることも、地域の皆さまへの感謝の気持ちでいっぱいです。</p>
+        <p>「うちの西日、どうにかなりますか」「2階だけ暑いのですが」。そんなひと言から、ぜひ気軽にご相談ください。窓の写真を1枚送っていただくだけで大丈夫です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== YouTube 1枚 ＋ FAQ ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="eyebrow">More</div>
+    <h2 class="sec">動画でもっと知りたい方へ</h2>
+    <div class="yt-mini">
+      <p class="yt-lead">スタイルシェードや窓リフォームの考え方を、代表の福嶋がYouTubeで解説しています。文字より動画のほうがすっと入る、というご質問の答えがあるかもしれません。</p>
+      <a class="yt-video" href="https://youtu.be/thWuT3GpbVE" target="_blank" rel="noopener">
+        <img src="images/yt_thumb_1.png" alt="スタイルシェード解説動画">
+      </a>
+      <div class="yt-link"><a href="https://www.youtube.com/channel/UC0ZZcKCk1p4CY9KHSuZIutA" target="_blank" rel="noopener">フクシマ建材 公式チャンネルを見る ›</a></div>
+    </div>
+
+    <h3 style="font-family:'Noto Serif JP',serif;font-size:1.18rem;margin:32px 0 14px;text-align:center;">よくあるご質問</h3>
+    <div class="faq">
+      <details><summary>遮熱フィルムと外付けシェード、どちらを先にやるべきですか</summary><p>迷ったらシェードを優先してください。窓の外で日差しを止めるほうが、入ってきた熱を内側で受け止めるより効果を感じやすいためです。状況をふまえてご相談に乗ります。</p></details>
+      <details><summary>マンションでも取り付けできますか</summary><p>正直にお伝えすると、ほとんどのマンションでは難しいのが現実です。外壁への取り付けが管理規約で禁止されているケースが多いためです。戸建ては問題なく取り付けできます。</p></details>
+      <details><summary>台風や強風のときはどうなりますか</summary><p>強い風が来る前には、巻き上げて収納してください。使わない時期はしまっておけるので、生地を長持ちさせることにもつながります。</p></details>
+      <details><summary>冬はどうなりますか</summary><p>スタイルシェードは日差しを遮る日よけで、冬の断熱性能を上げるものではありません。冬の寒さ・結露対策をご希望なら、内窓のほうが向いています。あわせてご提案できます。</p></details>
+      <details><summary>工事は何時間かかりますか</summary><p>1箇所あたりおよそ1時間です。多くは室内からの取り付けで、足場も不要。大がかりな工事にはなりません。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 最終CTA（ナビー背景・強CTA＋電話） ===== -->
+<section class="scene final" style="padding:0;background:var(--navy-deep);">
+  <div class="scene-in">
+    <div class="wrap">
+      <h2 class="serif">もっと早くやればよかった。<br>夏が来るたび、そう思う前に。</h2>
+      <p>「西日で困っているのですが、どうしたらいいですか。」<br>そのひと言から、ぜひ始めてみてください。</p>
+      <div class="cta-block">
+        <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>LINEで無料相談・お見積もり</a>
+        <span class="cta-note" style="color:rgba(255,255,255,0.78);">暑い窓の写真を送るだけ。しつこい営業はいたしません。</span>
+      </div>
+      <div class="tel-line">お電話でも承ります：<a href="tel:0120914180">0120-914-180</a>（平日8:00〜17:00／日・祝定休）</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    フクシマ建材株式会社<br>
+    窓・内窓・外付け日よけ・玄関ドアのリフォーム専門／熊本県・福岡県<br>
+    <a href="https://f-kenzai.com/" target="_blank" rel="noopener">f-kenzai.com</a>
+  </div>
+</footer>
+
+<!-- スマホ追従LINEバー（Bブロック以降のみ表示・JS制御） -->
+<div class="sticky-bar" id="stickyBar">
+  <a class="cta-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener"><span class="ico">L</span>無料で相談してみる</a>
+</div>
+
+<script>
+  // 記事ブロック（Aブロック＝HERO・導入・原因解説）の間は sticky-bar を出さない
+  // Bブロック先頭（#b-block-start）を超えたら出す
+  (function(){
+    var bar = document.getElementById('stickyBar');
+    var anchor = document.getElementById('b-block-start');
+    if (!bar || !anchor) return;
+
+    function onScroll(){
+      var rect = anchor.getBoundingClientRect();
+      // anchor の上端が画面上端より上に来たら（つまり Bブロック に入ったら）表示
+      if (rect.top < window.innerHeight * 0.4) {
+        bar.classList.add('show');
+        document.body.classList.add('sticky-on');
+      } else {
+        bar.classList.remove('show');
+        document.body.classList.remove('sticky-on');
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "requirements_dir": "docs/requirements",
+  "note": "要件MD→実装の2段階フロー対象。enabledをfalseにすると一時解除"
+}
