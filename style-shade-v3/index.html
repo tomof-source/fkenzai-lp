@@ -43,6 +43,10 @@
   .wrap { max-width: 680px; margin: 0 auto; padding: 0 22px; }
   .sans { font-family: 'Noto Sans JP', sans-serif; }
 
+  /* ===== PC：2カラム（左目次サイドバー＋本文） ===== */
+  .page-grid { display: block; }
+  .sidebar-toc { display: none; }
+
   /* ===== 記事ヘッダ（メタ・タイトル・著者・アイキャッチ・目次） ===== */
   .article-header { padding: 36px 0 18px; }
   .meta-tag { display: inline-block; font-size: 0.74rem; color: var(--terra); letter-spacing: 0.18em; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; margin-bottom: 18px; }
@@ -202,11 +206,102 @@
     .figures-inline .num { font-size: 1.9rem; }
     .sticky-line { display: none !important; }
   }
+
+  /* PC（広め）：左目次サイドバー＋本文の2カラムレイアウト */
+  @media (min-width: 1080px) {
+    .page-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      max-width: 1060px;
+      margin: 0 auto;
+      gap: 56px;
+      padding: 0 24px;
+    }
+    .page-grid .wrap { max-width: 100%; margin: 0; padding: 0; }
+    .sidebar-toc { display: block; padding-top: 64px; }
+    .sidebar-toc .toc-inner {
+      position: sticky;
+      top: 24px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+    .sidebar-toc .toc-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      font-weight: 700;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .sidebar-toc ol { list-style: none; counter-reset: side-toc; }
+    .sidebar-toc ol li {
+      counter-increment: side-toc;
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+    .sidebar-toc ol li a {
+      display: block;
+      padding: 12px 12px 12px 42px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.18s, color 0.18s;
+      position: relative;
+    }
+    .sidebar-toc ol li a::before {
+      content: counter(side-toc, decimal-leading-zero);
+      position: absolute;
+      left: 12px;
+      top: 13px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.76rem;
+      color: var(--ink-mute);
+      font-weight: 500;
+    }
+    .sidebar-toc ol li a:hover { color: var(--ink); background: rgba(184,91,46,0.04); }
+    .sidebar-toc ol li a.active {
+      background: var(--line-soft);
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .sidebar-toc ol li a.active::before { color: var(--terra); font-weight: 700; }
+
+    /* PC で本文カラム内の目次（インライン目次）は非表示 */
+    .toc.inline { display: none; }
+  }
 </style>
 </head>
 <body>
 
 <main>
+<div class="page-grid">
+
+<!-- PC専用：左サイドバー目次（モバイルでは非表示） -->
+<aside class="sidebar-toc" aria-hidden="true">
+  <div class="toc-inner">
+    <div class="toc-title">この記事の内容</div>
+    <ol>
+      <li><a href="#h-1">夕方のリビングだけ、妙に暑くなる家</a></li>
+      <li><a href="#h-2">家に入る熱の約7割は、窓から</a></li>
+      <li><a href="#h-3">カーテンで遮るのが、なぜ効きにくいのか</a></li>
+      <li><a href="#h-4">窓の外で日差しを止める、という考え方</a></li>
+      <li><a href="#h-5">外付け日よけという選択肢</a></li>
+      <li><a href="#h-6">他の暑さ対策と比べて、どこが違うのか</a></li>
+      <li><a href="#h-7">費用と工期の目安</a></li>
+      <li><a href="#h-8">実際の施工事例とお客様の声</a></li>
+      <li><a href="#h-9">窓のプロとして20年、考えていること</a></li>
+      <li><a href="#h-10">よくあるご質問</a></li>
+    </ol>
+  </div>
+</aside>
+
 <div class="wrap">
 
   <!-- ===== 記事ヘッダ（メタ・タイトル・著者・アイキャッチ・目次） ===== -->
@@ -232,7 +327,7 @@
       <figcaption>熊本と福岡で年々相談が増えている「夏の窓」の話を、現場の言葉でお伝えします。</figcaption>
     </figure>
 
-    <nav class="toc" aria-label="目次">
+    <nav class="toc inline" aria-label="目次">
       <div class="toc-title">目次</div>
       <ol>
         <li><a href="#h-1">夕方のリビングだけ、妙に暑くなる家</a></li>
@@ -514,6 +609,7 @@
 
   </article>
 </div>
+</div>
 </main>
 
 <footer>
@@ -544,6 +640,34 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     onScroll();
+  })();
+
+  // PC左サイドバー目次：スクロール位置に応じて見出しをハイライト
+  (function(){
+    var links = document.querySelectorAll('.sidebar-toc a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var headings = [];
+    links.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) headings.push({ id: id, el: el, link: a });
+    });
+    function setActive(id){
+      links.forEach(function(a){
+        if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+        else a.classList.remove('active');
+      });
+    }
+    var observer = new IntersectionObserver(function(entries){
+      // 可視中の見出しのうち、最も上に近いものを active に
+      var visibleIds = entries.filter(function(e){ return e.isIntersecting; }).map(function(e){ return e.target.id; });
+      if (visibleIds.length === 0) return;
+      // headings 配列の順で最初に出てくる可視IDを採用
+      for (var i = 0; i < headings.length; i++) {
+        if (visibleIds.indexOf(headings[i].id) !== -1) { setActive(headings[i].id); return; }
+      }
+    }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+    headings.forEach(function(h){ observer.observe(h.el); });
   })();
 </script>
 
