@@ -137,6 +137,19 @@
   .case-inline .case-cap { font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; color: var(--ink-soft); margin: 0 0 4px; }
   .case-inline .case-cap strong { color: var(--ink); font-weight: 700; margin-right: 8px; }
 
+  /* サーモグラフィー実証（左右ペア＋温度ラベル） */
+  .thermo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0 12px; }
+  .thermo-pair figure { margin: 0; }
+  .thermo-pair img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 4px 4px 0 0; }
+  .thermo-pair .t-cap { display: flex; flex-direction: column; align-items: center; padding: 9px 6px 11px; border-radius: 0 0 4px 4px; font-family: 'Noto Sans JP', sans-serif; line-height: 1.3; }
+  .thermo-pair .t-hot .t-cap { background: rgba(184,91,46,0.10); }
+  .thermo-pair .t-cool .t-cap { background: rgba(30,48,80,0.07); }
+  .thermo-pair .t-place { font-size: 0.72rem; color: var(--ink-soft); font-weight: 700; margin-bottom: 3px; text-align: center; }
+  .thermo-pair .t-temp { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 1.5rem; line-height: 1.05; }
+  .thermo-pair .t-temp small { font-size: 0.78rem; margin-left: 1px; font-weight: 700; }
+  .thermo-pair .t-hot .t-temp { color: var(--terra); }
+  .thermo-pair .t-cool .t-temp { color: var(--navy); }
+
   /* インラインCTA（記事内ボタン） */
   .inline-cta { margin: 36px 0; padding: 24px 22px 24px; background: var(--paper-soft); border: 1px solid var(--line); border-radius: 6px; text-align: center; }
   .inline-cta .cta-prelude { font-family: 'Noto Sans JP', sans-serif; font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 14px; line-height: 1.8; }
@@ -293,6 +306,7 @@
       <li><a href="#h-3">カーテンで遮るのが、なぜ効きにくいのか</a></li>
       <li><a href="#h-4">窓の外で日差しを止める、という考え方</a></li>
       <li><a href="#h-5">外付け日よけという選択肢</a></li>
+      <li><a href="#h-jissho">自社の事務所で実際に測ってみた</a></li>
       <li><a href="#h-6">他の暑さ対策と比べて、どこが違うのか</a></li>
       <li><a href="#h-7">費用と工期の目安</a></li>
       <li><a href="#h-8">実際の施工事例とお客様の声</a></li>
@@ -335,6 +349,7 @@
         <li><a href="#h-3">カーテンで遮るのが、なぜ効きにくいのか</a></li>
         <li><a href="#h-4">窓の外で日差しを止める、という考え方</a></li>
         <li><a href="#h-5">外付け日よけという選択肢</a></li>
+        <li><a href="#h-jissho">自社の事務所で実際に測ってみた</a></li>
         <li><a href="#h-6">他の暑さ対策と比べて、どこが違うのか</a></li>
         <li><a href="#h-7">費用と工期の目安</a></li>
         <li><a href="#h-8">実際の施工事例とお客様の声</a></li>
@@ -427,6 +442,48 @@
     <figcaption>使わない時期は巻き上げて収納。生地を長持ちさせることにもつながる。</figcaption>
   </figure>
 
+  <!-- 【自社実証：サーモグラフィー】 室内ロールスクリーン vs 室外シェードの表面温度差 -->
+
+  <h2 id="h-jissho">自社の事務所で、実際に測ってみました</h2>
+
+  <p>「窓の外で止めると効く」「内側で受け止めるだけでは効きにくい」と言葉でお伝えしても、なかなか実感は湧きにくいものです。そこで、私たちの事務所の窓で実際に測ってみました。</p>
+
+  <p>事務所には、ほぼ同じ大きさの窓が左右に並んでいます。<strong>左の窓は室内側にロールスクリーン</strong>を下ろし、<strong>右の窓は外側にスタイルシェード</strong>を下ろしています。片方は「内側で受け止める」、もう片方は「外側で止める」。同じ部屋で、その差をそのまま比べられる状態です。</p>
+
+  <figure>
+    <img src="images/thermo_room.jpg" alt="フクシマ建材事務所の左右の窓。左は室内ロールスクリーン、右は外付けスタイルシェード">
+    <figcaption>弊社事務所の窓。左＝室内側にロールスクリーン、右＝外側にスタイルシェード。ふつうに見ると、明るさが少し違う程度で、大きな差は感じません。</figcaption>
+  </figure>
+
+  <p>見た目はそれほど変わりません。ところが、この同じ窓をサーモグラフィー（表面温度を色で見える化するカメラ）で撮ると、はっきりと差が出ます。</p>
+
+  <figure>
+    <img src="images/thermo_compare.jpg" alt="左右の窓のサーモグラフィー。左の窓が赤く高温、右の窓が緑で低温">
+    <figcaption>同じ部屋・同じ時間に撮影。<strong>左（室内ロールスクリーン）の窓は赤く、右（外付けシェード）の窓は緑〜黄色</strong>。色の赤さが、そのまま表面温度の高さを表しています。</figcaption>
+  </figure>
+
+  <p>数字にすると、もっとはっきりします。それぞれの窓ガラス面の表面温度を測ったのが、次の2枚です。</p>
+
+  <div class="thermo-pair">
+    <figure class="t-hot">
+      <img src="images/thermo_left_30.jpg" alt="左の窓（室内ロールスクリーン）の表面温度30.1度">
+      <span class="t-cap"><span class="t-place">左・室内ロールスクリーン</span><span class="t-temp">30.1<small>℃</small></span></span>
+    </figure>
+    <figure class="t-cool">
+      <img src="images/thermo_right_26.jpg" alt="右の窓（外付けスタイルシェード）の表面温度25.9度">
+      <span class="t-cap"><span class="t-place">右・外付けスタイルシェード</span><span class="t-temp">25.9<small>℃</small></span></span>
+    </figure>
+  </div>
+  <p class="compare-note">※ 弊社事務所にて同条件で実測。数値は窓まわり（ガラス面）の表面温度。気象条件・時間帯によって変わります。</p>
+
+  <p>窓まわりの表面温度で、<strong>およそ4.2℃の差</strong>が出ました。注目していただきたいのは、左の窓には室内側にロールスクリーンを下ろしている、という点です。それでも窓ガラスを通り抜けて入ってきた熱（放射熱）は、内側のスクリーンでは止めきれず、窓そのものが30℃を超えて熱くなっています。お湯を浴槽に入れたあとでフタをしても、お湯がぬるくならないのと同じことです。</p>
+
+  <p>一方、外側でさえぎった右の窓は、そもそも窓自体が熱くなっていません。日差しが窓ガラスに届く前に止めているからです。</p>
+
+  <blockquote class="pull">内側でいくら受け止めても、窓そのものは熱いまま。外で止めると、窓自体が涼しくなる。</blockquote>
+
+  <p>夏の夕方、窓のそばに立ったときに感じる、あの「ジリジリ」とした暑さ。あれは、この窓まわりの表面温度の高さからきています。外付けで止めると、その“じりじり”そのものが小さくなる、というわけです。数字や図だけでなく、実際の室内側の温度でこれだけ差が出ることは、私たち自身も毎年あらためて実感しています。</p>
+
   <!-- 【段階3：比較検討】 4つの選択肢を並べて優位性を示す -->
 
   <h2 id="h-6">他の暑さ対策と比べて、どこが違うのか</h2>
@@ -504,7 +561,7 @@
 
   <h2 id="h-8">実際の施工事例とお客様の声</h2>
 
-  <p>言葉だけでお伝えしても伝わりにくいので、私たちが実際に施工した事例をいくつかご紹介します。</p>
+  <p>サーモグラフィーで窓まわりの温度差はお見せしましたが、実際の住まいでの見た目や仕上がりも気になるところだと思います。私たちが実際に施工した事例を、いくつかご紹介します。</p>
 
   <div class="case-inline">
     <p class="case-cap"><strong>事例 01</strong>南向きのリビング・代表 福嶋の自宅</p>
