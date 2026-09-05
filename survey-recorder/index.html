@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>録音して取り込む ― フクシマ建材 調査アプリ</title>
+<style>
+  :root { --primary:#e8710a; --red:#dc3545; --green:#28a745; --light:#f8f9fa; --border:#dee2e6; --text:#333; --text-light:#666; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Yu Gothic',sans-serif; background:var(--light); color:var(--text); font-size:15px; -webkit-text-size-adjust:100%; }
+  .header { background:var(--primary); color:#fff; padding:14px 16px; font-size:16px; font-weight:600; position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:10px; }
+  .header a { color:#fff; text-decoration:none; font-size:20px; }
+  .page { min-height:calc(100vh - 52px); display:flex; flex-direction:column; align-items:center; padding:24px 16px 40px; max-width:480px; margin:0 auto; }
+  .field { width:100%; margin-bottom:14px; }
+  .label { font-size:13px; font-weight:600; color:var(--text-light); margin-bottom:6px; }
+  input[type=text], input[type=url] { width:100%; padding:12px; border:1.5px solid var(--border); border-radius:10px; font-size:16px; background:#fff; }
+  .time { font-size:64px; font-weight:300; letter-spacing:2px; font-variant-numeric:tabular-nums; margin:20px 0 6px; }
+  .time.on { color:var(--red); }
+  .status { font-size:14px; color:var(--text-light); min-height:20px; text-align:center; }
+  .note { font-size:13px; color:var(--text-light); text-align:center; line-height:1.7; margin-top:14px; }
+  .warn { font-size:13px; color:#b45309; background:#fef3c7; border-radius:10px; padding:10px 12px; margin-top:14px; line-height:1.6; width:100%; }
+  .err { font-size:13px; color:var(--red); background:#fde8ea; border-radius:10px; padding:10px 12px; margin-top:14px; line-height:1.6; width:100%; word-break:break-all; }
+  .ok { font-size:15px; color:var(--green); margin-top:10px; text-align:center; font-weight:600; }
+  .summary { font-size:13px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:12px; margin-top:12px; width:100%; white-space:pre-wrap; line-height:1.6; }
+  .controls { display:flex; align-items:center; justify-content:center; gap:28px; margin-top:28px; width:100%; }
+  .main { width:88px; height:88px; border-radius:50%; border:4px solid #ddd; background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; -webkit-tap-highlight-color:transparent; user-select:none; -webkit-user-select:none; }
+  .main .dot { width:64px; height:64px; border-radius:50%; background:var(--red); transition:all .15s; }
+  .main.paused .dot { width:30px; height:30px; border-radius:6px; }
+  .side { width:64px; height:64px; border-radius:50%; border:none; background:#f3d5d8; color:var(--red); font-size:13px; font-weight:600; cursor:pointer; -webkit-tap-highlight-color:transparent; user-select:none; -webkit-user-select:none; touch-action:none; position:relative; overflow:hidden; }
+  .side .fill { position:absolute; left:0; bottom:0; width:100%; height:0; background:var(--red); opacity:.35; }
+  .side span { position:relative; }
+  .hint { font-size:12px; color:var(--text-light); margin-top:10px; text-align:center; }
+  .progress { width:100%; margin-top:30px; text-align:center; }
+  .spin { width:40px; height:40px; border:4px solid #eee; border-top-color:var(--primary); border-radius:50%; margin:0 auto 12px; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .actions { display:flex; flex-direction:column; gap:10px; width:100%; margin-top:20px; }
+  .btn { padding:14px; border:none; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; text-align:center; width:100%; }
+  .btn-primary { background:var(--primary); color:#fff; }
+  .btn-secondary { background:#fff; color:var(--text); border:1.5px solid var(--border); }
+  .btn-danger { background:#fff; color:var(--red); border:1.5px solid var(--red); }
+  .hidden { display:none !important; }
+  .small { font-size:12px; color:var(--text-light); margin-top:8px; text-align:center; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="header"><a id="backLink" href="#" title="調査アプリへ">&larr;</a><span>録音して取り込む</span></div>
+<div class="page">
+
+  <!-- 初期設定（調査アプリの「別画面で録音する」から開くと自動で入る） -->
+  <div id="setup" class="hidden" style="width:100%;">
+    <div class="warn">設定がまだありません。調査アプリの「録音して取り込む」→「別画面で録音する」から開くと自動で入ります。手で入れる場合は下に貼ってください。</div>
+    <div class="field" style="margin-top:14px;"><div class="label">合言葉（INTAKE_TOKEN）</div><input type="text" id="cfgToken" autocomplete="off"></div>
+    <div class="field"><div class="label">取り込みAPIのURL（/exec）</div><input type="url" id="cfgIntake" autocomplete="off"></div>
+    <div class="field"><div class="label">調査アプリのURL（/exec）</div><input type="url" id="cfgApp" autocomplete="off"></div>
+    <button class="btn btn-primary" id="cfgSave">保存して録音へ</button>
+  </div>
+
+  <div id="recorder" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;">
+    <div class="field"><div class="label">お客様名（あとで確認画面でも入れられます）</div><input type="text" id="customerName" placeholder="例：田中"></div>
+    <div class="time" id="time">00:00</div>
+    <div class="status" id="status">準備OK</div>
+
+    <div id="viewIdle">
+      <div class="controls">
+        <button class="side hidden" id="stopBtn"><div class="fill" id="stopFill"></div><span>停止</span></button>
+        <div class="main" id="mainBtn"><div class="dot"></div></div>
+        <div class="hidden" id="spacer" style="width:64px;"></div>
+      </div>
+      <div class="hint" id="hint">赤いボタンで録音開始</div>
+      <div class="err hidden" id="micErr"></div>
+      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。</div>
+      <div class="warn hidden" id="wakeNote"></div>
+      <div class="warn hidden" id="longNote">25分を超えました。30分で自動的に停止して送信します。</div>
+      <div class="ok hidden" id="savedNote" style="font-size:13px;"></div>
+    </div>
+
+    <div id="viewInterrupted" class="hidden" style="width:100%;">
+      <div class="warn" id="intMsg"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="intSend">ここまでを送る（文字起こしへ）</button>
+        <button class="btn btn-secondary" id="intSendCont">ここまでを送って、続きを録音する</button>
+        <button class="btn btn-danger" id="intDiscard">破棄して録り直す</button>
+      </div>
+    </div>
+
+    <div id="viewSending" class="hidden progress">
+      <div class="spin"></div>
+      <div style="font-weight:600;" id="sendTitle">送信中…</div>
+      <div class="small" id="sendNote"></div>
+    </div>
+
+    <div id="viewError" class="hidden" style="width:100%;">
+      <div class="err" id="errMsg"></div>
+      <div class="note" id="errNote"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="errRetry">もう一度送る</button>
+        <button class="btn btn-secondary hidden" id="errShare">共有する（ボイスメモと同じ経路で送る）</button>
+        <button class="btn btn-secondary" id="errDownload">端末に保存する</button>
+        <button class="btn btn-danger" id="errDiscard">破棄する</button>
+      </div>
+    </div>
+
+    <div id="viewDone" class="hidden" style="width:100%;">
+      <div class="ok" id="doneMsg"></div>
+      <div class="summary" id="doneSummary"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="doneOpen">調査アプリで確認画面を開く</button>
+        <button class="btn btn-secondary" id="doneAgain">もう1件録音する</button>
+      </div>
+      <div class="small" id="doneCount"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var CFG_KEY = 'survey_recorder_cfg';
+  var REC_MAX_SEC = 30 * 60, REC_BITRATE = 32000, AUTO_OPEN_SEC = 3;
+  var KEEP_AWAKE_MP4 = 'data:video/mp4;base64,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';
+  var $ = function(id) { return document.getElementById(id); };
+  function show(id, on) { $(id).classList.toggle('hidden', !on); }
+
+  // ---- 設定（URLの # 以降 → localStorage） ----
+  var cfg = {};
+  try { cfg = JSON.parse(localStorage.getItem(CFG_KEY) || '{}') || {}; } catch (e) { cfg = {}; }
+  var frag = location.hash.charAt(0) === '#' ? location.hash.substring(1) : '';
+  var initialName = '';
+  if (frag) {
+    var q = {};
+    frag.split('&').forEach(function(kv) { var i = kv.indexOf('='); if (i > 0) q[decodeURIComponent(kv.substring(0, i))] = decodeURIComponent(kv.substring(i + 1).replace(/\+/g, ' ')); });
+    if (q.t) cfg.token = q.t;
+    if (q.intake) cfg.intake = q.intake;
+    if (q.app) cfg.app = q.app;
+    if (q.name) initialName = q.name;
+    try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {}
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  }
+  function cfgOk() { return !!(cfg.token && cfg.intake); }
+  function applyCfgUi() {
+    show('setup', !cfgOk()); show('recorder', cfgOk());
+    $('backLink').href = cfg.app || '#';
+    if (!cfg.app) $('backLink').classList.add('hidden');
+  }
+  $('cfgSave').onclick = function() {
+    cfg.token = $('cfgToken').value.trim(); cfg.intake = $('cfgIntake').value.trim(); cfg.app = $('cfgApp').value.trim();
+    if (!cfgOk()) { alert('合言葉と取り込みAPIのURLは必須です'); return; }
+    try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {}
+    applyCfgUi();
+  };
+  applyCfgUi();
+  $('customerName').value = initialName;
+
+  // ---- 録音 ----
+  var state = 'idle', elapsedBase = 0, segStart = 0, tick = null;
+  var mediaRecorder = null, mediaStream = null, chunks = [], recBlob = null, mime = '', sizeBytes = 0;
+  var wakeLock = null, keepAwakeVideo = null, silentCtx = null;
+  var stopTimer = null, stopStartedAt = 0;
+  var savedDrafts = [], lastDraftId = '', lastSummary = '', chainAfterSend = false, autoOpenTimer = null;
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+    $('micErr').textContent = 'この端末・ブラウザではアプリ内録音が使えません。ボイスメモで録音して共有 → 「調査アプリへ送る」を使ってください';
+    show('micErr', true); $('mainBtn').style.opacity = 0.3;
+  }
+
+  function fmt(sec) { var s = Math.max(0, Math.floor(sec)), m = Math.floor(s / 60), r = s % 60; return (m < 10 ? '0' : '') + m + ':' + (r < 10 ? '0' : '') + r; }
+  function sizeText() { return sizeBytes >= 1048576 ? (sizeBytes / 1048576).toFixed(1) + 'MB' : Math.round(sizeBytes / 1024) + 'KB'; }
+  function elapsed() { return elapsedBase + (segStart ? (Date.now() - segStart) / 1000 : 0); }
+  function render() {
+    $('time').textContent = fmt(elapsed());
+    $('time').classList.toggle('on', state === 'recording');
+    $('status').textContent = { idle: '準備OK', recording: '録音中', paused: '一時停止中', interrupted: '中断しました', sending: '', analyzing: '', error: '送信できませんでした', done: '完了' }[state] || '';
+    show('viewIdle', state === 'idle' || state === 'recording' || state === 'paused');
+    show('viewInterrupted', state === 'interrupted');
+    show('viewSending', state === 'sending' || state === 'analyzing');
+    show('viewError', state === 'error');
+    show('viewDone', state === 'done');
+    show('stopBtn', state === 'recording' || state === 'paused'); show('spacer', state === 'recording' || state === 'paused');
+    $('mainBtn').classList.toggle('paused', state === 'paused');
+    $('hint').textContent = state === 'idle' ? '赤いボタンで録音開始' : (state === 'recording' ? '赤いボタンで一時停止 ／ 停止は2秒長押し' : '赤いボタンで再開 ／ 停止は2秒長押し');
+    show('idleNote', state === 'idle');
+    show('longNote', state !== 'idle' && elapsed() >= 25 * 60);
+    $('savedNote').textContent = savedDrafts.length ? 'ここまでの録音は下書きに保存済み（' + savedDrafts.join('、') + '）' : '';
+    show('savedNote', savedDrafts.length > 0);
+    $('customerName').disabled = (state === 'sending' || state === 'analyzing');
+  }
+  function setState(s) { state = s; render(); }
+
+  function pickMime() {
+    var list = ['audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus'];
+    for (var i = 0; i < list.length; i++) { try { if (MediaRecorder.isTypeSupported(list[i])) return list[i]; } catch (e) {} }
+    return '';
+  }
+
+  $('mainBtn').onclick = function() {
+    if (state === 'idle') start(); else if (state === 'recording') pause(); else if (state === 'paused') resume();
+  };
+
+  function start() {
+    show('micErr', false);
+    navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: false, noiseSuppression: false } }).then(function(stream) {
+      mediaStream = stream; mime = pickMime();
+      var opts = { audioBitsPerSecond: REC_BITRATE }; if (mime) opts.mimeType = mime;
+      try { mediaRecorder = new MediaRecorder(stream, opts); } catch (e) { mediaRecorder = new MediaRecorder(stream); }
+      if (!mime && mediaRecorder.mimeType) mime = mediaRecorder.mimeType;
+      chunks = []; sizeBytes = 0; recBlob = null;
+      mediaRecorder.ondataavailable = function(ev) { if (ev.data && ev.data.size) { chunks.push(ev.data); sizeBytes += ev.data.size; } };
+      mediaRecorder.onerror = function(ev) { interrupt('録音エラー: ' + ((ev && ev.error && ev.error.message) || '不明')); };
+      mediaRecorder.onstop = onStop;
+      var track = stream.getAudioTracks()[0];
+      if (track) track.onended = function() { interrupt('マイクの入力が切れました（画面ロックや他のアプリへの切り替えが原因のことが多いです）'); };
+      mediaRecorder.start(1000);
+      elapsedBase = 0; segStart = Date.now();
+      setState('recording');
+      startTick(); keepAwake(); startSilent();
+    }).catch(function(e) {
+      $('micErr').textContent = 'マイクを使えませんでした: ' + (e && e.name ? e.name + ' ' : '') + (e && e.message ? e.message : e) + '。iPhone の設定 → Safari → マイク を「確認」または「許可」にして、このページを開き直してください';
+      show('micErr', true);
+    });
+  }
+  function pause() { if (!mediaRecorder || mediaRecorder.state !== 'recording') return; try { mediaRecorder.pause(); } catch (e) { return; } elapsedBase += (Date.now() - segStart) / 1000; segStart = 0; setState('paused'); }
+  function resume() { if (!mediaRecorder || mediaRecorder.state !== 'paused') return; try { mediaRecorder.resume(); } catch (e) { return; } segStart = Date.now(); setState('recording'); keepAwake(); }
+  function startTick() { stopTick(); tick = setInterval(function() { render(); if (state === 'recording' && elapsed() >= REC_MAX_SEC) stop(); }, 500); }
+  function stopTick() { if (tick) { clearInterval(tick); tick = null; } }
+
+  // 停止は2秒長押し
+  var stopBtn = $('stopBtn');
+  function holdStart(ev) { ev.preventDefault(); if (state !== 'recording' && state !== 'paused') return; holdEnd(); stopStartedAt = Date.now();
+    stopTimer = setInterval(function() { var pct = Math.min(100, (Date.now() - stopStartedAt) / 2000 * 100); $('stopFill').style.height = pct + '%'; if (pct >= 100) { holdEnd(); stop(); } }, 50); }
+  function holdEnd() { if (stopTimer) { clearInterval(stopTimer); stopTimer = null; } $('stopFill').style.height = '0%'; }
+  stopBtn.addEventListener('pointerdown', holdStart); stopBtn.addEventListener('pointerup', holdEnd); stopBtn.addEventListener('pointercancel', holdEnd); stopBtn.addEventListener('pointerleave', holdEnd);
+  stopBtn.addEventListener('contextmenu', function(ev) { ev.preventDefault(); });
+
+  function finalizeElapsed() { if (segStart) { elapsedBase += (Date.now() - segStart) / 1000; segStart = 0; } }
+  function stop() {
+    if (!mediaRecorder) return;
+    finalizeElapsed(); stopTick(); chainAfterSend = false;
+    setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声をまとめています…';
+    try { if (mediaRecorder.state !== 'inactive') mediaRecorder.stop(); else onStop(); } catch (e) { onStop(); }
+  }
+  function interrupt(reason) {
+    if (state !== 'recording' && state !== 'paused') return;
+    finalizeElapsed(); stopTick();
+    $('intMsg').innerHTML = ''; $('intMsg').appendChild(document.createTextNode(reason)); $('intMsg').appendChild(document.createElement('br')); $('intMsg').appendChild(document.createTextNode('ここまでの録音（' + fmt(elapsed()) + '）は残っています。'));
+    setState('interrupted');
+    try { if (mediaRecorder && mediaRecorder.state !== 'inactive') { mediaRecorder.onstop = function() { buildBlob(); stopStream(); }; mediaRecorder.stop(); } else { buildBlob(); stopStream(); } } catch (e) { buildBlob(); stopStream(); }
+    releaseAwake(); stopSilent();
+  }
+  function buildBlob() { var type = (mime || (mediaRecorder && mediaRecorder.mimeType) || 'audio/mp4').split(';')[0]; recBlob = new Blob(chunks, { type: type }); sizeBytes = recBlob.size; return recBlob; }
+  function onStop() { buildBlob(); releaseAwake(); stopSilent(); stopStream(); if (state === 'sending') send(false); }
+  function stopStream() { if (mediaStream) { try { mediaStream.getTracks().forEach(function(t) { t.onended = null; t.stop(); }); } catch (e) {} mediaStream = null; } mediaRecorder = null; }
+  function cleanup() { stopTick(); holdEnd(); try { if (mediaRecorder && mediaRecorder.state !== 'inactive') { mediaRecorder.onstop = null; mediaRecorder.stop(); } } catch (e) {} stopStream(); releaseAwake(); stopSilent(); }
+  function reset(keepName) {
+    cleanup(); if (autoOpenTimer) { clearInterval(autoOpenTimer); autoOpenTimer = null; }
+    var name = $('customerName').value;
+    chunks = []; recBlob = null; sizeBytes = 0; elapsedBase = 0; segStart = 0; chainAfterSend = false; lastDraftId = ''; lastSummary = '';
+    show('wakeNote', false); show('micErr', false);
+    if (!keepName) $('customerName').value = '';
+    else $('customerName').value = name;
+    setState('idle');
+  }
+  function discard() { if ((state === 'recording' || state === 'paused') && !confirm('録音を破棄しますか？')) return; reset(true); }
+
+  function fileName() {
+    var d = new Date(); function z(n) { return (n < 10 ? '0' : '') + n; }
+    var ext = /webm/.test(mime) ? 'webm' : (/ogg/.test(mime) ? 'ogg' : 'm4a');
+    var name = ($('customerName').value || '').replace(/[\\/:*?"<>|]/g, '').trim();
+    return '録音_' + (name ? name + '_' : '') + d.getFullYear() + z(d.getMonth() + 1) + z(d.getDate()) + '-' + z(d.getHours()) + z(d.getMinutes()) + z(d.getSeconds()) + '.' + ext;
+  }
+  function toBase64(blob) { return new Promise(function(res, rej) { var fr = new FileReader(); fr.onload = function() { var s = String(fr.result || ''); res(s.substring(s.indexOf(',') + 1)); }; fr.onerror = function() { rej(new Error('音声の変換に失敗')); }; fr.readAsDataURL(blob); }); }
+
+  function send(thenContinue) {
+    if (!recBlob || !recBlob.size) { $('errMsg').textContent = '録音データが空です'; setState('error'); return; }
+    chainAfterSend = !!thenContinue;
+    setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声 ' + sizeText() + ' を送っています…';
+    var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: recBlob.type || 'audio/mp4', fileName: fileName(), customerName: $('customerName').value || '' };
+    var startedAt = Date.now();
+    toBase64(recBlob).then(function(b64) {
+      payload.base64 = b64;
+      setState('analyzing'); $('sendTitle').textContent = '文字起こし・解析中…'; $('sendNote').textContent = '1分の音声で10秒ほどかかります…';
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = ctrl ? setTimeout(function() { ctrl.abort(); }, 300000) : null;
+      return fetch(cfg.intake, { method: 'POST', mode: 'cors', redirect: 'follow', credentials: 'omit', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined })
+        .then(function(res) { if (timer) clearTimeout(timer); return res.text().then(function(t) {
+          if (!res.ok) throw new Error('取り込みAPI ' + res.status + ': ' + t.substring(0, 200));
+          try { return JSON.parse(t); } catch (e) { throw new Error('取り込みAPIの応答を読めません: ' + t.substring(0, 200)); } }); });
+    }).then(function(r) {
+      if (!r || !r.ok) throw new Error((r && r.error) || '取り込みに失敗しました');
+      lastDraftId = r.draftId || ''; lastSummary = r.summary || '';
+      if (lastDraftId) savedDrafts.push(lastDraftId);
+      recBlob = null; chunks = [];
+      if (chainAfterSend) { chainAfterSend = false; reset(true); start(); return; }
+      $('doneMsg').textContent = '下書きを作りました' + (lastDraftId ? '（' + lastDraftId + '）' : '');
+      $('doneSummary').textContent = lastSummary; show('doneSummary', !!lastSummary);
+      setState('done');
+      if (cfg.app && lastDraftId) startAutoOpen();
+      else { $('doneCount').textContent = '調査アプリを開いて「音声・写真の取り込み」から確認してください'; show('doneOpen', !!cfg.app); }
+    }).catch(function(e) {
+      $('errMsg').textContent = (e && e.message ? e.message : String(e)) + '（' + Math.round((Date.now() - startedAt) / 1000) + '秒）';
+      $('errNote').textContent = '録音（' + fmt(elapsed()) + '・' + sizeText() + '）は消えていません。';
+      var canShare = false; try { canShare = !!(navigator.canShare && navigator.canShare({ files: [new File([''], 'a.m4a', { type: 'audio/mp4' })] })); } catch (x) {}
+      show('errShare', canShare);
+      setState('error');
+    });
+  }
+  function appDraftUrl() { return cfg.app + (cfg.app.indexOf('?') >= 0 ? '&' : '?') + 'draft=' + encodeURIComponent(lastDraftId); }
+  function startAutoOpen() {
+    var n = AUTO_OPEN_SEC;
+    $('doneCount').textContent = n + '秒後に調査アプリの確認画面を開きます（「もう1件録音する」で止まります）';
+    autoOpenTimer = setInterval(function() { n--; if (n <= 0) { clearInterval(autoOpenTimer); autoOpenTimer = null; location.href = appDraftUrl(); } else { $('doneCount').textContent = n + '秒後に調査アプリの確認画面を開きます（「もう1件録音する」で止まります）'; } }, 1000);
+  }
+  $('doneOpen').onclick = function() { if (autoOpenTimer) { clearInterval(autoOpenTimer); autoOpenTimer = null; } if (cfg.app && lastDraftId) location.href = appDraftUrl(); };
+  $('doneAgain').onclick = function() { reset(false); };
+  $('intSend').onclick = function() { send(false); };
+  $('intSendCont').onclick = function() { send(true); };
+  $('intDiscard').onclick = function() { reset(true); };
+  $('errRetry').onclick = function() { send(false); };
+  $('errDiscard').onclick = function() { reset(true); };
+  $('errShare').onclick = function() { if (!recBlob) return; var f = new File([recBlob], fileName(), { type: recBlob.type || 'audio/mp4' }); try { navigator.share({ files: [f], title: f.name }).catch(function() {}); } catch (e) { alert('共有できませんでした: ' + e.message); } };
+  $('errDownload').onclick = function() { if (!recBlob) return; var url = URL.createObjectURL(recBlob); var a = document.createElement('a'); a.href = url; a.download = fileName(); a.target = '_blank'; document.body.appendChild(a); a.click(); setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 2000); };
+
+  // ---- 画面を消さない ----
+  function keepAwake() {
+    if ('wakeLock' in navigator && navigator.wakeLock && navigator.wakeLock.request) {
+      navigator.wakeLock.request('screen').then(function(wl) { wakeLock = wl; show('wakeNote', false); wl.addEventListener('release', function() { wakeLock = null; }); })
+        .catch(function(e) { keepAwakeByVideo('Wake Lock が使えないため（' + (e && e.name ? e.name : e) + '）'); });
+    } else keepAwakeByVideo('この端末は Wake Lock 非対応のため');
+  }
+  function keepAwakeByVideo(why) {
+    try {
+      if (!keepAwakeVideo) {
+        keepAwakeVideo = document.createElement('video');
+        keepAwakeVideo.setAttribute('playsinline', ''); keepAwakeVideo.setAttribute('title', 'keep awake');
+        keepAwakeVideo.style.cssText = 'position:fixed;width:1px;height:1px;opacity:0.01;pointer-events:none;bottom:0;right:0;';
+        var src = document.createElement('source'); src.src = KEEP_AWAKE_MP4; src.type = 'video/mp4'; keepAwakeVideo.appendChild(src);
+        keepAwakeVideo.addEventListener('timeupdate', function() { if (keepAwakeVideo.currentTime > 0.5) keepAwakeVideo.currentTime = Math.random(); });
+        document.body.appendChild(keepAwakeVideo);
+      }
+      var p = keepAwakeVideo.play();
+      var okMsg = why + '、動画ループで画面を点けたままにしています。効かない場合は iPhone の設定 → 画面表示と明るさ → 自動ロックを「なし」にしてください';
+      var ngMsg = why + '、自動ロックを止められませんでした。iPhone の設定 → 画面表示と明るさ → 自動ロックを「なし」にしてから録音してください';
+      if (p && p.then) p.then(function() { $('wakeNote').textContent = okMsg; show('wakeNote', true); }).catch(function() { $('wakeNote').textContent = ngMsg; show('wakeNote', true); });
+    } catch (e) { $('wakeNote').textContent = '自動ロックを止められませんでした。iPhone の設定 → 画面表示と明るさ → 自動ロックを「なし」にしてください'; show('wakeNote', true); }
+  }
+  function releaseAwake() { if (wakeLock) { try { wakeLock.release(); } catch (e) {} wakeLock = null; } if (keepAwakeVideo) { try { keepAwakeVideo.pause(); } catch (e) {} } }
+  function startSilent() { try { var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return; silentCtx = new AC(); var buf = silentCtx.createBuffer(1, silentCtx.sampleRate, silentCtx.sampleRate); var s = silentCtx.createBufferSource(); s.buffer = buf; s.loop = true; var g = silentCtx.createGain(); g.gain.value = 0.001; s.connect(g); g.connect(silentCtx.destination); s.start(); } catch (e) {} }
+  function stopSilent() { if (silentCtx) { try { silentCtx.close(); } catch (e) {} silentCtx = null; } }
+
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState !== 'visible') return;
+    if (state === 'recording' || state === 'paused') {
+      var track = mediaStream && mediaStream.getAudioTracks()[0];
+      var alive = track && track.readyState === 'live' && mediaRecorder && mediaRecorder.state !== 'inactive';
+      if (!alive) interrupt('画面が隠れている間にマイクが止まりました'); else keepAwake();
+    }
+  });
+  window.addEventListener('beforeunload', function(ev) {
+    if (state === 'recording' || state === 'paused' || state === 'interrupted' || state === 'error') { ev.preventDefault(); ev.returnValue = '録音が消えます'; return ev.returnValue; }
+  });
+  $('backLink').addEventListener('click', function(ev) {
+    if ((state === 'recording' || state === 'paused') && !confirm('録音中です。戻ると録音は破棄されます。よろしいですか？')) { ev.preventDefault(); return; }
+    cleanup();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
