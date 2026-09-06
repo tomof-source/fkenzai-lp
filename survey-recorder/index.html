@@ -57,7 +57,9 @@
   </div>
 
   <div id="recorder" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;">
-    <div class="field"><div class="label">お客様名（あとで確認画面でも入れられます）</div><input type="text" id="customerName" placeholder="例：田中"></div>
+    <div class="field"><div class="label">調査担当者（必須）</div><input type="text" id="surveyor" placeholder="例：福嶋" autocomplete="off"></div>
+    <div class="field"><div class="label">お客様名（必須）</div><input type="text" id="customerName" placeholder="例：田中" autocomplete="off"></div>
+    <div class="err hidden" id="nameErr" style="margin-top:0;margin-bottom:10px;">調査担当者とお客様名の2つは必ず入れてから録音を始めてください</div>
     <div class="time" id="time">00:00</div>
     <div class="small hidden" id="segNote" style="margin-top:-4px;"></div>
     <div class="status" id="status">準備OK</div>
@@ -128,7 +130,9 @@
   var cfg = {};
   try { cfg = JSON.parse(localStorage.getItem(CFG_KEY) || '{}') || {}; } catch (e) { cfg = {}; }
   var frag = location.hash.charAt(0) === '#' ? location.hash.substring(1) : '';
-  var initialName = '';
+  var initialName = '', initialSurveyor = '';
+  var SURVEYOR_KEY = 'survey_recorder_surveyor';
+  try { initialSurveyor = localStorage.getItem(SURVEYOR_KEY) || ''; } catch (e) {}
   if (frag) {
     var q = {};
     frag.split('&').forEach(function(kv) { var i = kv.indexOf('='); if (i > 0) q[decodeURIComponent(kv.substring(0, i))] = decodeURIComponent(kv.substring(i + 1).replace(/\+/g, ' ')); });
@@ -136,6 +140,7 @@
     if (q.intake) cfg.intake = q.intake;
     if (q.app) cfg.app = q.app;
     if (q.name) initialName = q.name;
+    if (q.surveyor) { initialSurveyor = q.surveyor; try { localStorage.setItem(SURVEYOR_KEY, q.surveyor); } catch (e) {} }
     try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {}
     try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
   }
@@ -153,6 +158,15 @@
   };
   applyCfgUi();
   $('customerName').value = initialName;
+  $('surveyor').value = initialSurveyor;
+  function namesOk() {
+    var ok = !!($('surveyor').value.trim() && $('customerName').value.trim());
+    show('nameErr', !ok);
+    if (ok) { try { localStorage.setItem(SURVEYOR_KEY, $('surveyor').value.trim()); } catch (e) {} }
+    return ok;
+  }
+  $('surveyor').addEventListener('input', function() { if (namesOk()) show('nameErr', false); });
+  $('customerName').addEventListener('input', function() { if (namesOk()) show('nameErr', false); });
 
   // ---- 録音 ----
   var state = 'idle', elapsedBase = 0, segStart = 0, tick = null;
@@ -191,6 +205,7 @@
     show('segNote', segCount > 1 && (state === 'recording' || state === 'paused'));
     show('savedNote', false);
     $('customerName').disabled = (state === 'sending' || state === 'analyzing');
+    $('surveyor').disabled = (state === 'sending' || state === 'analyzing');
   }
   function setState(s) { state = s; render(); }
 
@@ -201,7 +216,7 @@
   }
 
   $('mainBtn').onclick = function() {
-    if (state === 'idle') start(); else if (state === 'recording') pause(); else if (state === 'paused') resume();
+    if (state === 'idle') { if (!namesOk()) { (!$('surveyor').value.trim() ? $('surveyor') : $('customerName')).focus(); return; } start(); } else if (state === 'recording') pause(); else if (state === 'paused') resume();
   };
 
   function start(isResume) {
@@ -313,7 +328,7 @@
     var list = segments.slice();
     if (!list.length || !list.some(function(b) { return b.size > 0; })) { $('errMsg').textContent = '録音データが空です'; setState('error'); return; }
     setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声 ' + sizeText() + (list.length > 1 ? '（' + list.length + '本）' : '') + ' を送っています…';
-    var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: list[0].type || 'audio/mp4', fileName: fileName(), customerName: $('customerName').value || '' };
+    var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: list[0].type || 'audio/mp4', fileName: fileName(), customerName: $('customerName').value.trim(), surveyor: $('surveyor').value.trim() };
     var startedAt = Date.now();
     var base = fileName().replace(/\.[a-z0-9]+$/i, '');
     Promise.all(list.map(toBase64)).then(function(b64s) {
