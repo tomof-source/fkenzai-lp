@@ -42,9 +42,13 @@
   .hidden { display:none !important; }
   /* v2.11: 録音中の写真（ページ内カメラ。標準カメラに切り替えると Safari が録音を止めるため） */
   .photo-bar { width:100%; margin-top:14px; }
-  .photo-btn { display:flex; align-items:center; justify-content:center; gap:8px; }
+  .photo-row { display:flex; gap:8px; }
+  .photo-row .btn { flex:1 1 0; min-width:0; }
+  .photo-btn { display:flex; align-items:center; justify-content:center; gap:6px; min-height:52px; font-size:15px; white-space:nowrap; padding:12px 6px; }
+  .thumb .unsaved { position:absolute; left:0; bottom:0; right:0; background:rgba(220,53,69,.9); color:#fff; font-size:12px; font-weight:600; text-align:center; line-height:20px; }
+  .save-btn { margin-top:8px; }
   .thumbs { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-  .thumb { position:relative; width:64px; height:64px; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:#fff; }
+  .thumb { position:relative; width:72px; height:72px; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:#fff; }
   .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
   .thumb button { position:absolute; top:0; right:0; width:32px; height:32px; border-radius:0 8px 0 10px; border:none; background:rgba(0,0,0,.6); color:#fff; font-size:18px; line-height:32px; padding:0; cursor:pointer; }
   .cam { position:fixed; inset:0; background:#000; z-index:50; display:flex; flex-direction:column; }
@@ -53,7 +57,7 @@
   .cam-top .rec { display:inline-flex; align-items:center; gap:6px; }
   .cam-top .rec i { width:10px; height:10px; border-radius:50%; background:var(--red); display:inline-block; animation:blink 1s infinite; }
   @keyframes blink { 50% { opacity:.2; } }
-  .cam-top button { background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.6); border-radius:20px; padding:8px 16px; font-size:15px; font-weight:600; min-height:44px; }
+  .cam-top button { background:var(--primary); color:#fff; border:none; border-radius:22px; padding:10px 18px; font-size:15px; font-weight:600; min-height:44px; box-shadow:0 1px 4px rgba(0,0,0,.4); }
   .cam-bottom { display:flex; align-items:center; justify-content:space-between; padding:16px 28px calc(20px + env(safe-area-inset-bottom)); background:#000; }
   .cam-shutter { width:76px; height:76px; border-radius:50%; background:#fff; border:5px solid #999; box-shadow:0 0 0 3px #fff inset; cursor:pointer; -webkit-tap-highlight-color:transparent; }
   .cam-shutter:active { transform:scale(.94); }
@@ -95,12 +99,18 @@
       </div>
       <div class="hint" id="hint">赤いボタンで録音開始</div>
       <div class="photo-bar" id="photoBar">
-        <button class="btn btn-secondary photo-btn" id="photoBtn" type="button"><span aria-hidden="true">&#128247;</span><span>写真を撮る<span id="photoCount"></span></span></button>
+        <div class="photo-row">
+          <button class="btn btn-secondary photo-btn" id="photoBtn" type="button"><span aria-hidden="true">&#128247;</span><span>写真を撮る</span></button><span id="photoCount" class="hidden"></span>
+          <button class="btn btn-secondary photo-btn" id="attachBtn" type="button"><span aria-hidden="true">&#128206;&#xFE0F;</span><span>写真を添付</span></button>
+        </div>
         <div class="thumbs hidden" id="thumbs"></div>
+        <button class="btn btn-primary save-btn hidden" id="saveBtn" type="button">iPhone に保存（未保存<span id="unsavedCount"></span>枚）</button>
+        <div class="small hidden" id="saveNote"></div>
         <input type="file" accept="image/*" capture="environment" id="photoFile" class="hidden">
+        <input type="file" accept="image/*" multiple id="photoLib" class="hidden">
       </div>
       <div class="err hidden" id="micErr"></div>
-      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。<br>写真は「写真を撮る」でこのページの中で撮ります（録音は続きます）。撮った写真は録音と一緒に送られ、確認画面で窓ごとに振り分けます。</div>
+      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。<br>写真は「写真を撮る」でこのページの中で撮ります（録音は続きます）。「保存して閉じる」→「画像を保存」で iPhone の写真にも入ります（各自の Google フォトに残ります）。撮った写真は録音と一緒に送られ、確認画面で窓ごとに振り分けます。</div>
       <div class="warn hidden" id="wakeNote"></div>
       <div class="warn hidden" id="longNote">25分を超えました。30分で自動的に停止して送信します。</div>
       <div class="ok hidden" id="savedNote" style="font-size:13px;"></div>
@@ -147,7 +157,7 @@
 
 <div id="camView" class="cam hidden" aria-label="カメラ">
   <video id="camVideo" playsinline autoplay muted></video>
-  <div class="cam-top"><span class="rec" id="camNote"><i></i>録音は続いています</span><button type="button" id="camClose">閉じる</button></div>
+  <div class="cam-top"><span class="rec" id="camNote"><i></i>録音は続いています</span><button type="button" id="camClose">保存して閉じる</button></div>
   <div class="cam-bottom"><div class="cam-count" id="camCount"></div><button type="button" class="cam-shutter" id="camShutter" aria-label="撮影"></button><div class="cam-last" id="camLast"></div></div>
   <div class="cam-flash" id="camFlash"></div>
 </div>
@@ -298,8 +308,15 @@
   stopBtn.addEventListener('contextmenu', function(ev) { ev.preventDefault(); });
 
   function finalizeElapsed() { if (segStart) { elapsedBase += (Date.now() - segStart) / 1000; segStart = 0; } }
+  // v2.13: 未保存の写真があれば、止める前に一度だけ聞く（止めたあとでは共有シートを開けないため）
+  function confirmUnsavedBeforeSend() {
+    var un = unsavedPhotos().length;
+    if (!(un > 0 && canShareFiles())) return true;
+    return confirm('iPhone に保存していない写真が' + un + '枚あります。このまま送りますか？\n（キャンセル → 「iPhone に保存」で残せます）');
+  }
   function stop() {
     if (!mediaRecorder) return;
+    if (!confirmUnsavedBeforeSend()) { holdEnd(); return; }
     finalizeElapsed(); stopTick();
     setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声をまとめています…';
     try { if (mediaRecorder.state !== 'inactive') mediaRecorder.stop(); else onStop(); } catch (e) { onStop(); }
@@ -411,7 +428,7 @@
   }
   $('doneOpen').onclick = function() { if (autoOpenTimer) { clearInterval(autoOpenTimer); autoOpenTimer = null; } if (cfg.app && lastDraftId) location.href = appDraftUrl(); };
   $('doneAgain').onclick = function() { reset(false); };
-  $('intSend').onclick = function() { stopResumePolling(); send(); };
+  $('intSend').onclick = function() { if (!confirmUnsavedBeforeSend()) return; stopResumePolling(); send(); };
   $('intResume').onclick = function() { tryResume(); };
   $('intDiscard').onclick = function() { reset(true); };
   $('errRetry').onclick = function() { send(); };
@@ -428,11 +445,30 @@
     photos.forEach(function(p, i) {
       var d = document.createElement('div'); d.className = 'thumb';
       var img = document.createElement('img'); img.src = p.thumb; img.alt = p.name; d.appendChild(img);
+      if (!p.saved) { var u = document.createElement('div'); u.className = 'unsaved'; u.textContent = '未保存'; d.appendChild(u); }
       var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', p.name + ' を削除');
       x.onclick = function() { if (!confirm(p.name + ' を消しますか？（撮り直しは現場でしかできません）')) return; photos.splice(i, 1); renderPhotos(); };
       d.appendChild(x); t.appendChild(d);
     });
     show('thumbs', photos.length > 0);
+    var un = unsavedPhotos().length;
+    $('unsavedCount').textContent = un;
+    show('saveBtn', un > 0 && canShareFiles());
+    $('saveNote').textContent = (un > 0 && !canShareFiles()) ? 'この端末では共有が使えないため iPhone の写真には保存できません（下書きには付きます）' : '';
+    show('saveNote', un > 0 && !canShareFiles());
+  }
+  // v2.13: iPhone の写真アプリに保存（共有シートの「画像を保存」）。Web ページから黙って書き込むことはできないので共有シートを使う
+  function unsavedPhotos() { return photos.filter(function(p) { return !p.saved; }); }
+  function canShareFiles() {
+    try { return !!(navigator.share && navigator.canShare && navigator.canShare({ files: [new File([new Blob(['x'], { type: 'image/jpeg' })], 'a.jpg', { type: 'image/jpeg' })] })); } catch (e) { return false; }
+  }
+  function saveToPhone() {
+    var list = unsavedPhotos();
+    if (!list.length || !canShareFiles()) return Promise.resolve(false);
+    var files = list.map(function(p) { return new File([p.blob], p.name, { type: 'image/jpeg' }); });
+    return navigator.share({ files: files, title: '現地写真' }).then(function() {
+      list.forEach(function(p) { p.saved = true; }); renderPhotos(); return true;
+    }).catch(function() { renderPhotos(); return false; });
   }
   function updateCamCount() {
     $('camCount').textContent = photos.length ? photos.length + '枚' : '';
@@ -444,14 +480,14 @@
     if (photos.length >= PHOTO_MAX_COUNT) { alert('写真は1回の録音で' + PHOTO_MAX_COUNT + '枚までです'); return; }
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { $('photoFile').click(); return; }
     // 押した直後の合図（許可ダイアログや起動に1秒前後かかる）
-    $('photoBtn').disabled = true; $('photoCount').textContent = '（カメラを起動中…）';
+    $('photoBtn').disabled = true; $('photoBtn').querySelector('span:last-child').textContent = 'カメラを起動中…';
     navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 }, height: { ideal: 1440 } }, audio: false }).then(function(s) {
       camStream = s;
       var v = $('camVideo'); v.srcObject = s;
       show('camView', true); updateCamCount();
-      $('photoBtn').disabled = false; renderPhotos();
+      $('photoBtn').disabled = false; $('photoBtn').querySelector('span:last-child').textContent = '写真を撮る'; renderPhotos();
       var p = v.play(); if (p && p.catch) p.catch(function() {});
-    }).catch(function() { $('photoBtn').disabled = false; renderPhotos(); $('photoFile').click(); });
+    }).catch(function() { $('photoBtn').disabled = false; $('photoBtn').querySelector('span:last-child').textContent = '写真を撮る'; renderPhotos(); $('photoFile').click(); });
   }
   function closeCamera() {
     if (camStream) { try { camStream.getTracks().forEach(function(t) { t.stop(); }); } catch (e) {} camStream = null; }
@@ -459,7 +495,7 @@
     show('camView', false); renderPhotos();
   }
   function flash() { var f = $('camFlash'); f.classList.add('on'); setTimeout(function() { f.classList.remove('on'); }, 60); }
-  function addPhotoFromSource(src, w, h) {
+  function addPhotoFromSource(src, w, h, saved) {
     if (!w || !h) return;
     var scale = Math.min(1, PHOTO_MAX_PX / Math.max(w, h));
     var cw = Math.round(w * scale), ch = Math.round(h * scale);
@@ -468,7 +504,7 @@
     var tc = document.createElement('canvas'); tc.width = Math.round(cw * ts); tc.height = Math.round(ch * ts); tc.getContext('2d').drawImage(c, 0, 0, tc.width, tc.height);
     var thumb = tc.toDataURL('image/jpeg', 0.7);
     var name = '写真' + (photos.length + 1) + '.jpg';
-    var done = function(b) { if (!b) return; photos.push({ blob: b, thumb: thumb, name: name }); updateCamCount(); renderPhotos(); };
+    var done = function(b) { if (!b) return; photos.push({ blob: b, thumb: thumb, name: name, saved: !!saved }); updateCamCount(); renderPhotos(); };
     if (c.toBlob) c.toBlob(done, 'image/jpeg', 0.85);
     else { var du = c.toDataURL('image/jpeg', 0.85); var bin = atob(du.split(',')[1]); var u8 = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i); done(new Blob([u8], { type: 'image/jpeg' })); }
   }
@@ -482,14 +518,29 @@
   }
   $('photoBtn').onclick = function() { openCamera(); };
   $('camShutter').onclick = function() { shoot(); };
-  $('camClose').onclick = function() { closeCamera(); };
-  $('photoFile').addEventListener('change', function(ev) {
-    var f = ev.target.files && ev.target.files[0]; ev.target.value = '';
-    if (!f) return;
+  $('camClose').onclick = function() {
+    // 保存して閉じる：この回に撮った未保存の写真をまとめて共有シートへ（ユーザー操作の中で呼ぶ必要があるので先に share）
+    var p = saveToPhone();
+    closeCamera();
+    if (p && p.then) p.then(function() { renderPhotos(); });
+  };
+  $('saveBtn').onclick = function() { saveToPhone(); };
+  // 写真を添付：写真ライブラリから複数選択（iPhone の写真にある＝保存済み扱い）
+  $('attachBtn').onclick = function() { $('photoLib').click(); };
+  function addFileAsPhoto(f, saved) {
+    if (photos.length >= PHOTO_MAX_COUNT) { alert('写真は1回の録音で' + PHOTO_MAX_COUNT + '枚までです'); return; }
     var url = URL.createObjectURL(f); var img = new Image();
-    img.onload = function() { addPhotoFromSource(img, img.naturalWidth, img.naturalHeight); URL.revokeObjectURL(url); };
+    img.onload = function() { addPhotoFromSource(img, img.naturalWidth, img.naturalHeight, saved); URL.revokeObjectURL(url); };
     img.onerror = function() { URL.revokeObjectURL(url); alert('写真を読めませんでした'); };
     img.src = url;
+  }
+  $('photoLib').addEventListener('change', function(ev) {
+    var fs = Array.prototype.slice.call(ev.target.files || []); ev.target.value = '';
+    fs.forEach(function(f) { addFileAsPhoto(f, true); });
+  });
+  $('photoFile').addEventListener('change', function(ev) {
+    var f = ev.target.files && ev.target.files[0]; ev.target.value = '';
+    if (f) addFileAsPhoto(f, false);   // 標準カメラの代替経路で撮った写真は iPhone の写真には入っていない
   });
 
   // ---- 画面を消さない ----
