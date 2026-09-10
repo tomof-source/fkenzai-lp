@@ -40,6 +40,29 @@
   .btn-secondary { background:#fff; color:var(--text); border:1.5px solid var(--border); }
   .btn-danger { background:#fff; color:var(--red); border:1.5px solid var(--red); }
   .hidden { display:none !important; }
+  /* v2.11: 録音中の写真（ページ内カメラ。標準カメラに切り替えると Safari が録音を止めるため） */
+  .photo-bar { width:100%; margin-top:14px; }
+  .photo-btn { display:flex; align-items:center; justify-content:center; gap:8px; }
+  .thumbs { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .thumb { position:relative; width:64px; height:64px; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:#fff; }
+  .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+  .thumb button { position:absolute; top:0; right:0; width:32px; height:32px; border-radius:0 8px 0 10px; border:none; background:rgba(0,0,0,.6); color:#fff; font-size:18px; line-height:32px; padding:0; cursor:pointer; }
+  .cam { position:fixed; inset:0; background:#000; z-index:50; display:flex; flex-direction:column; }
+  .cam video { flex:1; width:100%; object-fit:cover; background:#000; min-height:0; }
+  .cam-top { position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:calc(10px + env(safe-area-inset-top)) 14px 10px; color:#fff; font-size:15px; background:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,0)); }
+  .cam-top .rec { display:inline-flex; align-items:center; gap:6px; }
+  .cam-top .rec i { width:10px; height:10px; border-radius:50%; background:var(--red); display:inline-block; animation:blink 1s infinite; }
+  @keyframes blink { 50% { opacity:.2; } }
+  .cam-top button { background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.6); border-radius:20px; padding:8px 16px; font-size:15px; font-weight:600; min-height:44px; }
+  .cam-bottom { display:flex; align-items:center; justify-content:space-between; padding:16px 28px calc(20px + env(safe-area-inset-bottom)); background:#000; }
+  .cam-shutter { width:76px; height:76px; border-radius:50%; background:#fff; border:5px solid #999; box-shadow:0 0 0 3px #fff inset; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .cam-shutter:active { transform:scale(.94); }
+  .cam-count { color:#fff; font-size:15px; min-width:64px; }
+  .cam-last { width:56px; height:56px; border-radius:8px; overflow:hidden; border:2px solid #fff; background:#222; }
+  .cam-last img { width:100%; height:100%; object-fit:cover; display:block; }
+  .cam-last:empty { visibility:hidden; }
+  .cam-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; transition:opacity .25s; }
+  .cam-flash.on { opacity:.8; transition:none; }
   .small { font-size:12px; color:var(--text-light); margin-top:8px; text-align:center; line-height:1.6; }
 </style>
 </head>
@@ -71,8 +94,13 @@
         <div class="hidden" id="spacer" style="width:64px;"></div>
       </div>
       <div class="hint" id="hint">赤いボタンで録音開始</div>
+      <div class="photo-bar" id="photoBar">
+        <button class="btn btn-secondary photo-btn" id="photoBtn" type="button"><span aria-hidden="true">&#128247;</span><span>写真を撮る<span id="photoCount"></span></span></button>
+        <div class="thumbs hidden" id="thumbs"></div>
+        <input type="file" accept="image/*" capture="environment" id="photoFile" class="hidden">
+      </div>
       <div class="err hidden" id="micErr"></div>
-      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。</div>
+      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。<br>写真は「写真を撮る」でこのページの中で撮ります（録音は続きます）。撮った写真は録音と一緒に送られ、確認画面で窓ごとに振り分けます。</div>
       <div class="warn hidden" id="wakeNote"></div>
       <div class="warn hidden" id="longNote">25分を超えました。30分で自動的に停止して送信します。</div>
       <div class="ok hidden" id="savedNote" style="font-size:13px;"></div>
@@ -117,6 +145,12 @@
   </div>
 </div>
 
+<div id="camView" class="cam hidden" aria-label="カメラ">
+  <video id="camVideo" playsinline autoplay muted></video>
+  <div class="cam-top"><span class="rec" id="camNote"><i></i>録音は続いています</span><button type="button" id="camClose">閉じる</button></div>
+  <div class="cam-bottom"><div class="cam-count" id="camCount"></div><button type="button" class="cam-shutter" id="camShutter" aria-label="撮影"></button><div class="cam-last" id="camLast"></div></div>
+  <div class="cam-flash" id="camFlash"></div>
+</div>
 <script>
 (function() {
   'use strict';
@@ -176,6 +210,8 @@
   var segments = [];            // 完了した録音（Blob）。電話などで分かれたぶんを順番に持つ
   var lastDraftId = '', lastSummary = '', autoOpenTimer = null;
   var resumeTimer = null, resumeStartedAt = 0, RESUME_MAX_MS = 20 * 60 * 1000;
+  var photos = [];              // v2.11: 録音中に撮った写真 {blob, thumb, name}
+  var camStream = null, PHOTO_MAX_PX = 1600, PHOTO_MAX_COUNT = 12;
 
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
     $('micErr').textContent = 'この端末・ブラウザではアプリ内録音が使えません。ボイスメモで録音して共有 → 「調査アプリへ送る」を使ってください';
@@ -199,6 +235,7 @@
     $('mainBtn').classList.toggle('paused', state === 'paused');
     $('hint').textContent = state === 'idle' ? '赤いボタンで録音開始' : (state === 'recording' ? '赤いボタンで一時停止 ／ 停止は2秒長押し' : '赤いボタンで再開 ／ 停止は2秒長押し');
     show('idleNote', state === 'idle');
+    show('photoBar', state === 'idle' || state === 'recording' || state === 'paused');
     show('longNote', state !== 'idle' && elapsed() >= 25 * 60);
     var segCount = segments.length + ((state === 'recording' || state === 'paused') ? 1 : 0);
     $('segNote').textContent = segCount > 1 ? (segCount + '本目を録音中（中断した分も同じ調査にまとめて送ります）') : '';
@@ -309,12 +346,13 @@
     cleanup(); if (autoOpenTimer) { clearInterval(autoOpenTimer); autoOpenTimer = null; }
     var name = $('customerName').value;
     chunks = []; recBlob = null; sizeBytes = 0; segments = []; elapsedBase = 0; segStart = 0; lastDraftId = ''; lastSummary = '';
+    closeCamera(); photos = []; renderPhotos();
     show('wakeNote', false); show('micErr', false);
     if (!keepName) $('customerName').value = '';
     else $('customerName').value = name;
     setState('idle');
   }
-  function discard() { if ((state === 'recording' || state === 'paused') && !confirm('録音を破棄しますか？')) return; reset(true); }
+  function discard() { if ((state === 'recording' || state === 'paused') && !confirm('録音を破棄しますか？' + (photos.length ? '（写真' + photos.length + '枚も消えます）' : ''))) return; reset(true); }
 
   function fileName() {
     var d = new Date(); function z(n) { return (n < 10 ? '0' : '') + n; }
@@ -327,11 +365,18 @@
   function send() {
     var list = segments.slice();
     if (!list.length || !list.some(function(b) { return b.size > 0; })) { $('errMsg').textContent = '録音データが空です'; setState('error'); return; }
-    setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声 ' + sizeText() + (list.length > 1 ? '（' + list.length + '本）' : '') + ' を送っています…';
+    closeCamera();
+    var photoList = photos.slice();
+    setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声 ' + sizeText() + (list.length > 1 ? '（' + list.length + '本）' : '') + (photoList.length ? '＋写真' + photoList.length + '枚' : '') + ' を送っています…';
     var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: list[0].type || 'audio/mp4', fileName: fileName(), customerName: $('customerName').value.trim(), surveyor: $('surveyor').value.trim() };
     var startedAt = Date.now();
     var base = fileName().replace(/\.[a-z0-9]+$/i, '');
     Promise.all(list.map(toBase64)).then(function(b64s) {
+      return Promise.all(photoList.map(function(p) { return toBase64(p.blob); })).then(function(pb64s) {
+        if (pb64s.length) payload.photos = pb64s.map(function(b, i) { return { fileName: photoList[i].name, mimeType: 'image/jpeg', base64: b }; });
+        return b64s;
+      });
+    }).then(function(b64s) {
       if (b64s.length === 1) payload.base64 = b64s[0];
       else payload.files = b64s.map(function(b, i) { var ext = /webm/.test(mime) ? 'webm' : (/ogg/.test(mime) ? 'ogg' : 'm4a'); return { mimeType: list[i].type || 'audio/mp4', fileName: base + '_' + (i + 1) + '.' + ext, base64: b }; });
       setState('analyzing'); $('sendTitle').textContent = '文字起こし・解析中…'; $('sendNote').textContent = '1分の音声で10秒ほどかかります…';
@@ -344,7 +389,7 @@
     }).then(function(r) {
       if (!r || !r.ok) throw new Error((r && r.error) || '取り込みに失敗しました');
       lastDraftId = r.draftId || ''; lastSummary = r.summary || '';
-      segments = []; recBlob = null; chunks = []; sizeBytes = 0;
+      segments = []; recBlob = null; chunks = []; sizeBytes = 0; photos = []; renderPhotos();
       $('doneMsg').textContent = '下書きを作りました' + (lastDraftId ? '（' + lastDraftId + '）' : '');
       $('doneSummary').textContent = lastSummary; show('doneSummary', !!lastSummary);
       setState('done');
@@ -352,7 +397,7 @@
       else { $('doneCount').textContent = '調査アプリを開いて「音声・写真の取り込み」から確認してください'; show('doneOpen', !!cfg.app); }
     }).catch(function(e) {
       $('errMsg').textContent = (e && e.message ? e.message : String(e)) + '（' + Math.round((Date.now() - startedAt) / 1000) + '秒）';
-      $('errNote').textContent = '録音（' + fmt(elapsed()) + '・' + sizeText() + (list.length > 1 ? '・' + list.length + '本' : '') + '）は消えていません。';
+      $('errNote').textContent = '録音（' + fmt(elapsed()) + '・' + sizeText() + (list.length > 1 ? '・' + list.length + '本' : '') + '）' + (photoList.length ? 'と写真' + photoList.length + '枚' : '') + 'は消えていません。';
       var canShare = false; try { canShare = !!(navigator.canShare && navigator.canShare({ files: [new File([''], 'a.m4a', { type: 'audio/mp4' })] })); } catch (x) {}
       show('errShare', canShare);
       setState('error');
@@ -373,6 +418,79 @@
   $('errDiscard').onclick = function() { reset(true); };
   $('errShare').onclick = function() { var b = segments[segments.length - 1]; if (!b) return; var f = new File([b], fileName(), { type: recBlob.type || 'audio/mp4' }); try { navigator.share({ files: [f], title: f.name }).catch(function() {}); } catch (e) { alert('共有できませんでした: ' + e.message); } };
   $('errDownload').onclick = function() { var b = segments[segments.length - 1]; if (!b) return; var url = URL.createObjectURL(b); var a = document.createElement('a'); a.href = url; a.download = fileName(); a.target = '_blank'; document.body.appendChild(a); a.click(); setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 2000); };
+
+  // ---- v2.11: 録音中の写真（ページ内カメラ） ----
+  // iPhone の標準カメラアプリに切り替えると Safari がマイクを止めるので、このページの中で video を開いてシャッターを切る。
+  // ページ内カメラが開けない端末では標準カメラ（input capture）に落とす。その場合、録音が止まっても電話中断と同じ自動再開が働く
+  function renderPhotos() {
+    $('photoCount').textContent = photos.length ? '（' + photos.length + '枚）' : '';
+    var t = $('thumbs'); t.innerHTML = '';
+    photos.forEach(function(p, i) {
+      var d = document.createElement('div'); d.className = 'thumb';
+      var img = document.createElement('img'); img.src = p.thumb; img.alt = p.name; d.appendChild(img);
+      var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', p.name + ' を削除');
+      x.onclick = function() { if (!confirm(p.name + ' を消しますか？（撮り直しは現場でしかできません）')) return; photos.splice(i, 1); renderPhotos(); };
+      d.appendChild(x); t.appendChild(d);
+    });
+    show('thumbs', photos.length > 0);
+  }
+  function updateCamCount() {
+    $('camCount').textContent = photos.length ? photos.length + '枚' : '';
+    var last = photos[photos.length - 1];
+    $('camLast').innerHTML = last ? '<img src="' + last.thumb + '" alt="">' : '';
+    $('camNote').innerHTML = state === 'recording' ? '<i></i>録音は続いています' : (state === 'paused' ? '録音は一時停止中' : '');
+  }
+  function openCamera() {
+    if (photos.length >= PHOTO_MAX_COUNT) { alert('写真は1回の録音で' + PHOTO_MAX_COUNT + '枚までです'); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { $('photoFile').click(); return; }
+    // 押した直後の合図（許可ダイアログや起動に1秒前後かかる）
+    $('photoBtn').disabled = true; $('photoCount').textContent = '（カメラを起動中…）';
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 }, height: { ideal: 1440 } }, audio: false }).then(function(s) {
+      camStream = s;
+      var v = $('camVideo'); v.srcObject = s;
+      show('camView', true); updateCamCount();
+      $('photoBtn').disabled = false; renderPhotos();
+      var p = v.play(); if (p && p.catch) p.catch(function() {});
+    }).catch(function() { $('photoBtn').disabled = false; renderPhotos(); $('photoFile').click(); });
+  }
+  function closeCamera() {
+    if (camStream) { try { camStream.getTracks().forEach(function(t) { t.stop(); }); } catch (e) {} camStream = null; }
+    try { $('camVideo').srcObject = null; } catch (e) {}
+    show('camView', false); renderPhotos();
+  }
+  function flash() { var f = $('camFlash'); f.classList.add('on'); setTimeout(function() { f.classList.remove('on'); }, 60); }
+  function addPhotoFromSource(src, w, h) {
+    if (!w || !h) return;
+    var scale = Math.min(1, PHOTO_MAX_PX / Math.max(w, h));
+    var cw = Math.round(w * scale), ch = Math.round(h * scale);
+    var c = document.createElement('canvas'); c.width = cw; c.height = ch; c.getContext('2d').drawImage(src, 0, 0, cw, ch);
+    var ts = Math.min(1, 240 / Math.max(cw, ch));
+    var tc = document.createElement('canvas'); tc.width = Math.round(cw * ts); tc.height = Math.round(ch * ts); tc.getContext('2d').drawImage(c, 0, 0, tc.width, tc.height);
+    var thumb = tc.toDataURL('image/jpeg', 0.7);
+    var name = '写真' + (photos.length + 1) + '.jpg';
+    var done = function(b) { if (!b) return; photos.push({ blob: b, thumb: thumb, name: name }); updateCamCount(); renderPhotos(); };
+    if (c.toBlob) c.toBlob(done, 'image/jpeg', 0.85);
+    else { var du = c.toDataURL('image/jpeg', 0.85); var bin = atob(du.split(',')[1]); var u8 = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i); done(new Blob([u8], { type: 'image/jpeg' })); }
+  }
+  var shootLock = false;
+  function shoot() {
+    var v = $('camVideo');
+    if (!v.videoWidth) return;
+    if (shootLock) return; shootLock = true; setTimeout(function() { shootLock = false; }, 400);   // 二度押しで同じ写真が2枚入るのを防ぐ
+    if (photos.length >= PHOTO_MAX_COUNT) { alert('写真は1回の録音で' + PHOTO_MAX_COUNT + '枚までです'); return; }
+    flash(); addPhotoFromSource(v, v.videoWidth, v.videoHeight);
+  }
+  $('photoBtn').onclick = function() { openCamera(); };
+  $('camShutter').onclick = function() { shoot(); };
+  $('camClose').onclick = function() { closeCamera(); };
+  $('photoFile').addEventListener('change', function(ev) {
+    var f = ev.target.files && ev.target.files[0]; ev.target.value = '';
+    if (!f) return;
+    var url = URL.createObjectURL(f); var img = new Image();
+    img.onload = function() { addPhotoFromSource(img, img.naturalWidth, img.naturalHeight); URL.revokeObjectURL(url); };
+    img.onerror = function() { URL.revokeObjectURL(url); alert('写真を読めませんでした'); };
+    img.src = url;
+  });
 
   // ---- 画面を消さない ----
   function keepAwake() {
