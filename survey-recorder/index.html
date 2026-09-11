@@ -36,6 +36,7 @@
   @keyframes spin { to { transform:rotate(360deg); } }
   .actions { display:flex; flex-direction:column; gap:10px; width:100%; margin-top:20px; }
   .btn { padding:14px; border:none; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer; text-align:center; width:100%; }
+  .btn:disabled { opacity:.5; cursor:not-allowed; }
   .btn-primary { background:var(--primary); color:#fff; }
   .btn-secondary { background:#fff; color:var(--text); border:1.5px solid var(--border); }
   .btn-danger { background:#fff; color:var(--red); border:1.5px solid var(--red); }
@@ -47,6 +48,15 @@
   .photo-btn { display:flex; align-items:center; justify-content:center; gap:6px; min-height:52px; font-size:15px; white-space:nowrap; padding:12px 6px; }
   .thumb .unsaved { position:absolute; left:0; bottom:0; right:0; background:rgba(220,53,69,.9); color:#fff; font-size:12px; font-weight:600; text-align:center; line-height:20px; }
   .save-btn { margin-top:8px; }
+  /* v2.14: ボイスメモを登録 */
+  .memo-list { width:100%; margin-top:10px; }
+  .memo-item { display:flex; align-items:center; gap:10px; background:#fff; border:1px solid var(--border); border-radius:10px; padding:6px 6px 6px 12px; margin-bottom:8px; }
+  .memo-item .nm { flex:1; min-width:0; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .memo-item .sz { font-size:12px; color:var(--text-light); white-space:nowrap; }
+  .memo-item button { width:44px; height:44px; border-radius:50%; border:none; background:#eee; color:var(--text); font-size:18px; flex:0 0 44px; }
+  .memo-desc { font-size:15px; color:var(--text); line-height:1.7; text-align:center; margin-top:8px; }
+  .memo-pick { display:flex; align-items:center; justify-content:center; gap:8px; min-height:56px; border:2px dashed var(--border); background:#fff; }
+  .text-link { background:none; border:none; color:var(--primary); font-size:14px; font-weight:600; text-decoration:underline; padding:10px; min-height:44px; cursor:pointer; }
   .thumbs { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .thumb { position:relative; width:72px; height:72px; border-radius:8px; overflow:hidden; border:1px solid var(--border); background:#fff; }
   .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
@@ -98,6 +108,23 @@
         <div class="hidden" id="spacer" style="width:64px;"></div>
       </div>
       <div class="hint" id="hint">赤いボタンで録音開始</div>
+      <button type="button" class="text-link" id="memoLink">ボイスメモを登録する（録音済みの音声を選ぶ）</button>
+      <div class="err hidden" id="micErr"></div>
+      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。<br>写真は「写真を撮る」でこのページの中で撮ります（録音は続きます）。「保存して閉じる」→「画像を保存」で iPhone の写真にも入ります（各自の Google フォトに残ります）。撮った写真は録音と一緒に送られ、確認画面で窓ごとに振り分けます。</div>
+      <div class="warn hidden" id="wakeNote"></div>
+      <div class="warn hidden" id="longNote">25分を超えました。30分で自動的に停止して送信します。</div>
+      <div class="ok hidden" id="savedNote" style="font-size:13px;"></div>
+    </div>
+
+    <div id="viewMemo" class="hidden" style="width:100%;">
+      <div class="memo-desc">iPhone のボイスメモで「共有」→「ファイルに保存」した音声を選びます（電話で分かれた分は複数選べます）</div>
+      <button class="btn btn-secondary memo-pick" id="memoPick" type="button" style="margin-top:12px;"><span aria-hidden="true">&#128193;</span><span>音声ファイルを選ぶ</span></button>
+      <input type="file" accept="audio/*,.m4a,.mp3,.wav,.aac,.mp4,.caf" multiple id="memoFile" class="hidden">
+      <div class="memo-list" id="memoList"></div>
+      <div class="err hidden" id="memoErr"></div>
+      <div class="small" id="memoNote" style="font-size:13px;">1回に送れるのは合計18MBまで（iPhone のボイスメモで約30分）。超える場合は分けて送ってください。</div>
+    </div>
+
       <div class="photo-bar" id="photoBar">
         <div class="photo-row">
           <button class="btn btn-secondary photo-btn" id="photoBtn" type="button"><span aria-hidden="true">&#128247;</span><span>写真を撮る</span></button><span id="photoCount" class="hidden"></span>
@@ -109,13 +136,10 @@
         <input type="file" accept="image/*" capture="environment" id="photoFile" class="hidden">
         <input type="file" accept="image/*" multiple id="photoLib" class="hidden">
       </div>
-      <div class="err hidden" id="micErr"></div>
-      <div class="note" id="idleNote">画面を点けたまま胸ポケットへ。画面を消す（ロックする）と録音が止まります。<br>録音中は自動ロックを止めます。誤タップが心配なら iOS の「アクセスガイド」（サイドボタン3回押し）を併用してください。<br>電話が来ると iPhone がマイクを電話に渡すため録音は一度止まりますが、通話が終わると自動で続きの録音を始め、停止時にまとめて1つの調査にします。<br>写真は「写真を撮る」でこのページの中で撮ります（録音は続きます）。「保存して閉じる」→「画像を保存」で iPhone の写真にも入ります（各自の Google フォトに残ります）。撮った写真は録音と一緒に送られ、確認画面で窓ごとに振り分けます。</div>
-      <div class="warn hidden" id="wakeNote"></div>
-      <div class="warn hidden" id="longNote">25分を超えました。30分で自動的に停止して送信します。</div>
-      <div class="ok hidden" id="savedNote" style="font-size:13px;"></div>
+    <div id="memoActions" class="actions hidden">
+      <button class="btn btn-primary" id="memoSend" type="button">この音声を送る（文字起こしへ）</button>
+      <button class="btn btn-secondary" id="memoBack" type="button">その場で録音に切り替える</button>
     </div>
-
     <div id="viewInterrupted" class="hidden" style="width:100%;">
       <div class="warn" id="intMsg"></div>
       <div class="small" id="intAuto"></div>
@@ -173,6 +197,7 @@
   // ---- 設定（URLの # 以降 → localStorage） ----
   var cfg = {};
   try { cfg = JSON.parse(localStorage.getItem(CFG_KEY) || '{}') || {}; } catch (e) { cfg = {}; }
+  var startMode = '';   // v2.14: #mode=file ならボイスメモ登録画面から始める
   var frag = location.hash.charAt(0) === '#' ? location.hash.substring(1) : '';
   var initialName = '', initialSurveyor = '';
   var SURVEYOR_KEY = 'survey_recorder_surveyor';
@@ -185,6 +210,7 @@
     if (q.app) cfg.app = q.app;
     if (q.name) initialName = q.name;
     if (q.surveyor) { initialSurveyor = q.surveyor; try { localStorage.setItem(SURVEYOR_KEY, q.surveyor); } catch (e) {} }
+    if (q.mode) startMode = q.mode;
     try { localStorage.setItem(CFG_KEY, JSON.stringify(cfg)); } catch (e) {}
     try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
   }
@@ -221,6 +247,8 @@
   var lastDraftId = '', lastSummary = '', autoOpenTimer = null;
   var resumeTimer = null, resumeStartedAt = 0, RESUME_MAX_MS = 20 * 60 * 1000;
   var photos = [];              // v2.11: 録音中に撮った写真 {blob, thumb, name}
+  var memoFiles = [];           // v2.14: 登録するボイスメモ（File）
+  var MEMO_MAX_BYTES = 18 * 1024 * 1024;
   var camStream = null, PHOTO_MAX_PX = 1600, PHOTO_MAX_COUNT = 12;
 
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
@@ -235,8 +263,10 @@
   function render() {
     $('time').textContent = fmt(elapsed());
     $('time').classList.toggle('on', state === 'recording');
-    $('status').textContent = { idle: '準備OK', recording: '録音中', paused: '一時停止中', interrupted: '中断しました', sending: '', analyzing: '', error: '送信できませんでした', done: '完了' }[state] || '';
+    $('status').textContent = { idle: '準備OK', recording: '録音中', paused: '一時停止中', interrupted: '中断しました', sending: '', analyzing: '', error: '送信できませんでした', done: '完了', memo: 'ボイスメモを登録' }[state] || '';
     show('viewIdle', state === 'idle' || state === 'recording' || state === 'paused');
+    show('viewMemo', state === 'memo'); show('memoActions', state === 'memo');
+    show('time', state !== 'memo');
     show('viewInterrupted', state === 'interrupted');
     show('viewSending', state === 'sending' || state === 'analyzing');
     show('viewError', state === 'error');
@@ -245,7 +275,7 @@
     $('mainBtn').classList.toggle('paused', state === 'paused');
     $('hint').textContent = state === 'idle' ? '赤いボタンで録音開始' : (state === 'recording' ? '赤いボタンで一時停止 ／ 停止は2秒長押し' : '赤いボタンで再開 ／ 停止は2秒長押し');
     show('idleNote', state === 'idle');
-    show('photoBar', state === 'idle' || state === 'recording' || state === 'paused');
+    show('photoBar', state === 'idle' || state === 'recording' || state === 'paused' || state === 'memo');
     show('longNote', state !== 'idle' && elapsed() >= 25 * 60);
     var segCount = segments.length + ((state === 'recording' || state === 'paused') ? 1 : 0);
     $('segNote').textContent = segCount > 1 ? (segCount + '本目を録音中（中断した分も同じ調査にまとめて送ります）') : '';
@@ -363,7 +393,7 @@
     cleanup(); if (autoOpenTimer) { clearInterval(autoOpenTimer); autoOpenTimer = null; }
     var name = $('customerName').value;
     chunks = []; recBlob = null; sizeBytes = 0; segments = []; elapsedBase = 0; segStart = 0; lastDraftId = ''; lastSummary = '';
-    closeCamera(); photos = []; renderPhotos();
+    closeCamera(); photos = []; renderPhotos(); memoFiles = []; renderMemo();
     show('wakeNote', false); show('micErr', false);
     if (!keepName) $('customerName').value = '';
     else $('customerName').value = name;
@@ -380,12 +410,13 @@
   function toBase64(blob) { return new Promise(function(res, rej) { var fr = new FileReader(); fr.onload = function() { var s = String(fr.result || ''); res(s.substring(s.indexOf(',') + 1)); }; fr.onerror = function() { rej(new Error('音声の変換に失敗')); }; fr.readAsDataURL(blob); }); }
 
   function send() {
-    var list = segments.slice();
-    if (!list.length || !list.some(function(b) { return b.size > 0; })) { $('errMsg').textContent = '録音データが空です'; setState('error'); return; }
+    var memoMode = memoFiles.length > 0 && segments.length === 0;
+    var list = memoMode ? memoFiles.slice() : segments.slice();
+    if (!list.length || !list.some(function(b) { return b.size > 0; })) { $('errMsg').textContent = memoMode ? '音声ファイルが選ばれていません' : '録音データが空です'; setState('error'); return; }
     closeCamera();
     var photoList = photos.slice();
     setState('sending'); $('sendTitle').textContent = '送信中…'; $('sendNote').textContent = '音声 ' + sizeText() + (list.length > 1 ? '（' + list.length + '本）' : '') + (photoList.length ? '＋写真' + photoList.length + '枚' : '') + ' を送っています…';
-    var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: list[0].type || 'audio/mp4', fileName: fileName(), customerName: $('customerName').value.trim(), surveyor: $('surveyor').value.trim() };
+    var payload = { token: cfg.token, format: 'json', kind: 'audio', mimeType: list[0].type || 'audio/mp4', fileName: memoMode ? (list[0].name || fileName()) : fileName(), customerName: $('customerName').value.trim(), surveyor: $('surveyor').value.trim() };
     var startedAt = Date.now();
     var base = fileName().replace(/\.[a-z0-9]+$/i, '');
     Promise.all(list.map(toBase64)).then(function(b64s) {
@@ -395,7 +426,7 @@
       });
     }).then(function(b64s) {
       if (b64s.length === 1) payload.base64 = b64s[0];
-      else payload.files = b64s.map(function(b, i) { var ext = /webm/.test(mime) ? 'webm' : (/ogg/.test(mime) ? 'ogg' : 'm4a'); return { mimeType: list[i].type || 'audio/mp4', fileName: base + '_' + (i + 1) + '.' + ext, base64: b }; });
+      else payload.files = b64s.map(function(b, i) { var ext = /webm/.test(mime) ? 'webm' : (/ogg/.test(mime) ? 'ogg' : 'm4a'); return { mimeType: list[i].type || 'audio/mp4', fileName: memoMode ? (list[i].name || (base + '_' + (i + 1) + '.m4a')) : (base + '_' + (i + 1) + '.' + ext), base64: b }; });
       setState('analyzing'); $('sendTitle').textContent = '文字起こし・解析中…'; $('sendNote').textContent = '1分の音声で10秒ほどかかります…';
       var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
       var timer = ctrl ? setTimeout(function() { ctrl.abort(); }, 300000) : null;
@@ -406,7 +437,7 @@
     }).then(function(r) {
       if (!r || !r.ok) throw new Error((r && r.error) || '取り込みに失敗しました');
       lastDraftId = r.draftId || ''; lastSummary = r.summary || '';
-      segments = []; recBlob = null; chunks = []; sizeBytes = 0; photos = []; renderPhotos();
+      segments = []; recBlob = null; chunks = []; sizeBytes = 0; photos = []; renderPhotos(); memoFiles = []; renderMemo();
       $('doneMsg').textContent = '下書きを作りました' + (lastDraftId ? '（' + lastDraftId + '）' : '');
       $('doneSummary').textContent = lastSummary; show('doneSummary', !!lastSummary);
       setState('done');
@@ -414,7 +445,7 @@
       else { $('doneCount').textContent = '調査アプリを開いて「音声・写真の取り込み」から確認してください'; show('doneOpen', !!cfg.app); }
     }).catch(function(e) {
       $('errMsg').textContent = (e && e.message ? e.message : String(e)) + '（' + Math.round((Date.now() - startedAt) / 1000) + '秒）';
-      $('errNote').textContent = '録音（' + fmt(elapsed()) + '・' + sizeText() + (list.length > 1 ? '・' + list.length + '本' : '') + '）' + (photoList.length ? 'と写真' + photoList.length + '枚' : '') + 'は消えていません。';
+      $('errNote').textContent = (memoMode ? 'ボイスメモ（' + list.length + '本）' : '録音（' + fmt(elapsed()) + '・' + sizeText() + (list.length > 1 ? '・' + list.length + '本' : '') + '）') + (photoList.length ? 'と写真' + photoList.length + '枚' : '') + 'は消えていません。';
       var canShare = false; try { canShare = !!(navigator.canShare && navigator.canShare({ files: [new File([''], 'a.m4a', { type: 'audio/mp4' })] })); } catch (x) {}
       show('errShare', canShare);
       setState('error');
@@ -543,6 +574,53 @@
     if (f) addFileAsPhoto(f, false);   // 標準カメラの代替経路で撮った写真は iPhone の写真には入っていない
   });
 
+  // ---- v2.14: ボイスメモを登録（録音済みの音声ファイルを選んで、録音と同じ経路で送る） ----
+  function memoBytes() { return memoFiles.reduce(function(n, f) { return n + f.size; }, 0); }
+  function sizeLabel(n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + 'MB' : Math.round(n / 1024) + 'KB'; }
+  function renderMemo() {
+    var t = $('memoList'); t.innerHTML = '';
+    memoFiles.forEach(function(f, i) {
+      var d = document.createElement('div'); d.className = 'memo-item';
+      var nm = document.createElement('div'); nm.className = 'nm'; nm.textContent = f.name; d.appendChild(nm);
+      var sz = document.createElement('div'); sz.className = 'sz'; sz.textContent = sizeLabel(f.size) + (f.__min ? '・約' + f.__min + '分' : ''); d.appendChild(sz);
+      var x = document.createElement('button'); x.type = 'button'; x.textContent = '×'; x.setAttribute('aria-label', f.name + ' を外す');
+      x.onclick = function() { memoFiles.splice(i, 1); renderMemo(); };
+      d.appendChild(x); t.appendChild(d);
+    });
+    var over = memoBytes() > MEMO_MAX_BYTES;
+    $('memoErr').textContent = over ? '合計 ' + sizeLabel(memoBytes()) + ' で上限の18MBを超えています。ボイスメモを分けて送ってください' : '';
+    show('memoErr', over);
+    $('memoSend').disabled = memoFiles.length === 0 || over;
+    $('memoPick').querySelector('span:last-child').textContent = memoFiles.length ? '音声ファイルを追加する' : '音声ファイルを選ぶ';
+  }
+  function probeDuration(f) {
+    try {
+      var url = URL.createObjectURL(f); var a = document.createElement('audio'); a.preload = 'metadata';
+      a.onloadedmetadata = function() { if (isFinite(a.duration) && a.duration > 0) { f.__min = Math.max(1, Math.round(a.duration / 60)); renderMemo(); } URL.revokeObjectURL(url); };
+      a.onerror = function() { URL.revokeObjectURL(url); };
+      a.src = url;
+    } catch (e) {}
+  }
+  function openMemo() {
+    if (state === 'recording' || state === 'paused') { if (!confirm('録音中です。録音を破棄してボイスメモの登録に切り替えますか？')) return; cleanup(); segments = []; chunks = []; recBlob = null; sizeBytes = 0; elapsedBase = 0; segStart = 0; }
+    setState('memo'); renderMemo();
+  }
+  $('memoLink').onclick = function() { openMemo(); };
+  $('memoBack').onclick = function() { setState('idle'); };
+  $('memoPick').onclick = function() { $('memoFile').click(); };
+  $('memoFile').addEventListener('change', function(ev) {
+    var fs = Array.prototype.slice.call(ev.target.files || []); ev.target.value = '';
+    fs.forEach(function(f) { if (!memoFiles.some(function(m) { return m.name === f.name && m.size === f.size; })) { memoFiles.push(f); probeDuration(f); } });
+    renderMemo();
+  });
+  $('memoSend').onclick = function() {
+    if (!namesOk()) { show('nameErr', true); (!$('surveyor').value.trim() ? $('surveyor') : $('customerName')).focus(); return; }
+    if (!memoFiles.length) return;
+    if (memoBytes() > MEMO_MAX_BYTES) { renderMemo(); return; }
+    if (!confirmUnsavedBeforeSend()) return;
+    send();
+  };
+
   // ---- 画面を消さない ----
   function keepAwake() {
     if ('wakeLock' in navigator && navigator.wakeLock && navigator.wakeLock.request) {
@@ -587,6 +665,7 @@
     cleanup();
   });
   render();
+  if (startMode === 'file' && cfgOk()) { setState('memo'); renderMemo(); }
 })();
 </script>
 </body>
