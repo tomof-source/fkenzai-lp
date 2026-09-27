@@ -7,3 +7,4 @@
 - style-shade-v2 : LIXIL スタイルシェード 夏の西日・暑さ対策LP（V2・ペルソナ会議反映／noindexの限定公開テスト）
 - mado-reno-2026 : 先進的窓リノベ2026 補助金キャンペーンLP（たたき台）
 - survey-recorder : 現場調査アプリ（GAS）用の録音ページ。iPhone の Safari が GAS の枠内でマイクを許可しないため、録音だけここで行い ?draft=ID で調査アプリへ戻る（noindex・社内利用。正本は fkenzai-claudecode の 調査アプリ260330/recorder/）
+- genkan-mitsumori : LIXIL リシェント玄関ドア かんたん見積（片開き・親子／カタログ写真と価格で工事費込みの金額を表示・申し込みはGASで受付／noindexの限定公開テスト）
