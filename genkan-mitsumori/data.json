@@ -74,7 +74,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-17H/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    }
    },
    "34H": {
     "desc": "高断熱ハイグレードモデル。ガラスのない縦木目扉の上部に意匠モールをあしらう。縦長のF型バーハンドル",
@@ -129,7 +133,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-34H/c-BC.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    }
    },
    "12N": {
     "desc": "中央に縦長ガラス、左右は鋼板パネルの縦木目扉。和の趣のデザイン。縦長のA型バーハンドル",
@@ -192,7 +200,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-12N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    }
    },
    "13N": {
     "desc": "中央に縦長ガラススリット、左右は鋼板面。飾りすぎないシンプルモダン系。縦長のA型バーハンドル",
@@ -255,7 +267,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-13N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    }
    },
    "14N": {
     "desc": "高断熱仕様。中央に縦長ガラス、左右は鋼板パネルの縦木目扉。縦長のA型バーハンドル",
@@ -318,7 +334,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-14N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    }
    },
    "15N": {
     "desc": "縦長ガラススリットを片側に寄せ、ハンドル側は鋼板面の縦木目扉。縦長のF型バーハンドル",
@@ -381,7 +401,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-15N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    }
    },
    "16N": {
     "desc": "格子を組み込んだ縦長ガラススリット（高さで格子本数が変化）、ハンドル側は鋼板面。シンプルモダン系。F型バーハンドル",
@@ -444,7 +468,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-16N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    }
    },
    "17N": {
     "desc": "ガラス開口のない縦木目のシンプルな扉。親子は採光なし子扉。縦長のF型バーハンドル",
@@ -519,7 +547,11 @@
       "cls": "アルミ色",
       "img": "img/rechent/hi-17N/c-AG.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    }
    },
    "41N": {
     "desc": "扉上部に採光ガラス、その下は鋼板パネルの腰窓構成。縦木目。縦長のD型バーハンドル",
@@ -556,7 +588,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-41N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    },
    "42N": {
     "desc": "高断熱仕様。扉上部に採光ガラス、下部は鋼板パネルの腰窓構成。縦木目。縦長のD型バーハンドル",
@@ -593,7 +629,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-42N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    },
    "43N": {
     "desc": "高断熱仕様。扉上部に採光ガラス、下部は鋼板パネルの腰窓構成。縦木目。縦長のD型バーハンドル",
@@ -630,7 +670,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-43N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    },
    "44N": {
     "desc": "高断熱仕様。扉上部に採光ガラス、下部は鋼板パネルの腰窓構成。縦木目。縦長のD型バーハンドル",
@@ -667,7 +711,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-44N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    },
    "45N": {
     "desc": "高断熱仕様。扉上部に採光ガラス、下部は鋼板パネルの腰窓構成。縦木目。縦長のD型バーハンドル",
@@ -704,7 +752,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-45N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    },
    "71N": {
     "desc": "板材モールを縦に並べた板張り調にガラスを組み合わせ、天然木の反りまで再現した味わい深い意匠。A型バーハンドル",
@@ -765,7 +817,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-71N/c-BC.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    }
    },
    "72N": {
     "desc": "扉上部に採光ガラス、下部は鋼板パネルの腰窓構成。洋風の格調あるデザイン。縦長のD型バーハンドル",
@@ -802,7 +858,11 @@
       "cls": "木目調",
       "img": "img/rechent/hi-72N/c-BA.jpg"
      }
-    ]
+    ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    }
    }
   },
   "k2": {
@@ -868,6 +928,10 @@
       "img": "img/rechent/k-G12/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G12/hero.jpg"
    },
    "G13": {
@@ -932,6 +996,10 @@
       "img": "img/rechent/k-G13/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G13/hero.jpg"
    },
    "G14": {
@@ -988,6 +1056,10 @@
       "img": "img/rechent/k-G14/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G14/hero.jpg"
    },
    "G15": {
@@ -1044,6 +1116,10 @@
       "img": "img/rechent/k-G15/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G15/hero.jpg"
    },
    "G77": {
@@ -1120,6 +1196,10 @@
       "img": "img/rechent/k-G77/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G77/hero.jpg"
    },
    "G82": {
@@ -1184,6 +1264,10 @@
       "img": "img/rechent/k-G82/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G82/hero.jpg"
    },
    "S14": {
@@ -1258,6 +1342,10 @@
       "img": "img/rechent/k-S14/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "S",
+     "color": "3"
+    },
     "hero": "img/rechent/k-S14/hero.jpg"
    },
    "M12": {
@@ -1322,6 +1410,10 @@
       "img": "img/rechent/k-M12/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-M12/hero.jpg"
    },
    "M17": {
@@ -1430,6 +1522,10 @@
       "img": "img/rechent/k-M17/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M17/hero.jpg"
    },
    "M24": {
@@ -1514,6 +1610,10 @@
       "img": "img/rechent/k-M24/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M24/hero.jpg"
    },
    "M27": {
@@ -1592,6 +1692,10 @@
       "img": "img/rechent/k-M27/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M27/hero.jpg"
    },
    "M28": {
@@ -1670,6 +1774,10 @@
       "img": "img/rechent/k-M28/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M28/hero.jpg"
    },
    "M77": {
@@ -1754,6 +1862,10 @@
       "img": "img/rechent/k-M77/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M77/hero.jpg"
    },
    "M78": {
@@ -1798,6 +1910,10 @@
       "img": "img/rechent/k-M78/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M78/hero.jpg"
    },
    "M83": {
@@ -1886,6 +2002,10 @@
       "img": "img/rechent/k-M83/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-M83/hero.jpg"
    },
    "M84": {
@@ -1942,6 +2062,10 @@
       "img": "img/rechent/k-M84/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M84/hero.jpg"
    },
    "P23": {
@@ -2006,6 +2130,10 @@
       "img": "img/rechent/k-P23/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-P23/hero.jpg"
    },
    "P77": {
@@ -2082,6 +2210,10 @@
       "img": "img/rechent/k-P77/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-P77/hero.jpg"
    },
    "D41": {
@@ -2146,6 +2278,10 @@
       "img": "img/rechent/k-D41/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D41/hero.jpg"
    },
    "D44": {
@@ -2210,6 +2346,10 @@
       "img": "img/rechent/k-D44/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D44/hero.jpg"
    },
    "D77": {
@@ -2274,6 +2414,10 @@
       "img": "img/rechent/k-D77/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D77/hero.jpg"
    },
    "D78": {
@@ -2332,6 +2476,10 @@
       "img": "img/rechent/k-D78/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D78/hero.jpg"
    },
    "D79": {
@@ -2390,6 +2538,10 @@
       "img": "img/rechent/k-D79/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D79/hero.jpg"
    },
    "C15": {
@@ -2440,6 +2592,10 @@
       "img": "img/rechent/k-C15/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "2"
+    },
     "hero": "img/rechent/k-C15/hero.jpg"
    }
   },
@@ -2506,6 +2662,10 @@
       "img": "img/rechent/k-G12/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G12/hero.jpg"
    },
    "G13": {
@@ -2570,6 +2730,10 @@
       "img": "img/rechent/k-G13/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G13/hero.jpg"
    },
    "G14": {
@@ -2626,6 +2790,10 @@
       "img": "img/rechent/k-G14/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G14/hero.jpg"
    },
    "G15": {
@@ -2682,6 +2850,10 @@
       "img": "img/rechent/k-G15/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/k-G15/hero.jpg"
    },
    "G77": {
@@ -2758,6 +2930,10 @@
       "img": "img/rechent/k-G77/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G77/hero.jpg"
    },
    "G82": {
@@ -2822,6 +2998,10 @@
       "img": "img/rechent/k-G82/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-G82/hero.jpg"
    },
    "S14": {
@@ -2896,6 +3076,10 @@
       "img": "img/rechent/k-S14/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "S",
+     "color": "3"
+    },
     "hero": "img/rechent/k-S14/hero.jpg"
    },
    "M12": {
@@ -2960,6 +3144,10 @@
       "img": "img/rechent/k-M12/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-M12/hero.jpg"
    },
    "M17": {
@@ -3068,6 +3256,10 @@
       "img": "img/rechent/k-M17/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M17/hero.jpg"
    },
    "M24": {
@@ -3152,6 +3344,10 @@
       "img": "img/rechent/k-M24/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M24/hero.jpg"
    },
    "M27": {
@@ -3230,6 +3426,10 @@
       "img": "img/rechent/k-M27/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M27/hero.jpg"
    },
    "M28": {
@@ -3308,6 +3508,10 @@
       "img": "img/rechent/k-M28/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M28/hero.jpg"
    },
    "M77": {
@@ -3392,6 +3596,10 @@
       "img": "img/rechent/k-M77/c-AA.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M77/hero.jpg"
    },
    "M78": {
@@ -3436,6 +3644,10 @@
       "img": "img/rechent/k-M78/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M78/hero.jpg"
    },
    "M83": {
@@ -3524,6 +3736,10 @@
       "img": "img/rechent/k-M83/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-M83/hero.jpg"
    },
    "M84": {
@@ -3580,6 +3796,10 @@
       "img": "img/rechent/k-M84/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-M84/hero.jpg"
    },
    "P23": {
@@ -3644,6 +3864,10 @@
       "img": "img/rechent/k-P23/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/k-P23/hero.jpg"
    },
    "P77": {
@@ -3720,6 +3944,10 @@
       "img": "img/rechent/k-P77/c-BC.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "1"
+    },
     "hero": "img/rechent/k-P77/hero.jpg"
    },
    "D41": {
@@ -3784,6 +4012,10 @@
       "img": "img/rechent/k-D41/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D41/hero.jpg"
    },
    "D44": {
@@ -3848,6 +4080,10 @@
       "img": "img/rechent/k-D44/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D44/hero.jpg"
    },
    "D77": {
@@ -3912,6 +4148,10 @@
       "img": "img/rechent/k-D77/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D77/hero.jpg"
    },
    "D78": {
@@ -3970,6 +4210,10 @@
       "img": "img/rechent/k-D78/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D78/hero.jpg"
    },
    "D79": {
@@ -4028,6 +4272,10 @@
       "img": "img/rechent/k-D79/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "3"
+    },
     "hero": "img/rechent/k-D79/hero.jpg"
    },
    "C15": {
@@ -4078,6 +4326,10 @@
       "img": "img/rechent/k-C15/c-BA.jpg"
      }
     ],
+    "handle": {
+     "type": "D",
+     "color": "2"
+    },
     "hero": "img/rechent/k-C15/hero.jpg"
    }
   },
@@ -4150,6 +4402,10 @@
       "img": "img/rechent/al-C11N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/al-C11N/hero.jpg"
    },
    "C12N": {
@@ -4226,6 +4482,10 @@
       "img": "img/rechent/al-C12N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/al-C12N/hero.jpg"
    },
    "C14N": {
@@ -4296,6 +4556,10 @@
       "img": "img/rechent/al-C14N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/al-C14N/hero.jpg"
    },
    "C16N": {
@@ -4372,6 +4636,10 @@
       "img": "img/rechent/al-C16N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/al-C16N/hero.jpg"
    },
    "C17N": {
@@ -4424,6 +4692,10 @@
       "img": "img/rechent/al-C17N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/al-C17N/hero.jpg"
    },
    "C20N": {
@@ -4468,6 +4740,10 @@
       "img": "img/rechent/al-C20N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/al-C20N/hero.jpg"
    },
    "M11N": {
@@ -4512,6 +4788,10 @@
       "img": "img/rechent/al-M11N/c-BB.jpg"
      }
     ],
+    "handle": {
+     "type": "F",
+     "color": "3"
+    },
     "hero": "img/rechent/al-M11N/hero.jpg"
    },
    "C83N": {
@@ -4556,6 +4836,10 @@
       "img": "img/rechent/al-C83N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "1"
+    },
     "hero": "img/rechent/al-C83N/hero.jpg"
    },
    "C84N": {
@@ -4600,6 +4884,10 @@
       "img": "img/rechent/al-C84N/c-AG.jpg"
      }
     ],
+    "handle": {
+     "type": "A",
+     "color": "3"
+    },
     "hero": "img/rechent/al-C84N/hero.jpg"
    }
   }
@@ -4700,6 +4988,24 @@
    "img": "img/rechent/swatch/CA.jpg",
    "page": null,
    "cropped_from": "img/rechent/al-C11N/c-CA.jpg"
+  }
+ },
+ "handles": {
+  "S": {
+   "img": "img/rechent/handle/S.jpg",
+   "page": 176
+  },
+  "A": {
+   "img": "img/rechent/handle/A.jpg",
+   "page": 176
+  },
+  "D": {
+   "img": "img/rechent/handle/D.jpg",
+   "page": 176
+  },
+  "F": {
+   "img": "img/rechent/handle/F.jpg",
+   "page": 176
   }
  }
 }
