@@ -156,6 +156,16 @@ section{padding-block:44px}
 .photo-ai .res{margin-top:10px;font-size:13.5px;padding:10px 12px;border-radius:4px;background:#fff;border-left:3px solid var(--sky)}
 .photo-ai .res.ok{border-left-color:#2E7D32}
 .photo-ai .res.ng{border-left-color:#C77700}
+.ask{margin-top:10px;display:grid;gap:8px}
+.ask b{font-size:14px}
+.ask .btns{display:grid;grid-template-columns:1fr;gap:8px}
+@media (min-width:600px){.ask .btns{grid-template-columns:repeat(3,1fr)}}
+.ask button.guess{border-width:2px;background:var(--sky-3)}
+.ask button em{font-style:normal;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:2px;padding:0 5px;margin-left:6px}
+.ask button{font:inherit;font-size:13.5px;text-align:left;background:#fff;border:1px solid var(--blue);border-radius:4px;padding:10px 12px;cursor:pointer;line-height:1.5;color:var(--ink)}
+.ask button b{display:block;color:var(--blue);font-size:14px}
+.ask button span{font-size:12.5px;color:var(--ink-2)}
+.ask button:hover{background:var(--sky-2)}
 .kinds{grid-template-columns:repeat(4,1fr);max-width:560px}
 .kinds .tile .in img{height:104px}
 .ranma{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center;font-size:13.5px}
@@ -290,6 +300,7 @@ footer .wrap{display:grid;gap:4px}
           <img class="thumb" id="ai-thumb" alt="選んだ玄関の写真" hidden>
         </div>
         <p class="res" id="ai-res" hidden></p>
+        <div class="ask" id="ai-ask" hidden></div>
         <p style="font-size:11.5px;color:var(--ink-3);margin-top:8px">写真は開き方の読み取りだけに使い、保存しません。現地調査を申し込むときだけ、申し込みに添えてお預かりします。</p>
       </div>
       <div class="q">
@@ -301,7 +312,7 @@ footer .wrap{display:grid;gap:4px}
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
         <div class="kinds" id="o-kind"></div>
         <div class="ranma" id="o-ranma"></div>
-        <p class="q-note">袖（開かないガラスの部分）とランマのガラスは、ドアとは別の料金で、金額に含めています。両開き・引戸は、現地調査のときにお見積りします。</p>
+        <p class="q-note">細いほうの部分が開く扉なら「親子」、開かないガラスや格子なら「片袖」です。袖とランマのガラスは、ドアとは別の料金で、金額に含めています。両開き・引戸は、現地調査のときにお見積りします。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 3</span><h3>デザイン</h3><small id="design-count"></small></div>
@@ -726,19 +737,54 @@ function applyAI(j){
     return;
   }
   var note = j.note ? j.note + ' ' : '';
+  document.getElementById('ai-ask').hidden = true;
   if (BASE_OK[j.door_type]){
     st.base = j.door_type; st.ranma = !!j.has_transom;
     render();
+    if (j.door_type === '片開き' || j.door_type === '親子' || j.door_type === '片袖') askOpens(j.door_type);
     var lbl = j.door_type + (j.has_transom ? '（ランマ付き）' : '');
     var fell = st.kind !== kindKey(j.door_type, !!j.has_transom);
-    aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' + (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + note +
-      (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') + '違っていたら、下の STEP 2 で選び直せます。');
+    var asking = j.door_type === '片開き' || j.door_type === '親子' || j.door_type === '片袖';
+    aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' +
+      (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') +
+      (asking ? '' : (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + '違っていたら、下の STEP 2 で選び直せます。'));
   } else if (j.door_type === '両開き' || j.door_type === '引戸'){
     aiMsg('ng', '写真から「' + j.door_type + '」と読み取りました。' + j.door_type + 'は、現地調査のときにお見積りします。申し込みフォームからご相談ください。' + note);
   } else {
     aiMsg('ng', '写真から開き方を読み取れませんでした。' + note + 'お手数ですが、下から選んでください。');
   }
 }
+// 親子と片袖は写真では見分けにくいので、細い部分が開くかをお客様に聞いて決める（家の人なら一目で分かる）
+function priceFor(base){
+  var e = cur(), key = kindKey(base, st.ranma);
+  if (!e.kinds[key]) return null;
+  var c = e.colors.filter(function(x){ return x.code === st.color; })[0];
+  var lp = listPrice(e, key, c ? c.cls : '');
+  if (lp == null) return null;
+  var lock = lockOptions().filter(function(o){ return o.id === st.lock; })[0];
+  return total(lp, lock.add + curHandle().h.add + glassAdd(e, key), st.coop);
+}
+// 片開き・親子・片袖は写真だけでは取り違えやすい（細い子扉が見えにくい、子扉と袖が似ている）。
+// 家の人なら一目で分かるので、扉の横の細い部分について1問だけ聞いて決める
+function askOpens(guess){
+  var box = document.getElementById('ai-ask');
+  var opts = [['片開き','細い部分はない'], ['親子','細い部分も開く扉'], ['片袖','細い部分は開かないガラス・格子']];
+  box.innerHTML = '<b>念のため確認です。扉の横に、細い部分はありますか？</b><div class="btns">' +
+    opts.map(function(o){
+      var pr = priceFor(o[0]);
+      return '<button type="button" data-base="' + o[0] + '"' + (o[0] === guess ? ' class="guess"' : '') + (pr == null ? ' disabled' : '') + '><b>' + o[1] + (o[0] === guess ? '<em>AIの読み取り</em>' : '') + '</b><span>' + o[0] + (st.ranma ? '（ランマ付き）' : '') + '・' + (pr == null ? 'このデザインにはありません' : man(pr)) + '</span></button>';
+    }).join('') + '</div>';
+  box.hidden = false;
+  box.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click', function(){
+      st.base = b.getAttribute('data-base');
+      render();
+      box.hidden = true;
+      aiMsg('ok', '「' + kindLabel() + '」で金額を出しました。違っていたら、下の STEP 2 で選び直せます。');
+    });
+  });
+}
+
 document.getElementById('ai-photo').addEventListener('change', function(ev){
   var f = ev.target.files[0]; if (!f) return;
   aiMsg('', '写真を読み取っています（10秒ほどかかります）…');
