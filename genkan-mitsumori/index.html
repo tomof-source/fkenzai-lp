@@ -494,7 +494,7 @@ var CLASS_ORDER = ['木目調','セレクトカラー','アルミ色'];
 var CLASS_HINT = {'木目調':'標準の木目の色','セレクトカラー':'選べる木目が増える色','アルミ色':'木目のない金属の色'};
 
 var D = null;
-var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M17', color:'CB', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null};
+var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null};
 var BASES = [['片開き','扉1枚'],['親子','大きい扉＋細い扉'],['片袖','扉＋片側にガラス'],['両袖','扉＋両側にガラス']];
 // 袖・ランマ・本体のガラスは有償品で、ドアの価格に含まれない（カタログ172ページ。仕様ごとに用意されている方の定価）
 var GLASS = {hi:{ranma:56000, kata:0, ryo:0}, k2:{ranma:75000, kata:116000, ryo:222000}, k4:{ranma:47100, kata:69000, ryo:125000}, al:{ranma:58000, kata:81000, ryo:139000}};
@@ -854,8 +854,8 @@ form.addEventListener('submit', function(ev){
 
 function start(data){
   D = data;
-  var h = D.grades.k4 && D.grades.k4.M17;
-  if (h && h.hero){ document.getElementById('hero-img').src = img(h.hero); document.getElementById('hero-cap').textContent = 'リシェント 断熱仕様 M17型（ラフアンバーエルム）'; }
+  var h = D.grades.k4 && D.grades.k4.M83;
+  if (h && h.hero){ document.getElementById('hero-img').src = img(h.hero); document.getElementById('hero-cap').textContent = 'リシェント 断熱仕様 M83型（ハンドダウンチェリー）'; }
   render();
 }
 if (window.__DATA) start(window.__DATA);
