@@ -187,7 +187,7 @@ section{padding-block:44px}
 .stage .main{justify-self:center}
 .stage .main img{height:250px;width:auto}
 .stage .side{display:grid;gap:4px;justify-items:center;font-size:11px;color:var(--ink-3);text-align:center;line-height:1.3}
-.stage .side img{height:120px;width:auto;border:1px solid var(--line)}
+.stage .side img{width:64px;height:64px;object-fit:cover;border:1px solid var(--line);border-radius:2px}
 .stage-cap{font-size:11px;color:var(--ink-3);padding:6px 16px 0}
 .r-body{padding:14px 16px 16px;display:grid;gap:12px}
 .r-name{font-size:14px;line-height:1.6}
@@ -368,7 +368,7 @@ footer .wrap{display:grid;gap:4px}
     <aside class="result" aria-live="polite">
       <div class="stage">
         <div class="main"><img id="st-color" src="" alt=""></div>
-        <div class="side"><img id="st-kind" src="" alt=""><span id="st-kind-cap"></span></div>
+        <div class="side"><img id="st-sw" src="" alt=""><span id="st-sw-cap"></span></div>
       </div>
       <p class="stage-cap" id="st-cap"></p>
       <div class="r-body">
@@ -673,12 +673,18 @@ function summary(){
   fe.textContent = fit ? fit.text : '入力すると、選んだドアが取り付けられるサイズかを確かめられます。上のガラス（ランマ）や横のガラス（袖）がある玄関、測れない場合は、現地調査のときにこちらで測ります。';
   var k = e.kinds[st.kind];
   var title = 'リシェント '+gname(st.grade)+' '+st.design+'型';
-  document.getElementById('st-color').src = img(c ? c.img : k.img);
-  document.getElementById('st-color').alt = title+' '+(c?c.name:'');
-  document.getElementById('st-kind').src = img(k.img);
-  document.getElementById('st-kind').alt = kindLabel();
-  document.getElementById('st-kind-cap').textContent = kindLabel()+'の形';
-  document.getElementById('st-cap').textContent = 'カタログの写真です。色の写真は親子の形で撮影されています。';
+  // カタログの色ごとの写真は親子の形で撮られている。親子を選んだときだけ色の写真を使い、
+  // ほかの形は、その形の写真（色はカタログの見本色）を出す。別の形のドアは並べない
+  var useColorPhoto = c && st.kind === '親子';
+  document.getElementById('st-color').src = img(useColorPhoto ? c.img : k.img);
+  document.getElementById('st-color').alt = title+' '+kindLabel()+(useColorPhoto?' '+c.name:'');
+  var sw = c ? D.swatches[c.code] : null;
+  document.getElementById('st-sw').src = sw ? img(sw.img) : '';
+  document.getElementById('st-sw').alt = c ? c.name+'の色見本' : '';
+  document.getElementById('st-sw').hidden = !sw;
+  document.getElementById('st-sw-cap').textContent = c ? '色：'+c.name : '';
+  document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+c.name+'）。'
+    : 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色で、選んだ色は右の色見本です。';
   document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname;
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
   document.getElementById('r-bd').innerHTML =
