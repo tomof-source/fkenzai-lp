@@ -146,6 +146,24 @@ section{padding-block:44px}
 .fit{margin-top:12px;font-size:13.5px;padding:10px 12px;border-radius:4px;background:var(--sky-3);border-left:3px solid var(--sky)}
 .fit.ok{border-left-color:#2E7D32}
 .fit.ng{border-left-color:#C77700;background:#FFF8EC}
+.photo-ai{border:1px dashed var(--sky);background:var(--sky-3);border-radius:4px;padding:14px;margin-bottom:28px}
+.photo-ai h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.photo-ai p{font-size:13px;color:var(--ink-2)}
+.photo-ai .row{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.photo-ai .pick{position:relative;display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--blue);color:var(--blue);font-weight:700;font-size:14px;border-radius:4px;padding:10px 14px;cursor:pointer}
+.photo-ai .pick input{position:absolute;width:1px;height:1px;opacity:0}
+.photo-ai .thumb{height:64px;width:auto;border:1px solid var(--line);border-radius:2px}
+.photo-ai .res{margin-top:10px;font-size:13.5px;padding:10px 12px;border-radius:4px;background:#fff;border-left:3px solid var(--sky)}
+.photo-ai .res.ok{border-left-color:#2E7D32}
+.photo-ai .res.ng{border-left-color:#C77700}
+.kinds{grid-template-columns:repeat(4,1fr);max-width:560px}
+.kinds .tile .in img{height:104px}
+.ranma{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center;font-size:13.5px}
+.ranma b{font-weight:700;margin-right:4px}
+.ranma label{border:1px solid var(--line-2);border-radius:4px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.ranma input{accent-color:var(--blue);margin:0}
+.ranma label:has(input:checked){border-color:var(--blue);background:var(--sky-2)}
+.ranma label:has(input:disabled){opacity:.45;cursor:not-allowed}
 .coop{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:4px;padding:14px;cursor:pointer}
 .coop input{accent-color:var(--blue);width:20px;height:20px;margin-top:3px;flex:none}
 .coop b{display:block}
@@ -264,6 +282,16 @@ footer .wrap{display:grid;gap:4px}
   <div class="sec-title"><span class="en">SIMULATION</span><h2>順に選ぶと、金額が出ます</h2><p>写真と金額は選ぶたびに変わります（スマホでは画面の下に金額が出ます）。</p></div>
   <div class="sim">
     <div>
+      <div class="photo-ai" id="photo-ai">
+        <h3>今の玄関の写真から、開き方を自動で選ぶ</h3>
+        <p>スマホで玄関を外から1枚撮って入れると、AIが開き方と上のガラス（ランマ）の有無を読み取り、下の選択と金額に反映します。写真がなくても、下から選べます。</p>
+        <div class="row">
+          <label class="pick" for="ai-photo"><input type="file" id="ai-photo" accept="image/*">写真を選ぶ・撮る</label>
+          <img class="thumb" id="ai-thumb" alt="選んだ玄関の写真" hidden>
+        </div>
+        <p class="res" id="ai-res" hidden></p>
+        <p style="font-size:11.5px;color:var(--ink-3);margin-top:8px">写真は開き方の読み取りだけに使い、保存しません。現地調査を申し込むときだけ、申し込みに添えてお預かりします。</p>
+      </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 1</span><h3>断熱の性能</h3><small>冬の玄関の寒さが変わります</small></div>
         <div class="list" id="o-grade"></div>
@@ -272,7 +300,8 @@ footer .wrap{display:grid;gap:4px}
       <div class="q">
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
         <div class="kinds" id="o-kind"></div>
-        <p class="q-note">横にガラスの付いた形（袖付き）、両開き、上に明かり窓の付いた形は、現地調査のときにお見積りします。</p>
+        <div class="ranma" id="o-ranma"></div>
+        <p class="q-note">袖（開かないガラスの部分）とランマのガラスは、ドアとは別の料金で、金額に含めています。両開き・引戸は、現地調査のときにお見積りします。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 3</span><h3>デザイン</h3><small id="design-count"></small></div>
@@ -454,7 +483,21 @@ var CLASS_ORDER = ['木目調','セレクトカラー','アルミ色'];
 var CLASS_HINT = {'木目調':'標準の木目の色','セレクトカラー':'選べる木目が増える色','アルミ色':'木目のない金属の色'};
 
 var D = null;
-var st = {grade:'k4', kind:'片開き', design:'M17', color:'CB', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:''};
+var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M17', color:'CB', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null};
+var BASES = [['片開き','扉1枚'],['親子','大きい扉＋細い扉'],['片袖','扉＋片側にガラス'],['両袖','扉＋両側にガラス']];
+// 袖・ランマ・本体のガラスは有償品で、ドアの価格に含まれない（カタログ172ページ。仕様ごとに用意されている方の定価）
+var GLASS = {hi:{ranma:56000, kata:0, ryo:0}, k2:{ranma:75000, kata:116000, ryo:222000}, k4:{ranma:47100, kata:69000, ryo:125000}, al:{ranma:58000, kata:81000, ryo:139000}};
+var BODY_GLASS = 58000; // アルミ仕様の本体ガラス別途品（C20N・C83N・C84N）
+function kindKey(base, ranma){ return base + (ranma ? 'ランマ付' : ''); }
+function kindLabel(){ return st.base + (st.ranma ? '（ランマ付き）' : ''); }
+function glassAdd(e, key, grade){
+  var g = GLASS[grade || st.grade], b = key.replace('ランマ付',''), add = 0;
+  if (key.indexOf('ランマ付') >= 0) add += g.ranma;
+  if (b === '片袖') add += g.kata;
+  if (b === '両袖') add += g.ryo;
+  if (e.bodyGlass) add += BODY_GLASS;
+  return add;
+}
 // ハンドル（カタログ「仕様変更・オプション」のハンドル表。標準の室内アルミ品）
 var HANDLES = [
   {id:'F', name:'F型', desc:'まっすぐな縦長のバー', add:0, colors:['1','3']},
@@ -504,12 +547,13 @@ function fitCheck(){
   if (!w && !h) return null;
   var e = cur(), c = CONV[st.grade], k = e.kinds[st.kind];
   var W = w ? w - c.w : 0, H = h ? h - c.h : 0;
-  var rw = range(k.w), rh = range(e.h);
+  var rw = range(k.w), rh = range(k.h);
   var wOk = !W || (rw && W >= rw[0] && W <= rw[1]), hOk = !H || (rh && H >= rh[0] && H <= rh[1]);
   var res = {ok: wOk && hOk && !!(w && h), partial: !(w && h), text:''};
   if (!wOk || !hOk){
     var alt = '';
-    if (!wOk && st.kind === '片開き' && e.kinds['親子']){ var ro = range(e.kinds['親子'].w); if (ro && W >= ro[0] && W <= ro[1]) alt = '幅からみると「親子」なら入る見込みです。'; }
+    var oy = kindKey('親子', st.ranma);
+    if (!wOk && st.base === '片開き' && e.kinds[oy]){ var ro = range(e.kinds[oy].w); if (ro && W >= ro[0] && W <= ro[1]) alt = '幅からみると「親子」なら入る見込みです。'; }
     res.text = '選んだドアの範囲から外れそうです（'+(!wOk?'幅':'')+(!wOk&&!hOk?'と':'')+(!hOk?'高さ':'')+'）。'+alt+'別のサイズ区分になる場合があるので、現地調査で確かめてお見積りします。';
     res.ok = false; res.ng = true;
   } else if (res.partial){
@@ -534,8 +578,10 @@ function radioRow(name, value, checked, title, sub, right, disabled){
 
 function normalize(){
   var ds = designs();
-  var hasKind = Object.keys(ds).some(function(k){ return ds[k].kinds[st.kind]; });
-  if (!hasKind) st.kind = '片開き';
+  function has(key){ return Object.keys(ds).some(function(k){ return ds[k].kinds[key]; }); }
+  if (!has(kindKey(st.base, st.ranma))) st.ranma = false;
+  if (!has(kindKey(st.base, st.ranma))) st.base = '片開き';
+  st.kind = kindKey(st.base, st.ranma);
   if (!ds[st.design] || !ds[st.design].kinds[st.kind]) st.design = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; })[0];
   var e = cur(), cs = colorsWithPrice(e, st.kind);
   if (!cs.some(function(c){ return c.code === st.color; })){
@@ -550,23 +596,27 @@ function render(){
   // STEP 1
   document.getElementById('o-grade').innerHTML = GRADES.map(function(g){
     var ds = D.grades[g.id] || {}, m = Infinity;
-    Object.keys(ds).forEach(function(k){ if (ds[k].kinds['片開き']) m = Math.min(m, minPrice(ds[k],'片開き')); });
+    Object.keys(ds).forEach(function(k){ if (ds[k].kinds['片開き']) m = Math.min(m, minPrice(ds[k],'片開き') + glassAdd(ds[k],'片開き',g.id)); });
     return radioRow('grade', g.id, st.grade===g.id, g.name, g.desc, isFinite(m) ? '片開き '+man(total(m,0,false))+'〜' : '');
   }).join('');
   // STEP 2
   var ds = designs();
-  document.getElementById('o-kind').innerHTML = ['片開き','親子'].map(function(k){
-    var ok = !!(e.kinds[k]);
-    var any = Object.keys(ds).some(function(d){ return ds[d].kinds[k]; });
-    var src = ok ? img(e.kinds[k].img) : '';
-    var sub = k==='片開き' ? 'ドア1枚' : '大きい扉＋細い扉' + (ok && e.kinds[k].sub ? '（子扉 '+e.kinds[k].sub+'）' : '');
-    return '<label class="tile"><input type="radio" name="kind" value="'+k+'"'+(st.kind===k?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<img src="'+src+'" alt="'+st.design+' '+k+'" loading="lazy">':'')+'<b>'+k+'</b><span>'+sub+'</span></span></label>';
+  document.getElementById('o-kind').innerHTML = BASES.map(function(bs){
+    var b = bs[0], key = kindKey(b, st.ranma);
+    var ok = !!(e.kinds[key]);
+    var any = Object.keys(ds).some(function(d){ return ds[d].kinds[key]; });
+    var src = ok ? img(e.kinds[key].img) : '';
+    return '<label class="tile"><input type="radio" name="kind" value="'+b+'"'+(st.base===b?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<img src="'+src+'" alt="'+st.design+' '+b+'" loading="lazy">':'')+'<b>'+b+'</b><span>'+(any?bs[1]:'この性能にはありません')+'</span></span></label>';
   }).join('');
+  var canR = Object.keys(ds).some(function(d){ return ds[d].kinds[kindKey(st.base, true)]; });
+  document.getElementById('o-ranma').innerHTML = '<b>上のガラス（ランマ）</b>'+
+    '<label><input type="radio" name="ranma" value="0"'+(!st.ranma?' checked':'')+'>なし</label>'+
+    '<label><input type="radio" name="ranma" value="1"'+(st.ranma?' checked':'')+(canR?'':' disabled')+'>あり</label>';
   // STEP 3
   var list = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; });
   document.getElementById('o-design').innerHTML = list.map(function(k){
     var d = ds[k];
-    return '<label class="tile" title="'+esc(d.desc)+'"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span>'+man(total(minPrice(d, st.kind),0,false))+'〜</span></span></label>';
+    return '<label class="tile" title="'+esc(d.desc)+'"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span>'+man(total(minPrice(d, st.kind)+glassAdd(d, st.kind),0,false))+'〜</span></span></label>';
   }).join('');
   document.getElementById('design-count').textContent = list.length + 'デザイン';
   // STEP 4
@@ -602,7 +652,8 @@ function summary(){
   var lp = listPrice(e, st.kind, c ? c.cls : '');
   var lock = lockOptions().filter(function(o){return o.id===st.lock;})[0];
   var ch = curHandle(), hname = ch.h.name+' '+HCOLOR[ch.color][0];
-  var opt = lock.add + ch.h.add;
+  var glass = glassAdd(e, st.kind);
+  var opt = lock.add + ch.h.add + glass;
   var goods = (lp + opt) * RATE;
   var sub = goods + KOUJI + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop);
   var fit = fitCheck();
@@ -614,29 +665,30 @@ function summary(){
   document.getElementById('st-color').src = img(c ? c.img : k.img);
   document.getElementById('st-color').alt = title+' '+(c?c.name:'');
   document.getElementById('st-kind').src = img(k.img);
-  document.getElementById('st-kind').alt = st.kind;
-  document.getElementById('st-kind-cap').textContent = st.kind+'の形';
+  document.getElementById('st-kind').alt = kindLabel();
+  document.getElementById('st-kind-cap').textContent = kindLabel()+'の形';
   document.getElementById('st-cap').textContent = 'カタログの写真です。色の写真は親子の形で撮影されています。';
-  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+st.kind+(k.sub&&st.kind==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname;
+  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname;
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
   document.getElementById('r-bd').innerHTML =
-    '<tr><td>ドア本体・鍵・ハンドル<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
+    '<tr><td>ドア本体・鍵・ハンドル'+(glass?'・ガラス':'')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     '<tr><td>取り付け工事</td><td>'+yen(KOUJI)+'</td></tr>'+
     '<tr><td>古いドアの処分・諸経費</td><td>'+yen(SHOKEI)+'</td></tr>'+
     '<tr><td>消費税（10%）</td><td>'+yen(tax)+'</td></tr>'+
     (st.coop ? '<tr class="minus"><td>写真掲載・アンケートご協力の値引き</td><td>－'+yen(COOP)+'</td></tr>' : '')+
     '<tr class="sum"><td>合計（100円未満は四捨五入）</td><td>'+yen(t)+'</td></tr>';
-  document.getElementById('r-size').innerHTML = '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(e.h)+'mm' + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
-  document.getElementById('bar-spec').textContent = st.design+'型・'+st.kind+'・'+(c?c.name:'');
+  document.getElementById('r-size').innerHTML = '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(k.h)+'mm' + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
+  document.getElementById('bar-spec').textContent = st.design+'型・'+kindLabel()+'・'+(c?c.name:'');
   document.getElementById('bar-price').textContent = yen(t);
-  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+st.kind+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）';
-  st._quote = {design: title, kind: st.kind, sub: k.sub, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+'（'+ch.code+'）', measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt, total: t, size: '幅 '+k.w+'・高さ '+e.h, catalogPage: e.page};
+  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+(st.photo?'｜玄関の写真あり':'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）';
+  st._quote = {design: title, kind: kindLabel(), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+'（'+ch.code+'）', measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt, total: t, size: '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
 }
 
 document.addEventListener('change', function(ev){
   var t = ev.target;
   if (t.name === 'grade') st.grade = t.value;
-  else if (t.name === 'kind') st.kind = t.value;
+  else if (t.name === 'kind') st.base = t.value;
+  else if (t.name === 'ranma') st.ranma = t.value === '1';
   else if (t.name === 'design') st.design = t.value;
   else if (t.name === 'color') st.color = t.value;
   else if (t.name === 'lock') st.lock = t.value;
@@ -652,6 +704,60 @@ document.addEventListener('change', function(ev){
 
 ['m-w','m-h'].forEach(function(id){
   document.getElementById(id).addEventListener('input', function(ev){ st[id==='m-w'?'mw':'mh'] = ev.target.value; summary(); });
+});
+
+// ===== 写真から開き方を読み取る =====
+function shrink(src, max, q, cb){
+  var im = new Image();
+  im.onload = function(){
+    var r = Math.min(1, max / Math.max(im.width, im.height)), cv = document.createElement('canvas');
+    cv.width = Math.round(im.width * r); cv.height = Math.round(im.height * r);
+    cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+    cb(cv.toDataURL('image/jpeg', q));
+  };
+  im.onerror = function(){ cb(null); };
+  im.src = src;
+}
+function aiMsg(cls, text){ var r = document.getElementById('ai-res'); r.hidden = false; r.className = 'res' + (cls ? ' ' + cls : ''); r.textContent = text; }
+var BASE_OK = {'片開き':1,'親子':1,'片袖':1,'両袖':1};
+function applyAI(j){
+  if (!j || !j.ok){
+    aiMsg('ng', j && j.error === 'limit' ? '今日の読み取りの回数が上限に達しました。お手数ですが、下から選んでください。' : '写真の読み取りは準備中です。お手数ですが、下から選んでください。写真は申し込みのときに添えて送れます。');
+    return;
+  }
+  var note = j.note ? j.note + ' ' : '';
+  if (BASE_OK[j.door_type]){
+    st.base = j.door_type; st.ranma = !!j.has_transom;
+    render();
+    var lbl = j.door_type + (j.has_transom ? '（ランマ付き）' : '');
+    var fell = st.kind !== kindKey(j.door_type, !!j.has_transom);
+    aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' + (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + note +
+      (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') + '違っていたら、下の STEP 2 で選び直せます。');
+  } else if (j.door_type === '両開き' || j.door_type === '引戸'){
+    aiMsg('ng', '写真から「' + j.door_type + '」と読み取りました。' + j.door_type + 'は、現地調査のときにお見積りします。申し込みフォームからご相談ください。' + note);
+  } else {
+    aiMsg('ng', '写真から開き方を読み取れませんでした。' + note + 'お手数ですが、下から選んでください。');
+  }
+}
+document.getElementById('ai-photo').addEventListener('change', function(ev){
+  var f = ev.target.files[0]; if (!f) return;
+  aiMsg('', '写真を読み取っています（10秒ほどかかります）…');
+  var fr = new FileReader();
+  fr.onload = function(){
+    shrink(fr.result, 1600, 0.82, function(big){
+      if (!big){ aiMsg('ng', 'この写真は読み込めませんでした。別の写真を選ぶか、下から選んでください。'); return; }
+      st.photo = {name: f.name, data: big};
+      var th = document.getElementById('ai-thumb'); th.src = big; th.hidden = false;
+      summary();
+      if (!ENDPOINT || ENDPOINT.indexOf('__') === 0){ aiMsg('ng', 'このページは確認用のため、写真の読み取りは動きません。下から選んでください。'); return; }
+      shrink(big, 1024, 0.8, function(small){
+        fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'analyze', image: small})})
+          .then(function(r){ return r.json(); }).then(applyAI)
+          .catch(function(){ aiMsg('ng', '通信がうまくいきませんでした。もう一度写真を選ぶか、下から選んでください。'); });
+      });
+    });
+  };
+  fr.readAsDataURL(f);
 });
 
 var form = document.getElementById('applyForm');
@@ -683,7 +789,7 @@ form.addEventListener('submit', function(ev){
       .then(function(r){ return r.json(); }).then(function(j){ finish(j && j.ok); })
       .catch(function(){ finish(false); });
   }
-  if (!photo) { send(null); return; }
+  if (!photo) { send(st.photo || null); return; }
   // 写真は長い辺1600pxに縮めてから送る
   var fr = new FileReader();
   fr.onload = function(){
