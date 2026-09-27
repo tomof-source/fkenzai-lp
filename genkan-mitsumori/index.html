@@ -38,8 +38,22 @@ header.site{border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .logo img{height:46px;width:auto}
-@media (max-width:520px){.logo span{display:none}.tel b{font-size:17px}}
-.logo span{font-size:11px;color:var(--ink-3);line-height:1.4;border-left:1px solid var(--line);padding-left:10px}
+.logo .co{display:grid;line-height:1.35;border-left:1px solid var(--line);padding-left:10px}
+.logo .co b{font-size:16px;font-weight:900;letter-spacing:.02em;color:var(--ink)}
+.logo .co small{font-size:11px;color:var(--ink-3)}
+@media (max-width:520px){header.site .wrap{gap:8px}.logo{gap:8px}.logo img{height:34px}.logo .co{padding-left:8px}.logo .co b{font-size:14px;white-space:nowrap}.logo .co small{display:none}.tel{font-size:0}.tel b{font-size:15px;white-space:nowrap}}
+.review{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:12px;padding:6px 12px;border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--ink);background:#fff;font-size:13px}
+.review .stars{color:#F4B400;letter-spacing:1px;font-size:15px}
+.review b{font-size:18px;font-weight:900;font-variant-numeric:tabular-nums}
+.review small{color:var(--ink-3);font-size:11px}
+.greet{display:grid;gap:20px;align-items:start;max-width:880px}
+@media (min-width:700px){.greet{grid-template-columns:260px 1fr;gap:32px}}
+.greet figure{margin:0}
+.greet img{width:100%;height:auto;border-radius:4px}
+.greet figcaption{margin-top:8px;font-size:13px;color:var(--ink-2);line-height:1.5}
+.greet figcaption b{display:block;font-size:17px;color:var(--ink)}
+.greet p{color:var(--ink-2);font-size:15px}
+.greet p + p{margin-top:10px}
 .tel{text-align:right;font-size:11px;color:var(--ink-3);line-height:1.3}
 .tel b{display:block;font-size:19px;color:var(--ink);letter-spacing:.02em;font-variant-numeric:tabular-nums;user-select:all}
 
@@ -268,16 +282,17 @@ footer .wrap{display:grid;gap:4px}
 <div class="notice"><div class="wrap">このページはテスト公開中です。金額はLIXILのカタログ価格（2026年5月版）をもとにした目安です。</div></div>
 
 <header class="site"><div class="wrap">
-  <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt="フクシマ建材"><span>窓と玄関の<br>リフォーム専門</span></a>
+  <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本・福岡 窓と玄関のリフォーム専門店</small></span></a>
   <div class="tel">無料相談 平日 8:00〜17:00<b>0120-914-180</b></div>
 </div></header>
 
 <main>
 <section class="hero" style="padding-block:0"><div class="wrap">
   <div>
-    <div class="kicker">LIXIL リシェント玄関ドア かんたん見積</div>
+    <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント玄関ドア かんたん見積</div>
     <h1><span class="ph">選んだ玄関ドアの</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
-    <p class="lead">断熱の性能、開き方、デザイン、色、鍵を選ぶだけで、取り付け工事と古いドアの処分まで含めた金額を表示します。サイズは現地調査でこちらが測ります。サイズによって金額が変わる場合は、工事の前に理由と金額をお伝えします。</p>
+    <a class="review" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span>Googleクチコミ</span><span class="stars" aria-hidden="true">★★★★★</span><b>4.8</b><span>194件</span><small>2026年9月時点</small></a>
+    <p class="lead">熊本県菊池市のフクシマ建材株式会社がお届けする、玄関ドア交換の見積です。断熱の性能、開き方、デザイン、色、鍵を選ぶだけで、取り付け工事と古いドアの処分まで含めた金額を表示します。サイズは現地調査でこちらが測ります。サイズによって金額が変わる場合は、工事の前に理由と金額をお伝えします。</p>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
       <div><b>1日で交換</b>今の枠の上から取り付け</div>
@@ -418,6 +433,18 @@ footer .wrap{display:grid;gap:4px}
   <details><summary>補助金は使えますか</summary><p>断熱の性能によっては、国の補助金の対象になる場合があります。対象かどうかと金額は、時期や条件により異なります。現地調査のときに確認してお伝えします。</p></details>
   <details><summary>工事の日は家にいないといけませんか</summary><p>工事の始めと終わりの確認のために、いていただきます。工事は1日で終わります。</p></details>
   <details><summary>実物を見てから決めたいです</summary><p>菊池市泗水町の体験型ショールーム「マドラボ」で、玄関ドアの実物を見て触っていただけます。色見本の貸出もしています。</p></details>
+</div></section>
+
+<section id="greeting"><div class="wrap">
+  <div class="sec-title"><span class="en">GREETING</span><h2>ごあいさつ</h2></div>
+  <div class="greet">
+    <figure><img src="img/fukushima.jpg" alt="フクシマ建材株式会社 代表取締役 福嶋智和" loading="lazy" width="600" height="450"><figcaption><b>福嶋 智和</b>フクシマ建材株式会社 代表取締役</figcaption></figure>
+    <div>
+      <p>フクシマ建材(株)の代表・福嶋です。熊本県菊池市で、窓と玄関のリフォームをしています。玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で、1日で交換します。</p>
+      <p>このページの金額は、LIXILのカタログ価格をもとに、取り付け工事と古いドアの処分まで含めて出しています。現地調査では私たちが寸法を測り、その場で最終の金額をお伝えします。</p>
+      <p>分からないことがあれば、遠慮なくご相談ください。</p>
+    </div>
+  </div>
 </div></section>
 
 <section id="apply"><div class="wrap">
