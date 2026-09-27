@@ -224,6 +224,11 @@ section{padding-block:44px}
 .pricebar .p b{font-size:22px;font-weight:900;color:var(--blue);font-variant-numeric:tabular-nums}
 .pricebar .btn{padding:12px 16px;font-size:14px;flex:none}
 @media (min-width:980px){.pricebar{display:none}}
+/* フクろう親方の相談ボタン：金額バーが出る幅（〜979px）では、バーの「申し込む」と重ならないよう上へ逃がす。
+   480px以下は親方側がもともと下から110pxに置くので、ここでは触らない */
+@media (min-width:481px) and (max-width:979px){#fkenzai-ai-launcher{bottom:92px!important}#fkenzai-ai-banner{bottom:92px!important}#fkenzai-ai-teaser{bottom:176px!important}#fkenzai-ai-panel{bottom:176px!important;max-height:calc(100vh - 196px)!important}}
+/* パソコン幅は右側の金額パネルが画面に貼り付くので、親方は左下へ。右のままだと合計金額が隠れたままになる */
+@media (min-width:980px){#fkenzai-ai-launcher,#fkenzai-ai-banner,#fkenzai-ai-teaser,#fkenzai-ai-panel{right:auto!important;left:20px!important}}
 
 .promise{display:grid;gap:0;border-top:1px solid var(--line)}
 @media (min-width:760px){.promise{grid-template-columns:repeat(3,1fr)}}
@@ -895,5 +900,7 @@ if (window.__DATA) start(window.__DATA);
 else fetch('data.json').then(function(r){ return r.json(); }).then(start);
 })();
 </script>
+<!-- フクろう親方 AIチャット（f-kenzai.com と同じ相談ボタン） -->
+<script src="https://fkenzai-ai-hisho.pages.dev/widget/fkenzai-ai.js" defer></script>
 </body>
 </html>
