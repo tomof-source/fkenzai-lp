@@ -167,6 +167,16 @@
       "h": "1841～2356",
       "img": "img/rechent/hi-12N/oyako.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "木目調": 1029200,
+       "アルミ色": 932400
+      },
+      "w": "1586～1828",
+      "h": "1841～2356",
+      "img": "img/rechent/hi-12N/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -186,6 +196,16 @@
       "w": "1098～1361",
       "h": "2076～2600",
       "img": "img/rechent/hi-12N/oyako-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "木目調": 985200,
+       "アルミ色": 885400
+      },
+      "w": "1586～1828",
+      "h": "2076～2600",
+      "img": "img/rechent/hi-12N/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -256,6 +276,16 @@
       "h": "1841～2356",
       "img": "img/rechent/hi-13N/oyako.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "木目調": 1029200,
+       "アルミ色": 932400
+      },
+      "w": "1470～1828",
+      "h": "1841～2356",
+      "img": "img/rechent/hi-13N/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -275,6 +305,16 @@
       "w": "1040～1361",
       "h": "2076～2600",
       "img": "img/rechent/hi-13N/oyako-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "木目調": 985200,
+       "アルミ色": 885400
+      },
+      "w": "1470～1828",
+      "h": "2076～2600",
+      "img": "img/rechent/hi-13N/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -1186,6 +1226,16 @@
       "h": "1739～2439",
       "img": "img/rechent/k-G12/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 1001800,
+       "木目調": 944200
+      },
+      "w": "1476～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-G12/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -1225,6 +1275,16 @@
       "w": "1080～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-G12/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 919600,
+       "木目調": 861000
+      },
+      "w": "1476～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-G12/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -1558,6 +1618,15 @@
       "h": "1739～2439",
       "img": "img/rechent/k-G15/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "木目調": 894200
+      },
+      "w": "1370～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-G15/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -1593,6 +1662,15 @@
       "w": "1030～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-G15/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "木目調": 819000
+      },
+      "w": "1370～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-G15/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -2704,6 +2782,17 @@
       "h": "1739～2439",
       "img": "img/rechent/k-M28/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 878800,
+       "木目調": 820200,
+       "アルミ色": 749400
+      },
+      "w": "1370～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-M28/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -2747,6 +2836,17 @@
       "w": "1030～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-M28/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 813600,
+       "木目調": 755000,
+       "アルミ色": 686200
+      },
+      "w": "1370～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-M28/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -4402,6 +4502,16 @@
       "h": "1739～2439",
       "img": "img/rechent/k-G12/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 902800,
+       "木目調": 844200
+      },
+      "w": "1476～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-G12/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -4441,6 +4551,16 @@
       "w": "1080～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-G12/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 828600,
+       "木目調": 771000
+      },
+      "w": "1476～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-G12/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -4774,6 +4894,15 @@
       "h": "1739～2439",
       "img": "img/rechent/k-G15/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "木目調": 795200
+      },
+      "w": "1370～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-G15/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -4809,6 +4938,15 @@
       "w": "1030～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-G15/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "木目調": 729000
+      },
+      "w": "1370～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-G15/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -5920,6 +6058,17 @@
       "h": "1739～2439",
       "img": "img/rechent/k-M28/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 778800,
+       "木目調": 720200,
+       "アルミ色": 665400
+      },
+      "w": "1370～1873",
+      "h": "1739～2439",
+      "img": "img/rechent/k-M28/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -5963,6 +6112,17 @@
       "w": "1030～1695",
       "h": "1974～2600",
       "img": "img/rechent/k-M28/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "セレクトカラー": 721600,
+       "木目調": 663000,
+       "アルミ色": 610200
+      },
+      "w": "1370～1873",
+      "h": "1974～2600",
+      "img": "img/rechent/k-M28/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -7896,6 +8056,16 @@
       "h": "1738～2438",
       "img": "img/rechent/al-C14N/ryousode.jpg"
      },
+     "両開き": {
+      "sub": "",
+      "p": {
+       "木目調": 772200,
+       "アルミ色": 643400
+      },
+      "w": "1464～1796",
+      "h": "1738～2438",
+      "img": "img/rechent/al-C14N/ryobiraki.jpg"
+     },
      "片開きランマ付": {
       "sub": "",
       "p": {
@@ -7935,6 +8105,16 @@
       "w": "1077～1895",
       "h": "1973～2600",
       "img": "img/rechent/al-C14N/ryousode-r.jpg"
+     },
+     "両開きランマ付": {
+      "sub": "",
+      "p": {
+       "木目調": 690000,
+       "アルミ色": 577200
+      },
+      "w": "1464～1796",
+      "h": "1973～2600",
+      "img": "img/rechent/al-C14N/ryobiraki-r.jpg"
      }
     },
     "colors": [
@@ -8780,6 +8960,48 @@
   "F": {
    "img": "img/rechent/handle/F.jpg",
    "page": 176
+  }
+ },
+ "clips": {
+  "card3": {
+   "img": "img/rechent/lock/card3.jpg",
+   "page": 210
+  },
+  "tag3": {
+   "img": "img/rechent/lock/tag3.jpg",
+   "page": 210
+  },
+  "owner": {
+   "img": "img/rechent/lock/owner.jpg",
+   "page": 210
+  },
+  "std4": {
+   "img": "img/rechent/lock/std4.jpg",
+   "page": 210
+  },
+  "remote": {
+   "img": "img/rechent/lock/remote.jpg",
+   "page": 210
+  },
+  "use_phone": {
+   "img": "img/rechent/lock/use_phone.jpg",
+   "page": 199
+  },
+  "use_remote": {
+   "img": "img/rechent/lock/use_remote.jpg",
+   "page": 199
+  },
+  "use_card": {
+   "img": "img/rechent/lock/use_card.jpg",
+   "page": 199
+  },
+  "use_manual": {
+   "img": "img/rechent/lock/use_manual.jpg",
+   "page": 199
+  },
+  "compare": {
+   "img": "img/rechent/grade/compare.jpg",
+   "page": 49
   }
  }
 }
