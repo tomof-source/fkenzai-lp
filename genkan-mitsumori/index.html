@@ -242,14 +242,25 @@ section{padding-block:44px}
 .extra h3{font-size:14px;color:var(--ink);margin-bottom:6px}
 .extra ul{margin:0;padding-left:1.2em;display:grid;gap:2px}
 
-.flow{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:f}
-@media (min-width:760px){.flow{grid-template-columns:repeat(4,1fr)}}
-.flow li{padding:16px 16px 16px 0;border-top:2px solid var(--line);counter-increment:f}
-@media (min-width:760px){.flow li{padding-right:20px}}
-.flow li::before{content:counter(f,decimal-leading-zero);display:block;font-size:22px;font-weight:900;color:var(--sky);font-variant-numeric:tabular-nums;margin-bottom:4px}
-.flow li:first-child{border-top-color:var(--blue)}
-.flow h3{font-size:15px;font-weight:700}
-.flow p{font-size:13.5px;color:var(--ink-2)}
+/* 流れ：アイコン付きのカードを線でつなぐ */
+.flow-lead{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 20px}
+.flow-lead span{font-size:13px;font-weight:700;color:var(--blue-d);background:var(--sky-2);border-radius:999px;padding:5px 14px}
+.flow{list-style:none;margin:0;padding:0;display:grid;gap:14px;position:relative}
+.flow li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:4px 14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px}
+.flow .ic{grid-row:span 3;width:64px;height:64px;border-radius:50%;background:var(--sky-2);display:grid;place-items:center}
+.flow .ic svg{width:34px;height:34px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.flow .no{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
+.flow h3{font-size:16px;font-weight:900;line-height:1.4}
+.flow p{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.flow .tag{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:#8A5A00;background:#FFF6E0;border-radius:3px;padding:1px 8px}
+@media (max-width:759px){.flow li + li::before{content:"";position:absolute;left:47px;top:-15px;width:2px;height:14px;background:var(--sky)}}
+@media (min-width:760px){
+  .flow{grid-template-columns:repeat(4,1fr);gap:18px}
+  .flow li{grid-template-columns:1fr;justify-items:center;align-content:start;text-align:center;padding:22px 16px 18px}
+  .flow .ic{grid-row:auto;width:76px;height:76px;margin-bottom:6px}
+  .flow .ic svg{width:40px;height:40px}
+  .flow li + li::before{content:"";position:absolute;left:-18px;top:58px;width:18px;height:2px;background:var(--sky)}
+}
 
 details{border-bottom:1px solid var(--line);padding-block:14px;max-width:780px}
 details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
@@ -573,12 +584,13 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 </div></section>
 
 <section id="flow"><div class="wrap">
-  <div class="sec-title"><span class="en">FLOW</span><h2>ご契約まで、お会いするのは1回です</h2></div>
+  <div class="sec-title"><span class="en">FLOW</span><h2>玄関ドアの交換は、こんな流れで進みます</h2></div>
+  <div class="flow-lead"><span>ご契約までにお伺いするのは、現地調査の1回だけ</span><span>工事は1日で終わります</span></div>
   <ol class="flow">
-    <li><h3>この画面で金額を見る</h3><p>気になるドアを選んで、工事費込みの金額を確かめます。</p></li>
-    <li><h3>現地調査を申し込む</h3><p>選んだ内容がそのまま担当に届きます。玄関の写真を付けていただくと、当日の確認が早く済みます。</p></li>
-    <li><h3>現地調査（30分ほど）</h3><p>寸法と今の枠の状態を見て、その場で最終の金額をお出しします。</p></li>
-    <li><h3>工事は1日</h3><p>今のドア枠の上から新しい枠をかぶせるカバー工法で、壁や床を壊さずに交換します。</p></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 8.5h6M9 11.5h6M9 14.5h3"/></svg></span><span class="no">STEP 1</span><h3>この画面で金額を確かめる</h3><p>気になるドアを選ぶと、工事費込みの金額がすぐに出ます。ご家族と相談するときは、見積書をPDFで保存しておくと便利です。</p></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v11H8l-4 3.5z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><span class="no">STEP 2</span><h3>現地調査を申し込む</h3><p>選んだドアと金額は、そのまま私たちに届きます。今の玄関の写真を1枚付けていただけると、当日の確認がぐっと早くなります。</p></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v4M11 7v3M15 7v4M19 7v3"/></svg></span><span class="no">STEP 3</span><h3>現地調査にお伺いします</h3><p>寸法と今の枠の状態を確かめて、その場で最終のお見積りをお出しします。何度もお時間をいただくことはありません。</p><span class="tag">30分ほど</span></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="1"/><path d="M15 12h.01"/><path d="M3 21.5h18"/></svg></span><span class="no">STEP 4</span><h3>工事は1日で終わります</h3><p>今のドア枠の上から新しい枠をかぶせるカバー工法なので、壁や床を壊しません。その日のうちに、新しい玄関ドアで過ごせます。</p><span class="tag">1日で交換</span></li>
   </ol>
 </div></section>
 
