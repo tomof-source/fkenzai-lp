@@ -23,6 +23,7 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.8;padding-bottom:84px}
 @media (min-width:980px){body{padding-bottom:0}}
 img{max-width:100%;display:block}
+[hidden]{display:none!important}
 a{color:var(--blue)}
 h1,h2,h3,h4{margin:0;line-height:1.4;text-wrap:balance}
 p{margin:0}
@@ -281,6 +282,104 @@ textarea{min-height:90px}
 
 footer{border-top:1px solid var(--line);padding-block:28px;font-size:12.5px;color:var(--ink-2)}
 footer .wrap{display:grid;gap:4px}
+/* Googleクチコミ（大きく） */
+.review-big{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:2px 14px;margin-top:16px;padding:12px 16px;border:1px solid #F1D48A;border-radius:6px;background:#FFFBEF;text-decoration:none;color:var(--ink);max-width:460px}
+.review-big .g{grid-row:span 2;font-weight:900;font-size:13px;color:var(--ink-2);line-height:1.3;text-align:center}
+.review-big .g b{display:block;font-size:30px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.review-big .stars{color:#F4B400;font-size:22px;letter-spacing:2px;line-height:1.2}
+.review-big .cnt{font-size:13px;color:var(--ink-2)}
+.review-big .cnt u{text-decoration:none;color:var(--blue);font-weight:700;margin-left:6px;white-space:nowrap}
+.rv-band{display:grid;gap:18px;align-items:center}
+@media (min-width:760px){.rv-band{grid-template-columns:auto 1fr}}
+.rv-band .review-big{margin-top:0}
+.rv-band p{color:var(--ink-2)}
+/* 選び始め */
+.sim-intro{display:grid;gap:16px;align-items:end;margin-bottom:22px}
+@media (min-width:760px){.sim-intro{grid-template-columns:1fr 1fr}}
+.sim-intro .doors{display:flex;justify-content:center;align-items:flex-end;gap:6px;background:linear-gradient(180deg,#fff 0%,var(--sky-2) 100%);border-radius:6px;padding:14px 10px 0;overflow:hidden}
+.sim-intro .doors img{height:150px;width:auto;display:block;filter:drop-shadow(0 4px 6px rgba(0,0,0,.12))}
+.sim-intro .doors img:nth-child(3){height:176px}
+@media (max-width:420px){.sim-intro .doors img{height:112px}.sim-intro .doors img:nth-child(3){height:132px}}
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding:0;list-style:none}
+.steps li{font-size:12.5px;font-weight:700;color:var(--blue-d);background:var(--sky-2);border-radius:999px;padding:4px 12px}
+.steps li i{font-style:normal;color:var(--blue);margin-right:4px;font-variant-numeric:tabular-nums}
+/* 断熱の性能 */
+.grades{display:grid;gap:8px}
+.gcard{position:relative;cursor:pointer;display:block}
+.gcard input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.gcard .in{display:grid;gap:4px;border:1px solid var(--line);border-radius:6px;padding:12px 14px;background:#fff}
+.gcard .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gcard .top b{font-size:16px}
+.gcard .top em{font-style:normal;margin-left:auto;font-weight:700;font-size:13.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.gcard .sub{font-size:13px;font-weight:700;color:var(--ink)}
+.gcard .desc{font-size:12.5px;color:var(--ink-2);line-height:1.6}
+.gcard input:checked + .in{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);background:var(--sky-3)}
+.gcard input:focus-visible + .in{outline:3px solid var(--blue);outline-offset:2px}
+.badge{font-style:normal;font-size:11px;font-weight:700;border-radius:3px;padding:1px 7px;line-height:1.6;color:var(--blue);border:1px solid var(--blue);background:#fff}
+.badge.rec{background:#E8590C;border-color:#E8590C;color:#fff}
+.more{font:inherit;font-size:13px;font-weight:700;color:var(--blue);background:#fff;border:1px solid var(--blue);border-radius:999px;padding:4px 14px;cursor:pointer;margin-left:auto}
+.more:hover{background:var(--sky-2)}
+/* デザインの目印と絞り込み */
+.dstyles{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.dstyles label{border:1px solid var(--line-2);border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;background:#fff}
+.dstyles input{position:absolute;opacity:0;width:1px;height:1px}
+.dstyles label:has(input:checked){border-color:var(--blue);background:var(--blue);color:#fff}
+.dstyles small{font-size:11px;opacity:.7;margin-left:2px}
+.dstyles label:has(input:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:3px}
+.tags i{font-style:normal;font-size:10.5px;font-weight:700;border-radius:3px;padding:0 5px;line-height:1.6}
+.tags .s-simple{background:#EEF0F2;color:#4A5057}
+.tags .s-modern{background:#E6E9F5;color:#34407A}
+.tags .s-natural{background:#EEF5E4;color:#3E6420}
+.tags .s-western{background:#F7ECE3;color:#7A4524}
+.tags .wind{background:#E0F4FA;color:#006A8E}
+.wind-note{display:block;margin-top:4px;font-size:12.5px;font-weight:700;color:#006A8E}
+/* 開き方 5つ */
+@media (min-width:600px){.kinds{grid-template-columns:repeat(5,1fr);max-width:680px}}
+@media (max-width:599px){.kinds{grid-template-columns:repeat(3,1fr)}}
+/* 鍵（写真付きのカード） */
+.locks{display:grid;gap:8px}
+.lcard{position:relative;cursor:pointer;display:block}
+.lcard input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lcard .in{display:grid;grid-template-columns:128px 1fr;gap:4px 14px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:#fff}
+.lcard .pic{grid-row:span 2;display:grid;place-items:center;background:#EEF3F6;border-radius:4px;min-height:96px;padding:6px}
+.lcard .pic img.photo{width:100%;height:auto;border-radius:3px}
+.lcard .kit{display:grid;grid-template-columns:1fr;gap:5px;align-items:center;justify-items:center;width:100%}
+.lcard .kit span{display:flex;align-items:center;gap:2px;font-size:10.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.lcard .kit img{height:24px;width:auto}
+.lcard .kit .rm{height:28px}
+.lcard .kit .rm img{height:26px}
+.lcard .kit .none{font-size:10.5px;color:var(--ink-3)}
+.lcard .tx b{display:block;font-size:15px}
+.lcard .tx span{display:block;font-size:12.5px;color:var(--ink-2);line-height:1.55}
+.lcard .pr{justify-self:end;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.lcard input:checked + .in{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);background:var(--sky-3)}
+.lcard input:focus-visible + .in{outline:3px solid var(--blue);outline-offset:2px}
+@media (max-width:420px){.lcard .in{grid-template-columns:104px 1fr}}
+/* くわしい説明（ページの中で開く） */
+dialog.info{border:0;padding:0;border-radius:10px;width:min(720px,calc(100vw - 24px));max-height:calc(100dvh - 32px);box-shadow:0 12px 40px rgba(0,0,0,.25)}
+dialog.info::backdrop{background:rgba(20,30,40,.55)}
+.info-in{padding:20px 18px 18px;overflow:auto;max-height:calc(100dvh - 32px)}
+.info-x{position:sticky;top:0;float:right;font:inherit;font-size:22px;line-height:1;width:36px;height:36px;border-radius:50%;border:1px solid var(--line-2);background:#fff;cursor:pointer}
+.info h3{font-size:19px;font-weight:900;margin-bottom:10px;padding-right:44px}
+.info h4{font-size:15px;font-weight:700;margin:18px 0 6px}
+.info p,.info li{font-size:14px;color:var(--ink-2)}
+.info ul{padding-left:1.2em;margin:6px 0}
+.info img{max-width:100%;height:auto}
+.info .src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.info .uses{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:600px){.info .uses{grid-template-columns:repeat(4,1fr)}}
+.info .uses figure{margin:0}
+.info .uses img{border-radius:4px;width:100%}
+.info .uses figcaption{font-size:12.5px;color:var(--ink);font-weight:700;margin-top:4px;line-height:1.4}
+.info .uses figcaption span{display:block;font-weight:400;color:var(--ink-2)}
+.info .kitbig{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;background:#EEF3F6;border-radius:6px;padding:12px}
+.info .kitbig figure{margin:0;text-align:center;font-size:12px;color:var(--ink-2)}
+.info .kitbig img{height:48px;width:auto;display:block;margin:0 auto 4px}
+.info .gtable{display:grid;gap:6px;margin-top:10px}
+.info .gtable div{display:grid;grid-template-columns:88px 1fr;gap:10px;font-size:13.5px;border-top:1px solid var(--line);padding-top:6px}
+.info .gtable b{font-size:13.5px}
+.info .btn{margin-top:18px}
 </style>
 </head>
 <body>
@@ -296,8 +395,8 @@ footer .wrap{display:grid;gap:4px}
   <div>
     <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント玄関ドア かんたん見積</div>
     <h1><span class="ph">選んだ玄関ドアの</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
-    <a class="review" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span>Googleクチコミ</span><span class="stars" aria-hidden="true">★★★★★</span><b>4.8</b><span>194件</span><small>2026年9月時点</small></a>
-    <p class="lead">熊本県菊池市のフクシマ建材株式会社がお届けする、玄関ドア交換の見積です。断熱の性能、開き方、デザイン、色、鍵を選ぶだけで、取り付け工事と古いドアの処分まで含めた金額を表示します。サイズは現地調査でこちらが測ります。サイズによって金額が変わる場合は、工事の前に理由と金額をお伝えします。</p>
+    <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
+    <p class="lead">熊本県菊池市で、窓と玄関のリフォームをしているフクシマ建材です。玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で、1日で交換します。このページでドアを選ぶと、取り付け工事と古いドアの処分まで入れた金額がすぐに出ます。サイズは現地調査で私たちが測りますので、まずは気になるドアを選んでみてください。</p>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
       <div><b>1日で交換</b>今の枠の上から取り付け</div>
@@ -309,12 +408,16 @@ footer .wrap{display:grid;gap:4px}
 </div></section>
 
 <section id="sim"><div class="wrap">
-  <div class="sec-title"><span class="en">SIMULATION</span><h2>順に選ぶと、金額が出ます</h2><p>写真と金額は選ぶたびに変わります（スマホでは画面の下に金額が出ます）。</p></div>
+  <div class="sim-intro">
+    <div class="sec-title" style="margin-bottom:0"><span class="en">SIMULATION</span><h2>好きなドアを選んで、金額を見てみましょう</h2><p>LIXILのリシェントは、デザインが40種類以上あります。上から順に選ぶと、写真と金額がその都度変わります。スマホでは、画面のいちばん下に金額が出ます。</p>
+      <ol class="steps"><li><i>1</i>断熱</li><li><i>2</i>開き方</li><li><i>3</i>デザイン</li><li><i>4</i>色</li><li><i>5</i>鍵</li><li><i>6</i>ハンドル</li></ol></div>
+    <div class="doors" id="intro-doors" aria-hidden="true"></div>
+  </div>
   <div class="sim">
     <div>
       <div class="photo-ai" id="photo-ai">
-        <h3>今の玄関の写真から、開き方を自動で選ぶ</h3>
-        <p>スマホで玄関を外から1枚撮って入れると、AIが開き方と上のガラス（ランマ）の有無を読み取り、下の選択と金額に反映します。写真がなくても、下から選べます。</p>
+        <h3>今の玄関の写真を入れると、開き方を選んでくれます</h3>
+        <p>玄関を外から1枚撮って入れてください。扉が1枚か2枚か、上にガラス（ランマ）があるかを読み取って、下の選択と金額に入れます。写真がなくても、下から選べば大丈夫です。</p>
         <div class="row">
           <label class="pick" for="ai-photo"><input type="file" id="ai-photo" accept="image/*">写真を選ぶ・撮る</label>
           <img class="thumb" id="ai-thumb" alt="選んだ玄関の写真" hidden>
@@ -324,19 +427,22 @@ footer .wrap{display:grid;gap:4px}
         <p style="font-size:11.5px;color:var(--ink-3);margin-top:8px">写真は開き方の読み取りだけに使い、保存しません。現地調査を申し込むときだけ、申し込みに添えてお預かりします。</p>
       </div>
       <div class="q">
-        <div class="q-head"><span class="step">STEP 1</span><h3>断熱の性能</h3><small>冬の玄関の寒さが変わります</small></div>
-        <div class="list" id="o-grade"></div>
-        <p class="q-note">断熱の性能によっては、国の補助金の対象になる場合があります。対象かどうかと金額は、時期や条件により異なります。</p>
+        <div class="q-head"><span class="step">STEP 1</span><h3>断熱の性能</h3><button type="button" class="more" data-info="grade">違いをくわしく見る</button></div>
+        <p style="font-size:13.5px;color:var(--ink-2);margin:-4px 0 10px">玄関の寒さは、ドアの中の断熱材とガラスで決まります。迷ったら<b style="color:var(--ink)">断熱 k4</b>で大丈夫です。寒さが気になる玄関なら<b style="color:var(--ink)">k2</b>を選んでみてください。</p>
+        <div class="grades" id="o-grade"></div>
+        <p class="q-note">断熱の性能によっては、国の補助金の対象になる場合があります。対象になるか、いくら出るかは時期や条件で変わるので、現地調査のときにお伝えします。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
         <div class="kinds" id="o-kind"></div>
         <div class="ranma" id="o-ranma"></div>
-        <p class="q-note">細いほうの部分が開く扉なら「親子」、開かないガラスや格子なら「片袖」です。袖とランマのガラスは、ドアとは別の料金で、金額に含めています。両開き・引戸は、現地調査のときにお見積りします。</p>
+        <p class="q-note">扉の横の細い部分も開くなら「親子」、開かないガラスや格子なら「片袖」です。2枚とも同じ幅で両方開くなら「両開き」です。袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸は、現地調査のときにお見積りします。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 3</span><h3>デザイン</h3><small id="design-count"></small></div>
+        <div class="dstyles" id="o-dstyle"></div>
         <div class="designs" id="o-design"></div>
+        <p class="q-note">「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 4</span><h3>色</h3></div>
@@ -344,8 +450,9 @@ footer .wrap{display:grid;gap:4px}
         <p class="q-note">写真と色見本は印刷物から取ったもので、実物と色味が少し違って見えることがあります。色見本の貸出もしています。</p>
       </div>
       <div class="q">
-        <div class="q-head"><span class="step">STEP 5</span><h3>鍵</h3></div>
-        <div class="list" id="o-lock"></div>
+        <div class="q-head"><span class="step">STEP 5</span><h3>鍵</h3><button type="button" class="more" data-info="lock">FamiLockをくわしく見る</button></div>
+        <div class="locks" id="o-lock"></div>
+        <p class="q-note">FamiLock（ファミロック）は、カードやタグ、リモコン、スマホで開け閉めできる電気錠です。カードキーとタグキーはどちらか3つで、現地調査のときに選べます（金額は同じです）。電池式なので、電気の配線工事はいりません。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 6</span><h3>ハンドル</h3><small>付け替えできます</small></div>
@@ -406,7 +513,7 @@ footer .wrap{display:grid;gap:4px}
 <section class="band"><div class="wrap">
   <div class="sec-title"><span class="en">PROMISE</span><h2>金額のことで、あとから困らないように</h2></div>
   <div class="promise">
-    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、古いドアの処分まで含めた金額です。本体価格だけを小さく見せることはしません。</p></div>
+    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。本体の値段だけを見せて、あとから工事費を足すことはしません。</p></div>
     <div><h3>表示はカタログの価格が元</h3><p>LIXILのカタログに載っている寸法での価格をもとにしています。背の低い玄関などは、実際の寸法で少し変わることがあります。</p></div>
     <div><h3>現地調査の日に確定</h3><p>寸法と今の枠の状態を確認し、その場で最終の金額をお出しします。工事の日に金額が増えることはありません。</p></div>
   </div>
@@ -417,8 +524,15 @@ footer .wrap{display:grid;gap:4px}
       <li>測った寸法が、選んだドアの取り付けられる範囲から外れたとき</li>
       <li>横のガラス（袖）や上の明かり窓（ランマ）が付いている玄関</li>
       <li>防火地域などで、防火戸が必要なとき</li>
-      <li>電気錠の配線工事、ポストや手すりの付け替え</li>
+      <li>ポストや手すりの付け替え</li>
     </ul>
+  </div>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <div class="rv-band">
+    <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
+    <div><h2 style="font-size:clamp(19px,4vw,24px);font-weight:900;margin-bottom:6px">工事をしたお客様の声を、Googleで読めます</h2><p>お客様がGoogleに書いてくださった口コミが194件あります。工事の様子や、担当の対応まで書いてくださっている方も多いので、申し込みの前に一度のぞいてみてください。</p></div>
   </div>
 </div></section>
 
@@ -502,6 +616,8 @@ footer .wrap{display:grid;gap:4px}
   <span>商品写真・色見本はLIXIL リシェント玄関ドア3 カタログ（2026年5月版）より。</span>
 </div></footer>
 
+<dialog class="info" id="info" aria-labelledby="info-h"><div class="info-in"><button type="button" class="info-x" data-close aria-label="閉じる">×</button><div id="info-body"></div><button type="button" class="btn btn-main btn-block" data-close>閉じて選ぶ</button></div></dialog>
+
 <div class="pricebar"><div class="in">
   <div class="p"><small id="bar-spec"></small><b id="bar-price">―</b></div>
   <a class="btn btn-main" href="#apply">申し込む</a>
@@ -520,19 +636,31 @@ var RATE = 0.58, KOUJI = 60000, SHOKEI = 15000, TAX = 0.10, COOP = 5000;
 var FAMI_RATE = 0.9;
 // ランマ・袖のガラスと、アルミ仕様の本体ガラスは定価の50%
 var GLASS_RATE = 0.5;
+// 取り付けの補助部材（下枠の段差緩和材・スペーサーなど）。現場で要るものが変わるので、一式1万円（税抜）を入れておく（2026-09-28 福嶋さん）
+var HOJO = 10000;
 
+// 性能の説明はカタログ45ページ（断熱性の比較・地域のおすすめ仕様）から。並びはおすすめの順
 var GRADES = [
-  {id:'hi', name:'高断熱', desc:'いちばん暖かいハイグレードモデル'},
-  {id:'k2', name:'断熱 k2', desc:'k4より断熱の性能が高い'},
-  {id:'k4', name:'断熱 k4', desc:'標準の断熱'},
-  {id:'al', name:'アルミ', desc:'断熱なし。価格を抑えたい方に'}
+  {id:'k4', name:'断熱 k4', badge:'おすすめ', sub:'熊本・福岡の玄関なら、まずはこれで十分です', desc:'扉の中に厚さ40mmの断熱材が入り、ガラスは2枚重ねの複層ガラスです。アルミの玄関と比べて、冬の冷たさが伝わりにくくなります。'},
+  {id:'k2', name:'断熱 k2', badge:'こだわるなら', sub:'寒さが気になる玄関に', desc:'k4と同じ40mmの断熱材に加えて、枠にも断熱の工夫が入ります。ガラスは熱を通しにくいLow-E複層ガラスです。'},
+  {id:'hi', name:'高断熱', badge:'最高クラス', sub:'いちばん暖かい玄関にしたい方に', desc:'扉の断熱材が60mmと厚くなり、ガラスはアルゴンガス入りのLow-E複層ガラスです。'},
+  {id:'al', name:'アルミ', badge:'価格重視', sub:'断熱はありません', desc:'扉はアルミで、断熱材は入りません。寒さより金額を優先したい場合の選び方です。'}
 ];
 var CLASS_ORDER = ['木目調','セレクトカラー','アルミ色'];
 var CLASS_HINT = {'木目調':'標準の木目の色','セレクトカラー':'選べる木目が増える色','アルミ色':'木目のない金属の色'};
 
 var D = null;
-var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null};
-var BASES = [['片開き','扉1枚'],['親子','大きい扉＋細い扉'],['片袖','扉＋片側にガラス'],['両袖','扉＋両側にガラス']];
+var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null, dstyle:'all'};
+var BASES = [['片開き','扉1枚'],['親子','大きい扉＋細い扉'],['片袖','扉＋片側にガラス'],['両袖','扉＋両側にガラス'],['両開き','同じ幅の扉2枚']];
+// デザインの雰囲気の目印（カタログの写真を見て付けたもの）と、風を通せるドア
+var DSTYLE = {simple:'シンプル', modern:'モダン', natural:'ナチュラル', western:'洋風'};
+var STYLE_OF = {};
+[['simple','17H 17N S14 M17 D79'],
+ ['modern','12N 14N 71N G12 G14 G15 G82 M12 M27 M78 P77 C12N C16N C17N M11N C84N'],
+ ['natural','13N 15N 16N G13 G77 M24 M28 M77 M83 M84 C11N C14N'],
+ ['western','34H 41N 42N 43N 44N 45N 72N P23 D41 D44 D77 D78 C15 C20N C83N']
+].forEach(function(r){ r[1].split(' ').forEach(function(k){ STYLE_OF[k] = r[0]; }); });
+var WIND = {M83:1, M84:1, G82:1, C83N:1, C84N:1};
 // 袖・ランマ・本体のガラスは有償品で、ドアの価格に含まれない（カタログ172ページ。仕様ごとに用意されている方の定価）
 var GLASS = {hi:{ranma:56000, kata:0, ryo:0}, k2:{ranma:75000, kata:116000, ryo:222000}, k4:{ranma:47100, kata:69000, ryo:125000}, al:{ranma:58000, kata:81000, ryo:139000}};
 var BODY_GLASS = 58000; // アルミ仕様の本体ガラス別途品（C20N・C83N・C84N）
@@ -569,13 +697,23 @@ function cur(){ return designs()[st.design]; }
 function listPrice(e, kind, cls){ var p = e.kinds[kind] && e.kinds[kind].p; if(!p) return null; return p[cls] != null ? p[cls] : (p[''] != null ? p[''] : null); }
 function colorsWithPrice(e, kind){ return e.colors.filter(function(c){ return listPrice(e, kind, c.cls) != null; }); }
 function minPrice(e, kind){ var m = Infinity; colorsWithPrice(e, kind).forEach(function(c){ m = Math.min(m, listPrice(e, kind, c.cls)); }); if(!isFinite(m)){ var p=e.kinds[kind]&&e.kinds[kind].p; for(var k in (p||{})) m=Math.min(m,p[k]); } return m; }
+// FamiLock（電池式）の加算額はカタログ206ページ。高断熱とそれ以外で違う
 function lockOptions(){
   var hi = st.grade === 'hi';
   return [
-    {id:'manual', name:'手動キー', desc:'鍵を差して回す、いつもの鍵', add:0},
-    {id:'fami', name:'電気錠 FamiLock（カード・タグキー）', desc:'カードやタグをかざして開け閉め', add: hi ? 89000 : 68000},
-    {id:'fami_r', name:'電気錠 FamiLock＋リモコン1個', desc:'リモコンでも開け閉めできる', add: hi ? 121000 : 100000}
+    {id:'manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, remotes:-1},
+    {id:'fami', name:'FamiLock リモコンなし', desc:'カードかタグをドアにかざして開けます。スマホでも開け閉めできます。', add: hi ? 89000 : 68000, remotes:0},
+    {id:'fami_r', name:'FamiLock リモコン1個', desc:'リモコンはポケットに入れたまま、ドアのボタンを押すだけで開きます。1人がリモコンを使う場合に。', add: hi ? 121000 : 100000, remotes:1},
+    {id:'fami_r2', name:'FamiLock リモコン2個', desc:'ご夫婦それぞれがリモコンを持ちたい場合に。', add: hi ? 147000 : 126000, remotes:2}
   ];
+}
+function clip(k){ return D.clips && D.clips[k] ? img(D.clips[k].img) : ''; }
+function lockPic(o){
+  if (o.remotes < 0) return '<img class="photo" src="'+clip('use_manual')+'" alt="手動キーで開ける様子" loading="lazy">';
+  var rm = '';
+  for (var i = 0; i < o.remotes; i++) rm += '<img src="'+clip('remote')+'" alt="">';
+  return '<span class="kit"><span><img src="'+clip('tag3')+'" alt="タグキー">×3</span><span><img src="'+clip('owner')+'" alt="オーナーキー">×1 <img src="'+clip('std4')+'" alt="標準キー">×4</span>'+
+    '<span class="rm">'+(o.remotes ? rm+'<b style="font-size:11px">×'+o.remotes+'</b>' : '<span class="none">リモコンなし</span>')+'</span></span>';
 }
 function handleOpts(){ return HANDLES.map(function(h){ return {id:h.id, name:h.name, desc:h.desc, add:h.add, colors:h.colors, off: st.grade==='al' && (h.id==='S' || h.id==='D')}; }); }
 // 選んだハンドル。まだ選んでいなければ、そのデザインの標準のハンドル
@@ -616,7 +754,7 @@ function fitCheck(){
 
 // list：ドアの定価、add：ハンドルの定価の差額（どちらも58%）、fami：電気錠の定価の差額（90%）、glass：ガラスの定価（50%）
 function total(list, add, coop, fami, glass){
-  var t = ((list + add) * RATE + (fami || 0) * FAMI_RATE + (glass || 0) * GLASS_RATE + KOUJI + SHOKEI) * (1 + TAX);
+  var t = ((list + add) * RATE + (fami || 0) * FAMI_RATE + (glass || 0) * GLASS_RATE + KOUJI + HOJO + SHOKEI) * (1 + TAX);
   if (coop) t -= COOP;
   return Math.round(t / 100) * 100;
 }
@@ -646,7 +784,7 @@ function render(){
   document.getElementById('o-grade').innerHTML = GRADES.map(function(g){
     var ds = D.grades[g.id] || {}, m = Infinity;
     Object.keys(ds).forEach(function(k){ if (ds[k].kinds['片開き']) m = Math.min(m, total(minPrice(ds[k],'片開き'), 0, false, 0, glassAdd(ds[k],'片開き',g.id))); });
-    return radioRow('grade', g.id, st.grade===g.id, g.name, g.desc, isFinite(m) ? '片開き '+man(m)+'〜' : '');
+    return '<label class="gcard"><input type="radio" name="grade" value="'+g.id+'"'+(st.grade===g.id?' checked':'')+'><span class="in"><span class="top"><b>'+g.name+'</b><i class="badge'+(g.id==='k4'?' rec':'')+'">'+g.badge+'</i><em>'+(isFinite(m) ? '片開き '+man(m)+'〜' : '')+'</em></span><span class="sub">'+g.sub+'</span><span class="desc">'+g.desc+'</span></span></label>';
   }).join('');
   // STEP 2
   var ds = designs();
@@ -654,20 +792,27 @@ function render(){
     var b = bs[0], key = kindKey(b, st.ranma);
     var ok = !!(e.kinds[key]);
     var any = Object.keys(ds).some(function(d){ return ds[d].kinds[key]; });
-    var src = ok ? img(e.kinds[key].img) : '';
-    return '<label class="tile"><input type="radio" name="kind" value="'+b+'"'+(st.base===b?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<img src="'+src+'" alt="'+st.design+' '+b+'" loading="lazy">':'')+'<b>'+b+'</b><span>'+(any?bs[1]:'この性能にはありません')+'</span></span></label>';
+    var alt = ok ? e : (any ? ds[Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; })[0]] : null);
+    var src = alt ? img(alt.kinds[key].img) : '';
+    return '<label class="tile"><input type="radio" name="kind" value="'+b+'"'+(st.base===b?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<img src="'+src+'" alt="'+st.design+' '+b+'" loading="lazy">':'')+'<b>'+b+'</b><span>'+(any?bs[1]+(ok?'':'<br>（'+Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).map(function(d){ return d+'型'; }).slice(0,3).join('・')+(Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).length>3?'など':'')+'）'):'この性能にはありません')+'</span></span></label>';
   }).join('');
   var canR = Object.keys(ds).some(function(d){ return ds[d].kinds[kindKey(st.base, true)]; });
   document.getElementById('o-ranma').innerHTML = '<b>上のガラス（ランマ）</b>'+
     '<label><input type="radio" name="ranma" value="0"'+(!st.ranma?' checked':'')+'>なし</label>'+
     '<label><input type="radio" name="ranma" value="1"'+(st.ranma?' checked':'')+(canR?'':' disabled')+'>あり</label>';
   // STEP 3
-  var list = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; });
-  document.getElementById('o-design').innerHTML = list.map(function(k){
-    var d = ds[k];
-    return '<label class="tile" title="'+esc(d.desc)+'"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
+  var all = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; });
+  var chips = [['all','すべて']].concat(Object.keys(DSTYLE).map(function(k){ return [k, DSTYLE[k]]; })).concat([['wind','風を通せる']]);
+  document.getElementById('o-dstyle').innerHTML = chips.map(function(c){
+    var n = all.filter(function(k){ return c[0]==='all' || (c[0]==='wind' ? WIND[k] : STYLE_OF[k]===c[0]); }).length;
+    return n ? '<label><input type="radio" name="dstyle" value="'+c[0]+'"'+(st.dstyle===c[0]?' checked':'')+'>'+c[1]+'<small>'+n+'</small></label>' : '';
   }).join('');
-  document.getElementById('design-count').textContent = list.length + 'デザイン';
+  var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='wind' ? WIND[k] : STYLE_OF[k]===st.dstyle); });
+  document.getElementById('o-design').innerHTML = list.map(function(k){
+    var d = ds[k], sy = STYLE_OF[k];
+    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span class="tags">'+(sy?'<i class="s-'+sy+'">'+DSTYLE[sy]+'</i>':'')+(WIND[k]?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
+  }).join('');
+  document.getElementById('design-count').textContent = all.length + 'デザイン';
   // STEP 4
   var cs = colorsWithPrice(e, st.kind), base = minPrice(e, st.kind);
   document.getElementById('o-color').innerHTML = CLASS_ORDER.map(function(cls){
@@ -679,7 +824,7 @@ function render(){
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
-    return radioRow('lock', o.id, st.lock===o.id, o.name, o.desc, o.add ? '＋'+man(o.add*FAMI_RATE*(1+TAX)) : '標準');
+    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx"><b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add ? '＋'+man(o.add*FAMI_RATE*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
   }).join('');
   // STEP 6
   var ch = curHandle(), def = cur().handle || {};
@@ -704,7 +849,7 @@ function summary(){
   var glass = glassAdd(e, st.kind);
   var opt = ch.h.add;
   var goods = (lp + opt) * RATE, famiGoods = lock.add * FAMI_RATE, glassGoods = glass * GLASS_RATE;
-  var sub = goods + famiGoods + glassGoods + KOUJI + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop, lock.add, glass);
+  var sub = goods + famiGoods + glassGoods + KOUJI + HOJO + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop, lock.add, glass);
   var fit = fitCheck();
   var fe = document.getElementById('m-fit');
   fe.className = 'fit' + (fit ? (fit.ng ? ' ng' : fit.ok ? ' ok' : '') : '');
@@ -723,13 +868,15 @@ function summary(){
   document.getElementById('st-sw-cap').textContent = c ? '色：'+c.name : '';
   document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+c.name+'）。'
     : 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色で、選んだ色は右の色見本です。';
-  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname;
+  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname+
+    (WIND[st.design] ? '<span class="wind-note">風を通せるドアです。カギをかけたまま、小窓を開けられます。</span>' : '');
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
   document.getElementById('r-bd').innerHTML =
     '<tr><td>ドア本体・鍵・ハンドル<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     (glass ? '<tr><td>ガラス（'+(e.bodyGlass?'本体':'')+(e.bodyGlass&&glass>BODY_GLASS?'・':'')+(glass>(e.bodyGlass?BODY_GLASS:0)?'ランマ・袖':'')+'）<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(glass)+'（税抜）の '+Math.round(GLASS_RATE*100)+'%</span></td><td>'+yen(glassGoods)+'</td></tr>' : '')+
     (lock.add ? '<tr><td>'+esc(lock.name)+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lock.add)+'（税抜）の '+Math.round(FAMI_RATE*100)+'%</span></td><td>'+yen(famiGoods)+'</td></tr>' : '')+
     '<tr><td>取り付け工事</td><td>'+yen(KOUJI)+'</td></tr>'+
+    '<tr><td>取り付けの補助部材<br><span style="font-size:11px;color:var(--ink-3)">下枠の段差をなくす部材など</span></td><td>'+yen(HOJO)+'</td></tr>'+
     '<tr><td>古いドアの処分・諸経費</td><td>'+yen(SHOKEI)+'</td></tr>'+
     '<tr><td>消費税（10%）</td><td>'+yen(tax)+'</td></tr>'+
     (st.coop ? '<tr class="minus"><td>写真掲載・アンケートご協力の値引き</td><td>－'+yen(COOP)+'</td></tr>' : '')+
@@ -751,6 +898,7 @@ document.addEventListener('change', function(ev){
   else if (t.name === 'lock') st.lock = t.value;
   else if (t.name === 'handle') st.handle = t.value;
   else if (t.name === 'hcolor') st.hcolor = t.value;
+  else if (t.name === 'dstyle') st.dstyle = t.value;
   else if (t.id === 'coop' || t.id === 'coop2') st.coop = t.checked;
   else return;
   var id = t.name, val = t.value;
@@ -776,7 +924,7 @@ function shrink(src, max, q, cb){
   im.src = src;
 }
 function aiMsg(cls, text){ var r = document.getElementById('ai-res'); r.hidden = false; r.className = 'res' + (cls ? ' ' + cls : ''); r.textContent = text; }
-var BASE_OK = {'片開き':1,'親子':1,'片袖':1,'両袖':1};
+var BASE_OK = {'片開き':1,'親子':1,'片袖':1,'両袖':1,'両開き':1};
 function applyAI(j){
   if (!j || !j.ok){
     aiMsg('ng', j && j.error === 'limit' ? '今日の読み取りの回数が上限に達しました。お手数ですが、下から選んでください。' : '写真の読み取りは準備中です。お手数ですが、下から選んでください。写真は申し込みのときに添えて送れます。');
@@ -794,7 +942,7 @@ function applyAI(j){
     aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' +
       (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') +
       (asking ? '' : (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + '違っていたら、下の STEP 2 で選び直せます。'));
-  } else if (j.door_type === '両開き' || j.door_type === '引戸'){
+  } else if (j.door_type === '引戸'){
     aiMsg('ng', '写真から「' + j.door_type + '」と読み取りました。' + j.door_type + 'は、現地調査のときにお見積りします。申し込みフォームからご相談ください。' + note);
   } else {
     aiMsg('ng', '写真から開き方を読み取れませんでした。' + note + 'お手数ですが、下から選んでください。');
@@ -898,10 +1046,52 @@ form.addEventListener('submit', function(ev){
   fr.readAsDataURL(photo);
 });
 
+// ===== くわしい説明（ページを離れずに、この画面の中で開く） =====
+var INFO = {
+  grade: function(){
+    return '<h3 id="info-h">断熱の性能の違い</h3>'+
+      '<p>玄関ドアの寒さは、扉の中の断熱材の厚さと、ガラスの種類でほぼ決まります。下の図の赤やオレンジが濃いほど、外の冷たさが室内に伝わりにくいドアです。</p>'+
+      (clip('compare') ? '<p style="margin-top:10px"><img src="'+clip('compare')+'" alt="高断熱・k2・k4・アルミの断熱の比べ図" loading="lazy"></p><p class="src">LIXIL リシェント玄関ドア3 カタログ（2026年5月版）45ページより。画像はイメージです。</p>' : '')+
+      '<div class="gtable">'+
+      '<div><b>断熱 k4</b><span>扉の断熱材40mm、複層ガラス。カタログでは「比較的温暖な地域におすすめ」。カタログの地図では、九州の多くがこの区分です。<b style="color:#E8590C">迷ったらこれ</b></span></div>'+
+      '<div><b>断熱 k2</b><span>断熱材40mmに加えて枠にも断熱。ガラスはLow-E複層ガラス。カタログでは「寒冷地域におすすめ」。山あいで冷え込む家や、北向きで寒い玄関ならこちらも考えてみてください。</span></div>'+
+      '<div><b>高断熱</b><span>断熱材60mm、アルゴンガス入りのLow-E複層ガラス。リシェントでいちばん暖かい仕様です。</span></div>'+
+      '<div><b>アルミ</b><span>断熱材は入りません。金額は抑えられますが、冬は扉が冷たくなります。</span></div></div>'+
+      '<h4>補助金について</h4><p>断熱の性能によっては、国の補助金の対象になることがあります。対象になるか、いくら出るかは時期や条件で変わるので、現地調査のときに確かめてお伝えします。</p>';
+  },
+  lock: function(){
+    return '<h3 id="info-h">FamiLock（ファミロック）とは</h3>'+
+      '<p>カギを出さずに、玄関を開け閉めできる電気錠です。家族一人ひとりが、使いやすい開け方を選べます。</p>'+
+      '<div class="uses" style="margin-top:12px">'+
+      '<figure><img src="'+clip('use_phone')+'" alt="" loading="lazy"><figcaption>スマホ<span>専用アプリを入れたスマホを持って、ドアのボタンを押すと開きます。</span></figcaption></figure>'+
+      '<figure><img src="'+clip('use_remote')+'" alt="" loading="lazy"><figcaption>リモコン<span>ポケットやカバンに入れたまま、ドアのボタンを押すと開きます。</span></figcaption></figure>'+
+      '<figure><img src="'+clip('use_card')+'" alt="" loading="lazy"><figcaption>カード・タグ<span>ドアのボタンを押して、かざすと開きます。</span></figcaption></figure>'+
+      '<figure><img src="'+clip('use_manual')+'" alt="" loading="lazy"><figcaption>手動キー<span>今までどおり、差して回しても開きます。</span></figcaption></figure></div>'+
+      '<h4>セットに入っているもの</h4>'+
+      '<div class="kitbig"><figure><img src="'+clip('tag3')+'" alt="">タグキー×3<br>（またはカードキー×3）</figure><figure><img src="'+clip('card3')+'" alt="">カードキーの場合</figure><figure><img src="'+clip('owner')+'" alt="">オーナーキー×1</figure><figure><img src="'+clip('std4')+'" alt="">標準キー×4</figure><figure><img src="'+clip('remote')+'" alt="">リモコン<br>（0個・1個・2個）</figure></div>'+
+      '<p class="src">写真はLIXIL リシェント玄関ドア3 カタログ（2026年5月版）195・206ページより。</p>'+
+      '<h4>リモコンは何個にするか</h4><ul><li>リモコンなし：カードやタグ、スマホで使う方に。いちばん金額を抑えられます</li><li>1個：車で出かけることが多い方など、1人がリモコンを使う場合に</li><li>2個：ご夫婦それぞれがリモコンを持ちたい場合に</li></ul><p>リモコンはあとから1個ずつ買い足すこともできます。</p>'+
+      '<h4>知っておいてほしいこと</h4><ul><li>電池式（単3電池8本）なので、電気の配線工事はいりません</li><li>扉が閉まると自動でカギがかかる設定にもできます（切り替えできます）</li><li>電池切れなどに備えて、出かけるときは手動キーも持っておいてください</li></ul>';
+  }
+};
+var dlg = document.getElementById('info');
+document.addEventListener('click', function(ev){
+  var o = ev.target.closest('[data-info]');
+  if (o && INFO[o.getAttribute('data-info')] && D){
+    document.getElementById('info-body').innerHTML = INFO[o.getAttribute('data-info')]();
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    return;
+  }
+  if (ev.target.closest('[data-close]') || ev.target === dlg){ if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+});
+
 function start(data){
   D = data;
   var h = D.grades.k4 && D.grades.k4.M83;
   if (h && h.hero){ document.getElementById('hero-img').src = img(h.hero); document.getElementById('hero-cap').textContent = 'リシェント 断熱仕様 M83型（ハンドダウンチェリー）'; }
+  // 選び始めの飾り：雰囲気の違うドアを並べる
+  var pick = [['k4','G12'],['k4','M28'],['k4','M83'],['hi','41N'],['k4','P23']];
+  document.getElementById('intro-doors').innerHTML = pick.map(function(p){ var e = D.grades[p[0]] && D.grades[p[0]][p[1]]; return e && e.kinds['片開き'] ? '<img src="'+img(e.kinds['片開き'].img)+'" alt="">' : ''; }).join('');
   render();
 }
 if (window.__DATA) start(window.__DATA);
