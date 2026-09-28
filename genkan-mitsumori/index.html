@@ -381,6 +381,39 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 .info .gtable div{display:grid;grid-template-columns:88px 1fr;gap:10px;font-size:13.5px;border-top:1px solid var(--line);padding-top:6px}
 .info .gtable b{font-size:13.5px}
 .info .btn{margin-top:18px}
+/* 見積書のPDF保存 */
+.pdf-note{font-size:12px;color:var(--ink-3);text-align:center;margin-top:-4px}
+.pdf-note.ok{color:#2E7D32;font-weight:700}
+.pdf-note.ng{color:#B3261E}
+.pdfq-wrap{position:fixed;left:-12000px;top:0}
+.pdfq{width:760px;background:#fff;color:#222;font-family:var(--sans);font-size:13px;line-height:1.65;padding:28px 30px}
+.pdfq .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:2px solid #0071BB;padding-bottom:12px}
+.pdfq .ph .co{display:flex;gap:10px;align-items:center}
+.pdfq .ph .co img{height:46px;width:auto}
+.pdfq .ph .co b{display:block;font-size:17px}
+.pdfq .ph .co span{display:block;font-size:11px;color:#555B61;line-height:1.5}
+.pdfq .ph .meta{text-align:right;font-size:11.5px;color:#555B61;line-height:1.6}
+.pdfq h1{font-size:22px;font-weight:900;margin:16px 0 4px;letter-spacing:.04em}
+.pdfq .sub{font-size:12px;color:#555B61;margin-bottom:12px}
+.pdfq .body{display:grid;grid-template-columns:190px 1fr;gap:18px;align-items:start}
+.pdfq .pics{text-align:center}
+.pdfq .pics img.door{height:250px;width:auto;margin:0 auto}
+.pdfq .pics .sw{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:6px;font-size:11px;color:#555B61}
+.pdfq .pics .sw img{width:34px;height:34px;object-fit:cover;border-radius:3px}
+.pdfq table{width:100%;border-collapse:collapse}
+.pdfq .spec th,.pdfq .spec td{border-bottom:1px solid #E2E6EA;padding:5px 6px;text-align:left;vertical-align:top;font-size:12.5px}
+.pdfq .spec th{width:110px;color:#555B61;font-weight:700;white-space:nowrap}
+.pdfq .total{display:flex;justify-content:space-between;align-items:baseline;background:#E5F7FF;border-radius:6px;padding:10px 14px;margin:14px 0 10px}
+.pdfq .total b{font-size:26px;font-weight:900;color:#0071BB}
+.pdfq .bd td{border-bottom:1px solid #E2E6EA;padding:5px 6px;font-size:12.5px}
+.pdfq .bd td:last-child{text-align:right;white-space:nowrap}
+.pdfq .bd tr.sum td{font-weight:900;border-bottom:2px solid #222}
+.pdfq .bd tr.minus td:last-child{color:#0071BB}
+.pdfq .notes{margin-top:14px;font-size:11.5px;color:#555B61}
+.pdfq .notes ul{margin:4px 0 0;padding:0;list-style:none}
+.pdfq .notes li{padding-left:1em;text-indent:-1em}
+.pdfq .cta{margin-top:14px;border:1px solid #0071BB;border-radius:6px;padding:10px 14px;font-size:12.5px}
+.pdfq .cta b{color:#0071BB}
 </style>
 </head>
 <body>
@@ -505,6 +538,8 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
         <table class="bd" id="r-bd"></table>
         <p class="size" id="r-size"></p>
         <a class="btn btn-main btn-block" href="#apply">この内容で現地調査を申し込む</a>
+        <button type="button" class="btn btn-sub btn-block" id="pdfBtn">この見積書をPDFで保存する</button>
+        <p class="pdf-note" id="pdfNote">ご家族との相談用に。お名前などの入力はいりません。</p>
         <a class="btn btn-line btn-block" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">LINEで相談する</a>
       </div>
     </aside>
@@ -1012,7 +1047,7 @@ form.addEventListener('submit', function(ev){
   var err = document.getElementById('err');
   if (miss.length){ err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   err.hidden = true;
-  var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:f.get('source'), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent};
+  var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:f.get('source'), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
   var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = '送信しています…';
   function finish(ok){
     btn.disabled = false; btn.textContent = 'この内容で現地調査を申し込む';
@@ -1045,6 +1080,78 @@ form.addEventListener('submit', function(ev){
     im.src = fr.result;
   };
   fr.readAsDataURL(photo);
+});
+
+// ===== 見積書をPDFで保存 =====
+// ブラウザごとの番号。PDFを保存した人が、あとで申し込んだかをつなぐためだけに使う（個人は特定しない）
+function vid(){
+  var v = '';
+  try { v = localStorage.getItem('fk_genkan_vid') || ''; } catch(e) {}
+  if (!/^[A-Za-z0-9-]{8,40}$/.test(v)){
+    v = 'v' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+    try { localStorage.setItem('fk_genkan_vid', v); } catch(e) {}
+  }
+  return v;
+}
+var PDF_LIB = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.14.0/html2pdf.bundle.min.js';
+function loadPdfLib(){
+  return new Promise(function(ok, ng){
+    if (window.html2pdf) return ok();
+    var sc = document.createElement('script'); sc.src = PDF_LIB; sc.onload = function(){ ok(); }; sc.onerror = ng; document.head.appendChild(sc);
+  });
+}
+function pad(n){ return (n < 10 ? '0' : '') + n; }
+function buildPdfSheet(no, now){
+  var q = st._quote || {}, c = cur().colors.filter(function(x){ return x.code === st.color; })[0];
+  var sw = document.getElementById('st-sw');
+  var el = document.createElement('div');
+  el.className = 'pdfq';
+  var row = function(k, v){ return v ? '<tr><th>'+k+'</th><td>'+esc(v)+'</td></tr>' : ''; };
+  el.innerHTML =
+    '<div class="ph"><div class="co"><div><b>フクシマ建材株式会社</b><span>熊本オフィス 熊本県菊池市泗水町南田島1099</span><span>福岡オフィス 福岡市中央区天神2丁目3番10号</span><span>フリーダイヤル 0120-914-180（平日 8:00〜17:00）</span></div></div>'+
+    '<div class="meta">番号 '+no+'<br>作成日 '+now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日</div></div>'+
+    '<h1>玄関ドア 概算お見積り</h1><p class="sub">Webの見積シミュレーションで選んだ内容です。金額は工事費込み・税込です。</p>'+
+    '<div class="body"><div class="pics"><img class="door" src="'+document.getElementById('st-color').src+'" alt="">'+
+      (sw && !sw.hidden && sw.src ? '<div class="sw"><img src="'+sw.src+'" alt="">色：'+esc(c ? c.name : '')+'</div>' : '')+'</div>'+
+    '<div><table class="spec">'+row('商品', q.design)+row('開き方', q.kind + (q.sub && st.base === '親子' ? '（子扉 '+q.sub+'）' : ''))+row('色', q.color)+row('鍵', q.lock)+row('ハンドル', q.handle)+
+      row('取り付けられるサイズ', q.size ? q.size + 'mm（新しい枠）' : '')+row('お客様の採寸', q.measured ? q.measured + '（' + q.fit + '）' : '')+'</table>'+
+    '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
+    '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
+    '<div class="notes"><b>この見積りについて</b><ul><li>・LIXILのカタログ価格（2026年5月版）をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
+      '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替えがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
+      '<li>・写真と色見本はカタログから取ったもので、実物と色味が少し違って見えることがあります。</li></ul></div>'+
+    '<div class="cta"><b>現地調査のお申し込み・ご相談</b>　フリーダイヤル 0120-914-180／LINE https://lin.ee/UmuaYxJ<br>このページからもお申し込みいただけます：'+esc(location.href.split('#')[0].split('?')[0])+'</div>';
+  var wrap = document.createElement('div'); wrap.className = 'pdfq-wrap'; wrap.appendChild(el);
+  document.body.appendChild(wrap);
+  return el;
+}
+document.getElementById('pdfBtn').addEventListener('click', function(){
+  var btn = this, note = document.getElementById('pdfNote');
+  if (btn.disabled) return;
+  btn.disabled = true; btn.textContent = '見積書を作っています…'; note.className = 'pdf-note'; note.textContent = '数秒かかります。';
+  var now = new Date();
+  var no = 'W' + String(now.getFullYear()).slice(2) + pad(now.getMonth()+1) + pad(now.getDate()) + '-' + pad(now.getHours()) + pad(now.getMinutes()) + '-' + (10 + Math.floor(Math.random()*90));
+  var fname = 'フクシマ建材_玄関ドア概算見積_' + no + '.pdf';
+  var el = null;
+  loadPdfLib().then(function(){
+    el = buildPdfSheet(no, now);
+    var imgs = Array.prototype.slice.call(el.querySelectorAll('img'));
+    return Promise.all(imgs.map(function(i){ return i.decode ? i.decode().catch(function(){}) : null; }));
+  }).then(function(){
+    return window.html2pdf().set({margin:[8,8,10,8], filename:fname, image:{type:'jpeg', quality:0.9}, html2canvas:{scale:2, backgroundColor:'#ffffff'}, jsPDF:{unit:'mm', format:'a4', orientation:'portrait'}}).from(el).toPdf().get('pdf');
+  }).then(function(pdf){
+    var data = pdf.output('datauristring');
+    pdf.save(fname);
+    btn.disabled = false; btn.textContent = 'もう一度PDFで保存する';
+    note.className = 'pdf-note ok'; note.textContent = '見積書を保存しました（' + no + '）。';
+    // お店への知らせ（失敗してもお客様の保存には影響しない）
+    if (ENDPOINT && ENDPOINT.indexOf('__') !== 0){
+      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'save_pdf', id:no, vid:vid(), pdf:data, quote:st._quote, page:location.href.split('#')[0], ua:navigator.userAgent})}).catch(function(){});
+    }
+  }).catch(function(){
+    btn.disabled = false; btn.textContent = 'この見積書をPDFで保存する';
+    note.className = 'pdf-note ng'; note.textContent = '保存できませんでした。通信の状態を確かめて、もう一度押してください。';
+  }).then(function(){ if (el && el.parentNode && el.parentNode.parentNode) el.parentNode.parentNode.removeChild(el.parentNode); });
 });
 
 // ===== くわしい説明（ページを離れずに、この画面の中で開く） =====
