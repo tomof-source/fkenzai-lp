@@ -351,6 +351,7 @@ footer .wrap{display:grid;gap:4px}
 .lcard .kit .rm img{height:26px}
 .lcard .kit .none{font-size:10.5px;color:var(--ink-3)}
 .lcard .tx b{display:block;font-size:15px}
+.lcard .tx .badge{display:inline-block;margin-bottom:3px}
 .lcard .tx span{display:block;font-size:12.5px;color:var(--ink-2);line-height:1.55}
 .lcard .pr{justify-self:end;font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
 .lcard input:checked + .in{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue);background:var(--sky-3)}
@@ -704,7 +705,7 @@ function lockOptions(){
     {id:'manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, remotes:-1},
     {id:'fami', name:'FamiLock リモコンなし', desc:'カードかタグをドアにかざして開けます。スマホでも開け閉めできます。', add: hi ? 89000 : 68000, remotes:0},
     {id:'fami_r', name:'FamiLock リモコン1個', desc:'リモコンはポケットに入れたまま、ドアのボタンを押すだけで開きます。1人がリモコンを使う場合に。', add: hi ? 121000 : 100000, remotes:1},
-    {id:'fami_r2', name:'FamiLock リモコン2個', desc:'ご夫婦それぞれがリモコンを持ちたい場合に。', add: hi ? 147000 : 126000, remotes:2}
+    {id:'fami_r2', name:'FamiLock リモコン2個', desc:'ご夫婦それぞれがリモコンを持ちたい場合に。', add: hi ? 147000 : 126000, remotes:2, rec:true}
   ];
 }
 function clip(k){ return D.clips && D.clips[k] ? img(D.clips[k].img) : ''; }
@@ -824,7 +825,7 @@ function render(){
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
-    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx"><b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add ? '＋'+man(o.add*FAMI_RATE*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
+    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add ? '＋'+man(o.add*FAMI_RATE*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
   }).join('');
   // STEP 6
   var ch = curHandle(), def = cur().handle || {};
