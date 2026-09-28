@@ -515,6 +515,8 @@ var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyBd-bHkh1XChP-xXfusqQqS
 
 // 値付け（2026-09-27 福嶋さん：当面このまま。後で変更できる）
 var RATE = 0.6, KOUJI = 60000, SHOKEI = 15000, TAX = 0.10, COOP = 5000;
+// 電気錠 FamiLock は部品の仕入れが高いので、定価の90%（税抜）で見る。出典：【売値】工賃 掛率 の「玄関・勝手口」シート（ファミロック 直販90）
+var FAMI_RATE = 0.9;
 
 var GRADES = [
   {id:'hi', name:'高断熱', desc:'いちばん暖かいハイグレードモデル'},
@@ -609,8 +611,9 @@ function fitCheck(){
   return res;
 }
 
-function total(list, lockAdd, coop){
-  var t = ((list + lockAdd) * RATE + KOUJI + SHOKEI) * (1 + TAX);
+// list：ドアの定価、add：ハンドル・ガラスの定価の差額（どちらも60%）、fami：電気錠の定価の差額（90%）
+function total(list, add, coop, fami){
+  var t = ((list + add) * RATE + (fami || 0) * FAMI_RATE + KOUJI + SHOKEI) * (1 + TAX);
   if (coop) t -= COOP;
   return Math.round(t / 100) * 100;
 }
@@ -673,7 +676,7 @@ function render(){
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
-    return radioRow('lock', o.id, st.lock===o.id, o.name, o.desc, o.add ? '＋'+man(o.add*RATE*(1+TAX)) : '標準');
+    return radioRow('lock', o.id, st.lock===o.id, o.name, o.desc, o.add ? '＋'+man(o.add*FAMI_RATE*(1+TAX)) : '標準');
   }).join('');
   // STEP 6
   var ch = curHandle(), def = cur().handle || {};
@@ -696,9 +699,9 @@ function summary(){
   var lock = lockOptions().filter(function(o){return o.id===st.lock;})[0];
   var ch = curHandle(), hname = ch.h.name+' '+HCOLOR[ch.color][0];
   var glass = glassAdd(e, st.kind);
-  var opt = lock.add + ch.h.add + glass;
-  var goods = (lp + opt) * RATE;
-  var sub = goods + KOUJI + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop);
+  var opt = ch.h.add + glass;
+  var goods = (lp + opt) * RATE, famiGoods = lock.add * FAMI_RATE;
+  var sub = goods + famiGoods + KOUJI + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop, lock.add);
   var fit = fitCheck();
   var fe = document.getElementById('m-fit');
   fe.className = 'fit' + (fit ? (fit.ng ? ' ng' : fit.ok ? ' ok' : '') : '');
@@ -721,6 +724,7 @@ function summary(){
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
   document.getElementById('r-bd').innerHTML =
     '<tr><td>ドア本体・鍵・ハンドル'+(glass?'・ガラス':'')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
+    (lock.add ? '<tr><td>'+esc(lock.name)+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lock.add)+'（税抜）の '+Math.round(FAMI_RATE*100)+'%</span></td><td>'+yen(famiGoods)+'</td></tr>' : '')+
     '<tr><td>取り付け工事</td><td>'+yen(KOUJI)+'</td></tr>'+
     '<tr><td>古いドアの処分・諸経費</td><td>'+yen(SHOKEI)+'</td></tr>'+
     '<tr><td>消費税（10%）</td><td>'+yen(tax)+'</td></tr>'+
@@ -730,7 +734,7 @@ function summary(){
   document.getElementById('bar-spec').textContent = st.design+'型・'+kindLabel()+'・'+(c?c.name:'');
   document.getElementById('bar-price').textContent = yen(t);
   document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜ハンドル '+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+(st.photo?'｜玄関の写真あり':'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）';
-  st._quote = {design: title, kind: kindLabel(), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+'（'+ch.code+'）', measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt, total: t, size: '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
+  st._quote = {design: title, kind: kindLabel(), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+'（'+ch.code+'）', measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt + lock.add, total: t, size: '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
 }
 
 document.addEventListener('change', function(ev){
@@ -800,7 +804,7 @@ function priceFor(base){
   var lp = listPrice(e, key, c ? c.cls : '');
   if (lp == null) return null;
   var lock = lockOptions().filter(function(o){ return o.id === st.lock; })[0];
-  return total(lp, lock.add + curHandle().h.add + glassAdd(e, key), st.coop);
+  return total(lp, curHandle().h.add + glassAdd(e, key), st.coop, lock.add);
 }
 // 片開き・親子・片袖は写真だけでは取り違えやすい（細い子扉が見えにくい、子扉と袖が似ている）。
 // 家の人なら一目で分かるので、扉の横の細い部分について1問だけ聞いて決める
