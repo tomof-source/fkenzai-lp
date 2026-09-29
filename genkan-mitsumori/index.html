@@ -12,7 +12,7 @@
 <style>
 :root{
   color-scheme:light;
-  --bg:#FFFFFF; --ink:#222222; --ink-2:#555B61; --ink-3:#8A9097;
+  --bg:#FFFFFF; --ink:#222222; --ink-2:#454A50; --ink-3:#6B7178;
   --line:#E2E6EA; --line-2:#CDD4DA;
   --blue:#0071BB; --blue-d:#005588; --sky:#739EC1; --sky-2:#E5F7FF; --sky-3:#F4FAFD;
   --green:#06C755; --warn:#8A5A00; --warn-bg:#FFF6E0;
@@ -104,7 +104,7 @@ section{padding-block:44px}
 .q-head .step{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.06em;font-variant-numeric:tabular-nums}
 .q-head h3{font-size:18px;font-weight:700}
 .q-head small{font-size:12px;color:var(--ink-3);margin-left:auto}
-.q-note{font-size:12px;color:var(--ink-3);margin-top:10px}
+.q-note{font-size:13px;color:var(--ink-3);margin-top:10px}
 
 .list{display:grid;border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .list label{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:12px 14px;cursor:pointer;background:#fff}
@@ -130,7 +130,7 @@ section{padding-block:44px}
 @media (min-width:600px){.designs{grid-template-columns:repeat(4,1fr)}}
 @media (min-width:1100px){.designs{grid-template-columns:repeat(6,1fr)}}
 .designs .tile .in{padding:10px 4px 8px}
-.designs .tile .in img{height:112px}
+.designs .tile .in img{height:132px}
 
 .colors{display:grid;gap:18px}
 .cgroup h4{font-size:13px;font-weight:700;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
@@ -174,7 +174,7 @@ section{padding-block:44px}
 .ask{margin-top:10px;display:grid;gap:8px}
 .ask b{font-size:14px}
 .ask .btns{display:grid;grid-template-columns:1fr;gap:8px}
-@media (min-width:600px){.ask .btns{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:600px){.ask .btns{grid-template-columns:repeat(2,1fr)}}
 .ask button.guess{border-width:2px;background:var(--sky-3)}
 .ask button em{font-style:normal;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:2px;padding:0 5px;margin-left:6px}
 .ask button{font:inherit;font-size:13.5px;text-align:left;background:#fff;border:1px solid var(--blue);border-radius:4px;padding:10px 12px;cursor:pointer;line-height:1.5;color:var(--ink)}
@@ -425,6 +425,29 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 .pdfq .notes li{padding-left:1em;text-indent:-1em}
 .pdfq .cta{margin-top:14px;border:1px solid #0071BB;border-radius:6px;padding:10px 14px;font-size:12.5px}
 .pdfq .cta b{color:#0071BB}
+/* スマホは文字を一回り大きく（社員の声：小さくて薄い） */
+@media (max-width:599px){
+  body{font-size:16px}
+  .q-note{font-size:13.5px}
+  .tile .in span{font-size:12.5px}
+  .tile .in b{font-size:15px}
+  .list span,.gcard .desc,.lcard .tx span{font-size:13.5px}
+  .gcard .sub{font-size:14px}
+  .bd td{font-size:14px}
+  .stage-cap,.pdf-note{font-size:12.5px}
+}
+/* 開き方の見分け方 */
+.kind-guide{display:grid;gap:6px;background:var(--sky-3);border:1px solid var(--sky-2);border-left:4px solid var(--blue);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:13.5px;color:var(--ink)}
+.kind-guide b{color:var(--blue-d)}
+/* デザインを大きく見る */
+.designs .tile .in{position:relative}
+.zoom{position:absolute;top:4px;right:4px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;padding:0;z-index:2}
+.zoom svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round}
+.stage .main img{cursor:zoom-in}
+.zoom-view{text-align:center}
+.zoom-view img{max-height:70vh;width:auto;margin:0 auto}
+.zoom-view .row{display:flex;justify-content:center;align-items:flex-end;gap:14px;flex-wrap:wrap}
+.zoom-view .row img.kind{max-height:40vh}
 </style>
 </head>
 <body>
@@ -479,9 +502,10 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
+        <div class="kind-guide"><span>扉の横に細い部分があるときは、<b>そこが開くか</b>で見分けます。</span><span>・細い部分も扉で開く　→　<b>親子</b></span><span>・細い部分はガラスや格子で開かない　→　<b>片袖</b>（両側なら<b>両袖</b>）</span><span>・同じ幅の扉が2枚で、両方開く　→　<b>両開き</b></span></div>
         <div class="kinds" id="o-kind"></div>
         <div class="ranma" id="o-ranma"></div>
-        <p class="q-note">扉の横の細い部分も開くなら「親子」、開かないガラスや格子なら「片袖」です。2枚とも同じ幅で両方開くなら「両開き」です。袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸は、現地調査のときにお見積りします。</p>
+        <p class="q-note">袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸は、現地調査のときにお見積りします。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 3</span><h3>デザイン</h3><small id="design-count"></small></div>
@@ -539,7 +563,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 
     <aside class="result" aria-live="polite">
       <div class="stage">
-        <div class="main"><img id="st-color" src="" alt=""></div>
+        <div class="main"><img id="st-color" src="" alt="" data-zoom-current="1" title="押すと大きく見られます"></div>
         <div class="side"><img id="st-sw" src="" alt=""><span id="st-sw-cap"></span></div>
       </div>
       <p class="stage-cap" id="st-cap"></p>
@@ -560,7 +584,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 <section class="band"><div class="wrap">
   <div class="sec-title"><span class="en">PROMISE</span><h2>金額のことで、あとから困らないように</h2></div>
   <div class="promise">
-    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。本体の値段だけを見せて、あとから工事費を足すことはしません。</p></div>
+    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。本体の値段だけを小さく見せる出し方はしません。遠方の出張費など、画面の金額に加わるものがある場合は、現地調査の前にお伝えします。</p></div>
     <div><h3>表示はカタログの価格が元</h3><p>LIXILのカタログに載っている寸法での価格をもとにしています。背の低い玄関などは、実際の寸法で少し変わることがあります。</p></div>
     <div><h3>現地調査の日に確定</h3><p>寸法と今の枠の状態を確認し、その場で最終の金額をお出しします。工事の日に金額が増えることはありません。</p></div>
   </div>
@@ -572,6 +596,8 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
       <li>横のガラス（袖）や上の明かり窓（ランマ）が付いている玄関</li>
       <li>防火地域などで、防火戸が必要なとき</li>
       <li>ポストや手すりの付け替え</li>
+      <li>今の枠の下の部分（下枠）を取り外す必要があるとき</li>
+      <li>遠方の方の出張費（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）</li>
     </ul>
   </div>
 </div></section>
@@ -699,7 +725,7 @@ var CLASS_HINT = {'木目調':'標準の木目の色','セレクトカラー':'�
 
 var D = null;
 var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null, dstyle:'all'};
-var BASES = [['片開き','扉1枚'],['親子','大きい扉＋細い扉'],['片袖','扉＋片側にガラス'],['両袖','扉＋両側にガラス'],['両開き','同じ幅の扉2枚']];
+var BASES = [['片開き','扉1枚'],['親子','細い扉も開く'],['片袖','横は開かないガラス'],['両袖','両横が開かないガラス'],['両開き','同じ幅の扉2枚']];
 // デザインの雰囲気の目印（カタログの写真を見て付けたもの）と、風を通せるドア
 var DSTYLE = {simple:'シンプル', modern:'モダン', natural:'ナチュラル', western:'洋風'};
 var STYLE_OF = {};
@@ -858,7 +884,7 @@ function render(){
   var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='wind' ? WIND[k] : STYLE_OF[k]===st.dstyle); });
   document.getElementById('o-design').innerHTML = list.map(function(k){
     var d = ds[k], sy = STYLE_OF[k];
-    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span class="tags">'+(sy?'<i class="s-'+sy+'">'+DSTYLE[sy]+'</i>':'')+(WIND[k]?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
+    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+k+'型を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span class="tags">'+(sy?'<i class="s-'+sy+'">'+DSTYLE[sy]+'</i>':'')+(WIND[k]?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
   document.getElementById('design-count').textContent = all.length + 'デザイン';
   // STEP 4
@@ -923,7 +949,7 @@ function summary(){
     '<tr><td>ドア本体・鍵・ハンドル<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     (glass ? '<tr><td>ガラス（'+(e.bodyGlass?'本体':'')+(e.bodyGlass&&glass>BODY_GLASS?'・':'')+(glass>(e.bodyGlass?BODY_GLASS:0)?'ランマ・袖':'')+'）<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(glass)+'（税抜）の '+Math.round(GLASS_RATE*100)+'%</span></td><td>'+yen(glassGoods)+'</td></tr>' : '')+
     (lock.add ? '<tr><td>'+esc(lock.name)+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lock.add)+'（税抜）の '+Math.round(FAMI_RATE*100)+'%</span></td><td>'+yen(famiGoods)+'</td></tr>' : '')+
-    '<tr><td>取り付け工事</td><td>'+yen(KOUJI)+'</td></tr>'+
+    '<tr><td>取付工賃</td><td>'+yen(KOUJI)+'</td></tr>'+
     '<tr><td>取り付けの補助部材<br><span style="font-size:11px;color:var(--ink-3)">下枠の段差をなくす部材など</span></td><td>'+yen(HOJO)+'</td></tr>'+
     '<tr><td>古いドアの処分・諸経費</td><td>'+yen(SHOKEI)+'</td></tr>'+
     '<tr><td>消費税（10%）</td><td>'+yen(tax)+'</td></tr>'+
@@ -981,12 +1007,14 @@ function applyAI(j){
   var note = j.note ? j.note + ' ' : '';
   document.getElementById('ai-ask').hidden = true;
   if (BASE_OK[j.door_type]){
+    // 読み取りで形が変わると、そのデザインに無い形なら別のデザインに移る。確認で選び直したときに戻せるよう覚えておく
+    st._prevDesign = st.design; st._prevColor = st.color;
     st.base = j.door_type; st.ranma = !!j.has_transom;
     render();
-    if (j.door_type === '片開き' || j.door_type === '親子' || j.door_type === '片袖') askOpens(j.door_type);
+    if (ASK_TYPES[j.door_type]) askOpens(j.door_type);
     var lbl = j.door_type + (j.has_transom ? '（ランマ付き）' : '');
     var fell = st.kind !== kindKey(j.door_type, !!j.has_transom);
-    var asking = j.door_type === '片開き' || j.door_type === '親子' || j.door_type === '片袖';
+    var asking = !!ASK_TYPES[j.door_type];
     aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' +
       (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') +
       (asking ? '' : (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + '違っていたら、下の STEP 2 で選び直せます。'));
@@ -997,8 +1025,9 @@ function applyAI(j){
   }
 }
 // 親子と片袖は写真では見分けにくいので、細い部分が開くかをお客様に聞いて決める（家の人なら一目で分かる）
-function priceFor(base){
-  var e = cur(), key = kindKey(base, st.ranma);
+function priceFor(base, prefer){
+  var key = kindKey(base, st.ranma), pd = prefer && designs()[prefer];
+  var e = pd && pd.kinds[key] ? pd : cur();
   if (!e.kinds[key]) return null;
   var c = e.colors.filter(function(x){ return x.code === st.color; })[0];
   var lp = listPrice(e, key, c ? c.cls : '');
@@ -1008,18 +1037,22 @@ function priceFor(base){
 }
 // 片開き・親子・片袖は写真だけでは取り違えやすい（細い子扉が見えにくい、子扉と袖が似ている）。
 // 家の人なら一目で分かるので、扉の横の細い部分について1問だけ聞いて決める
+// 夜の写真などで、親子を両開きと読むことがある（社員の試し 2026-09-29）。両開きも確認に入れる
+var ASK_TYPES = {'片開き':1, '親子':1, '片袖':1, '両開き':1};
 function askOpens(guess){
   var box = document.getElementById('ai-ask');
-  var opts = [['片開き','細い部分はない'], ['親子','細い部分も開く扉'], ['片袖','細い部分は開かないガラス・格子']];
-  box.innerHTML = '<b>念のため確認です。扉の横に、細い部分はありますか？</b><div class="btns">' +
+  var opts = [['片開き','扉は1枚だけ'], ['親子','大きい扉の横に、細い扉（これも開く）'], ['片袖','扉の横に、開かないガラス・格子'], ['両開き','同じ幅の扉が2枚']];
+  box.innerHTML = '<b>念のため確認です。今の玄関はどれに近いですか？</b><div class="btns">' +
     opts.map(function(o){
-      var pr = priceFor(o[0]);
+      var pr = priceFor(o[0], st._prevDesign);
       return '<button type="button" data-base="' + o[0] + '"' + (o[0] === guess ? ' class="guess"' : '') + (pr == null ? ' disabled' : '') + '><b>' + o[1] + (o[0] === guess ? '<em>AIの読み取り</em>' : '') + '</b><span>' + o[0] + (st.ranma ? '（ランマ付き）' : '') + '・' + (pr == null ? 'このデザインにはありません' : man(pr)) + '</span></button>';
     }).join('') + '</div>';
   box.hidden = false;
   box.querySelectorAll('button').forEach(function(b){
     b.addEventListener('click', function(){
       st.base = b.getAttribute('data-base');
+      var pd = st._prevDesign && designs()[st._prevDesign];
+      if (pd && pd.kinds[kindKey(st.base, st.ranma)]){ st.design = st._prevDesign; st.color = st._prevColor || st.color; }
       render();
       box.hidden = true;
       aiMsg('ok', '「' + kindLabel() + '」で金額を出しました。違っていたら、下の STEP 2 で選び直せます。');
@@ -1130,7 +1163,8 @@ function buildPdfSheet(no, now){
     '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
     '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
     '<div class="notes"><b>この見積りについて</b><ul><li>・LIXILのカタログ価格（2026年5月版）をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
-      '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替えがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
+      '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
+      '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費をいただく場合があります。</li>'+
       '<li>・写真と色見本はカタログから取ったもので、実物と色味が少し違って見えることがあります。</li></ul></div>'+
     '<div class="cta"><b>現地調査のお申し込み・ご相談</b>　フリーダイヤル 0120-914-180／LINE https://lin.ee/UmuaYxJ<br>このページからもお申し込みいただけます：'+esc(location.href.split('#')[0].split('?')[0])+'</div>';
   var wrap = document.createElement('div'); wrap.className = 'pdfq-wrap'; wrap.appendChild(el);
@@ -1195,11 +1229,27 @@ var INFO = {
   }
 };
 var dlg = document.getElementById('info');
+function openInfo(html){
+  document.getElementById('info-body').innerHTML = html;
+  if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+}
+// デザインを大きく見る：カタログの大きな写真と、選んでいる開き方の写真
+function zoomHtml(k){
+  var d = designs()[k]; if (!d) return '';
+  var kind = d.kinds[st.kind] ? st.kind : Object.keys(d.kinds)[0];
+  var title = 'リシェント '+gname(st.grade)+' '+k+'型';
+  return '<h3 id="info-h">'+esc(title)+'</h3><div class="zoom-view"><div class="row">'+
+    (d.hero ? '<img src="'+img(d.hero)+'" alt="'+esc(title)+'">' : '')+
+    (d.kinds[kind] && d.kinds[kind].img ? '<img class="kind" src="'+img(d.kinds[kind].img)+'" alt="'+esc(title+' '+kind)+'">' : '')+
+    '</div><p class="src">写真はLIXILのカタログ（2026年5月版）のものです。大きい写真の色はカタログの見本の色で、小さい写真は'+esc(kind)+'の形です。</p></div>';
+}
 document.addEventListener('click', function(ev){
+  var z = ev.target.closest('[data-zoom]');
+  if (z && D){ ev.preventDefault(); ev.stopPropagation(); openInfo(zoomHtml(z.getAttribute('data-zoom'))); return; }
+  if (ev.target.closest('[data-zoom-current]') && D){ openInfo(zoomHtml(st.design)); return; }
   var o = ev.target.closest('[data-info]');
   if (o && INFO[o.getAttribute('data-info')] && D){
-    document.getElementById('info-body').innerHTML = INFO[o.getAttribute('data-info')]();
-    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    openInfo(INFO[o.getAttribute('data-info')]());
     return;
   }
   if (ev.target.closest('[data-close]') || ev.target === dlg){ if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
