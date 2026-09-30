@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>リシェント玄関ドア・引戸 かんたん見積｜フクシマ建材</title>
-<meta name="description" content="LIXILリシェントの玄関ドアを選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本・福岡のフクシマ建材。">
+<title>玄関ドア・引戸 かんたん見積（リシェント・ドアリモ）｜フクシマ建材</title>
+<meta name="description" content="LIXILリシェントとYKK APドアリモの玄関ドア・引戸を選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本・福岡のフクシマ建材。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
@@ -392,6 +392,10 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 .info .gtable div{display:grid;grid-template-columns:88px 1fr;gap:10px;font-size:13.5px;border-top:1px solid var(--line);padding-top:6px}
 .info .gtable b{font-size:13.5px}
 .info .btn{margin-top:18px}
+/* ドアリモのキーセット */
+.kit.ykit{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:4px 8px}
+.kit.ykit>span{display:flex;flex-direction:column;align-items:center;font-size:10.5px;color:var(--ink-2)}
+.kit.ykit img{height:34px;width:auto}
 /* 見積書のPDF保存 */
 .pdf-note{font-size:12px;color:var(--ink-3);text-align:center;margin-top:-4px}
 .pdf-note.ok{color:#2E7D32;font-weight:700}
@@ -464,7 +468,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 <main>
 <section class="hero" style="padding-block:0"><div class="wrap">
   <div>
-    <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント玄関ドア・引戸 かんたん見積</div>
+    <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント・YKK AP ドアリモ 玄関ドア・引戸 かんたん見積</div>
     <h1><span class="ph">選んだ玄関の</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
     <p class="lead">熊本県菊池市で、窓と玄関のリフォームをしているフクシマ建材です。玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で、1日で交換します。このページでドアを選ぶと、取り付け工事と古いドアの処分まで入れた金額がすぐに出ます。サイズは現地調査で私たちが測りますので、まずは気になるドアを選んでみてください。</p>
@@ -480,7 +484,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 
 <section id="sim"><div class="wrap">
   <div class="sim-intro">
-    <div class="sec-title" style="margin-bottom:0"><span class="en">SIMULATION</span><h2>好きな玄関を選んで、金額を見てみましょう</h2><p>LIXILのリシェントは、デザインが40種類以上あります。上から順に選ぶと、写真と金額がその都度変わります。スマホでは、画面のいちばん下に金額が出ます。</p>
+    <div class="sec-title" style="margin-bottom:0"><span class="en">SIMULATION</span><h2>好きな玄関を選んで、金額を見てみましょう</h2><p>LIXILのリシェントと、YKK APのドアリモから選べます。上から順に選ぶと、写真と金額がその都度変わります。スマホでは、画面のいちばん下に金額が出ます。</p>
       <ol class="steps"><li><i>1</i>断熱</li><li><i>2</i>開き方</li><li><i>3</i>デザイン</li><li><i>4</i>色</li><li><i>5</i>鍵</li><li><i>6</i>ハンドル</li></ol></div>
     <div class="doors" id="intro-doors" aria-hidden="true"></div>
   </div>
@@ -489,6 +493,8 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
       <div class="q" id="q-product" style="margin-bottom:28px">
         <div class="q-head"><span class="step">はじめに</span><h3>玄関の種類</h3><small>今の玄関と同じ種類を選んでください</small></div>
         <div class="kinds prod" id="o-product"></div>
+        <div class="q-head" style="margin-top:20px"><span class="step">つぎに</span><h3>メーカー</h3><small>どちらも玄関リフォーム用の商品です</small></div>
+        <div class="kinds prod" id="o-maker"></div>
       </div>
       <div class="photo-ai" id="photo-ai">
         <h3>今の玄関の写真を入れると、開き方を選んでくれます</h3>
@@ -519,7 +525,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
         <div class="q-head"><span class="step">STEP 3</span><h3>デザイン</h3><small id="design-count"></small></div>
         <div class="dstyles" id="o-dstyle"></div>
         <div class="designs" id="o-design"></div>
-        <p class="q-note">「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。</p>
+        <p class="q-note" id="design-note">「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。</p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 4</span><h3>色</h3></div>
@@ -773,24 +779,69 @@ var HK_RANMA = {'2枚建':62000, '4枚建':85800};
 var HK_KOUJI = {'2枚建':60000, '4枚建':70000};
 // 引戸の電気錠（簡易タッチキー・CAZAS）は部品の仕入れが高い。掛率表の「簡易タッチキー 75」から定価の差額の75%で見る
 var HK_LOCK_RATE = 0.75;
-var DEF = {door:{grade:'k4', base:'片開き', design:'M83', color:'CC'}, hikido:{grade:'pg', base:'2枚建', design:'P11', color:'BX'}};
-function isHK(){ return PRODUCT === 'hikido'; }
-function gradesData(){ return isHK() ? D.hikido.grades : D.grades; }
+
+// ===== YKK AP ドアリモ（玄関ドア・玄関引戸 2026年5月版カタログ）=====
+// 掛率は【売値】工賃 掛率 の「玄関・勝手口」シート（ドアリモ・直販）：ドア60・引戸60。
+// ドアリモの電気錠（スマートコントロールキー）はドアの定価に最初から入っているので、カギの差額も同じ60%で見る
+var Y_RATE = 0.60;
+// 性能の説明はドアリモ 玄関ドア カタログ21ページ（断熱ドアはD50、D30（D2仕様・D4仕様）があります）
+var GRADES_YD = [
+  {id:'d4', name:'D30 D4仕様', badge:'おすすめ', sub:'熊本・福岡の玄関なら、まずはこれで十分です', desc:'厚さ42mmの扉の中に断熱材が入り、ガラスは2枚重ねの複層ガラスです。カタログでも、比較的温暖な地域ならD4仕様で十分とされています。'},
+  {id:'d2', name:'D30 D2仕様', badge:'こだわるなら', sub:'冷え込みの強い玄関に', desc:'D4仕様と同じ厚さ42mmの扉に、熱を通しにくいLow-E複層ガラスを組み合わせます。'},
+  {id:'d50', name:'D50 高断熱', badge:'最高クラス', sub:'いちばん暖かい玄関にしたい方に', desc:'扉の厚さが70mmになり、ガラスはアルゴンガス入りのトリプルガラス（Low-E膜が2枚）です。'},
+  {id:'yal', name:'アルミ', badge:'価格重視', sub:'断熱はありません', desc:'扉はアルミで、断熱材は入りません。寒さより金額を優先したい場合の選び方です。'}
+];
+// 引戸はガラスで選ぶ（ドアリモ 玄関引戸 カタログ26ページ「ガラスを選ぶ」）。Low-E複層ガラスは複層ガラスの定価に差額を足した値段
+var GRADES_YHK = [
+  {id:'yf', name:'複層ガラス', badge:'おすすめ', sub:'ガラス入りの標準の仕様です', desc:'2枚の板ガラスの間に乾いた空気を閉じ込めた、断熱性能のあるガラスです。'},
+  {id:'yl', name:'Low-E複層ガラス', badge:'こだわるなら', sub:'断熱をさらに高めたい方に', desc:'複層ガラスに金属の膜（Low-E膜）を加えて、熱をさらに通しにくくしたガラスです。日差しの熱もさえぎるタイプです。'}
+];
+var BASES_YHK = [['2枚建','戸が2枚'],['4枚建','戸が4枚（広い間口）'],['袖付','戸2枚と、横の開かない袖']];
+// デザインの雰囲気は、カタログの分け方（ドア：デザイン番号の頭の文字。引戸：現代和風・洋風・伝統和風）
+var Y_STYLE = {yN:'ナチュラル', yF:'シンプル', yC:'シック', yE:'エレガント'};
+var YHK_STYLE = {gendai:'現代和風', yofu:'洋風', dento:'伝統和風', sode:'袖付'};
+var STYLE_CSS = {yN:'natural', yF:'simple', yC:'modern', yE:'western', gendai:'modern', yofu:'western', dento:'natural', sode:'simple'};
+var DEF = {door:{grade:'k4', base:'片開き', design:'M83', color:'CC'}, hikido:{grade:'pg', base:'2枚建', design:'P11', color:'BX'},
+  ydoor:{grade:'d4', base:'片開き', design:'N07N', color:'PR'}, yhk:{grade:'yf', base:'2枚建', design:'C01', color:'YF'}};
+var MAKER = 'lixil';
+function isHK(){ return PRODUCT === 'hikido' || PRODUCT === 'yhk'; }
+function isY(){ return PRODUCT === 'ydoor' || PRODUCT === 'yhk'; }
+function productKey(type, maker){ return maker === 'ykk' ? (type === 'hikido' ? 'yhk' : 'ydoor') : type; }
+function gradesData(){ return PRODUCT === 'yhk' ? D.yhk.grades : PRODUCT === 'ydoor' ? D.ydoor.grades : PRODUCT === 'hikido' ? D.hikido.grades : D.grades; }
+function rate(){ return isY() ? Y_RATE : RATE; }
 function kouji(){ return isHK() ? (HK_KOUJI[st.base] || 60000) : KOUJI; }
-function lockRate(){ return isHK() ? HK_LOCK_RATE : FAMI_RATE; }
-function swatch(code){ return (isHK() && D.hikido && D.hikido.swatches[code]) || D.swatches[code]; }
-function productName(){ return isHK() ? 'リシェント玄関引戸2' : 'リシェント'; }
+function lockRate(){ return PRODUCT === 'hikido' ? HK_LOCK_RATE : PRODUCT === 'door' ? FAMI_RATE : Y_RATE; }
+function swatch(code){
+  var src = PRODUCT === 'yhk' ? D.yhk : PRODUCT === 'ydoor' ? D.ydoor : PRODUCT === 'hikido' ? D.hikido : null;
+  return (src && src.swatches[code]) || (!isY() && D.swatches[code]) || null;
+}
+function productName(){ return {door:'リシェント', hikido:'リシェント玄関引戸2', ydoor:'ドアリモ 玄関ドア', yhk:'ドアリモ 玄関引戸'}[PRODUCT]; }
+function makerName(){ return isY() ? 'YKK AP' : 'LIXIL'; }
 function setProduct(p){
   PRODUCT = p;
-  GRADES = p === 'hikido' ? GRADES_HK : GRADES_DOOR;
-  BASES = p === 'hikido' ? BASES_HK : BASES_DOOR;
+  MAKER = isY() ? 'ykk' : 'lixil';
+  GRADES = {door:GRADES_DOOR, hikido:GRADES_HK, ydoor:GRADES_YD, yhk:GRADES_YHK}[p];
+  BASES = {door:BASES_DOOR, hikido:BASES_HK, ydoor:BASES_DOOR, yhk:BASES_YHK}[p];
   var d = DEF[p];
   st.grade = d.grade; st.base = d.base; st.ranma = false; st.design = d.design; st.color = d.color;
-  st.lock = 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
+  st.lock = p === 'ydoor' ? 'y_pitatto' : 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
 }
+// ドアリモ 玄関ドアの袖とランマのガラスは、メーカーの別売り品（カタログに値段が無い）。金額に入れず「別途」と出す
+function yGlassSep(){ return PRODUCT === 'ydoor' && (st.ranma || st.base === '片袖' || st.base === '両袖'); }
+// ドアリモは、今ついている玄関の開口の幅の目安がカタログにある（ドア60ページ・引戸26ページ）
+function yOpenW(){
+  if (PRODUCT === 'yhk') return D.yhk.openW[st.base] || '';
+  if (PRODUCT === 'ydoor') return (D.ydoor.openW[st.grade === 'd50' ? 'd50' : 'd30'] || {})[st.base] || '';
+  return '';
+}
+function styleOf(k, d){ return PRODUCT === 'yhk' ? d.style : PRODUCT === 'ydoor' ? (Y_STYLE['y' + k.charAt(0)] ? 'y' + k.charAt(0) : '') : STYLE_OF[k]; }
+function styleNames(){ return PRODUCT === 'yhk' ? YHK_STYLE : PRODUCT === 'ydoor' ? Y_STYLE : DSTYLE; }
+function windOf(k, d){ return PRODUCT === 'ydoor' ? !!(d && d.wind) : PRODUCT === 'door' ? !!WIND[k] : false; }
+function sgnYen(n){ return (n < 0 ? '－' : '') + yen(Math.abs(n)); }
 function kindKey(base, ranma){ return base + (ranma ? 'ランマ付' : ''); }
 function kindLabel(){ return st.base + (st.ranma ? '（ランマ付き）' : ''); }
 function glassAdd(e, key, grade){
+  if (isY()) return 0;
   if (isHK()) return (key.indexOf('ランマ付') >= 0 && (grade || st.grade) === 'pg') ? (HK_RANMA[key.replace('ランマ付','')] || 0) : 0;
   var g = GLASS[grade || st.grade], b = key.replace('ランマ付',''), add = 0;
   if (key.indexOf('ランマ付') >= 0) add += g.ranma;
@@ -828,7 +879,22 @@ function colorsWithPrice(e, kind){
 function minPrice(e, kind){ var m = Infinity; colorsWithPrice(e, kind).forEach(function(c){ m = Math.min(m, listPrice(e, kind, c.cls)); }); if(!isFinite(m)){ var p=e.kinds[kind]&&e.kinds[kind].p; for(var k in (p||{})) m=Math.min(m,p[k]); } return m; }
 // FamiLock（電池式）の加算額はカタログ206ページ。高断熱とそれ以外で違う
 function lockOptions(){
-  if (isHK()){
+  if (PRODUCT === 'yhk') return [{id:'manual', name:'手動キー', desc:'差して回すカギです。ドアリモの引戸は手動キーです。', add:0, y:'manual'}];
+  if (PRODUCT === 'ydoor'){
+    // 差額はデザインのページの値段（ピタットキーが基準）。両開きの手動錠は仕様変更の表
+    // （D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －78,000）
+    var ye = cur(), lk = (ye && ye.lock) || {pocket:57000, face:152000, manual:-83000};
+    var man = st.base === '両開き' ? (st.grade === 'd50' ? -137000 : (ye && /ロートアイアン/.test(ye.manualHandle || '') ? -78000 : -95000)) : lk.manual;
+    var ya = [
+      {id:'y_pitatto', name:'ピタットキー（タグキー3個）', desc:'タグキーをドアに近づけると開きます。スマホでも開け閉めできます。', add:0, y:'pitatto'},
+      {id:'y_pocket', name:'ポケットキー（リモコン2個）', desc:'リモコンはポケットやカバンに入れたまま、ハンドルのボタンを押すと開きます。タグキー3個も付いています。', add:lk.pocket, y:'pocket', rec:true}
+    ];
+    // 顔認証キーはAC100V式だけ。ランマ付の両袖FIXにはAC100V式の設定が無い
+    if (st.kind !== '両袖ランマ付') ya.push({id:'y_face', name:'顔認証キー（リモコン2個付き）', desc:'顔を登録した人がドアの前に立つと開きます。電気の配線（AC100V）が要ります。', add:lk.face, y:'face'});
+    ya.push({id:'y_manual', name:'手動キー', desc:'今と同じ、差して回すカギです。電気錠より金額が下がります。', add:man, y:'manual'});
+    return ya;
+  }
+  if (PRODUCT === 'hikido'){
     // 引戸の電気錠は2枚建だけ。加算額はデザインの見開きの値段の差（PG仕様 +79,000・+53,000、SG仕様はラッチ付への変更分を含む）
     var he = cur(), el = he && he.elock;
     var a = [{id:'manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, hk:'manual'}];
@@ -848,7 +914,13 @@ function lockOptions(){
 }
 function clip(k){ return D.clips && D.clips[k] ? img(D.clips[k].img) : ''; }
 function hkClip(k){ return D.hikido && D.hikido.clips && D.hikido.clips[k] ? img(D.hikido.clips[k].img) : ''; }
+function yClip(k){ return D.ydoor && D.ydoor.clips[k] ? img(D.ydoor.clips[k].img) : ''; }
 function lockPic(o){
+  if (o.y){
+    // ドアリモのキーセット（玄関ドア カタログ13ページ「3つのキーセットから選べます」）
+    var parts = {pitatto:[['tag','タグ×3'],['phone','スマホ']], pocket:[['remote','リモコン×2'],['tag','タグ×3'],['phone','スマホ']], face:[['face','顔認証'],['remote','リモコン×2'],['tag','タグ×3']], manual:[['key','カギ']]}[o.y];
+    return '<span class="kit ykit">'+parts.map(function(q){ return '<span><img src="'+yClip(q[0])+'" alt="">'+q[1]+'</span>'; }).join('')+'</span>';
+  }
   if (o.hk){
     var cap = {manual:'手動キー', touch:'リモコン×2', cazas:'カード×4・タグ×2'}[o.hk];
     return '<span class="kit"><img src="'+hkClip(o.hk)+'" alt="" style="height:60px;width:auto"><span>'+cap+'</span></span>';
@@ -863,7 +935,13 @@ function handleOpts(){ return HANDLES.map(function(h){ return {id:h.id, name:h.n
 // 選んだハンドル。まだ選んでいなければ、そのデザインの標準のハンドル
 function curHandle(){
   // 引戸は、デザインごとの標準の引手・把手のまま（変更は現地調査で相談）
-  if (isHK()){ var he = cur(); return {h:{id:'std', name:(he && he.handle) || '標準', add:0, colors:[]}, color:'', isDefault:true, code:''}; }
+  if (isHK() || isY()){
+    var he = cur(), hn = (he && he.handle) || '標準';
+    // ドアリモの手動錠はハンドルも手動錠用に変わる。洋風カーブハンドルは両開きの設定が無い（ストレートになる）
+    if (PRODUCT === 'ydoor' && st.lock === 'y_manual' && he && he.manualHandle) hn = he.manualHandle;
+    else if (PRODUCT === 'ydoor' && st.base === '両開き' && /カーブ/.test(hn)) hn = 'ストレートハンドル';
+    return {h:{id:'std', name:hn, add:0, colors:[]}, color:'', isDefault:true, code:''};
+  }
   var e = cur(), def = e.handle || {type:'F', color:'3'};
   var opts = handleOpts();
   var id = st.handle || def.type;
@@ -877,6 +955,14 @@ function mm(v){ var n = parseFloat(String(v).replace(/[^\d.]/g,'')); if (!n) ret
 function fitCheck(){
   var w = mm(st.mw), h = mm(st.mh);
   if (!w && !h) return null;
+  if (isY()){
+    var ow = yOpenW(), rr = range(ow.replace(/,/g, '')), ms = (w ? '幅 '+(w/10).toFixed(1)+'cm' : '') + (w && h ? '・' : '') + (h ? '高さ '+(h/10).toFixed(1)+'cm' : '');
+    if (!w || !rr) return {ok:false, partial:true, text:'幅を入れると、ドアリモの目安に入るかを確かめられます。高さは現地調査のときに私たちが測ります。', label:'一部のみ入力', measured:ms};
+    var inW = w >= rr[0] && w <= rr[1];
+    return {ok:inW, ng:!inW, partial:false, measured:ms, label: inW ? '幅は目安の範囲内' : '幅が目安から外れる見込み',
+      text: inW ? '今の玄関の幅は、ドアリモの'+st.base+'の目安（開口 '+ow+'mm）に入っています。高さと細かい寸法は、現地調査で確かめます。'
+                : '今の玄関の幅が、ドアリモの'+st.base+'の目安（開口 '+ow+'mm）から外れそうです。別の形になる場合があるので、現地調査で確かめてお見積りします。'};
+  }
   if (isHK()){
     // 引戸は換算の決まりを入れていないので、測った寸法を控えるだけにする
     return {ok:false, partial:true, text:'引戸は、現地調査のときに私たちが測って確かめます。入れていただいた寸法は、申し込みと一緒にお預かりします。', label:'現地で確認',
@@ -905,7 +991,7 @@ function fitCheck(){
 
 // list：ドアの定価、add：ハンドルの定価の差額（どちらも58%）、fami：電気錠の定価の差額（90%）、glass：ガラスの定価（50%）
 function total(list, add, coop, fami, glass){
-  var t = ((list + add) * RATE + (fami || 0) * lockRate() + (glass || 0) * GLASS_RATE + kouji() + HOJO + SHOKEI) * (1 + TAX);
+  var t = ((list + add) * rate() + (fami || 0) * lockRate() + (glass || 0) * GLASS_RATE + kouji() + HOJO + SHOKEI) * (1 + TAX);
   if (coop) t -= COOP;
   return Math.round(t / 100) * 100;
 }
@@ -927,7 +1013,7 @@ function normalize(){
     st.color = pick ? pick.code : '';
   }
   // 形を変えると選べない鍵がある（引戸の4枚建は電気錠なし）。そのときは手動キーに戻す
-  if (!lockOptions().some(function(o){ return o.id === st.lock; })) st.lock = 'manual';
+  if (!lockOptions().some(function(o){ return o.id === st.lock; })) st.lock = lockOptions()[0].id;
 }
 
 function render(){
@@ -935,25 +1021,55 @@ function render(){
   var e = cur();
   // はじめに：玄関の種類
   var pd = D.grades.k4 && D.grades.k4.M83, ph = D.hikido && D.hikido.grades.pg && D.hikido.grades.pg.P11;
+  var yd = D.ydoor && D.ydoor.grades.d4 && D.ydoor.grades.d4[DEF.ydoor.design], yh = D.yhk && D.yhk.grades.yf && D.yhk.grades.yf[DEF.yhk.design];
+  var pImg = {door: pd && pd.kinds['片開き'] && pd.kinds['片開き'].img, hikido: ph && ph.kinds['2枚建'] && ph.kinds['2枚建'].img,
+    ydoor: yd && yd.thumb, yhk: yh && yh.kinds['2枚建'] && yh.kinds['2枚建'].img};
+  var ty = isHK() ? 'hikido' : 'door';
+  var tile = function(name, o, on){ return '<label class="tile"><input type="radio" name="'+name+'" value="'+o[0]+'"'+(on?' checked':'')+'><span class="in">'+(o[3]?'<img src="'+img(o[3])+'" alt="" loading="lazy">':'')+'<b>'+o[1]+'</b><span>'+o[2]+'</span></span></label>'; };
   document.getElementById('o-product').innerHTML = [
-    ['door', '玄関ドア（開き戸）', 'LIXIL リシェント玄関ドア3', pd && pd.kinds['片開き'] && pd.kinds['片開き'].img],
-    ['hikido', '玄関引戸（引き戸）', 'LIXIL リシェント玄関引戸2', ph && ph.kinds['2枚建'] && ph.kinds['2枚建'].img]
-  ].map(function(o){
-    return '<label class="tile"><input type="radio" name="product" value="'+o[0]+'"'+(PRODUCT===o[0]?' checked':'')+'><span class="in">'+(o[3]?'<img src="'+img(o[3])+'" alt="" loading="lazy">':'')+'<b>'+o[1]+'</b><span>'+o[2]+'</span></span></label>';
-  }).join('');
-  var hk = isHK();
-  document.getElementById('grade-lead').innerHTML = hk
-    ? '引戸は、断熱性能のある<b style="color:var(--ink)">PG仕様</b>と、断熱のない<b style="color:var(--ink)">SG仕様</b>の2つです。冬の玄関の寒さが気になるならPG仕様を選んでください。'
-    : '玄関の寒さは、ドアの中の断熱材とガラスで決まります。迷ったら<b style="color:var(--ink)">断熱 k4</b>で大丈夫です。寒さが気になる玄関なら<b style="color:var(--ink)">k2</b>を選んでみてください。';
+    ['door', '玄関ドア（開き戸）', '扉を手前に開ける玄関', pImg[productKey('door', MAKER)]],
+    ['hikido', '玄関引戸（引き戸）', '戸を横に引いて開ける玄関', pImg[productKey('hikido', MAKER)]]
+  ].map(function(o){ return tile('product', o, ty === o[0]); }).join('');
+  document.getElementById('o-maker').innerHTML = [
+    ['lixil', 'LIXIL リシェント', ty === 'door' ? 'リシェント玄関ドア3' : 'リシェント玄関引戸2', pImg[ty]],
+    ['ykk', 'YKK AP ドアリモ', ty === 'door' ? 'ドアリモ 玄関ドア' : 'ドアリモ 玄関引戸', pImg[productKey(ty, 'ykk')]]
+  ].map(function(o){ return tile('maker', o, MAKER === o[0]); }).join('');
+  var hk = isHK(), yk = isY();
+  var B = function(t){ return '<b style="color:var(--ink)">'+t+'</b>'; };
+  document.getElementById('grade-lead').innerHTML = {
+    door: '玄関の寒さは、ドアの中の断熱材とガラスで決まります。迷ったら'+B('断熱 k4')+'で大丈夫です。寒さが気になる玄関なら'+B('k2')+'を選んでみてください。',
+    hikido: '引戸は、断熱性能のある'+B('PG仕様')+'と、断熱のない'+B('SG仕様')+'の2つです。冬の玄関の寒さが気になるならPG仕様を選んでください。',
+    ydoor: 'ドアリモの玄関ドアは、断熱の性能で4つに分かれます。迷ったら'+B('D30 D4仕様')+'で大丈夫です。冷え込みの強い玄関なら'+B('D2仕様')+'を選んでみてください。',
+    yhk: 'ドアリモの引戸は、ガラスで選びます。標準の'+B('複層ガラス')+'でも断熱の性能があります。もっと暖かくしたいなら'+B('Low-E複層ガラス')+'にできます。'
+  }[PRODUCT];
   document.getElementById('kind-guide').hidden = hk;
-  document.getElementById('kind-note').textContent = hk ? 'PG仕様でランマがあるときは、ランマのガラスが別の料金ですが、金額には入れています。' : '袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸を選ぶときは、いちばん上の「玄関の種類」で切り替えてください。';
-  document.getElementById('kind-guide-hk').hidden = !hk;
-  document.getElementById('o-dstyle').hidden = hk;
-  document.getElementById('q-handle').hidden = hk;
-  document.getElementById('lock-more').textContent = hk ? '電気錠をくわしく見る' : 'FamiLockをくわしく見る';
-  document.getElementById('lock-note').textContent = hk
-    ? (st.base === '2枚建' ? '電気錠は、簡易タッチキーとCAZAS（カザス）の2種類です。どちらも電池式で、あとから付けることはできないので、工事の前に決めていただきます。' : '4枚建の引戸には、電気錠がありません。手動キーになります。')
-    : 'FamiLock（ファミロック）は、カードやタグ、リモコン、スマホで開け閉めできる電気錠です。カードキーとタグキーはどちらか3つで、現地調査のときに選べます（金額は同じです）。電池式なので、電気の配線工事はいりません。';
+  document.getElementById('kind-note').textContent = {
+    door: '袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸を選ぶときは、いちばん上の「玄関の種類」で切り替えてください。',
+    hikido: 'PG仕様でランマがあるときは、ランマのガラスが別の料金ですが、金額には入れています。',
+    ydoor: 'ドアリモの袖とランマのガラスは、メーカーの別売り品で、この画面の金額には入っていません。ガラス代は現地調査のあとでお伝えします。',
+    yhk: 'ドアリモの引戸は、ガラスの入った値段です。袖付には、ランマ付きがありません。'
+  }[PRODUCT];
+  var kg = document.getElementById('kind-guide-hk');
+  kg.hidden = !hk;
+  kg.innerHTML = '<span>今の玄関の<b>戸の枚数</b>で選びます。</span><span>・戸が2枚　→　<b>2枚建</b></span><span>・戸が4枚（間口の広い玄関）　→　<b>4枚建</b></span>'+
+    (PRODUCT === 'yhk' ? '<span>・戸の横に開かない袖があり、2枚の戸が一緒に動く　→　<b>袖付</b></span>' : '')+
+    '<span>・戸の上に明かり取りのガラスがあれば「ランマあり」です。</span>';
+  document.getElementById('o-dstyle').hidden = PRODUCT === 'hikido';
+  document.getElementById('q-handle').hidden = hk || yk;
+  document.getElementById('lock-more').hidden = PRODUCT === 'yhk';
+  document.getElementById('lock-more').textContent = PRODUCT === 'door' ? 'FamiLockをくわしく見る' : '電気錠をくわしく見る';
+  document.getElementById('lock-note').textContent = {
+    door: 'FamiLock（ファミロック）は、カードやタグ、リモコン、スマホで開け閉めできる電気錠です。カードキーとタグキーはどちらか3つで、現地調査のときに選べます（金額は同じです）。電池式なので、電気の配線工事はいりません。',
+    hikido: st.base === '2枚建' ? '電気錠は、簡易タッチキーとCAZAS（カザス）の2種類です。どちらも電池式で、あとから付けることはできないので、工事の前に決めていただきます。' : '4枚建の引戸には、電気錠がありません。手動キーになります。',
+    ydoor: 'ドアリモの玄関ドアは、電気錠（スマートコントロールキー）が最初から付いた値段です。電池式なら電気の配線工事はいりません。顔認証キーは電池式が無くAC100V式だけなので、配線工事の金額は現地調査のあとでお伝えします。',
+    yhk: 'ドアリモの引戸は、手動キーです。'
+  }[PRODUCT];
+  document.getElementById('design-note').textContent = {
+    door: '「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
+    hikido: '色でも印象が変わります。',
+    ydoor: '「風を通せる」ドアは、扉の中の小窓（内開き）を開けて、風を入れられます。雰囲気の目印は、カタログの分け方（ナチュラル・シンプル・シック・エレガント）です。',
+    yhk: '雰囲気の目印は、カタログの分け方（現代和風・洋風・伝統和風・袖付）です。'
+  }[PRODUCT];
   // STEP 1
   document.getElementById('o-grade').innerHTML = GRADES.map(function(g){
     var ds = gradesData()[g.id] || {}, m = Infinity, b0 = BASES[0][0];
@@ -976,15 +1092,18 @@ function render(){
     '<label><input type="radio" name="ranma" value="1"'+(st.ranma?' checked':'')+(canR?'':' disabled')+'>あり</label>';
   // STEP 3
   var all = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; });
-  var chips = [['all','すべて']].concat(Object.keys(DSTYLE).map(function(k){ return [k, DSTYLE[k]]; })).concat([['wind','風を通せる']]);
+  var SN = styleNames();
+  var chips = [['all','すべて']].concat(Object.keys(SN).map(function(k){ return [k, SN[k]]; })).concat([['wind','風を通せる']]);
   document.getElementById('o-dstyle').innerHTML = chips.map(function(c){
-    var n = all.filter(function(k){ return c[0]==='all' || (c[0]==='wind' ? WIND[k] : STYLE_OF[k]===c[0]); }).length;
+    var n = all.filter(function(k){ return c[0]==='all' || (c[0]==='wind' ? windOf(k, ds[k]) : styleOf(k, ds[k])===c[0]); }).length;
     return n ? '<label><input type="radio" name="dstyle" value="'+c[0]+'"'+(st.dstyle===c[0]?' checked':'')+'>'+c[1]+'<small>'+n+'</small></label>' : '';
   }).join('');
-  var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='wind' ? WIND[k] : STYLE_OF[k]===st.dstyle); });
+  var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='wind' ? windOf(k, ds[k]) : styleOf(k, ds[k])===st.dstyle); });
   document.getElementById('o-design').innerHTML = list.map(function(k){
-    var d = ds[k], sy = STYLE_OF[k];
-    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+k+'型を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button><img src="'+img(d.kinds[st.kind].img)+'" alt="'+k+'型 '+st.kind+'" loading="lazy"><b>'+k+'型</b><span class="tags">'+(hk && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(!hk && sy?'<i class="s-'+sy+'">'+DSTYLE[sy]+'</i>':'')+(WIND[k]?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
+    var d = ds[k], sy = styleOf(k, d), nm = (d.label || k) + '型';
+    // ドアリモ 玄関ドアは形ごとの写真が無いので、デザインの写真（片開きの形）を並べる
+    var tim = PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
+    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button><img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
   document.getElementById('design-count').textContent = all.length + 'デザイン';
   // STEP 4
@@ -993,19 +1112,20 @@ function render(){
     var g = cs.filter(function(c){ return c.cls === cls; });
     if (!g.length) return '';
     var diff = listPrice(e, st.kind, cls) - base;
-    return '<div class="cgroup"><h4>'+cls+'<span>'+CLASS_HINT[cls]+(diff>0?'｜＋'+man(diff*RATE*(1+TAX)):'')+'</span></h4><div class="chips">'+
-      g.map(function(c){ var sw = swatch(c.code); return '<label class="chip"><input type="radio" name="color" value="'+c.code+'"'+(st.color===c.code?' checked':'')+'><img src="'+img(sw?sw.img:c.img)+'" alt="" loading="lazy"><small>'+esc(c.name)+'</small></label>'; }).join('')+'</div></div>';
+    var hint = yk ? {'木目調':'木目の色', 'アルミ色':'木目のない色'}[cls] : CLASS_HINT[cls];
+    return '<div class="cgroup"><h4>'+cls+'<span>'+hint+(diff>0?'｜＋'+man(diff*rate()*(1+TAX)):'')+'</span></h4><div class="chips">'+
+      g.map(function(c){ var sw = swatch(c.code); return '<label class="chip"><input type="radio" name="color" value="'+c.code+'"'+(st.color===c.code?' checked':'')+'><img src="'+img(sw?sw.img:c.img)+'" alt="" loading="lazy"><small>'+esc(c.name)+(c.frame?'<br>（'+esc(c.frame)+'）':'')+'</small></label>'; }).join('')+'</div></div>';
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
-    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add ? '＋'+man(o.add*lockRate()*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
+    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add > 0 ? '＋'+man(o.add*lockRate()*(1+TAX)) : o.add < 0 ? '－'+man(-o.add*lockRate()*(1+TAX)) : (PRODUCT === 'ydoor' ? '標準（金額に込み）' : '標準（＋0円）'))+'</span></span></label>';
   }).join('');
-  // STEP 6（引戸はデザインの標準の引手のまま）
-  if (hk){ document.getElementById('coop').checked = st.coop; document.getElementById('coop2').checked = st.coop; summary(); return; }
+  // STEP 6（引戸とドアリモは、デザインの標準のハンドル・引手のまま）
+  if (hk || yk){ document.getElementById('coop').checked = st.coop; document.getElementById('coop2').checked = st.coop; summary(); return; }
   var ch = curHandle(), def = cur().handle || {};
   document.getElementById('o-handle').innerHTML = handleOpts().map(function(o){
     var hi = D.handles[o.id];
-    var note = o.off ? 'この性能では選べません' : (o.add ? '＋'+man(o.add*RATE*(1+TAX)) : (o.id === def.type ? '' : '差額なし'));
+    var note = o.off ? 'この性能では選べません' : (o.add ? '＋'+man(o.add*rate()*(1+TAX)) : (o.id === def.type ? '' : '差額なし'));
     return '<label class="tile"><input type="radio" name="handle" value="'+o.id+'"'+(ch.h.id===o.id?' checked':'')+(o.off?' disabled':'')+'><span class="in">'+(hi?'<img src="'+img(hi.img)+'" alt="'+o.name+'ハンドル" loading="lazy">':'')+'<b>'+o.name+'</b>'+(o.id===def.type?'<span class="tag">標準</span>':'')+'<span>'+o.desc+(note?'<br>'+note:'')+'</span></span></label>';
   }).join('');
   document.getElementById('o-hcolor').innerHTML = ch.h.colors.map(function(cc){
@@ -1021,21 +1141,24 @@ function summary(){
   var lp = listPrice(e, st.kind, c ? c.cls : '');
   var lock = lockOptions().filter(function(o){return o.id===st.lock;})[0];
   var ch = curHandle(), hname = ch.h.name+(HCOLOR[ch.color] ? ' '+HCOLOR[ch.color][0] : '');
-  var hk = isHK(), KJ = kouji();
+  var hk = isHK(), yk = isY(), KJ = kouji();
   var glass = glassAdd(e, st.kind);
   var opt = ch.h.add;
-  var goods = (lp + opt) * RATE, famiGoods = lock.add * lockRate(), glassGoods = glass * GLASS_RATE;
+  var goods = (lp + opt) * rate(), famiGoods = lock.add * lockRate(), glassGoods = glass * GLASS_RATE;
   var sub = goods + famiGoods + glassGoods + KJ + HOJO + SHOKEI, tax = sub * TAX, t = total(lp, opt, st.coop, lock.add, glass);
   var fit = fitCheck();
   var fe = document.getElementById('m-fit');
   fe.className = 'fit' + (fit ? (fit.ng ? ' ng' : fit.ok ? ' ok' : '') : '');
-  fe.textContent = fit ? fit.text : (hk ? '引戸は、現地調査のときに私たちが測ります。分かれば入れておいてください。' : '入力すると、選んだドアが取り付けられるサイズかを確かめられます。上のガラス（ランマ）や横のガラス（袖）がある玄関、測れない場合は、現地調査のときにこちらで測ります。');
+  fe.textContent = fit ? fit.text : (yk ? '今の玄関の幅（枠の内側）を入れると、ドアリモの目安に入るかを確かめられます。高さは現地調査のときに私たちが測ります。' : hk ? '引戸は、現地調査のときに私たちが測ります。分かれば入れておいてください。' : '入力すると、選んだドアが取り付けられるサイズかを確かめられます。上のガラス（ランマ）や横のガラス（袖）がある玄関、測れない場合は、現地調査のときにこちらで測ります。');
   var k = e.kinds[st.kind];
-  var title = productName()+' '+gname(st.grade)+' '+st.design+'型'+(hk && e.sub ? '（'+e.sub+'）' : '');
+  var title = productName()+' '+gname(st.grade)+' '+(e.label || st.design)+'型'+(PRODUCT === 'hikido' && e.sub ? '（'+e.sub+'）' : '');
   // カタログの色ごとの写真は、ドアは親子、引戸は2枚建の形で撮られている。その形のときだけ色の写真を使い、
   // ほかの形は、その形の写真（色はカタログの見本色）を出す。別の形のドアは並べない
-  var useColorPhoto = c && st.kind === (hk ? '2枚建' : '親子');
-  document.getElementById('st-color').src = img(useColorPhoto ? c.img : k.img);
+  // ドアリモは、色の写真の形がデザインごとに決まっている（ドア：片開き、引戸：そのデザインの表の形）
+  var useColorPhoto = c && c.img && st.kind === (e.photoBase || (hk ? '2枚建' : '親子'));
+  // ドアリモ 玄関ドアの大きな写真は親子の形。親子のときはそれを、ほかの形はカタログの形の図を出す
+  var useHero = !useColorPhoto && PRODUCT === 'ydoor' && e.hero && e.heroKind === st.kind;
+  document.getElementById('st-color').src = img(useColorPhoto ? c.img : useHero ? e.hero : k.img);
   document.getElementById('st-color').alt = title+' '+kindLabel()+(useColorPhoto?' '+c.name:'');
   var sw = c ? swatch(c.code) : null;
   document.getElementById('st-sw').src = sw ? img(sw.img) : '';
@@ -1043,30 +1166,35 @@ function summary(){
   document.getElementById('st-sw').hidden = !sw;
   document.getElementById('st-sw-cap').textContent = c ? '色：'+c.name : '';
   document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+c.name+'）。'
+    : useHero ? 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色（'+(e.heroColor || '')+'）で、選んだ色は右の色見本です。'
+    : PRODUCT === 'ydoor' ? 'この形の写真はカタログにないので、形の図を出しています。扉のデザインは「大きく見る」で確かめられます。選んだ色は右の色見本です。'
     : 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色で、選んだ色は右の色見本です。';
   document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+
-    (!hk && WIND[st.design] ? '<span class="wind-note">風を通せるドアです。カギをかけたまま、小窓を開けられます。</span>' : '');
+    (windOf(st.design, e) ? '<span class="wind-note">'+(yk ? '風を通せるドアです。扉の中の小窓を開けられます。' : '風を通せるドアです。カギをかけたまま、小窓を開けられます。')+'</span>' : '');
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
   document.getElementById('r-bd').innerHTML =
-    '<tr><td>'+(hk ? '引戸本体・鍵・引手' : 'ドア本体・鍵・ハンドル')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(RATE*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
+    '<tr><td>'+(hk ? '引戸本体・鍵・引手' : 'ドア本体・鍵・ハンドル')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(rate()*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     (glass ? '<tr><td>ガラス（'+(hk ? 'ランマ' : '')+(e.bodyGlass?'本体':'')+(e.bodyGlass&&glass>BODY_GLASS?'・':'')+(!hk && glass>(e.bodyGlass?BODY_GLASS:0)?'ランマ・袖':'')+'）<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(glass)+'（税抜）の '+Math.round(GLASS_RATE*100)+'%</span></td><td>'+yen(glassGoods)+'</td></tr>' : '')+
-    (lock.add ? '<tr><td>'+esc(lock.name)+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lock.add)+'（税抜）の '+Math.round(lockRate()*100)+'%</span></td><td>'+yen(famiGoods)+'</td></tr>' : '')+
+    (lock.add ? '<tr'+(lock.add < 0 ? ' class="minus"' : '')+'><td>'+esc(lock.name)+(PRODUCT === 'ydoor' ? '（ピタットキーとの差額）' : '')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+sgnYen(lock.add)+'（税抜）の '+Math.round(lockRate()*100)+'%</span></td><td>'+sgnYen(famiGoods)+'</td></tr>' : '')+
+    (yGlassSep() ? '<tr><td>袖・ランマのガラス<br><span style="font-size:11px;color:var(--ink-3)">メーカーの別売り品です。現地調査のあとでお伝えします</span></td><td>別途</td></tr>' : '')+
     '<tr><td>取付工賃</td><td>'+yen(KJ)+'</td></tr>'+
     '<tr><td>取り付けの補助部材<br><span style="font-size:11px;color:var(--ink-3)">下枠の段差をなくす部材など</span></td><td>'+yen(HOJO)+'</td></tr>'+
     '<tr><td>'+(hk ? '古い戸の処分・諸経費' : '古いドアの処分・諸経費')+'</td><td>'+yen(SHOKEI)+'</td></tr>'+
     '<tr><td>消費税（10%）</td><td>'+yen(tax)+'</td></tr>'+
     (st.coop ? '<tr class="minus"><td>写真掲載・アンケートご協力の値引き</td><td>－'+yen(COOP)+'</td></tr>' : '')+
-    '<tr class="sum"><td>合計（100円未満は四捨五入）</td><td>'+yen(t)+'</td></tr>';
-  document.getElementById('r-size').innerHTML = '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(k.h)+'mm' + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
-  document.getElementById('bar-spec').textContent = st.design+'型・'+kindLabel()+'・'+(c?c.name:'');
+    '<tr class="sum"><td>合計（100円未満は四捨五入'+(yGlassSep() ? '・袖とランマのガラス代は別' : '')+'）</td><td>'+yen(t)+'</td></tr>';
+  var ow = yOpenW();
+  document.getElementById('r-size').innerHTML = (yk ? '<b>今の玄関の幅の目安（開口）</b>　'+esc(ow)+'mm' : '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(k.h)+'mm') + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
+  document.getElementById('bar-spec').textContent = (e.label || st.design)+'型・'+kindLabel()+'・'+(c?c.name:'');
   document.getElementById('bar-price').textContent = yen(t);
-  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+(st.photo?'｜玄関の写真あり':'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）';
-  st._quote = {design: title, kind: kindLabel(), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+(ch.code ? '（'+ch.code+'）' : ''), product: hk ? '玄関引戸' : '玄関ドア', measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt + lock.add + glass, total: t, size: '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
+  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+(st.photo?'｜玄関の写真あり':'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）'+(yGlassSep() ? '　袖とランマのガラス代は別にお伝えします' : '');
+  st._quote = {design: title, kind: kindLabel() + (yGlassSep() ? '・袖/ランマのガラスは別途' : ''), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+(ch.code ? '（'+ch.code+'）' : ''), product: hk ? '玄関引戸' : '玄関ドア', maker: makerName(), measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt + lock.add + glass, total: t, size: yk ? '今の開口の幅の目安 '+ow : '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
 }
 
 document.addEventListener('change', function(ev){
   var t = ev.target;
-  if (t.name === 'product'){ if (t.value !== PRODUCT) setProduct(t.value); }
+  if (t.name === 'product'){ var np = productKey(t.value, MAKER); if (np !== PRODUCT) setProduct(np); }
+  else if (t.name === 'maker'){ var nm2 = productKey(isHK() ? 'hikido' : 'door', t.value); if (nm2 !== PRODUCT) setProduct(nm2); }
   else if (t.name === 'grade') st.grade = t.value;
   else if (t.name === 'kind') st.base = t.value;
   else if (t.name === 'ranma') st.ranma = t.value === '1';
@@ -1110,7 +1238,7 @@ function applyAI(j){
   var note = j.note ? j.note + ' ' : '';
   document.getElementById('ai-ask').hidden = true;
   if (BASE_OK[j.door_type]){
-    if (isHK()) setProduct('door');
+    if (isHK()) setProduct(productKey('door', MAKER));
     // 読み取りで形が変わると、そのデザインに無い形なら別のデザインに移る。確認で選び直したときに戻せるよう覚えておく
     st._prevDesign = st.design; st._prevColor = st.color;
     st.base = j.door_type; st.ranma = !!j.has_transom;
@@ -1123,7 +1251,7 @@ function applyAI(j){
       (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') +
       (asking ? '' : (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + '違っていたら、下の STEP 2 で選び直せます。'));
   } else if (j.door_type === '引戸'){
-    if (!isHK()) setProduct('hikido');
+    if (!isHK()) setProduct(productKey('hikido', MAKER));
     st.ranma = !!j.has_transom;
     render();
     aiMsg('ok', '写真から「引戸' + (j.has_transom ? '（ランマ付き）' : '') + '」と読み取り、引戸の見積に切り替えました。戸が2枚か4枚かを、下の STEP 2 で確かめてください。');
@@ -1269,8 +1397,10 @@ function buildPdfSheet(no, now){
       row('取り付けられるサイズ', q.size ? q.size + 'mm（新しい枠）' : '')+row('お客様の採寸', q.measured ? q.measured + '（' + q.fit + '）' : '')+'</table>'+
     '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
     '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
-    '<div class="notes"><b>この見積りについて</b><ul><li>・LIXILのカタログ価格（2026年5月版）をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
+    '<div class="notes"><b>この見積りについて</b><ul><li>・'+makerName()+'のカタログ価格（2026年5月版）をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
       '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
+      (yGlassSep() ? '<li>・袖とランマのガラスはメーカーの別売り品で、この金額に入っていません。ガラス代は現地調査のあとでお伝えします。</li>' : '')+
+      (PRODUCT === 'ydoor' && st.lock === 'y_face' ? '<li>・顔認証キーは電気の配線（AC100V）が要ります。配線工事の金額は現地調査のあとでお伝えします。</li>' : '')+
       '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費をいただく場合があります。</li>'+
       '<li>・写真と色見本はカタログから取ったもので、実物と色味が少し違って見えることがあります。</li></ul></div>'+
     '<div class="cta"><b>現地調査のお申し込み・ご相談</b>　フリーダイヤル 0120-914-180／LINE https://lin.ee/UmuaYxJ<br>このページからもお申し込みいただけます：'+esc(location.href.split('#')[0].split('?')[0])+'</div>';
@@ -1309,6 +1439,39 @@ document.getElementById('pdfBtn').addEventListener('click', function(){
 
 // ===== くわしい説明（ページを離れずに、この画面の中で開く） =====
 var INFO = {
+  grade_y: function(){
+    return '<h3 id="info-h">ドアリモの断熱の性能の違い</h3>'+
+      '<p>玄関ドアの寒さは、扉の厚さと中の断熱材、ガラスの種類でほぼ決まります。下の図の赤やオレンジが濃いほど、外の冷たさが室内に伝わりにくいドアです。</p>'+
+      (yClip('compare') ? '<p style="margin-top:10px"><img src="'+yClip('compare')+'" alt="D50・D30（D2仕様・D4仕様）・アルミドアの断熱の比べ図" loading="lazy"></p><p class="src">YKK AP ドアリモ 玄関ドア カタログ（2026年5月版）21ページより。画像は解析値をもとにしたイメージです。</p>' : '')+
+      '<div class="gtable">'+
+      '<div><b>D30 D4仕様</b><span>扉の厚さ42mm、複層ガラス。カタログでは「比較的温暖な地域にお住まいの方はD30（D4仕様）でもOK」とされています。<b style="color:#E8590C">迷ったらこれ</b></span></div>'+
+      '<div><b>D30 D2仕様</b><span>扉の厚さ42mm、Low-E複層ガラス。カタログでは「冷え込みの強い玄関にはD30（D2仕様）がおすすめ」とされています。</span></div>'+
+      '<div><b>D50 高断熱</b><span>扉の厚さ70mm、アルゴンガス入りのトリプルガラス（Low-E膜が2枚）。ドアリモでいちばん暖かい仕様です。形は片開き・親子・両開きです。</span></div>'+
+      '<div><b>アルミ</b><span>断熱材は入りません。金額は抑えられますが、冬は扉が冷たくなります。</span></div></div>'+
+      '<h4>補助金について</h4><p>断熱の性能によっては、国の補助金の対象になることがあります。対象になるか、いくら出るかは時期や条件で変わるので、現地調査のときに確かめてお伝えします。</p>';
+  },
+  grade_yhk: function(){
+    return '<h3 id="info-h">ドアリモの引戸のガラス</h3>'+
+      '<p>ドアリモの引戸は、戸とランマのガラスで断熱の性能が決まります。この画面の金額は、ガラスの入った値段です。</p>'+
+      '<div class="gtable">'+
+      '<div><b>複層ガラス</b><span>2枚の板ガラスの間に、乾いた空気を閉じ込めたガラスです。標準の仕様です。<b style="color:#E8590C">おすすめ</b></span></div>'+
+      '<div><b>Low-E複層ガラス</b><span>複層ガラスに金属の膜を加えて、断熱の性能をさらに高めたガラスです。日差しの熱もさえぎるタイプです。値段は、複層ガラスの値段に、戸とランマ（袖付は袖）の差額を足しています。</span></div></div>'+
+      '<h4>補助金について</h4><p>断熱の性能によっては、国の補助金の対象になることがあります。対象になるか、いくら出るかは時期や条件で変わるので、現地調査のときに確かめてお伝えします。</p>'+
+      '<p class="src">YKK AP ドアリモ 玄関引戸 カタログ（2026年5月版）26ページと、基本セット価格表より。</p>';
+  },
+  lock_y: function(){
+    var kit = function(k, t){ return '<figure><img src="'+yClip(k)+'" alt="">'+t+'</figure>'; };
+    return '<h3 id="info-h">ドアリモの電気錠（スマートコントロールキー）</h3>'+
+      '<p>ドアリモの玄関ドアは、電気錠が最初から付いた値段です。キーのセットを3つから選びます。手動キーにすると、金額が下がります。</p>'+
+      '<h4>キーのセット</h4><div class="gtable">'+
+      '<div><b>ピタットキー</b><span>タグキー3個。タグキーをドアに近づけると開きます。スマホでも開け閉めできます。</span></div>'+
+      '<div><b>ポケットキー</b><span>リモコン2個とタグキー3個。リモコンはポケットやカバンに入れたまま、ハンドルのボタンを押すと開きます。<b style="color:#E8590C">おすすめ</b></span></div>'+
+      '<div><b>顔認証キー</b><span>顔認証に、リモコン2個とタグキー3個も付きます。顔を登録した人がドアの前に立つと開きます。</span></div></div>'+
+      '<div class="kitbig">'+kit('face','顔認証')+kit('remote','リモコン')+kit('tag','タグキー')+kit('phone','スマホ')+kit('key','非常用のカギ')+'</div>'+
+      '<p class="src">写真はYKK AP ドアリモ 玄関ドア カタログ（2026年5月版）13ページより。</p>'+
+      '<h4>電池式とAC100V式</h4><ul><li>電池式：電気の配線工事はいりません。ドアホンとはつなげません</li><li>AC100V式：家の電気で動くので、電池の交換がいりません。ドアホンとつなげられます。配線工事が要ります</li><li>顔認証キーは、AC100V式だけです</li></ul>'+
+      '<h4>知っておいてほしいこと</h4><ul><li>電池切れや停電のときは、非常用のカギで開けられます</li><li>家族それぞれが、使いやすいキーで開け閉めできます</li><li>配線工事がいるときは、その金額を現地調査のあとでお伝えします</li></ul>';
+  },
   grade_hk: function(){
     return '<h3 id="info-h">引戸の性能の違い</h3>'+
       '<p>リシェント玄関引戸2は、断熱性能のあるPG仕様と、断熱のないSG仕様の2つから選びます。</p>'+
@@ -1369,18 +1532,21 @@ function openInfo(html){
 function zoomHtml(k){
   var d = designs()[k]; if (!d) return '';
   var kind = d.kinds[st.kind] ? st.kind : Object.keys(d.kinds)[0];
-  var title = productName()+' '+gname(st.grade)+' '+k+'型'+(isHK() && d.sub ? '（'+d.sub+'）' : '');
+  var title = productName()+' '+gname(st.grade)+' '+(d.label || k)+'型'+(PRODUCT === 'hikido' && d.sub ? '（'+d.sub+'）' : '');
+  var small = PRODUCT === 'ydoor' ? d.thumb : (d.kinds[kind] && d.kinds[kind].img), smallKind = PRODUCT === 'ydoor' ? '片開き' : kind;
+  var bigCap = PRODUCT === 'ydoor' && d.heroKind ? '大きい写真は'+esc(d.heroKind)+'の形で、色はカタログの見本の色です。' : '大きい写真の色はカタログの見本の色です。';
   return '<h3 id="info-h">'+esc(title)+'</h3><div class="zoom-view"><div class="row">'+
     (d.hero ? '<img src="'+img(d.hero)+'" alt="'+esc(title)+'">' : '')+
-    (d.kinds[kind] && d.kinds[kind].img ? '<img class="kind" src="'+img(d.kinds[kind].img)+'" alt="'+esc(title+' '+kind)+'">' : '')+
-    '</div><p class="src">写真はLIXILのカタログ（2026年5月版）のものです。大きい写真の色はカタログの見本の色で、小さい写真は'+esc(kind)+'の形です。</p></div>';
+    (small ? '<img class="kind" src="'+img(small)+'" alt="'+esc(title+' '+smallKind)+'">' : '')+
+    '</div><p class="src">写真は'+makerName()+'のカタログ（2026年5月版）のものです。'+bigCap+'小さい写真は'+esc(smallKind)+'の形です。</p></div>';
 }
 document.addEventListener('click', function(ev){
   var z = ev.target.closest('[data-zoom]');
   if (z && D){ ev.preventDefault(); ev.stopPropagation(); openInfo(zoomHtml(z.getAttribute('data-zoom'))); return; }
   if (ev.target.closest('[data-zoom-current]') && D){ openInfo(zoomHtml(st.design)); return; }
   var o = ev.target.closest('[data-info]');
-  var ik = o && (o.getAttribute('data-info') + (isHK() && INFO[o.getAttribute('data-info') + '_hk'] ? '_hk' : ''));
+  var suf = {door:'', hikido:'_hk', ydoor:'_y', yhk:'_yhk'}[PRODUCT];
+  var ik = o && (o.getAttribute('data-info') + (INFO[o.getAttribute('data-info') + suf] ? suf : ''));
   if (o && INFO[ik] && D){
     openInfo(INFO[ik]());
     return;
@@ -1393,8 +1559,11 @@ function start(data){
   var h = D.grades.k4 && D.grades.k4.M83;
   if (h && h.hero){ document.getElementById('hero-img').src = img(h.hero); document.getElementById('hero-cap').textContent = 'リシェント 断熱仕様 M83型（ハンドダウンチェリー）'; }
   // 選び始めの飾り：雰囲気の違うドアを並べる
-  var pick = [['k4','G12'],['k4','M28'],['k4','M83'],['hi','41N'],['k4','P23']];
-  document.getElementById('intro-doors').innerHTML = pick.map(function(p){ var e = D.grades[p[0]] && D.grades[p[0]][p[1]]; return e && e.kinds['片開き'] ? '<img src="'+img(e.kinds['片開き'].img)+'" alt="">' : ''; }).join('');
+  var pick = [['k4','G12'],['y','N12N'],['k4','M83'],['y','E01N'],['k4','P23']];
+  document.getElementById('intro-doors').innerHTML = pick.map(function(p){
+    if (p[0] === 'y'){ var ye = D.ydoor && D.ydoor.grades.d4[p[1]]; return ye && ye.thumb ? '<img src="'+img(ye.thumb)+'" alt="">' : ''; }
+    var e = D.grades[p[0]] && D.grades[p[0]][p[1]]; return e && e.kinds['片開き'] ? '<img src="'+img(e.kinds['片開き'].img)+'" alt="">' : '';
+  }).join('');
   render();
 }
 if (window.__DATA) start(window.__DATA);
