@@ -662,6 +662,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
         <label><input type="radio" name="source" value="YouTube">YouTube</label>
         <label><input type="radio" name="source" value="Instagram">Instagram</label>
         <label><input type="radio" name="source" value="ネット検索">ネット検索</label>
+        <label><input type="radio" name="source" value="AIでの検索">AIでの検索</label>
         <label><input type="radio" name="source" value="Googleの口コミ">Googleの口コミ</label>
         <label><input type="radio" name="source" value="チラシ">チラシ</label>
         <label><input type="radio" name="source" value="知人の紹介">知人の紹介</label>
@@ -822,7 +823,7 @@ function lockOptions(){
     var he = cur(), el = he && he.elock;
     var a = [{id:'manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, hk:'manual'}];
     if (st.base === '2枚建' && el){
-      a.push({id:'hk_touch', name:'簡易タッチキー（リモコン2個付き）', desc:'リモコンをポケットやカバンに入れたまま、戸のタッチボタンを押すと開きます。', add: el.touch, hk:'touch'});
+      a.push({id:'hk_touch', name:'簡易タッチキー（リモコン2個付き）', desc:'リモコンをポケットやカバンに入れたまま、戸のタッチボタンを押すと開きます。', add: el.touch, hk:'touch', rec:true});
       a.push({id:'hk_cazas', name:'CAZAS（カードキー4枚・タグキー2個）', desc:'カードやタグを戸にかざして開けます。家の中からは、つまみを回して開け閉めします。', add: el.cazas, hk:'cazas'});
     }
     return a;
