@@ -1166,7 +1166,7 @@ function summary(){
   document.getElementById('st-sw-cap').textContent = c ? '色：'+c.name : '';
   document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+c.name+'）。'
     : useHero ? 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色（'+(e.heroColor || '')+'）で、選んだ色は右の色見本です。'
-    : PRODUCT === 'ydoor' ? 'この形の写真はカタログにないので、形の図を出しています。扉のデザインは「大きく見る」で確かめられます。選んだ色は右の色見本です。'
+    : PRODUCT === 'ydoor' ? 'この形の写真はカタログにないので、形のイメージ図を出しています。扉のデザインは「大きく見る」で確かめられます。選んだ色は右の色見本です。'
     : 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色で、選んだ色は右の色見本です。';
   document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+
     (windOf(st.design, e) ? '<span class="wind-note">'+(yk ? '風を通せるドアです。扉の中の小窓を開けられます。' : '風を通せるドアです。カギをかけたまま、小窓を開けられます。')+'</span>' : '');
