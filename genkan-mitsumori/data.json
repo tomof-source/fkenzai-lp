@@ -11458,7 +11458,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "N41N": {
      "page": 74,
@@ -11554,7 +11555,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "N42N": {
      "page": 75,
@@ -11634,7 +11636,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "N43N": {
      "page": 75,
@@ -11714,7 +11717,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "F61N": {
      "page": 76,
@@ -11774,7 +11778,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "F62N": {
      "page": 76,
@@ -11834,7 +11839,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "F63N": {
      "page": 77,
@@ -11939,7 +11945,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "F64N": {
      "page": 77,
@@ -12007,7 +12014,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C60N": {
      "page": 78,
@@ -12123,7 +12131,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C62N": {
      "page": 78,
@@ -12196,7 +12205,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C63N": {
      "page": 79,
@@ -12298,7 +12308,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C64N": {
      "page": 79,
@@ -12396,7 +12407,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C66N": {
      "page": 80,
@@ -12469,7 +12481,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "C40N": {
      "page": 80,
@@ -12542,7 +12555,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E62N": {
      "page": 82,
@@ -12608,7 +12622,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E63N": {
      "page": 82,
@@ -12690,7 +12705,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E64N": {
      "page": 83,
@@ -12756,7 +12772,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E65N": {
      "page": 83,
@@ -12822,7 +12839,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E66N": {
      "page": 84,
@@ -12888,7 +12906,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     },
     "E67N": {
      "page": 84,
@@ -12954,7 +12973,8 @@
       "face": 169000,
       "manual": -104000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d50"
     }
    },
    "d2": {
@@ -13062,7 +13082,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N05T": {
      "page": 95,
@@ -13196,7 +13217,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "N05N": {
      "page": 95,
@@ -13330,7 +13352,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N06K": {
      "page": 96,
@@ -13436,7 +13459,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "N06H": {
      "page": 96,
@@ -13558,7 +13582,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N07T": {
      "page": 97,
@@ -13664,7 +13689,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "N07N": {
      "page": 97,
@@ -13770,7 +13796,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N08N": {
      "page": 98,
@@ -13876,7 +13903,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N09N": {
      "page": 98,
@@ -14010,7 +14038,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N10N": {
      "page": 99,
@@ -14116,7 +14145,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N12N": {
      "page": 99,
@@ -14250,7 +14280,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N13N": {
      "page": 100,
@@ -14384,7 +14415,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "N14N": {
      "page": 100,
@@ -14518,7 +14550,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F03T": {
      "page": 101,
@@ -14659,7 +14692,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "F03N": {
      "page": 101,
@@ -14800,7 +14834,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F04H": {
      "page": 102,
@@ -14942,7 +14977,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F05K": {
      "page": 103,
@@ -15084,7 +15120,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "F05H": {
      "page": 103,
@@ -15226,7 +15263,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F06K": {
      "page": 104,
@@ -15368,7 +15406,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "F06H": {
      "page": 104,
@@ -15528,7 +15567,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F08H": {
      "page": 105,
@@ -15670,7 +15710,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C02N": {
      "page": 106,
@@ -15798,7 +15839,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C03N": {
      "page": 106,
@@ -15951,7 +15993,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C04T": {
      "page": 107,
@@ -16093,7 +16136,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C04N": {
      "page": 107,
@@ -16253,7 +16297,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C05N": {
      "page": 108,
@@ -16395,7 +16440,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C07T": {
      "page": 109,
@@ -16537,7 +16583,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C07N": {
      "page": 109,
@@ -16679,7 +16726,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C08K": {
      "page": 110,
@@ -16821,7 +16869,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C08H": {
      "page": 110,
@@ -16963,7 +17012,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C09T": {
      "page": 111,
@@ -17105,7 +17155,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C09N": {
      "page": 111,
@@ -17247,7 +17298,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C10N": {
      "page": 112,
@@ -17410,7 +17462,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C11T": {
      "page": 113,
@@ -17552,7 +17605,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C11N": {
      "page": 113,
@@ -17694,7 +17748,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E01N": {
      "page": 114,
@@ -17844,7 +17899,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E02N": {
      "page": 114,
@@ -17978,7 +18034,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E03N": {
      "page": 115,
@@ -18091,7 +18148,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E04N": {
      "page": 115,
@@ -18204,7 +18262,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E07N": {
      "page": 116,
@@ -18317,7 +18376,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E08N": {
      "page": 116,
@@ -18430,7 +18490,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E09T": {
      "page": 117,
@@ -18564,7 +18625,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "E09N": {
      "page": 117,
@@ -18698,7 +18760,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E10N": {
      "page": 118,
@@ -18848,7 +18911,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E11N": {
      "page": 118,
@@ -18998,7 +19062,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "E12N": {
      "page": 119,
@@ -19132,7 +19197,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F03S": {
      "page": 120,
@@ -19206,7 +19272,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "F03M": {
      "page": 120,
@@ -19280,7 +19347,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "F04M": {
      "page": 121,
@@ -19358,7 +19426,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C07S": {
      "page": 121,
@@ -19443,7 +19512,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C07M": {
      "page": 122,
@@ -19528,7 +19598,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C09S": {
      "page": 122,
@@ -19613,7 +19684,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d2"
     },
     "C09M": {
      "page": 123,
@@ -19698,7 +19770,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     },
     "C10M": {
      "page": 123,
@@ -19783,7 +19856,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d2"
     }
    },
    "d4": {
@@ -19891,7 +19965,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N05T": {
      "page": 95,
@@ -20025,7 +20100,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "N05N": {
      "page": 95,
@@ -20159,7 +20235,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N06K": {
      "page": 96,
@@ -20265,7 +20342,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "N06H": {
      "page": 96,
@@ -20387,7 +20465,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N07T": {
      "page": 97,
@@ -20493,7 +20572,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "N07N": {
      "page": 97,
@@ -20599,7 +20679,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N08N": {
      "page": 98,
@@ -20705,7 +20786,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N09N": {
      "page": 98,
@@ -20839,7 +20921,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N10N": {
      "page": 99,
@@ -20945,7 +21028,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N12N": {
      "page": 99,
@@ -21079,7 +21163,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N13N": {
      "page": 100,
@@ -21213,7 +21298,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "N14N": {
      "page": 100,
@@ -21347,7 +21433,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F03T": {
      "page": 101,
@@ -21488,7 +21575,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "F03N": {
      "page": 101,
@@ -21629,7 +21717,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F04H": {
      "page": 102,
@@ -21771,7 +21860,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F05K": {
      "page": 103,
@@ -21913,7 +22003,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "F05H": {
      "page": 103,
@@ -22055,7 +22146,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F06K": {
      "page": 104,
@@ -22197,7 +22289,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "F06H": {
      "page": 104,
@@ -22357,7 +22450,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F08H": {
      "page": 105,
@@ -22499,7 +22593,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C02N": {
      "page": 106,
@@ -22627,7 +22722,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C03N": {
      "page": 106,
@@ -22780,7 +22876,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C04T": {
      "page": 107,
@@ -22922,7 +23019,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C04N": {
      "page": 107,
@@ -23082,7 +23180,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C05N": {
      "page": 108,
@@ -23224,7 +23323,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C07T": {
      "page": 109,
@@ -23366,7 +23466,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C07N": {
      "page": 109,
@@ -23508,7 +23609,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C08K": {
      "page": 110,
@@ -23650,7 +23752,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C08H": {
      "page": 110,
@@ -23792,7 +23895,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C09T": {
      "page": 111,
@@ -23934,7 +24038,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C09N": {
      "page": 111,
@@ -24076,7 +24181,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C10N": {
      "page": 112,
@@ -24239,7 +24345,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C11T": {
      "page": 113,
@@ -24381,7 +24488,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C11N": {
      "page": 113,
@@ -24523,7 +24631,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E01N": {
      "page": 114,
@@ -24673,7 +24782,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E02N": {
      "page": 114,
@@ -24807,7 +24917,8 @@
       "face": 152000,
       "manual": -96000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E03N": {
      "page": 115,
@@ -24920,7 +25031,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E04N": {
      "page": 115,
@@ -25033,7 +25145,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E07N": {
      "page": 116,
@@ -25146,7 +25259,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E08N": {
      "page": 116,
@@ -25259,7 +25373,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E09T": {
      "page": 117,
@@ -25393,7 +25508,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "E09N": {
      "page": 117,
@@ -25527,7 +25643,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E10N": {
      "page": 118,
@@ -25677,7 +25794,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E11N": {
      "page": 118,
@@ -25827,7 +25945,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "E12N": {
      "page": 119,
@@ -25961,7 +26080,8 @@
       "face": 152000,
       "manual": -88000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F03S": {
      "page": 120,
@@ -26035,7 +26155,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "F03M": {
      "page": 120,
@@ -26109,7 +26230,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "F04M": {
      "page": 121,
@@ -26187,7 +26309,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C07S": {
      "page": 121,
@@ -26272,7 +26395,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C07M": {
      "page": 122,
@@ -26357,7 +26481,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C09S": {
      "page": 122,
@@ -26442,7 +26567,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "d4"
     },
     "C09M": {
      "page": 123,
@@ -26527,7 +26653,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     },
     "C10M": {
      "page": 123,
@@ -26612,7 +26739,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "d4"
     }
    },
    "yal": {
@@ -26731,7 +26859,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S02": {
      "page": 146,
@@ -26848,7 +26977,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S03": {
      "page": 147,
@@ -26983,7 +27113,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "yal"
     },
     "S05": {
      "page": 147,
@@ -27100,7 +27231,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S06": {
      "page": 148,
@@ -27217,7 +27349,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S08": {
      "page": 148,
@@ -27352,7 +27485,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S11": {
      "page": 149,
@@ -27469,7 +27603,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S12": {
      "page": 149,
@@ -27586,7 +27721,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S50": {
      "page": 150,
@@ -27683,7 +27819,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S51": {
      "page": 150,
@@ -27780,7 +27917,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     },
     "S52": {
      "page": 151,
@@ -27877,7 +28015,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": true
+     "wind": true,
+     "grade": "yal"
     },
     "G50": {
      "page": 152,
@@ -27974,7 +28113,8 @@
       "face": 152000,
       "manual": -83000
      },
-     "wind": false
+     "wind": false,
+     "grade": "yal"
     }
    }
   },
