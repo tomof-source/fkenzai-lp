@@ -824,7 +824,7 @@ function setProduct(p){
   BASES = {door:BASES_DOOR, hikido:BASES_HK, ydoor:BASES_DOOR, yhk:BASES_YHK}[p];
   var d = DEF[p];
   st.grade = d.grade; st.base = d.base; st.ranma = false; st.design = d.design; st.color = d.color;
-  st.lock = p === 'ydoor' ? 'y_pitatto' : 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
+  st.lock = p === 'ydoor' ? 'y_manual' : 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
 }
 // ドアリモ 玄関ドアの袖とランマのガラスは、メーカーの別売り品（カタログに値段が無い）。金額に入れず「別途」と出す
 function yGlassSep(){ return PRODUCT === 'ydoor' && (st.ranma || st.base === '片袖' || st.base === '両袖'); }
@@ -870,7 +870,14 @@ function gname(id){ return GRADES.filter(function(g){return g.id===id;})[0].name
 function designs(){ return gradesData()[st.grade] || {}; }
 function cur(){ return designs()[st.design]; }
 // 色の区分ごとの定価。区分の無い表（M78など）は '' に1つだけ入っている
-function listPrice(e, kind, cls){ var p = e.kinds[kind] && e.kinds[kind].p; if(!p) return null; return p[cls] != null ? p[cls] : (p[''] != null ? p[''] : null); }
+function listPrice(e, kind, cls){ var p = e.kinds[kind] && e.kinds[kind].p; if(!p) return null; var v = p[cls] != null ? p[cls] : (p[''] != null ? p[''] : null); return v != null && PRODUCT === 'ydoor' ? v + yManual(e, kind) : v; }
+// ドアリモ 玄関ドアの価格表はピタットキー付きの値段。手動キーを標準にする（2026-10-01 福嶋さん）ので、手動錠の差額（マイナス）を足す。
+// 差額はデザインのページの値段から。両開きの手動錠は仕様変更の表（D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －78,000）
+function yManual(e, kind){
+  var lk = (e && e.lock) || {manual:-83000};
+  if (String(kind).indexOf('両開き') === 0) return e.grade === 'd50' ? -137000 : (/ロートアイアン/.test(e.manualHandle || '') ? -78000 : -95000);
+  return lk.manual;
+}
 // 引戸は枚数ごとに選べる色が違う（4枚建は色が少ない）ので、その形で選べる色だけにする
 function colorsWithPrice(e, kind){
   var codes = e.kinds[kind] && e.kinds[kind].codes;
@@ -883,14 +890,15 @@ function lockOptions(){
   if (PRODUCT === 'ydoor'){
     // 差額はデザインのページの値段（ピタットキーが基準）。両開きの手動錠は仕様変更の表
     // （D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －78,000）
-    var ye = cur(), lk = (ye && ye.lock) || {pocket:57000, face:152000, manual:-83000};
-    var man = st.base === '両開き' ? (st.grade === 'd50' ? -137000 : (ye && /ロートアイアン/.test(ye.manualHandle || '') ? -78000 : -95000)) : lk.manual;
+    // 手動キーが標準。電気錠は手動キーとの差額を上乗せする
+    var ye = cur(), lk = (ye && ye.lock) || {pocket:57000, manual:-83000};
+    var man = yManual(ye, st.kind);
     var ya = [
-      {id:'y_pitatto', name:'ピタットキー（タグキー3個）', desc:'タグキーをドアに近づけると開きます。スマホでも開け閉めできます。', add:0, y:'pitatto'},
-      {id:'y_pocket', name:'ポケットキー（リモコン2個）', desc:'リモコンはポケットやカバンに入れたまま、ハンドルのボタンを押すと開きます。タグキー3個も付いています。', add:lk.pocket, y:'pocket', rec:true}
+      {id:'y_manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, y:'manual'},
+      {id:'y_pitatto', name:'ピタットキー（タグキー3個）', desc:'電気錠です。タグキーをドアに近づけると開きます。スマホでも開け閉めできます。', add:-man, y:'pitatto'},
+      {id:'y_pocket', name:'ポケットキー（リモコン2個）', desc:'電気錠です。リモコンはポケットやカバンに入れたまま、ハンドルのボタンを押すと開きます。タグキー3個も付いています。', add:lk.pocket - man, y:'pocket', rec:true}
     ];
     // 顔認証キーは選択肢に出さない（2026-10-01 福嶋さん。AC100V式だけで配線工事が要るため）
-    ya.push({id:'y_manual', name:'手動キー', desc:'今と同じ、差して回すカギです。電気錠より金額が下がります。', add:man, y:'manual'});
     return ya;
   }
   if (PRODUCT === 'hikido'){
@@ -915,6 +923,7 @@ function clip(k){ return D.clips && D.clips[k] ? img(D.clips[k].img) : ''; }
 function hkClip(k){ return D.hikido && D.hikido.clips && D.hikido.clips[k] ? img(D.hikido.clips[k].img) : ''; }
 function yClip(k){ return D.ydoor && D.ydoor.clips[k] ? img(D.ydoor.clips[k].img) : ''; }
 function lockPic(o){
+  if (o.y === 'manual') return '<img class="photo" src="'+clip('use_manual')+'" alt="手動キーで開ける様子" loading="lazy">';
   if (o.y){
     // ドアリモのキーセット（玄関ドア カタログ13ページ「3つのキーセットから選べます」）
     var parts = {pitatto:[['tag','タグ×3'],['phone','スマホ']], pocket:[['remote','リモコン×2'],['tag','タグ×3'],['phone','スマホ']], face:[['face','顔認証'],['remote','リモコン×2'],['tag','タグ×3']], manual:[['key','カギ']]}[o.y];
@@ -1060,7 +1069,7 @@ function render(){
   document.getElementById('lock-note').textContent = {
     door: 'FamiLock（ファミロック）は、カードやタグ、リモコン、スマホで開け閉めできる電気錠です。カードキーとタグキーはどちらか3つで、現地調査のときに選べます（金額は同じです）。電池式なので、電気の配線工事はいりません。',
     hikido: st.base === '2枚建' ? '電気錠は、簡易タッチキーとCAZAS（カザス）の2種類です。どちらも電池式で、あとから付けることはできないので、工事の前に決めていただきます。' : '4枚建の引戸には、電気錠がありません。手動キーになります。',
-    ydoor: 'ドアリモの玄関ドアは、電気錠（スマートコントロールキー）が最初から付いた値段です。電池式なら電気の配線工事はいりません。',
+    ydoor: '手動キーを標準にしています。電気錠（スマートコントロールキー）にすると、その分が上乗せになります。電池式なら電気の配線工事はいりません。',
     yhk: 'ドアリモの引戸は、手動キーです。'
   }[PRODUCT];
   document.getElementById('design-note').textContent = {
@@ -1117,7 +1126,7 @@ function render(){
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
-    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add > 0 ? '＋'+man(o.add*lockRate()*(1+TAX)) : o.add < 0 ? '－'+man(-o.add*lockRate()*(1+TAX)) : (PRODUCT === 'ydoor' ? '標準（金額に込み）' : '標準（＋0円）'))+'</span></span></label>';
+    return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add > 0 ? '＋'+man(o.add*lockRate()*(1+TAX)) : o.add < 0 ? '－'+man(-o.add*lockRate()*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
   }).join('');
   // STEP 6（引戸とドアリモは、デザインの標準のハンドル・引手のまま）
   if (hk || yk){ document.getElementById('coop').checked = st.coop; document.getElementById('coop2').checked = st.coop; summary(); return; }
@@ -1174,7 +1183,7 @@ function summary(){
   document.getElementById('r-bd').innerHTML =
     '<tr><td>'+(hk ? '引戸本体・鍵・引手' : 'ドア本体・鍵・ハンドル')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(rate()*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     (glass ? '<tr><td>ガラス（'+(hk ? 'ランマ' : '')+(e.bodyGlass?'本体':'')+(e.bodyGlass&&glass>BODY_GLASS?'・':'')+(!hk && glass>(e.bodyGlass?BODY_GLASS:0)?'ランマ・袖':'')+'）<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(glass)+'（税抜）の '+Math.round(GLASS_RATE*100)+'%</span></td><td>'+yen(glassGoods)+'</td></tr>' : '')+
-    (lock.add ? '<tr'+(lock.add < 0 ? ' class="minus"' : '')+'><td>'+esc(lock.name)+(PRODUCT === 'ydoor' ? '（ピタットキーとの差額）' : '')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+sgnYen(lock.add)+'（税抜）の '+Math.round(lockRate()*100)+'%</span></td><td>'+sgnYen(famiGoods)+'</td></tr>' : '')+
+    (lock.add ? '<tr'+(lock.add < 0 ? ' class="minus"' : '')+'><td>'+esc(lock.name)+(PRODUCT === 'ydoor' ? '（手動キーとの差額）' : '')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+sgnYen(lock.add)+'（税抜）の '+Math.round(lockRate()*100)+'%</span></td><td>'+sgnYen(famiGoods)+'</td></tr>' : '')+
     (yGlassSep() ? '<tr><td>袖・ランマのガラス<br><span style="font-size:11px;color:var(--ink-3)">メーカーの別売り品です。現地調査のあとでお伝えします</span></td><td>別途</td></tr>' : '')+
     '<tr><td>取付工賃</td><td>'+yen(KJ)+'</td></tr>'+
     '<tr><td>取り付けの補助部材<br><span style="font-size:11px;color:var(--ink-3)">下枠の段差をなくす部材など</span></td><td>'+yen(HOJO)+'</td></tr>'+
@@ -1460,7 +1469,7 @@ var INFO = {
   lock_y: function(){
     var kit = function(k, t){ return '<figure><img src="'+yClip(k)+'" alt="">'+t+'</figure>'; };
     return '<h3 id="info-h">ドアリモの電気錠（スマートコントロールキー）</h3>'+
-      '<p>ドアリモの玄関ドアは、電気錠が最初から付いた値段です。キーのセットを2つから選びます。手動キーにすると、金額が下がります。</p>'+
+      '<p>この画面では、手動キーを標準にしています。電気錠（スマートコントロールキー）にするときは、キーのセットを2つから選びます。</p>'+
       '<h4>キーのセット</h4><div class="gtable">'+
       '<div><b>ピタットキー</b><span>タグキー3個。タグキーをドアに近づけると開きます。スマホでも開け閉めできます。</span></div>'+
       '<div><b>ポケットキー</b><span>リモコン2個とタグキー3個。リモコンはポケットやカバンに入れたまま、ハンドルのボタンを押すと開きます。<b style="color:#E8590C">おすすめ</b></span></div>'+
