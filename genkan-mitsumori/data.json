@@ -9003,5 +9003,2378 @@
    "img": "img/rechent/grade/compare.jpg",
    "page": 49
   }
+ },
+ "hikido": {
+  "grades": {
+   "pg": {
+    "F01": {
+     "name": "F01型",
+     "sub": "",
+     "page": 31,
+     "glass": "複層ガラス",
+     "handle": "把手F3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 798800
+       },
+       "w": "1500～1870",
+       "h": "1811～2277",
+       "img": "img/hikido/pg-F01/2.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 848700
+       },
+       "w": "1500～1870",
+       "h": "2106～2780",
+       "img": "img/hikido/pg-F01/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F01/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F01/c-BB.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 798800
+     },
+     "hero": "img/hikido/pg-F01/hero.jpg"
+    },
+    "F02": {
+     "name": "F02型",
+     "sub": "",
+     "page": 33,
+     "glass": "複層ガラス",
+     "handle": "把手F3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 798800
+       },
+       "w": "1500～1870",
+       "h": "1811～2277",
+       "img": "img/hikido/pg-F02/2.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 848700
+       },
+       "w": "1500～1870",
+       "h": "2106～2780",
+       "img": "img/hikido/pg-F02/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F02/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F02/c-BB.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 798800
+     },
+     "hero": "img/hikido/pg-F02/hero.jpg"
+    },
+    "F03": {
+     "name": "F03型",
+     "sub": "",
+     "page": 35,
+     "glass": "複層ガラス",
+     "handle": "把手F3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 696800
+       },
+       "w": "1500～1870",
+       "h": "1811～2277",
+       "img": "img/hikido/pg-F03/2.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 746700
+       },
+       "w": "1500～1870",
+       "h": "2106～2780",
+       "img": "img/hikido/pg-F03/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F03/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-F03/c-BB.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 696800
+     },
+     "hero": "img/hikido/pg-F03/hero.jpg"
+    },
+    "P11": {
+     "name": "P11型",
+     "sub": "千本格子",
+     "page": 37,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 524500,
+        "アルミ色": 441700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P11/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 574400,
+        "アルミ色": 492300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P11/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 967800,
+        "アルミ色": 818700
+       },
+       "w": "2357～3800",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P11/4.jpg",
+       "codes": [
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 1043800,
+        "アルミ色": 895900
+       },
+       "w": "2357～3800",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P11/4-r.jpg",
+       "codes": [
+        "BX",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P11/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P11/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P11/c-BX.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P11/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P11/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 524500
+     },
+     "hero": "img/hikido/pg-P11/hero.jpg"
+    },
+    "P12": {
+     "name": "P12型",
+     "sub": "万本格子",
+     "page": 39,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 562500,
+        "アルミ色": 479700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P12/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 612400,
+        "アルミ色": 530300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P12/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P12/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P12/c-ES.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P12/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P12/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 562500
+     },
+     "hero": "img/hikido/pg-P12/hero.jpg"
+    },
+    "P13": {
+     "name": "P13型",
+     "sub": "千本格子横目",
+     "page": 41,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P13/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P13/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 1091800
+       },
+       "w": "2357～3800",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P13/4.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 1167800
+       },
+       "w": "2357～3800",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P13/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P13/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P13/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P13/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P13/hero.jpg"
+    },
+    "P14": {
+     "name": "P14型",
+     "sub": "板子格子",
+     "page": 43,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P14/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P14/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 1091800
+       },
+       "w": "2357～3800",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P14/4.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 1167800
+       },
+       "w": "2357～3800",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P14/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P14/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P14/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P14/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P14/hero.jpg"
+    },
+    "P15": {
+     "name": "P15型",
+     "sub": "縦通し",
+     "page": 45,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 562500,
+        "アルミ色": 479700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P15/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 612400,
+        "アルミ色": 530300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P15/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P15/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P15/c-BB.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P15/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P15/c-BX.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P15/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P15/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P15/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P15/c-AT.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 562500
+     },
+     "hero": "img/hikido/pg-P15/hero.jpg"
+    },
+    "P16": {
+     "name": "P16型",
+     "sub": "縦通し",
+     "page": 47,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 562500,
+        "アルミ色": 479700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P16/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 612400,
+        "アルミ色": 530300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P16/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P16/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P16/c-BB.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P16/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P16/c-BX.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P16/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P16/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P16/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P16/c-AT.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 562500
+     },
+     "hero": "img/hikido/pg-P16/hero.jpg"
+    },
+    "P17": {
+     "name": "P17型",
+     "sub": "",
+     "page": 49,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500,
+        "アルミ色": 503700
+       },
+       "w": "1412～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P17/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400,
+        "アルミ色": 554300
+       },
+       "w": "1412～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P17/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P17/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P17/c-BB.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P17/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P17/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P17/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P17/c-AT.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P17/hero.jpg"
+    },
+    "P18": {
+     "name": "P18型",
+     "sub": "井桁格子",
+     "page": 51,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 562500,
+        "アルミ色": 479700
+       },
+       "w": "1380～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P18/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 612400,
+        "アルミ色": 530300
+       },
+       "w": "1380～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P18/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P18/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P18/c-BB.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P18/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P18/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P18/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P18/c-AT.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 562500
+     },
+     "hero": "img/hikido/pg-P18/hero.jpg"
+    },
+    "P19": {
+     "name": "P19型",
+     "sub": "横桟",
+     "page": 53,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500,
+        "アルミ色": 503700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P19/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400,
+        "アルミ色": 554300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P19/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "CJ",
+        "AK",
+        "AG",
+        "AT"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P19/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P19/c-BB.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P19/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P19/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P19/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P19/c-AT.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P19/hero.jpg"
+    },
+    "P20": {
+     "name": "P20型",
+     "sub": "",
+     "page": 55,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 498500,
+        "アルミ色": 415700
+       },
+       "w": "1195～1860",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P20/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "EN",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 548400,
+        "アルミ色": 466300
+       },
+       "w": "1195～1860",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P20/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "EN",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG",
+        "AT",
+        "AC"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 915800,
+        "アルミ色": 766700
+       },
+       "w": "2357～3686",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P20/4.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 991800,
+        "アルミ色": 843900
+       },
+       "w": "2357～3686",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P20/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-BB.jpg"
+      },
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-BX.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P20/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P20/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P20/c-AG.jpg"
+      },
+      {
+       "code": "AT",
+       "name": "ブラック",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P20/c-AT.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P20/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 498500
+     },
+     "hero": "img/hikido/pg-P20/hero.jpg"
+    },
+    "P21": {
+     "name": "P21型",
+     "sub": "面付格子",
+     "page": 57,
+     "glass": "Low-E複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 612500,
+        "アルミ色": 529700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P21/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 662400,
+        "アルミ色": 580300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P21/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P21/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P21/c-ES.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P21/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 612500
+     },
+     "hero": "img/hikido/pg-P21/hero.jpg"
+    },
+    "P22": {
+     "name": "P22型",
+     "sub": "",
+     "page": 59,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 562500
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P22/2.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 612400
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P22/2-r.jpg",
+       "codes": [
+        "CB",
+        "BB",
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "CB",
+       "name": "クリエモカ",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P22/c-CB.jpg"
+      },
+      {
+       "code": "BB",
+       "name": "クリエダーク",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P22/c-BB.jpg"
+      },
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P22/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P22/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P22/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 562500
+     },
+     "hero": "img/hikido/pg-P22/hero.jpg"
+    },
+    "P23": {
+     "name": "P23型",
+     "sub": "横太格子",
+     "page": 61,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 524500,
+        "アルミ色": 441700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P23/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 574400,
+        "アルミ色": 492300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P23/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "CJ",
+        "AK",
+        "AG"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 967800
+       },
+       "w": "2357～3800",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P23/4.jpg",
+       "codes": [
+        "EN",
+        "ES"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 1043800
+       },
+       "w": "2357～3800",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P23/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P23/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P23/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P23/c-BX.jpg"
+      },
+      {
+       "code": "CJ",
+       "name": "ポートマホガニー",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P23/c-CJ.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P23/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P23/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 524500
+     },
+     "hero": "img/hikido/pg-P23/hero.jpg"
+    },
+    "P24": {
+     "name": "P24型",
+     "sub": "柳格子",
+     "page": 63,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P24/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P24/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P24/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P24/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P24/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P24/hero.jpg"
+    },
+    "P25": {
+     "name": "P25型",
+     "sub": "井桁格子",
+     "page": 65,
+     "glass": "複層ガラス",
+     "handle": "引手A3A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 586500,
+        "アルミ色": 503700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P25/2.jpg",
+       "codes": [
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 636400,
+        "アルミ色": 554300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P25/2-r.jpg",
+       "codes": [
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 1091800,
+        "アルミ色": 942700
+       },
+       "w": "2357～3800",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P25/4.jpg",
+       "codes": [
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 1167800,
+        "アルミ色": 1019900
+       },
+       "w": "2357～3800",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P25/4-r.jpg",
+       "codes": [
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P25/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/pg-P25/c-BX.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P25/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P25/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 586500
+     },
+     "hero": "img/hikido/pg-P25/hero.jpg"
+    },
+    "P26": {
+     "name": "P26型",
+     "sub": "漣格子",
+     "page": 67,
+     "glass": "複層ガラス",
+     "handle": "引手A2A型（ラッチ付）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "アルミ色": 503700
+       },
+       "w": "1195～2120",
+       "h": "1761～2277",
+       "img": "img/hikido/pg-P26/2.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "アルミ色": 554300
+       },
+       "w": "1195～2120",
+       "h": "2056～2780",
+       "img": "img/hikido/pg-P26/2-r.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P26/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/pg-P26/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 79000,
+      "cazas": 53000,
+      "manual": 503700
+     },
+     "hero": "img/hikido/pg-P26/hero.jpg"
+    }
+   },
+   "sg": {
+    "S51": {
+     "name": "S51型",
+     "sub": "千本格子",
+     "page": 74,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 456000,
+        "アルミ色": 373200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S51/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 512900,
+        "アルミ色": 428700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S51/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 776900,
+        "アルミ色": 628800
+       },
+       "w": "2357～3800",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S51/4.jpg",
+       "codes": [
+        "BX",
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 865700,
+        "アルミ色": 721200
+       },
+       "w": "2357～3800",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S51/4-r.jpg",
+       "codes": [
+        "BX",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S51/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S51/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S51/c-BX.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S51/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S51/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 456000
+     },
+     "hero": "img/hikido/sg-S51/hero.jpg"
+    },
+    "S52": {
+     "name": "S52型",
+     "sub": "万本格子",
+     "page": 75,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 464000,
+        "アルミ色": 381200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S52/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 520900,
+        "アルミ色": 436700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S52/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S52/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S52/c-ES.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S52/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S52/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 464000
+     },
+     "hero": "img/hikido/sg-S52/hero.jpg"
+    },
+    "S53": {
+     "name": "S53型",
+     "sub": "千本格子横目",
+     "page": 76,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 490000
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S53/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 546900
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S53/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 840900
+       },
+       "w": "2357～3800",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S53/4.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 929700
+       },
+       "w": "2357～3800",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S53/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S53/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S53/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S53/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 490000
+     },
+     "hero": "img/hikido/sg-S53/hero.jpg"
+    },
+    "S54": {
+     "name": "S54型",
+     "sub": "板子格子",
+     "page": 77,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 506000
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S54/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 562900
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S54/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "木目調": 880900
+       },
+       "w": "2357～3800",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S54/4.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "木目調": 969700
+       },
+       "w": "2357～3800",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S54/4-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S54/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S54/c-ES.jpg"
+      },
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S54/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 506000
+     },
+     "hero": "img/hikido/sg-S54/hero.jpg"
+    },
+    "S55": {
+     "name": "S55型",
+     "sub": "縦通し",
+     "page": 78,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "アルミ色": 419200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S55/2.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "アルミ色": 474700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S55/2-r.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S55/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S55/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 419200
+     },
+     "hero": "img/hikido/sg-S55/hero.jpg"
+    },
+    "S56": {
+     "name": "S56型",
+     "sub": "横太格子",
+     "page": 79,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 456000,
+        "アルミ色": 373200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S56/2.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 512900,
+        "アルミ色": 428700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S56/2-r.jpg",
+       "codes": [
+        "EN",
+        "ES",
+        "AK",
+        "AG"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "EN",
+       "name": "檜調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S56/c-EN.jpg"
+      },
+      {
+       "code": "ES",
+       "name": "槇調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S56/c-ES.jpg"
+      },
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S56/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S56/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 456000
+     },
+     "hero": "img/hikido/sg-S56/hero.jpg"
+    },
+    "S57": {
+     "name": "S57型",
+     "sub": "井桁格子",
+     "page": 80,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "アルミ色": 381200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S57/2.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "アルミ色": 436700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S57/2-r.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S57/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S57/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 381200
+     },
+     "hero": "img/hikido/sg-S57/hero.jpg"
+    },
+    "S58": {
+     "name": "S58型",
+     "sub": "漣格子",
+     "page": 81,
+     "glass": "単板ガラス",
+     "handle": "引手A型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "アルミ色": 381200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S58/2.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "アルミ色": 436700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S58/2-r.jpg",
+       "codes": [
+        "AK",
+        "AG"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "AK",
+       "name": "シャイングレー",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S58/c-AK.jpg"
+      },
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S58/c-AG.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 381200
+     },
+     "hero": "img/hikido/sg-S58/hero.jpg"
+    },
+    "S59": {
+     "name": "S59型",
+     "sub": "井桁格子",
+     "page": 82,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "木目調": 464000
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S59/2.jpg",
+       "codes": [
+        "BX"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "木目調": 520900
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S59/2-r.jpg",
+       "codes": [
+        "BX"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "BX",
+       "name": "柿渋調",
+       "cls": "木目調",
+       "img": "img/hikido/sg-S59/c-BX.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 464000
+     },
+     "hero": "img/hikido/sg-S59/hero.jpg"
+    },
+    "S60": {
+     "name": "S60型",
+     "sub": "千本格子腰付",
+     "page": 83,
+     "glass": "単板ガラス",
+     "handle": "引手D型（ラッチなし）",
+     "kinds": {
+      "2枚建": {
+       "p": {
+        "アルミ色": 419200
+       },
+       "w": "1195～2604",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S60/2.jpg",
+       "codes": [
+        "AG",
+        "AC"
+       ]
+      },
+      "2枚建ランマ付": {
+       "p": {
+        "アルミ色": 474700
+       },
+       "w": "1195～2604",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S60/2-r.jpg",
+       "codes": [
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建": {
+       "p": {
+        "アルミ色": 720800
+       },
+       "w": "2357～3800",
+       "h": "1584～2300",
+       "img": "img/hikido/sg-S60/4.jpg",
+       "codes": [
+        "AG",
+        "AC"
+       ]
+      },
+      "4枚建ランマ付": {
+       "p": {
+        "アルミ色": 813200
+       },
+       "w": "2357～3800",
+       "h": "1831～2780",
+       "img": "img/hikido/sg-S60/4-r.jpg",
+       "codes": [
+        "AG",
+        "AC"
+       ]
+      }
+     },
+     "colors": [
+      {
+       "code": "AG",
+       "name": "オータムブラウン",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S60/c-AG.jpg"
+      },
+      {
+       "code": "AC",
+       "name": "ブロンズ艶消し",
+       "cls": "アルミ色",
+       "img": "img/hikido/sg-S60/c-AC.jpg"
+      }
+     ],
+     "elock": {
+      "touch": 89500,
+      "cazas": 63500,
+      "manual": 419200
+     },
+     "hero": "img/hikido/sg-S60/hero.jpg"
+    }
+   }
+  },
+  "swatches": {
+   "EN": {
+    "name": "檜調",
+    "img": "img/hikido/swatch/EN.jpg",
+    "page": 28
+   },
+   "CB": {
+    "name": "クリエモカ",
+    "img": "img/hikido/swatch/CB.jpg",
+    "page": 28
+   },
+   "BB": {
+    "name": "クリエダーク",
+    "img": "img/hikido/swatch/BB.jpg",
+    "page": 28
+   },
+   "ES": {
+    "name": "槇調",
+    "img": "img/hikido/swatch/ES.jpg",
+    "page": 28
+   },
+   "BX": {
+    "name": "柿渋調",
+    "img": "img/hikido/swatch/BX.jpg",
+    "page": 28
+   },
+   "CJ": {
+    "name": "ポートマホガニー",
+    "img": "img/hikido/swatch/CJ.jpg",
+    "page": 28
+   },
+   "AK": {
+    "name": "シャイングレー",
+    "img": "img/hikido/swatch/AK.jpg",
+    "page": 28
+   },
+   "AG": {
+    "name": "オータムブラウン",
+    "img": "img/hikido/swatch/AG.jpg",
+    "page": 28
+   },
+   "AT": {
+    "name": "ブラック",
+    "img": "img/hikido/swatch/AT.jpg",
+    "page": 28
+   },
+   "AC": {
+    "name": "ブロンズ艶消し",
+    "img": "img/hikido/swatch/AC.jpg",
+    "page": 28
+   }
+  },
+  "clips": {
+   "touch": {
+    "img": "img/hikido/lock/touch.jpg",
+    "page": 30
+   },
+   "cazas": {
+    "img": "img/hikido/lock/cazas.jpg",
+    "page": 30
+   },
+   "manual": {
+    "img": "img/hikido/lock/manual.jpg",
+    "page": 30
+   }
+  }
  }
 }
