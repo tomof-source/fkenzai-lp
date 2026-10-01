@@ -285,6 +285,13 @@ textarea{min-height:90px}
 .opts label{font-size:14px;border:1px solid var(--line-2);border-radius:4px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;background:#fff}
 .opts input{accent-color:var(--blue);margin:0}
 .opts label:has(input:checked){border-color:var(--blue);background:var(--sky-2)}
+.rank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.rank label{position:relative;padding:10px;font-size:14px;gap:8px;white-space:nowrap}
+.rank input{position:absolute;opacity:0;width:1px;height:1px}
+.rank label:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:2px}
+.rk{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line-2);display:inline-grid;place-items:center;font-size:13px;font-weight:700;line-height:1;color:#fff;background:#fff}
+.rank label:has(input:checked) .rk{background:var(--blue);border-color:var(--blue)}
+@media (min-width:640px){.rank{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .help{font-size:12px;color:var(--ink-3)}
 .err{color:#C62828;font-size:13px;font-weight:700;margin-bottom:10px}
 .done{border:2px solid var(--blue);border-radius:4px;padding:20px;max-width:720px}
@@ -664,16 +671,17 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
     <div class="field"><label for="f-mail">メールアドレス<span class="any">任意</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"></div>
     <div class="field">
       <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="req">必須</span></span>
-      <div class="opts" role="radiogroup" aria-labelledby="src-lbl">
-        <label><input type="radio" name="source" value="YouTube">YouTube</label>
-        <label><input type="radio" name="source" value="Instagram">Instagram</label>
-        <label><input type="radio" name="source" value="ネット検索">ネット検索</label>
-        <label><input type="radio" name="source" value="AIでの検索">AIでの検索</label>
-        <label><input type="radio" name="source" value="Googleの口コミ">Googleの口コミ</label>
-        <label><input type="radio" name="source" value="チラシ">チラシ</label>
-        <label><input type="radio" name="source" value="知人の紹介">知人の紹介</label>
-        <label><input type="radio" name="source" value="以前に依頼した">以前に依頼した</label>
-        <label><input type="radio" name="source" value="その他">その他</label>
+      <span class="help" id="src-help">いくつでも選べます。大きかったものから順に押すと、1・2・3と順位が付きます。もう一度押すと外れます。</span>
+      <div class="opts rank" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
+        <label><input type="checkbox" name="source" value="YouTube"><b class="rk" aria-hidden="true"></b>YouTube</label>
+        <label><input type="checkbox" name="source" value="Instagram"><b class="rk" aria-hidden="true"></b>Instagram</label>
+        <label><input type="checkbox" name="source" value="ネット検索"><b class="rk" aria-hidden="true"></b>ネット検索</label>
+        <label><input type="checkbox" name="source" value="AIでの検索"><b class="rk" aria-hidden="true"></b>AIでの検索</label>
+        <label><input type="checkbox" name="source" value="Googleの口コミ"><b class="rk" aria-hidden="true"></b>Googleの口コミ</label>
+        <label><input type="checkbox" name="source" value="チラシ"><b class="rk" aria-hidden="true"></b>チラシ</label>
+        <label><input type="checkbox" name="source" value="知人の紹介"><b class="rk" aria-hidden="true"></b>知人の紹介</label>
+        <label><input type="checkbox" name="source" value="以前に依頼した"><b class="rk" aria-hidden="true"></b>以前に依頼した</label>
+        <label><input type="checkbox" name="source" value="その他"><b class="rk" aria-hidden="true"></b>その他</label>
       </div>
     </div>
     <div class="field"><label for="f-date">現地調査の希望日<span class="any">任意</span></label><input type="text" id="f-date" name="dates" placeholder="例 10月5日の午前、10月7日の午後"><span class="help">第2希望まで書いていただくと、日程が早く決まります。</span></div>
@@ -1325,17 +1333,36 @@ document.getElementById('ai-photo').addEventListener('change', function(ev){
 });
 
 var form = document.getElementById('applyForm');
+// 知ったきっかけ：押した順に順位を付ける（台帳には「1位 YouTube、2位 チラシ」の形で入る）
+var srcOrder = [];
+function srcRender(){
+  form.querySelectorAll('input[name="source"]').forEach(function(i){
+    var n = srcOrder.indexOf(i.value);
+    i.parentNode.querySelector('.rk').textContent = n < 0 ? '' : String(n + 1);
+  });
+}
+form.querySelectorAll('input[name="source"]').forEach(function(i){
+  i.addEventListener('change', function(){
+    var n = srcOrder.indexOf(i.value);
+    if (i.checked && n < 0) srcOrder.push(i.value);
+    if (!i.checked && n >= 0) srcOrder.splice(n, 1);
+    srcRender();
+  });
+});
+function srcText(){
+  return srcOrder.length === 1 ? srcOrder[0] : srcOrder.map(function(v, k){ return (k + 1) + '位 ' + v; }).join('、');
+}
 form.addEventListener('submit', function(ev){
   ev.preventDefault();
   var f = new FormData(form), miss = [];
   if (!String(f.get('name')||'').trim()) miss.push('お名前');
   if (!String(f.get('tel')||'').trim()) miss.push('電話番号');
   if (!String(f.get('address')||'').trim()) miss.push('ご住所');
-  if (!f.get('source')) miss.push('知ったきっかけ');
+  if (!srcOrder.length) miss.push('知ったきっかけ');
   var err = document.getElementById('err');
   if (miss.length){ err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   err.hidden = true;
-  var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:f.get('source'), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
+  var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:srcText(), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
   var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = '送信しています…';
   function finish(ok){
     btn.disabled = false; btn.textContent = 'この内容で現地調査を申し込む';
