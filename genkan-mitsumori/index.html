@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow">
 <title>玄関ドア・引戸 かんたん見積（リシェント・ドアリモ）｜フクシマ建材</title>
 <meta name="description" content="LIXILリシェントとYKK APドアリモの玄関ドア・引戸を選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本・福岡のフクシマ建材。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -470,7 +469,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 </style>
 </head>
 <body>
-<div class="notice"><div class="wrap">このページはテスト公開中です。金額はLIXILのカタログ価格（2026年5月版）をもとにした目安です。</div></div>
+<div class="notice"><div class="wrap">金額はLIXILのカタログ価格（2026年5月版）をもとにした目安です。</div></div>
 
 <header class="site"><div class="wrap">
   <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本・福岡 窓と玄関のリフォーム専門店</small></span></a>
@@ -1368,6 +1367,21 @@ form.querySelectorAll('input[name="source"]').forEach(function(i){
 function srcText(){
   return srcOrder.length === 1 ? srcOrder[0] : srcOrder.map(function(v, k){ return (k + 1) + '位 ' + v; }).join('、');
 }
+// 電話番号・メールアドレスの形（fkenzai-ai-hisho の ai-hisho/contact.js と同じ判定）
+function contactOk(raw, method){
+  var s = String(raw == null ? '' : raw);
+  try { s = s.normalize('NFKC'); } catch (e) {}
+  s = s.replace(/[\u2010-\u2015\u2212\u30FC\uFF70\uFF0D]/g, '-').trim();
+  if (!s) return false;
+  if (method === 'email') {
+    var e2 = s.replace(/\s+/g, '');
+    return e2.length <= 200 && /^[^@]+@[^@]+\.[^@.]+$/.test(e2) && !/\.\./.test(e2);
+  }
+  if (!/^\+?[0-9\-\s()]+$/.test(s)) return false;
+  var d = s.replace(/[^0-9]/g, '');
+  if (s.charAt(0) === '+') { if (d.indexOf('81') !== 0) return false; d = '0' + d.slice(2); }
+  return /^0\d{9,10}$/.test(d);
+}
 form.addEventListener('submit', function(ev){
   ev.preventDefault();
   var f = new FormData(form), miss = [];
@@ -1377,6 +1391,10 @@ form.addEventListener('submit', function(ev){
   if (!srcOrder.length) miss.push('知ったきっかけ');
   var err = document.getElementById('err');
   if (miss.length){ err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
+  // 返信先の形を確かめる（返信できない申し込みを受け付けない。判定は fkenzai-ai-hisho の ai-hisho/contact.js と同じ）
+  // 要件MD: docs/requirements/20261001-genkan-mitsumori-publish-and-tel-check.md
+  if (!contactOk(f.get('tel'), 'tel')){ err.textContent = '電話番号は、0から始まる10桁か11桁でご入力ください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
+  if (String(f.get('email')||'').trim() && !contactOk(f.get('email'), 'email')){ err.textContent = 'メールアドレスの形をご確認ください（空欄でも大丈夫です）。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   err.hidden = true;
   var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:srcText(), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
   var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = '送信しています…';
