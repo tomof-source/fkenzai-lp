@@ -453,6 +453,11 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 /* デザインを大きく見る */
 .designs .tile .in{position:relative}
 .zoom{position:absolute;top:4px;right:4px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;padding:0;z-index:2}
+.pop{position:absolute;top:4px;left:4px;z-index:2;font-style:normal;font-size:11px;font-weight:700;line-height:1;padding:5px 7px;border-radius:3px;background:#fff;color:var(--blue-d);border:1px solid var(--blue)}
+.pop.r1{background:#b8860b;border-color:#b8860b;color:#fff}
+.pop.r2{background:#7b8794;border-color:#7b8794;color:#fff}
+.pop.r3{background:#a0623a;border-color:#a0623a;color:#fff}
+.pop.r4{background:var(--blue);border-color:var(--blue);color:#fff}
 .zoom svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round}
 .stage .main img{cursor:zoom-in}
 .zoom-view{text-align:center}
@@ -808,6 +813,13 @@ var BASES_YHK = [['2枚建','戸が2枚'],['4枚建','戸が4枚（広い間口�
 // デザインの雰囲気は、カタログの分け方（ドア：デザイン番号の頭の文字。引戸：現代和風・洋風・伝統和風）
 var Y_STYLE = {yN:'ナチュラル', yF:'シンプル', yC:'シック', yE:'エレガント'};
 var YHK_STYLE = {gendai:'現代和風', yofu:'洋風', dento:'伝統和風', sode:'袖付'};
+// 人気の順位（2025年10月〜2026年9月に工事が終わった見積書のリシェント玄関ドア54台。YouTube「2026年に売れた玄関ドア5選」と同じ数字）
+// 5位は各2台で同率。ドアリモはあとで福嶋さんが指定する
+var POP_RANK = {
+  door: {M83:1, S14:2, C12N:3, M17:4, D77:5, '12N':5, G15:5, M12:5, G12:5, M24:5, C84N:5, M16:5},
+  hikido: {}, ydoor: {}, yhk: {}
+};
+function popRank(k){ return (POP_RANK[PRODUCT] || {})[k] || 0; }
 var STYLE_CSS = {yN:'natural', yF:'simple', yC:'modern', yE:'western', gendai:'modern', yofu:'western', dento:'natural', sode:'simple'};
 var DEF = {door:{grade:'k4', base:'片開き', design:'M83', color:'CC'}, hikido:{grade:'pg', base:'2枚建', design:'P11', color:'BX'},
   ydoor:{grade:'d4', base:'片開き', design:'N07N', color:'PR'}, yhk:{grade:'yf', base:'2枚建', design:'C01', color:'YF'}};
@@ -1081,7 +1093,7 @@ function render(){
     yhk: 'ドアリモの引戸は、手動キーです。'
   }[PRODUCT];
   document.getElementById('design-note').textContent = {
-    door: '「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
+    door: '人気の順位は、この1年（2025年10月〜2026年9月）に私たちが工事したリシェント玄関ドア54台の数です。5位は同じ台数で8つ並んでいます。「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
     hikido: '色でも印象が変わります。',
     ydoor: '「風を通せる」ドアは、扉の中の小窓（内開き）を開けて、風を入れられます。雰囲気の目印は、カタログの分け方（ナチュラル・シンプル・シック・エレガント）です。',
     yhk: '雰囲気の目印は、カタログの分け方（現代和風・洋風・伝統和風・袖付）です。'
@@ -1109,17 +1121,21 @@ function render(){
   // STEP 3
   var all = Object.keys(ds).filter(function(k){ return ds[k].kinds[st.kind]; });
   var SN = styleNames();
-  var chips = [['all','すべて']].concat(Object.keys(SN).map(function(k){ return [k, SN[k]]; })).concat([['wind','風を通せる']]);
+  if (st.dstyle === 'pop' && !all.some(function(k){ return popRank(k); })) st.dstyle = 'all';
+  var chips = [['all','すべて'], ['pop','人気ランキング']].concat(Object.keys(SN).map(function(k){ return [k, SN[k]]; })).concat([['wind','風を通せる']]);
   document.getElementById('o-dstyle').innerHTML = chips.map(function(c){
     var n = all.filter(function(k){ return c[0]==='all' || (c[0]==='wind' ? windOf(k, ds[k]) : styleOf(k, ds[k])===c[0]); }).length;
+    if (c[0]==='pop') n = all.filter(function(k){ return popRank(k); }).length;
     return n ? '<label><input type="radio" name="dstyle" value="'+c[0]+'"'+(st.dstyle===c[0]?' checked':'')+'>'+c[1]+'<small>'+n+'</small></label>' : '';
   }).join('');
-  var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='wind' ? windOf(k, ds[k]) : styleOf(k, ds[k])===st.dstyle); });
+  var list = all.filter(function(k){ return st.dstyle==='all' || k===st.design || (st.dstyle==='pop' ? popRank(k) : st.dstyle==='wind' ? windOf(k, ds[k]) : styleOf(k, ds[k])===st.dstyle); });
+  // 人気の順位があるデザインを先頭に、順位の順で並べる（同じ順位と順位なしは元の並びのまま）
+  list = list.map(function(k, i){ return [popRank(k) || 99, i, k]; }).sort(function(a, b){ return a[0] - b[0] || a[1] - b[1]; }).map(function(x){ return x[2]; });
   document.getElementById('o-design').innerHTML = list.map(function(k){
     var d = ds[k], sy = styleOf(k, d), nm = (d.label || k) + '型';
     // ドアリモ 玄関ドアは形ごとの写真が無いので、デザインの写真（片開きの形）を並べる
     var tim = PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
-    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button><img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
+    return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button>'+(popRank(k)?'<i class="pop r'+popRank(k)+'">人気'+popRank(k)+'位</i>':'')+'<img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
   document.getElementById('design-count').textContent = all.length + 'デザイン';
   // STEP 4
