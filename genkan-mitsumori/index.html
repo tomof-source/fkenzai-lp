@@ -469,7 +469,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 </style>
 </head>
 <body>
-<div class="notice"><div class="wrap">金額はLIXILのカタログ価格（2026年5月版）をもとにした目安です。</div></div>
+<div class="notice"><div class="wrap">金額はメーカーの定価をもとにした目安です（LIXILは2026年10月の値上げ後の定価、YKK APは2026年5月版カタログの価格）。</div></div>
 
 <header class="site"><div class="wrap">
   <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本・福岡 窓と玄関のリフォーム専門店</small></span></a>
@@ -610,7 +610,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
   <div class="sec-title"><span class="en">PROMISE</span><h2>金額のことで、あとから困らないように</h2></div>
   <div class="promise">
     <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。本体の値段だけを小さく見せる出し方はしません。遠方の出張費など、画面の金額に加わるものがある場合は、現地調査の前にお伝えします。</p></div>
-    <div><h3>表示はカタログの価格が元</h3><p>LIXILのカタログに載っている寸法での価格をもとにしています。背の低い玄関などは、実際の寸法で少し変わることがあります。</p></div>
+    <div><h3>表示はメーカーの定価が元</h3><p>メーカーのカタログに載っている寸法での定価をもとにしています。背の低い玄関などは、実際の寸法で少し変わることがあります。</p></div>
     <div><h3>現地調査の日に確定</h3><p>寸法と今の枠の状態を確認し、その場で最終の金額をお出しします。工事の日に金額が増えることはありません。</p></div>
   </div>
   <div class="extra">
@@ -647,7 +647,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 
 <section class="band"><div class="wrap">
   <div class="sec-title"><span class="en">Q&amp;A</span><h2>申し込みの前に</h2></div>
-  <details><summary>本当に画面の金額から変わりませんか</summary><p>画面の金額はカタログの価格をもとにした目安です。実際の寸法や今の玄関の状態で変わる場合は、現地調査の場で理由と金額をお伝えし、納得いただいてから決めていただきます。工事の日に金額が増えることはありません。</p></details>
+  <details><summary>本当に画面の金額から変わりませんか</summary><p>画面の金額はメーカーの定価をもとにした目安です。実際の寸法や今の玄関の状態で変わる場合は、現地調査の場で理由と金額をお伝えし、納得いただいてから決めていただきます。工事の日に金額が増えることはありません。</p></details>
   <details><summary>補助金は使えますか</summary><p>断熱の性能によっては、国の補助金の対象になる場合があります。対象かどうかと金額は、時期や条件により異なります。現地調査のときに確認してお伝えします。</p></details>
   <details><summary>工事の日は家にいないといけませんか</summary><p>工事の始めと終わりの確認のために、いていただきます。工事は1日で終わります。</p></details>
   <details><summary>実物を見てから決めたいです</summary><p>菊池市泗水町の体験型ショールーム「マドラボ」で、玄関ドアの実物を見て触っていただけます。色見本の貸出もしています。</p></details>
@@ -659,7 +659,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
     <figure><img src="img/fukushima.jpg" alt="フクシマ建材株式会社 代表取締役 福嶋智和" loading="lazy" width="600" height="450"><figcaption><b>福嶋 智和</b>フクシマ建材株式会社 代表取締役</figcaption></figure>
     <div>
       <p>フクシマ建材(株)の代表・福嶋です。熊本県菊池市で、窓と玄関のリフォームをしています。玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で、1日で交換します。</p>
-      <p>このページの金額は、LIXILのカタログ価格をもとに、取り付け工事と古いドアの処分まで含めて出しています。現地調査では私たちが寸法を測り、その場で最終の金額をお伝えします。</p>
+      <p>このページの金額は、メーカーの定価をもとに、取り付け工事と古いドアの処分まで含めて出しています。現地調査では私たちが寸法を測り、その場で最終の金額をお伝えします。</p>
       <p>分からないことがあれば、遠慮なくご相談ください。</p>
     </div>
   </div>
@@ -772,11 +772,11 @@ var STYLE_OF = {};
  ['western','34H 41N 42N 43N 44N 45N 72N P23 D41 D44 D77 D78 C15 C20N C83N']
 ].forEach(function(r){ r[1].split(' ').forEach(function(k){ STYLE_OF[k] = r[0]; }); });
 var WIND = {M83:1, M84:1, G82:1, C83N:1, C84N:1};
-// 袖・ランマ・本体のガラスは有償品で、ドアの価格に含まれない（カタログ172ページ。仕様ごとに用意されている方の定価）
-var GLASS = {hi:{ranma:56000, kata:0, ryo:0}, k2:{ranma:75000, kata:116000, ryo:222000}, k4:{ranma:47100, kata:69000, ryo:125000}, al:{ranma:58000, kata:81000, ryo:139000}};
-var BODY_GLASS = 58000; // アルミ仕様の本体ガラス別途品（C20N・C83N・C84N）
+// 袖・ランマ・本体のガラスは有償品で、ドアの価格に含まれない（カタログ172ページの有償品ガラス。仕様ごとに用意されている方の定価）
+var GLASS = {hi:{ranma:62000, kata:0, ryo:0}, k2:{ranma:83000, kata:128000, ryo:244000}, k4:{ranma:52000, kata:76000, ryo:138000}, al:{ranma:64000, kata:89000, ryo:153000}}; // 2026年10月の定価（クラスフル）
+var BODY_GLASS = 64000; // アルミ仕様の本体ガラス別途品（C20N・C83N・C84N）。2026年10月の定価（クラスフル）
 
-// ===== 玄関引戸（リシェント玄関引戸2・2026年5月価格掲載版）=====
+// ===== 玄関引戸（リシェント玄関引戸2・写真と寸法は2026年5月価格掲載版。定価は2026年10月の値上げ後をクラスフルで取得）=====
 var PRODUCT = 'door';
 var GRADES_DOOR = GRADES, BASES_DOOR = BASES;
 // 性能の説明はカタログ11ページ（PG仕様＝断熱性能あり・SG仕様＝断熱性能なし）
@@ -786,7 +786,7 @@ var GRADES_HK = [
 ];
 var BASES_HK = [['2枚建','戸が2枚'],['4枚建','戸が4枚（広い間口）']];
 // PG仕様のランマのガラスは別の料金（カタログ82ページ・複層ガラス）。SG仕様はランマのガラスも入っている
-var HK_RANMA = {'2枚建':62000, '4枚建':85800};
+var HK_RANMA = {'2枚建':68000, '4枚建':94400}; // 2026年10月の定価（クラスフル）
 // 引戸の工賃（掛率表 玄関・勝手口シート：引戸 60,000・引戸4枚建 70,000）
 var HK_KOUJI = {'2枚建':60000, '4枚建':70000};
 // 引戸の電気錠（簡易タッチキー・CAZAS）は部品の仕入れが高い。掛率表の「簡易タッチキー 75」から定価の差額の75%で見る
@@ -874,7 +874,7 @@ var HANDLES = [
   {id:'F', name:'F型', desc:'まっすぐな縦長のバー', add:0, colors:['1','3']},
   {id:'A', name:'A型', desc:'ゆるいカーブのバー', add:0, colors:['1','3']},
   {id:'D', name:'D型', desc:'曲線の洋風デザイン', add:0, colors:['2','3']},
-  {id:'S', name:'S型', desc:'カギ穴を隠すカバー付き', add:10000, colors:['1','3']}
+  {id:'S', name:'S型', desc:'カギ穴を隠すカバー付き', add:11000, colors:['1','3']}
 ];
 var HCOLOR = {'1':['シルバー','#C9CCCF'], '2':['ゴールド','#C9A86A'], '3':['ブラック','#2B2B2B']};
 // 今の枠の内側の寸法から新しい枠の寸法を出す（カタログの現場調査マニュアルの換算公式・下枠フラット材なし）
@@ -903,7 +903,7 @@ function colorsWithPrice(e, kind){
   return e.colors.filter(function(c){ return listPrice(e, kind, c.cls) != null && (!codes || !codes.length || codes.indexOf(c.code) >= 0); });
 }
 function minPrice(e, kind){ var m = Infinity; colorsWithPrice(e, kind).forEach(function(c){ m = Math.min(m, listPrice(e, kind, c.cls)); }); if(!isFinite(m)){ var p=e.kinds[kind]&&e.kinds[kind].p; for(var k in (p||{})) m=Math.min(m,p[k]); } return m; }
-// FamiLock（電池式）の加算額はカタログ206ページ。高断熱とそれ以外で違う
+// FamiLock（電池式）の加算額。高断熱とそれ以外で違う。2026年10月の定価（クラスフルで手動キーとの差額を取得。5月版カタログ206ページの値から約1割上がった）
 function lockOptions(){
   if (PRODUCT === 'yhk') return [{id:'manual', name:'手動キー', desc:'差して回すカギです。ドアリモの引戸は手動キーです。', add:0, y:'manual'}];
   if (PRODUCT === 'ydoor'){
@@ -933,9 +933,9 @@ function lockOptions(){
   var hi = st.grade === 'hi';
   return [
     {id:'manual', name:'手動キー', desc:'今と同じ、差して回すカギです。', add:0, remotes:-1},
-    {id:'fami', name:'FamiLock リモコンなし', desc:'カードかタグをドアにかざして開けます。スマホでも開け閉めできます。', add: hi ? 89000 : 68000, remotes:0},
-    {id:'fami_r', name:'FamiLock リモコン1個', desc:'リモコンはポケットに入れたまま、ドアのボタンを押すだけで開きます。1人がリモコンを使う場合に。', add: hi ? 121000 : 100000, remotes:1},
-    {id:'fami_r2', name:'FamiLock リモコン2個', desc:'ご夫婦それぞれがリモコンを持ちたい場合に。', add: hi ? 147000 : 126000, remotes:2, rec:true}
+    {id:'fami', name:'FamiLock リモコンなし', desc:'カードかタグをドアにかざして開けます。スマホでも開け閉めできます。', add: hi ? 98000 : 75000, remotes:0},
+    {id:'fami_r', name:'FamiLock リモコン1個', desc:'リモコンはポケットに入れたまま、ドアのボタンを押すだけで開きます。1人がリモコンを使う場合に。', add: hi ? 133000 : 110000, remotes:1},
+    {id:'fami_r2', name:'FamiLock リモコン2個', desc:'ご夫婦それぞれがリモコンを持ちたい場合に。', add: hi ? 162000 : 139000, remotes:2, rec:true}
   ];
 }
 function clip(k){ return D.clips && D.clips[k] ? img(D.clips[k].img) : ''; }
@@ -1466,7 +1466,7 @@ function buildPdfSheet(no, now){
       row('取り付けられるサイズ', q.size ? q.size + 'mm（新しい枠）' : '')+row('お客様の採寸', q.measured ? q.measured + '（' + q.fit + '）' : '')+'</table>'+
     '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
     '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
-    '<div class="notes"><b>この見積りについて</b><ul><li>・'+makerName()+'のカタログ価格（2026年5月版）をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
+    '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年5月版）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
       '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
       (yGlassSep() ? '<li>・袖とランマのガラスはメーカーの別売り品で、この金額に入っていません。ガラス代は現地調査のあとでお伝えします。</li>' : '')+
       '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費をいただく場合があります。</li>'+
