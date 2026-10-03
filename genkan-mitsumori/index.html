@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0B1826">
 <title>玄関ドア・引戸 かんたん見積（リシェント・ドアリモ）｜フクシマ建材</title>
 <meta name="description" content="LIXILリシェントとYKK APドアリモの玄関ドア・引戸を選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本・福岡のフクシマ建材。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap">
 <style>
 :root{
   color-scheme:light;
@@ -75,8 +74,8 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 .hero .photo figcaption{font-size:11px;color:var(--ink-3);text-align:right;padding-bottom:8px}
 @media (max-width:859px){
   .hero .wrap{padding-block:12px 0}
-  .hero .photo{order:-1;max-width:none;width:100%;display:grid;justify-items:center}
-  .hero .photo img{width:auto;height:min(52vh,420px);max-width:100%}
+  .hero .photo{max-width:none;width:100%;display:grid;justify-items:center}
+  .hero .photo img{width:auto;height:min(36vh,290px);max-width:100%}
   .hero .photo figcaption{text-align:center;padding-bottom:0}
 }
 
@@ -160,26 +159,6 @@ section{padding-block:44px}
 .fit{margin-top:12px;font-size:13.5px;padding:10px 12px;border-radius:4px;background:var(--sky-3);border-left:3px solid var(--sky)}
 .fit.ok{border-left-color:#2E7D32}
 .fit.ng{border-left-color:#C77700;background:#FFF8EC}
-.photo-ai{border:1px dashed var(--sky);background:var(--sky-3);border-radius:4px;padding:14px;margin-bottom:28px}
-.photo-ai h3{font-size:16px;font-weight:700;margin-bottom:4px}
-.photo-ai p{font-size:13px;color:var(--ink-2)}
-.photo-ai .row{display:flex;gap:12px;align-items:center;margin-top:10px;flex-wrap:wrap}
-.photo-ai .pick{position:relative;display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--blue);color:var(--blue);font-weight:700;font-size:14px;border-radius:4px;padding:10px 14px;cursor:pointer}
-.photo-ai .pick input{position:absolute;width:1px;height:1px;opacity:0}
-.photo-ai .thumb{height:64px;width:auto;border:1px solid var(--line);border-radius:2px}
-.photo-ai .res{margin-top:10px;font-size:13.5px;padding:10px 12px;border-radius:4px;background:#fff;border-left:3px solid var(--sky)}
-.photo-ai .res.ok{border-left-color:#2E7D32}
-.photo-ai .res.ng{border-left-color:#C77700}
-.ask{margin-top:10px;display:grid;gap:8px}
-.ask b{font-size:14px}
-.ask .btns{display:grid;grid-template-columns:1fr;gap:8px}
-@media (min-width:600px){.ask .btns{grid-template-columns:repeat(2,1fr)}}
-.ask button.guess{border-width:2px;background:var(--sky-3)}
-.ask button em{font-style:normal;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:2px;padding:0 5px;margin-left:6px}
-.ask button{font:inherit;font-size:13.5px;text-align:left;background:#fff;border:1px solid var(--blue);border-radius:4px;padding:10px 12px;cursor:pointer;line-height:1.5;color:var(--ink)}
-.ask button b{display:block;color:var(--blue);font-size:14px}
-.ask button span{font-size:12.5px;color:var(--ink-2)}
-.ask button:hover{background:var(--sky-2)}
 .kinds{grid-template-columns:repeat(4,1fr);max-width:560px}
 .kinds .tile .in img{height:104px}
 .ranma{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center;font-size:13.5px}
@@ -209,6 +188,11 @@ section{padding-block:44px}
 .r-price-label{font-size:12px;color:var(--ink-2)}
 .r-price{font-size:38px;font-weight:900;color:var(--blue);line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .r-price small{font-size:14px;font-weight:500;color:var(--ink-2);margin-left:4px}
+.price-extra{font-size:12px;font-weight:700;color:#8A4A00;line-height:1.45;margin-top:4px}
+.switch-note,.save-note{font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-top:8px}
+.switch-note{background:#FFF6E0;border-left:3px solid #C98414;padding:8px 10px}
+.save-note{margin-top:10px}
+.reset-choice{font:inherit;font-size:12.5px;color:var(--blue);background:none;border:0;text-decoration:underline;cursor:pointer;padding:4px 0}
 .bd{width:100%;border-collapse:collapse;font-size:13px}
 .bd td{padding:6px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .bd td:last-child{text-align:right;white-space:nowrap;padding-left:10px;font-variant-numeric:tabular-nums}
@@ -222,11 +206,11 @@ section{padding-block:44px}
 .pricebar .p{min-width:0;line-height:1.25}
 .pricebar .p small{display:block;font-size:11px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pricebar .p b{font-size:22px;font-weight:900;color:var(--blue);font-variant-numeric:tabular-nums}
+.pricebar .p .bar-extra{color:#8A4A00;font-weight:700}
 .pricebar .btn{padding:12px 16px;font-size:14px;flex:none}
 @media (min-width:980px){.pricebar{display:none}}
-/* フクろう親方の相談ボタン：金額バーが出る幅（〜979px）では、バーの「申し込む」と重ならないよう上へ逃がす。
-   480px以下は親方側がもともと下から110pxに置くので、ここでは触らない */
-@media (min-width:481px) and (max-width:979px){#fkenzai-ai-launcher{bottom:92px!important}#fkenzai-ai-banner{bottom:92px!important}#fkenzai-ai-teaser{bottom:176px!important}#fkenzai-ai-panel{bottom:176px!important;max-height:calc(100vh - 196px)!important}}
+/* スマホでは案内バナーを閉じ、相談はボタンから開いてもらう。金額バーと重ねない。 */
+@media (max-width:979px){#fkenzai-ai-banner,#fkenzai-ai-teaser{display:none!important}#fkenzai-ai-launcher{bottom:calc(88px + env(safe-area-inset-bottom,0px))!important}#fkenzai-ai-panel{bottom:calc(160px + env(safe-area-inset-bottom,0px))!important;max-height:calc(100dvh - 180px)!important}}
 /* パソコン幅は右側の金額パネルが画面に貼り付くので、親方は左下へ。右のままだと合計金額が隠れたままになる */
 @media (min-width:980px){#fkenzai-ai-launcher,#fkenzai-ai-banner,#fkenzai-ai-teaser,#fkenzai-ai-panel{right:auto!important;left:20px!important}}
 
@@ -251,14 +235,15 @@ section{padding-block:44px}
 .flow .no{font-size:12px;font-weight:900;color:var(--blue);letter-spacing:.08em}
 .flow h3{font-size:16px;font-weight:900;line-height:1.4}
 .flow p{font-size:13.5px;color:var(--ink-2);line-height:1.7}
-.flow .tag{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:#8A5A00;background:#FFF6E0;border-radius:3px;padding:1px 8px}
+.flow .tag{display:inline-block;grid-column:2;justify-self:start;margin-top:6px;font-size:12px;font-weight:700;color:#8A5A00;background:#FFF6E0;border-radius:3px;padding:1px 8px}
 @media (max-width:759px){.flow li + li::before{content:"";position:absolute;left:47px;top:-15px;width:2px;height:14px;background:var(--sky)}}
 @media (min-width:760px){
-  .flow{grid-template-columns:repeat(4,1fr);gap:18px}
+  .flow{grid-template-columns:repeat(3,1fr);gap:18px}
   .flow li{grid-template-columns:1fr;justify-items:center;align-content:start;text-align:center;padding:22px 16px 18px}
   .flow .ic{grid-row:auto;width:76px;height:76px;margin-bottom:6px}
+  .flow .tag{grid-column:1}
   .flow .ic svg{width:40px;height:40px}
-  .flow li + li::before{content:"";position:absolute;left:-18px;top:58px;width:18px;height:2px;background:var(--sky)}
+  .flow li + li::before{display:none}
 }
 
 details{border-bottom:1px solid var(--line);padding-block:14px;max-width:780px}
@@ -284,13 +269,9 @@ textarea{min-height:90px}
 .opts label{font-size:14px;border:1px solid var(--line-2);border-radius:4px;padding:6px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;background:#fff}
 .opts input{accent-color:var(--blue);margin:0}
 .opts label:has(input:checked){border-color:var(--blue);background:var(--sky-2)}
-.rank{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-.rank label{position:relative;padding:10px;font-size:14px;gap:8px;white-space:nowrap}
-.rank input{position:absolute;opacity:0;width:1px;height:1px}
-.rank label:has(input:focus-visible){outline:2px solid var(--blue);outline-offset:2px}
-.rk{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--line-2);display:inline-grid;place-items:center;font-size:13px;font-weight:700;line-height:1;color:#fff;background:#fff}
-.rank label:has(input:checked) .rk{background:var(--blue);border-color:var(--blue)}
-@media (min-width:640px){.rank{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.sources label{padding:10px;min-height:48px;line-height:1.3}
+@media (min-width:640px){.sources{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .help{font-size:12px;color:var(--ink-3)}
 .err{color:#C62828;font-size:13px;font-weight:700;margin-bottom:10px}
 .done{border:2px solid var(--blue);border-radius:4px;padding:20px;max-width:720px}
@@ -466,6 +447,295 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 .prod{grid-template-columns:repeat(2,1fr)!important;max-width:460px}
 .prod .tile .in img{height:118px}
 .prod .tile .in span{font-size:12.5px}
+/* ===== 品質レイヤー（2026-10-04）見た目と動きの仕上げ。機能・金額の計算は触らない ===== */
+:root{
+  --paper:#F6F3EE; --deep:#0B1826; --deep-2:#122437; --gold:#C8A15B; --wood:#8A5A36;
+  --serif:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP",serif; --num:var(--sans);
+  /* 端末にある日本語フォントを使う（iPhone・Mac＝ヒラギノ、Android＝Noto、Windows＝游ゴシック）。Webフォントは読まない */
+  --sans:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans CJK JP","Noto Sans JP","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1); --shadow-1:0 1px 2px rgba(11,24,38,.06),0 8px 24px rgba(11,24,38,.06); --shadow-2:0 2px 4px rgba(11,24,38,.08),0 18px 44px rgba(11,24,38,.14);
+}
+body{background:var(--paper);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--blue);color:#fff}
+.notice{background:var(--deep);color:rgba(255,255,255,.78);font-size:11.5px;letter-spacing:.02em}
+header.site{position:sticky;top:0;z-index:50;background:rgba(246,243,238,.95);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid rgba(11,24,38,.08)}
+.tel b{font-family:var(--num);font-weight:700;letter-spacing:.01em}
+#fx-progress{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--blue),var(--gold));z-index:100;pointer-events:none}
+
+/* ヒーロー */
+.hero{position:relative;background:radial-gradient(120% 90% at 78% 40%,#1b3a57 0%,var(--deep-2) 38%,var(--deep) 100%);color:#fff;border-bottom:0;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(40% 55% at 76% 58%,rgba(200,161,91,.22),transparent 70%),repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 88px)}
+.hero .wrap{padding-block:56px 0}
+@media (min-width:860px){.hero .wrap{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:56px;padding-block:72px 0}}
+.kicker{color:var(--gold);font-size:12px;letter-spacing:.14em;display:flex;gap:10px;align-items:center}
+.kicker::before{content:"";width:34px;height:1px;background:var(--gold);flex:none}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(28px,4.3vw,54px);line-height:1.3;letter-spacing:.015em;margin-top:18px;color:#fff}
+.hero h1 .ph{display:block;padding-bottom:.06em}
+.hero h1 .ph:nth-child(n+3){display:inline-block}
+.hero h1 .ph:nth-child(3){margin-right:.3em}
+.hero h1 .hl{background:none;color:var(--gold)}
+.hero .lead{color:rgba(255,255,255,.78);font-size:15.5px;line-height:2;margin-top:22px}
+.hero .review-big{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+.hero .review-big *{color:inherit}
+.hero .review-big .stars{color:var(--gold)}
+.hero .review-big .g,.hero .review-big .g b{color:#fff}
+.hero .review-big u{color:var(--gold);text-underline-offset:3px}
+.hero .btn-main{background:linear-gradient(180deg,#1389d6,var(--blue));box-shadow:0 10px 28px rgba(0,113,187,.45)}
+.hero .btn-sub{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.hero .btn-sub:hover{background:rgba(255,255,255,.1)}
+.hero .facts{border-color:rgba(255,255,255,.16)}
+.hero .facts div{color:rgba(255,255,255,.7)}
+.hero .facts div+div{border-color:rgba(255,255,255,.16)}
+.hero .facts b{color:#fff;font-family:var(--serif);font-weight:700;font-size:19px}
+.hero .photo{position:relative;max-width:440px;background:radial-gradient(80% 60% at 50% 100%,#e9dfcf,#f3eee6 70%);border-radius:28px 28px 0 0;padding:34px 26px 0;box-shadow:0 40px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.7)}
+.hero .photo img{mix-blend-mode:multiply}
+.hero .photo figcaption{color:var(--ink-3);padding:6px 0 10px}
+.btn{border-radius:999px;padding:15px 28px;letter-spacing:.03em;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-main{box-shadow:0 8px 22px rgba(0,113,187,.28)}
+.btn-line{box-shadow:0 8px 22px rgba(6,199,85,.25)}
+
+/* 見出し */
+section{padding-block:72px}
+@media (max-width:700px){section{padding-block:52px}}
+.sec-title{gap:10px;margin-bottom:34px}
+.sec-title .en{display:flex;align-items:center;gap:12px;color:var(--wood);font-family:var(--num);font-weight:700;letter-spacing:.24em;font-size:11.5px}
+.sec-title .en::before{content:"";width:28px;height:1px;background:var(--wood)}
+.sec-title h2,.rv-band h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,4.6vw,38px);line-height:1.45;letter-spacing:.01em}
+.band{background:#EDE8DF;border-block:0}
+
+/* シミュレーター */
+#sim{background:var(--paper)}
+.sim-intro .doors{background:linear-gradient(180deg,transparent,rgba(138,90,54,.12));border-radius:18px;padding-top:22px}
+.steps li{background:#fff;color:var(--deep);border:1px solid rgba(11,24,38,.1);box-shadow:var(--shadow-1)}
+.steps li i{color:var(--wood);font-family:var(--num);font-weight:900}
+.q{background:#fff;border:1px solid rgba(11,24,38,.07);border-radius:20px;padding:26px 24px 24px;box-shadow:var(--shadow-1)}
+@media (max-width:600px){.q{padding:20px 16px;border-radius:16px}}
+.q+.q{margin-top:22px}
+.q-head{margin-bottom:18px;gap:12px}
+.q-head .step{display:inline-grid;place-items:center;min-width:64px;padding:4px 12px;border-radius:999px;background:var(--deep);color:#fff;font-family:var(--num);font-size:11px;font-weight:700;letter-spacing:.12em}
+.q-head h3{font-family:var(--serif);font-size:21px;font-weight:900}
+.q-note{font-size:12.5px}
+.tile .in{position:relative;border-radius:14px;border:1px solid rgba(11,24,38,.12);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .2s,background .2s}
+.tile:hover .in{transform:translateY(-4px);box-shadow:var(--shadow-2);border-color:rgba(0,113,187,.5)}
+.tile .in img{transition:transform .5s var(--ease)}
+.tile:hover .in img{transform:scale(1.05)}
+.tile input:checked + .in{border-color:var(--blue);background:linear-gradient(180deg,#fff,var(--sky-3));box-shadow:0 0 0 2px var(--blue),var(--shadow-2)}
+.tile input:checked + .in::after{content:"";position:absolute;right:8px;top:8px;width:20px;height:20px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 10.4l3.1 3.1 6.5-6.7' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;animation:pop .35s var(--ease)}
+@keyframes pop{from{transform:scale(.3);opacity:0}to{transform:scale(1);opacity:1}}
+.list,.grades{border-radius:14px}
+.dstyles label,.ranma label{border-radius:999px;transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.dstyles label:hover{transform:translateY(-1px)}
+.dstyles label:has(input:checked){background:var(--deep);border-color:var(--deep);color:#fff}
+.dstyles label:has(input:checked) small{color:rgba(255,255,255,.7)}
+
+/* 結果パネル */
+.result{border:0;border-radius:24px;background:#fff;box-shadow:var(--shadow-2);overflow:hidden}
+.stage{background:radial-gradient(90% 70% at 50% 100%,rgba(138,90,54,.14),transparent 70%),linear-gradient(180deg,#faf8f4,#f1ece3);border-bottom:0}
+.stage .main img{filter:drop-shadow(0 18px 22px rgba(11,24,38,.28));transition:transform .5s var(--ease)}
+.stage .main img:hover{transform:scale(1.03)}
+.r-name b{font-family:var(--serif);font-size:18px}
+.r-price{font-family:var(--num);font-weight:900;font-size:44px;letter-spacing:-.02em;color:var(--blue-d)}
+.r-price small{font-family:var(--sans)}
+table.bd td:last-child{font-family:var(--num);font-variant-numeric:tabular-nums}
+.pricebar{background:rgba(11,24,38,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.12)}
+.pricebar .p small{color:rgba(255,255,255,.7)}
+.pricebar .p b{color:#fff;font-family:var(--num)}
+
+/* 中盤 */
+.promise{border-top:0;gap:16px}
+@media (min-width:860px){.promise{grid-template-columns:repeat(3,1fr)}}
+.promise div{background:#fff;border:0;border-radius:18px;padding:26px 22px;box-shadow:var(--shadow-1)}
+.promise h3{font-family:var(--serif);font-weight:900;font-size:17px}
+.flow li{border:0;border-radius:20px;box-shadow:var(--shadow-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.flow li:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.flow .ic{background:linear-gradient(135deg,var(--sky-2),#fff);box-shadow:inset 0 0 0 1px rgba(0,113,187,.15)}
+.flow h3{font-family:var(--serif)}
+#apply{background:var(--paper)}
+input[type=text],input[type=tel],input[type=email],textarea{border-radius:12px;transition:border-color .2s,box-shadow .2s}
+input[type=text]:focus,input[type=tel]:focus,input[type=email]:focus,textarea:focus{outline:0;border-color:var(--blue)!important;box-shadow:0 0 0 4px rgba(0,113,187,.16)}
+footer{background:var(--deep);color:rgba(255,255,255,.7);border-top:0;padding-block:44px}
+footer b{color:#fff;font-family:var(--serif);font-size:16px}
+
+/* ステップの道しるべ（広い画面のみ） */
+#fx-rail{position:fixed;left:max(14px,calc((100vw - 1160px)/2 - 56px));top:50%;transform:translateY(-50%);z-index:40;display:none;gap:4px;padding:10px 6px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);box-shadow:var(--shadow-1);flex-direction:column;opacity:0;pointer-events:none;transition:opacity .4s}
+#fx-rail.on{opacity:1;pointer-events:auto}
+#fx-rail a{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;font:700 11px/1 var(--num);color:var(--ink-3);text-decoration:none;transition:background .25s,color .25s,transform .25s var(--ease)}
+#fx-rail a.cur{background:var(--deep);color:#fff;transform:scale(1.12)}
+#fx-rail a.done{color:var(--blue)}
+@media (min-width:1360px){#fx-rail{display:flex}}
+@media (prefers-reduced-motion:reduce){
+  .fx .rv,.fx .hero *{opacity:1!important;transform:none!important;animation:none!important}
+  .tile:hover .in,.btn:hover,.flow li:hover{transform:none}
+}
+
+/* 写真の白い背景を、下地の色に溶かす */
+.tile .in img,.stage .main img,.sim-intro .doors img,.colors img,.hcolors img{mix-blend-mode:multiply}
+.stage .main img{filter:drop-shadow(0 18px 18px rgba(11,24,38,.22))}
+.sim-intro .doors img{filter:none}
+@media (min-width:980px){.result{top:84px;max-height:calc(100vh - 100px);overflow:auto;scrollbar-width:thin}}
+
+@media (max-width:520px){.tel b{font-size:14px;letter-spacing:0;white-space:nowrap}header.site .wrap{gap:6px}.logo .co b{font-size:13px}}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{scroll-padding-top:84px}
+
+/* 写真が替わるときのなめらかな切り替え */
+
+
+
+/* 申し込み：左に見出し、右にフォーム */
+#apply .form{background:#fff;border-radius:26px;padding:34px 30px;box-shadow:var(--shadow-2);max-width:none}
+@media (max-width:600px){#apply .form{padding:22px 16px;border-radius:18px}}
+@media (min-width:980px){
+  #apply .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+  #apply .sec-title{position:sticky;top:110px;margin-bottom:0}
+}
+.chosen{background:linear-gradient(135deg,var(--sky-3),#fff);border:1px solid rgba(0,113,187,.2);border-radius:16px;padding:16px 18px}
+.opts label{border-radius:999px;transition:background .2s,border-color .2s,transform .2s var(--ease)}
+.opts label:hover{transform:translateY(-1px)}
+.field > label,.field .lbl{font-weight:700;letter-spacing:.02em}
+.req{border-radius:999px;padding:1px 9px}
+.any{border-radius:999px}
+#applyForm .btn-main,#applyForm button[type=submit]{width:100%;padding:18px;font-size:16px}
+
+/* Q&A */
+details{max-width:820px;background:#fff;border:0;border-radius:16px;padding:0;margin-bottom:10px;box-shadow:var(--shadow-1);overflow:hidden}
+details summary{padding:20px 22px;font-family:var(--serif);font-size:16px;transition:background .2s}
+details summary:hover{background:rgba(0,113,187,.04)}
+details summary::after{content:"";width:22px;height:22px;flex:none;border-radius:50%;background:var(--sky-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6 11h10M11 6v10' stroke='%230071BB' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center no-repeat;transition:transform .35s var(--ease)}
+details[open] summary::after{content:"";transform:rotate(135deg)}
+details p{padding:0 22px 22px;margin:0;animation:fadeIn .5s var(--ease)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* あいさつ・ショールーム */
+.greet img{border-radius:20px;box-shadow:var(--shadow-2)}
+.greet figcaption b{font-family:var(--serif)}
+.greet{max-width:980px;gap:34px}
+@media (min-width:700px){.greet{grid-template-columns:300px 1fr}}
+.greet p{font-size:15.5px;line-height:2}
+
+/* フッター */
+footer .wrap{gap:6px}
+footer span{color:rgba(255,255,255,.62)}
+/* 口コミの帯 */
+#reviews .review-big{border-radius:16px;box-shadow:var(--shadow-1);background:#fff}
+
+h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
+.fx-pick{display:none}
+@media (min-width:980px){
+  .fx-pick{display:grid;justify-items:center;margin-top:30px;padding:30px 24px 20px;border-radius:24px;background:radial-gradient(90% 70% at 50% 100%,rgba(138,90,54,.16),transparent 70%),linear-gradient(180deg,#faf8f4,#efe9de);box-shadow:var(--shadow-1)}
+  .fx-pick img{height:280px;width:auto;mix-blend-mode:multiply;filter:drop-shadow(0 16px 16px rgba(11,24,38,.22))}
+  .fx-pick small{margin-top:10px;font-size:12px;color:var(--ink-3)}
+}
+@media (max-width:520px){.tel{font-size:10px}.tel b{font-size:13px;letter-spacing:-.01em}.logo .co b{font-size:12.5px}}
+
+/* 見積パネル：申し込みボタンを金額のすぐ下に（スクロールしなくても押せる）。写真は少し小さく */
+.r-body{display:flex;flex-direction:column;gap:12px}
+.r-body > .r-name{order:1}
+.r-body > div:nth-child(2){order:2}
+.r-body > .btn-main{order:3}
+.r-body > .bd{order:4}
+.r-body > .size{order:5}
+.r-body > .btn-sub{order:6}
+.r-body > .pdf-note{order:7}.r-body > .save-note{order:8}.r-body > .reset-choice{order:9}.r-body > .btn-line{order:10}
+@media (min-width:980px){.stage .main img{height:200px}.stage{padding-top:14px}}
+#fx-rail a{outline:0}#fx-rail a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}#fx-rail a.done{background:rgba(0,113,187,.12);color:var(--blue)}
+
+/* ===== UI 強化（2026-10-04）選んだ内容が常に見える・戻れる・迷わない ===== */
+
+/* 前の段の「左の数字の道しるべ」はやめて、上の道しるべに一本化 */
+#fx-rail{display:none!important}
+
+/* 選ぶ欄と見積パネルの列は中身に押されて広がらない（スマホで横にはみ出していた） */
+.sim>*{min-width:0}
+
+/* 選んだ内容の道しるべ（シミュレーターの間、上に固定） */
+#ui-trail{position:sticky;top:67px;z-index:30;margin:0 0 18px;background:rgba(246,243,238,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,24,38,.08)}
+#ui-trail ol{list-style:none;margin:0;padding:10px 0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+#ui-trail ol::-webkit-scrollbar{display:none}
+#ui-trail li{flex:none;scroll-snap-align:start}
+#ui-trail button{display:flex;align-items:center;gap:8px;min-height:40px;padding:5px 14px 5px 6px;border:1px solid rgba(11,24,38,.12);border-radius:999px;background:#fff;font:inherit;font-size:13px;color:var(--ink);cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s,box-shadow .2s}
+#ui-trail button:hover{border-color:var(--blue)}
+#ui-trail button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+#ui-trail i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--sky-2);color:var(--blue);font:700 11px/1 var(--num);font-style:normal;flex:none}
+#ui-trail .k{font-size:11px;color:var(--ink-3)}
+#ui-trail b{font-weight:700}
+#ui-trail .cur button{border-color:var(--deep);background:var(--deep);color:#fff;box-shadow:var(--shadow-1)}
+#ui-trail .cur i{background:#fff;color:var(--deep)}
+#ui-trail .cur .k{color:rgba(255,255,255,.7)}
+@media (max-width:520px){#ui-trail{top:57px;margin-inline:-16px;padding-inline:16px}#ui-trail button{font-size:12.5px;min-height:38px}}
+
+/* 各 STEP の見出しの横に、いま選んでいる値 */
+.q-head .ui-val{margin-left:auto;display:inline-flex;align-items:center;gap:6px;max-width:58%;padding:4px 12px;border-radius:999px;background:var(--sky-3);border:1px solid rgba(0,113,187,.18);font-size:12.5px;font-weight:700;color:var(--blue-d);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-head .ui-val::before{content:"";width:14px;height:14px;flex:none;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3.6 7.2l2.2 2.2 4.6-4.8' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
+.q-head .ui-val:empty{display:none}
+.q-head small{margin-left:0}
+.q-head .ui-val + small,.q-head .ui-val ~ .more{margin-left:8px}
+@media (max-width:600px){.q-head .ui-val{max-width:100%;order:9;margin-left:0}}
+
+/* 見積パネルの「選んだ内容」一覧と変更ボタン */
+.ui-chosen{order:3;margin:0;padding:0;list-style:none;border:1px solid rgba(11,24,38,.08);border-radius:14px;overflow:hidden}
+.ui-chosen li{display:grid;grid-template-columns:72px 1fr auto;gap:8px;align-items:center;padding:8px 12px;font-size:13px}
+.ui-chosen li + li{border-top:1px solid rgba(11,24,38,.06)}
+.ui-chosen .k{color:var(--ink-3);font-size:12px}
+.ui-chosen b{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-chosen button{font:inherit;font-size:12px;color:var(--blue);background:none;border:0;padding:6px 4px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.ui-chosen button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+.r-body > .btn-main{order:4}
+.r-body > .bd{order:5}
+
+/* デザインの絞り込み：スマホでは横に1行で流す */
+@media (max-width:700px){
+  .dstyles{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:2px 16px 4px;scroll-snap-type:x proximity}
+  .dstyles::-webkit-scrollbar{display:none}
+  .dstyles label{flex:none;min-height:40px;scroll-snap-align:start;position:relative}
+  /* 隠した選択の部品（position:absolute）を、横スクロールの枠の中に留める */
+}
+
+/* 押しやすさ：選ぶものは最低44pxの高さ */
+.ranma label,.opts label,.dstyles label,.hcolors label{min-height:44px}
+.gcard .in,.lcard .in{border-radius:16px;transition:border-color .2s,box-shadow .2s,background .2s}
+.gcard:hover .in,.lcard:hover .in{border-color:rgba(0,113,187,.45)}
+.gcard input:checked + .in,.lcard input:checked + .in{box-shadow:0 0 0 2px var(--blue)}
+
+/* 申し込みフォーム：入力できた印・残りの数 */
+.field{position:relative}
+.field.ok > input,.field.ok > textarea{border-color:#2E7D32!important;background:#fbfffb}
+.field > label .ui-ok{display:none;margin-left:8px;font-size:11.5px;color:#2E7D32;font-weight:700}
+.field.ok > label .ui-ok{display:inline}
+.field.ng > input{border-color:#C62828!important;background:#fffafa}
+.field .ui-err{display:none;font-size:12px;color:#C62828;font-weight:700}
+.field.ng .ui-err{display:block}
+.opts label:has(input:checked){border-color:var(--blue);background:var(--sky-2);font-weight:700}
+#ui-left{display:flex;align-items:center;justify-content:center;gap:8px;margin:18px 0 10px;font-size:13.5px;font-weight:700;color:var(--ink-2)}
+#ui-left b{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:999px;background:var(--deep);color:#fff;font-family:var(--num)}
+#ui-left.done{color:#2E7D32}
+#ui-left.done b{background:#2E7D32}
+
+/* 任意の項目のたたみ */
+.ui-more{max-width:none;background:var(--sky-3);border:1px dashed rgba(0,113,187,.3);border-radius:14px;box-shadow:none;margin:6px 0 4px;padding:0}
+.ui-more summary{padding:14px 16px;font-family:var(--sans);font-size:14px;font-weight:700}
+.ui-more summary span{display:grid;gap:2px}
+.ui-more summary small{font-weight:400;font-size:12px;color:var(--ink-3)}
+.ui-more-in{padding:4px 16px 8px}
+.ui-more[open] summary{border-bottom:1px solid rgba(0,113,187,.15)}
+/* 不安を消す一言 */
+.ui-assure{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center}
+.ui-assure li{font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.ui-assure li::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:#2E7D32 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.5 2.5 5.3-5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
+.ui-free{order:4;margin:-4px 0 0;text-align:center;font-size:12.5px;color:#2E7D32;font-weight:700}
+/* 下の帯の電話ボタン */
+.ui-tel{display:none}
+@media (max-width:979px){
+  .ui-tel{display:inline-grid;justify-items:center;gap:1px;flex:none;width:52px;padding:6px 0;border-radius:12px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;font-size:10.5px;font-weight:700}
+  .ui-tel svg{width:20px;height:20px;fill:#fff}
+  .pricebar .in{gap:8px}
+}
+.ui-tel-link{color:inherit;text-decoration:none}
+/* 申し込み欄の入力中は、相談の丸ボタンを引っ込める（ui.js が html に ui-quiet を付ける） */
+.ui-quiet #fkenzai-ai-launcher{opacity:0!important;pointer-events:none!important;transform:scale(.6)!important;transition:opacity .2s,transform .2s}
 </style>
 </head>
 <body>
@@ -482,13 +752,13 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
     <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント・YKK AP ドアリモ 玄関ドア・引戸 かんたん見積</div>
     <h1><span class="ph">選んだ玄関の</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
-    <p class="lead">熊本県菊池市で、窓と玄関のリフォームをしているフクシマ建材です。玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で、1日で交換します。このページでドアを選ぶと、取り付け工事と古いドアの処分まで入れた金額がすぐに出ます。サイズは現地調査で私たちが測りますので、まずは気になるドアを選んでみてください。</p>
+    <p class="lead">気になる玄関を選ぶと、取り付け工事と古いドアの処分まで入れた概算がその場で分かります。サイズは現地調査で私たちが測ります。</p>
+    <div class="cta"><a class="btn btn-main" href="#sim">玄関を選んで金額を見る</a><a class="btn btn-sub" href="#flow">申し込みの流れ</a></div>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
       <div><b>1日で交換</b>今の枠の上から取り付け</div>
       <div><b>マドラボ</b>菊池のショールームで実物を確認</div>
     </div>
-    <div class="cta"><a class="btn btn-main" href="#sim">金額を見る</a><a class="btn btn-sub" href="#flow">申し込みの流れ</a></div>
   </div>
   <figure class="photo" style="margin:0"><img id="hero-img" src="" alt="リシェント玄関ドア"><figcaption id="hero-cap"></figcaption></figure>
 </div></section>
@@ -506,17 +776,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
         <div class="kinds prod" id="o-product"></div>
         <div class="q-head" style="margin-top:20px"><span class="step">つぎに</span><h3>メーカー</h3><small>どちらも玄関リフォーム用の商品です</small></div>
         <div class="kinds prod" id="o-maker"></div>
-      </div>
-      <div class="photo-ai" id="photo-ai">
-        <h3>今の玄関の写真を入れると、開き方を選んでくれます</h3>
-        <p>玄関を外から1枚撮って入れてください。ドアか引戸か、扉の形や上のガラス（ランマ）があるかを読み取って、下の選択と金額に入れます。写真がなくても、下から選べば大丈夫です。</p>
-        <div class="row">
-          <label class="pick" for="ai-photo"><input type="file" id="ai-photo" accept="image/*">写真を選ぶ・撮る</label>
-          <img class="thumb" id="ai-thumb" alt="選んだ玄関の写真" hidden>
-        </div>
-        <p class="res" id="ai-res" hidden></p>
-        <div class="ask" id="ai-ask" hidden></div>
-        <p style="font-size:11.5px;color:var(--ink-3);margin-top:8px">写真は開き方の読み取りだけに使い、保存しません。現地調査を申し込むときだけ、申し込みに添えてお預かりします。</p>
+        <p class="switch-note" id="switch-note" role="status" hidden></p>
       </div>
       <div class="q">
         <div class="q-head"><span class="step">STEP 1</span><h3>断熱の性能</h3><button type="button" class="more" data-info="grade">違いをくわしく見る</button></div>
@@ -594,12 +854,14 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
       <p class="stage-cap" id="st-cap"></p>
       <div class="r-body">
         <div class="r-name" id="r-name"></div>
-        <div><div class="r-price-label">工事費込みの金額（税込）</div><div class="r-price" id="r-price">―</div></div>
+        <div><div class="r-price-label">工事費込みの概算（税込）</div><div class="r-price" id="r-price">―</div><p class="price-extra" id="r-price-extra" hidden></p></div>
         <table class="bd" id="r-bd"></table>
         <p class="size" id="r-size"></p>
         <a class="btn btn-main btn-block" href="#apply">この内容で現地調査を申し込む</a>
         <button type="button" class="btn btn-sub btn-block" id="pdfBtn">この見積書をPDFで保存する</button>
         <p class="pdf-note" id="pdfNote">ご家族との相談用に。お名前などの入力はいりません。</p>
+        <p class="save-note" id="save-note">選んだ内容は、この端末に自動保存します。金額は開いた時点の価格で計算し直します。</p>
+        <button type="button" class="reset-choice" id="reset-choice">最初から選び直す</button>
         <a class="btn btn-line btn-block" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">LINEで相談する</a>
       </div>
     </aside>
@@ -641,7 +903,9 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 8.5h6M9 11.5h6M9 14.5h3"/></svg></span><span class="no">STEP 1</span><h3>この画面で金額を確かめる</h3><p>気になるドアを選ぶと、工事費込みの金額がすぐに出ます。ご家族と相談するときは、見積書をPDFで保存しておくと便利です。</p></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v11H8l-4 3.5z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><span class="no">STEP 2</span><h3>現地調査を申し込む</h3><p>選んだドアと金額は、そのまま私たちに届きます。今の玄関の写真を1枚付けていただけると、当日の確認がぐっと早くなります。</p></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v4M11 7v3M15 7v4M19 7v3"/></svg></span><span class="no">STEP 3</span><h3>現地調査にお伺いします</h3><p>寸法と今の枠の状態を確かめて、その場で最終のお見積りをお出しします。何度もお時間をいただくことはありません。</p><span class="tag">30分ほど</span></li>
-    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="1"/><path d="M15 12h.01"/><path d="M3 21.5h18"/></svg></span><span class="no">STEP 4</span><h3>工事は1日で終わります</h3><p>今のドア枠の上から新しい枠をかぶせるカバー工法なので、壁や床を壊しません。その日のうちに、新しい玄関ドアで過ごせます。</p><span class="tag">1日で交換</span></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 11h16M4 16h10"/><path d="M17 15l2 2 3-4"/></svg></span><span class="no">STEP 4</span><h3>お見積りの内容を検討</h3><p>最終の金額と工事内容を見て、ご家族とも相談しながらご検討ください。</p></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span class="no">STEP 5</span><h3>ご契約・工事日を相談</h3><p>内容が決まったら、ご契約と工事の日程を相談します。</p></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="1"/><path d="M15 12h.01"/><path d="M3 21.5h18"/></svg></span><span class="no">STEP 6</span><h3>工事は1日で終わります</h3><p>今のドア枠の上から新しい枠をかぶせるカバー工法なので、壁や床を壊しません。その日のうちに、新しい玄関ドアで過ごせます。</p><span class="tag">1日で交換</span></li>
   </ol>
 </div></section>
 
@@ -666,7 +930,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 </div></section>
 
 <section id="apply"><div class="wrap">
-  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は1分ほどです。担当からお電話で、調査の日を決めさせていただきます。現地調査とお見積りは無料です。</p></div>
+  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は1分ほどです。担当からお電話で、調査の日を決めさせていただきます。現地調査とお見積りは無料です。工事のご契約は、最終のお見積りを見てからご検討いただけます。</p></div>
   <form class="form" id="applyForm" novalidate>
     <div class="chosen" id="chosen"></div>
     <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" placeholder="例 福嶋 太郎"></div>
@@ -675,17 +939,17 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
     <div class="field"><label for="f-mail">メールアドレス<span class="any">任意</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"></div>
     <div class="field">
       <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="req">必須</span></span>
-      <span class="help" id="src-help">いくつでも選べます。大きかったものから順に押すと、1・2・3と順位が付きます。もう一度押すと外れます。</span>
-      <div class="opts rank" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
-        <label><input type="checkbox" name="source" value="YouTube"><b class="rk" aria-hidden="true"></b>YouTube</label>
-        <label><input type="checkbox" name="source" value="Instagram"><b class="rk" aria-hidden="true"></b>Instagram</label>
-        <label><input type="checkbox" name="source" value="ネット検索"><b class="rk" aria-hidden="true"></b>ネット検索</label>
-        <label><input type="checkbox" name="source" value="AIでの検索"><b class="rk" aria-hidden="true"></b>AIでの検索</label>
-        <label><input type="checkbox" name="source" value="Googleの口コミ"><b class="rk" aria-hidden="true"></b>Googleの口コミ</label>
-        <label><input type="checkbox" name="source" value="チラシ"><b class="rk" aria-hidden="true"></b>チラシ</label>
-        <label><input type="checkbox" name="source" value="知人の紹介"><b class="rk" aria-hidden="true"></b>知人の紹介</label>
-        <label><input type="checkbox" name="source" value="以前に依頼した"><b class="rk" aria-hidden="true"></b>以前に依頼した</label>
-        <label><input type="checkbox" name="source" value="その他"><b class="rk" aria-hidden="true"></b>その他</label>
+      <span class="help" id="src-help">当てはまるものを選んでください。複数選べます。</span>
+      <div class="opts sources" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
+        <label><input type="checkbox" name="source" value="YouTube">YouTube</label>
+        <label><input type="checkbox" name="source" value="Instagram">Instagram</label>
+        <label><input type="checkbox" name="source" value="ネット検索">ネット検索</label>
+        <label><input type="checkbox" name="source" value="AIでの検索">AIでの検索</label>
+        <label><input type="checkbox" name="source" value="Googleの口コミ">Googleの口コミ</label>
+        <label><input type="checkbox" name="source" value="チラシ">チラシ</label>
+        <label><input type="checkbox" name="source" value="知人の紹介">知人の紹介</label>
+        <label><input type="checkbox" name="source" value="以前に依頼した">以前に依頼した</label>
+        <label><input type="checkbox" name="source" value="その他">その他</label>
       </div>
     </div>
     <div class="field"><label for="f-date">現地調査の希望日<span class="any">任意</span></label><input type="text" id="f-date" name="dates" placeholder="例 10月5日の午前、10月7日の午後"><span class="help">第2希望まで書いていただくと、日程が早く決まります。</span></div>
@@ -730,7 +994,7 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 <dialog class="info" id="info" aria-labelledby="info-h"><div class="info-in"><button type="button" class="info-x" data-close aria-label="閉じる">×</button><div id="info-body"></div><button type="button" class="btn btn-main btn-block" data-close>閉じて選ぶ</button></div></dialog>
 
 <div class="pricebar"><div class="in">
-  <div class="p"><small id="bar-spec"></small><b id="bar-price">―</b></div>
+  <div class="p"><small id="bar-spec"></small><b id="bar-price">―</b><small class="bar-extra" id="bar-extra" hidden></small></div>
   <a class="btn btn-main" href="#apply">申し込む</a>
 </div></div>
 
@@ -761,7 +1025,7 @@ var CLASS_ORDER = ['木目調','セレクトカラー','アルミ色'];
 var CLASS_HINT = {'木目調':'標準の木目の色','セレクトカラー':'選べる木目が増える色','アルミ色':'木目のない金属の色'};
 
 var D = null;
-var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', photo:null, dstyle:'all'};
+var st = {grade:'k4', base:'片開き', ranma:false, kind:'片開き', design:'M83', color:'CC', lock:'manual', coop:false, handle:null, hcolor:null, mw:'', mh:'', dstyle:'all'};
 var BASES = [['片開き','扉1枚'],['親子','細い扉も開く'],['片袖','横は開かないガラス'],['両袖','両横が開かないガラス'],['両開き','同じ幅の扉2枚']];
 // デザインの雰囲気の目印（カタログの写真を見て付けたもの）と、風を通せるドア
 var DSTYLE = {simple:'シンプル', modern:'モダン', natural:'ナチュラル', western:'洋風'};
@@ -812,8 +1076,8 @@ var BASES_YHK = [['2枚建','戸が2枚'],['4枚建','戸が4枚（広い間口�
 // デザインの雰囲気は、カタログの分け方（ドア：デザイン番号の頭の文字。引戸：現代和風・洋風・伝統和風）
 var Y_STYLE = {yN:'ナチュラル', yF:'シンプル', yC:'シック', yE:'エレガント'};
 var YHK_STYLE = {gendai:'現代和風', yofu:'洋風', dento:'伝統和風', sode:'袖付'};
-// 人気の順位（2025年10月〜2026年9月に工事が終わった見積書のリシェント玄関ドア54台。YouTube「2026年に売れた玄関ドア5選」と同じ数字）
-// 5位は D77 と 12N の2つだけ出す（動画と同じ。同じ台数のほかのデザインは出さない）。ドアリモはあとで福嶋さんが指定する
+// 人気順位は2025年10月〜2026年9月の当社施工実績に基づく。集計の件数はページに掲載しない。
+// 5位は D77 と 12N の2デザイン。ドアリモの順位は未設定。
 var POP_RANK = {
   door: {M83:1, S14:2, C12N:3, M17:4, D77:5, '12N':5},
   hikido: {}, ydoor: {}, yhk: {}
@@ -845,8 +1109,72 @@ function setProduct(p){
   st.grade = d.grade; st.base = d.base; st.ranma = false; st.design = d.design; st.color = d.color;
   st.lock = p === 'ydoor' ? 'y_manual' : 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
 }
+// 商品選択だけを端末に保存する。名前・連絡先・写真・採寸は保存しない。
+var CHOICE_KEY = 'fk_genkan_choices_v1', productChoices = {};
+function choiceSnapshot(){
+  return {grade:st.grade, base:st.base, ranma:st.ranma, design:st.design, color:st.color,
+    lock:st.lock, handle:st.handle, hcolor:st.hcolor, dstyle:st.dstyle};
+}
+function applyChoice(choice){
+  if (!choice || typeof choice !== 'object') return;
+  if (GRADES.some(function(g){ return g.id === choice.grade; })) st.grade = choice.grade;
+  if (BASES.some(function(b){ return b[0] === choice.base; })) st.base = choice.base;
+  st.ranma = choice.ranma === true;
+  ['design','color','lock','handle','hcolor','dstyle'].forEach(function(k){
+    if (typeof choice[k] === 'string' && choice[k].length < 80) st[k] = choice[k];
+  });
+}
+function saveChoices(){
+  productChoices[PRODUCT] = choiceSnapshot();
+  try { localStorage.setItem(CHOICE_KEY, JSON.stringify({product:PRODUCT, choices:productChoices})); }
+  catch(e){ document.getElementById('save-note').textContent = 'この端末では自動保存できません。ご家族との相談にはPDFを保存してください。'; }
+}
+function restoreChoices(){
+  var saved;
+  try { saved = JSON.parse(localStorage.getItem(CHOICE_KEY) || 'null'); } catch(e){ return; }
+  if (!saved || !DEF[saved.product] || !saved.choices) return;
+  Object.keys(DEF).forEach(function(p){
+    if (saved.choices[p] && typeof saved.choices[p] === 'object') productChoices[p] = saved.choices[p];
+  });
+  setProduct(saved.product);
+  applyChoice(productChoices[saved.product]);
+  document.getElementById('save-note').textContent = '前回選んだ内容を表示しています。金額は今の価格で計算し直しました。';
+}
+function mappedGrade(from, to, grade){
+  if (from === 'door' && to === 'ydoor') return {k4:'d4', k2:'d2', hi:'d50', al:'yal'}[grade];
+  if (from === 'ydoor' && to === 'door') return {d4:'k4', d2:'k2', d50:'hi', yal:'al'}[grade];
+  if (from === 'hikido' && to === 'yhk') return grade === 'pg' ? 'yf' : null;
+  if (from === 'yhk' && to === 'hikido') return 'pg';
+  return null;
+}
+function switchProduct(p){
+  var from = PRODUCT, sameType = isHK() === (p === 'hikido' || p === 'yhk');
+  var oldBase = st.base, oldRanma = st.ranma, oldGrade = st.grade;
+  productChoices[from] = choiceSnapshot();
+  setProduct(p);
+  if (productChoices[p]) applyChoice(productChoices[p]);
+  else if (sameType){
+    var mapped = mappedGrade(from, p, oldGrade);
+    if (mapped && GRADES.some(function(g){return g.id === mapped;})) st.grade = mapped;
+  }
+  if (sameType){ st.base = oldBase; st.ranma = oldRanma; }
+  render();
+  var note = document.getElementById('switch-note');
+  if (!sameType) note.textContent = '玄関の種類を切り替えました。開き方と仕様をご確認ください。';
+  else if (st.base !== oldBase || st.ranma !== oldRanma)
+    note.textContent = 'このメーカーの選んだ断熱仕様では同じ形を選べないため、'+kindLabel()+'に変更しました。金額の比較条件をご確認ください。';
+  else note.textContent = '開き方とランマの有無を引き継ぎました。断熱性能・鍵・デザインは、このメーカーで選んだ内容をご確認ください。';
+  note.hidden = false;
+}
 // ドアリモ 玄関ドアの袖とランマのガラスは、メーカーの別売り品（カタログに値段が無い）。金額に入れず「別途」と出す
 function yGlassSep(){ return PRODUCT === 'ydoor' && (st.ranma || st.base === '片袖' || st.base === '両袖'); }
+function excludedGlassLabel(){
+  if (!yGlassSep()) return '';
+  var parts = [];
+  if (st.base === '片袖' || st.base === '両袖') parts.push('袖');
+  if (st.ranma) parts.push('ランマ');
+  return parts.join('・')+'のガラス代';
+}
 // ドアリモは、今ついている玄関の開口の幅の目安がカタログにある（ドア60ページ・引戸26ページ）
 function yOpenW(){
   if (PRODUCT === 'yhk') return D.yhk.openW[st.base] || '';
@@ -901,6 +1229,15 @@ function yManual(e, kind){
 function colorsWithPrice(e, kind){
   var codes = e.kinds[kind] && e.kinds[kind].codes;
   return e.colors.filter(function(c){ return listPrice(e, kind, c.cls) != null && (!codes || !codes.length || codes.indexOf(c.code) >= 0); });
+}
+function colorFrameNote(e, kind, c){
+  var k = e.kinds[kind];
+  return k && k.woodFrame && c.cls === '木目調' ? '枠はアルミ色' : (c.frame || '');
+}
+function colorDisplayName(e, kind, c){
+  if (!c) return '';
+  var k = e.kinds[kind];
+  return c.name + (k && k.woodFrame && c.cls === '木目調' ? '（枠はアルミ色）' : '');
 }
 function minPrice(e, kind){ var m = Infinity; colorsWithPrice(e, kind).forEach(function(c){ m = Math.min(m, listPrice(e, kind, c.cls)); }); if(!isFinite(m)){ var p=e.kinds[kind]&&e.kinds[kind].p; for(var k in (p||{})) m=Math.min(m,p[k]); } return m; }
 // FamiLock（電池式）の加算額。高断熱とそれ以外で違う。2026年10月の定価（クラスフルで手動キーとの差額を取得。5月版カタログ206ページの値から約1割上がった）
@@ -1092,7 +1429,7 @@ function render(){
     yhk: 'ドアリモの引戸は、手動キーです。'
   }[PRODUCT];
   document.getElementById('design-note').textContent = {
-    door: '人気の順位は、この1年（2025年10月〜2026年9月）に私たちが工事したリシェント玄関ドア54台の数です。5位は同じ台数の2つです。「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
+    door: '人気の順位は、2025年10月〜2026年9月の私たちの玄関ドア施工実績をもとにしています。5位は同率で2つのデザインがあります。「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
     hikido: '色でも印象が変わります。',
     ydoor: '「風を通せる」ドアは、扉の中の小窓（内開き）を開けて、風を入れられます。雰囲気の目印は、カタログの分け方（ナチュラル・シンプル・シック・エレガント）です。',
     yhk: '雰囲気の目印は、カタログの分け方（現代和風・洋風・伝統和風・袖付）です。'
@@ -1143,9 +1480,9 @@ function render(){
     var g = cs.filter(function(c){ return c.cls === cls; });
     if (!g.length) return '';
     var diff = listPrice(e, st.kind, cls) - base;
-    var hint = yk ? {'木目調':'木目の色', 'アルミ色':'木目のない色'}[cls] : CLASS_HINT[cls];
+    var hint = yk ? (PRODUCT === 'ydoor' && st.design === 'F64N' && cls === 'アルミ色' ? '黒い扉の木目アクセント' : {'木目調':'木目の色', 'アルミ色':'木目のない色'}[cls]) : CLASS_HINT[cls];
     return '<div class="cgroup"><h4>'+cls+'<span>'+hint+(diff>0?'｜＋'+man(diff*rate()*(1+TAX)):'')+'</span></h4><div class="chips">'+
-      g.map(function(c){ var sw = swatch(c.code); return '<label class="chip"><input type="radio" name="color" value="'+c.code+'"'+(st.color===c.code?' checked':'')+'><img src="'+img(sw?sw.img:c.img)+'" alt="" loading="lazy"><small>'+esc(c.name)+(c.frame?'<br>（'+esc(c.frame)+'）':'')+'</small></label>'; }).join('')+'</div></div>';
+      g.map(function(c){ var sw = swatch(c.code), note = colorFrameNote(e, st.kind, c); return '<label class="chip"><input type="radio" name="color" value="'+c.code+'"'+(st.color===c.code?' checked':'')+'><img src="'+img(sw?sw.img:c.img)+'" alt="" loading="lazy"><small>'+esc(c.name)+(note?'<br>（'+esc(note)+'）':'')+'</small></label>'; }).join('')+'</div></div>';
   }).join('');
   // STEP 5
   document.getElementById('o-lock').innerHTML = lockOptions().map(function(o){
@@ -1190,19 +1527,22 @@ function summary(){
   // ドアリモ 玄関ドアの大きな写真は親子の形。親子のときはそれを、ほかの形はカタログの形の図を出す
   var useHero = !useColorPhoto && PRODUCT === 'ydoor' && e.hero && e.heroKind === st.kind;
   document.getElementById('st-color').src = img(useColorPhoto ? c.img : useHero ? e.hero : k.img);
-  document.getElementById('st-color').alt = title+' '+kindLabel()+(useColorPhoto?' '+c.name:'');
+  document.getElementById('st-color').alt = title+' '+kindLabel()+(useColorPhoto?' '+colorDisplayName(e, st.kind, c):'');
   var sw = c ? swatch(c.code) : null;
   document.getElementById('st-sw').src = sw ? img(sw.img) : '';
-  document.getElementById('st-sw').alt = c ? c.name+'の色見本' : '';
+  document.getElementById('st-sw').alt = c ? colorDisplayName(e, st.kind, c)+'の色見本' : '';
   document.getElementById('st-sw').hidden = !sw;
-  document.getElementById('st-sw-cap').textContent = c ? '色：'+c.name : '';
-  document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+c.name+'）。'
+  document.getElementById('st-sw-cap').textContent = c ? '色：'+colorDisplayName(e, st.kind, c) : '';
+  document.getElementById('st-cap').textContent = useColorPhoto ? 'カタログの写真です（'+kindLabel()+'・'+colorDisplayName(e, st.kind, c)+'）。'
     : useHero ? 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色（'+(e.heroColor || '')+'）で、選んだ色は右の色見本です。'
     : PRODUCT === 'ydoor' ? 'この形の写真はカタログにないので、形のイメージ図を出しています。扉のデザインは「大きく見る」で確かめられます。選んだ色は右の色見本です。'
     : 'カタログの写真です（'+kindLabel()+'）。写真の色はカタログの見本の色で、選んだ色は右の色見本です。';
-  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+
+  document.getElementById('r-name').innerHTML = '<b>'+title+'</b><br>'+kindLabel()+(k.sub&&st.base==='親子'?'（子扉 '+k.sub+'）':'')+'｜'+(c?esc(colorDisplayName(e, st.kind, c)):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+
     (windOf(st.design, e) ? '<span class="wind-note">'+(yk ? '風を通せるドアです。扉の中の小窓を開けられます。' : '風を通せるドアです。カギをかけたまま、小窓を開けられます。')+'</span>' : '');
   document.getElementById('r-price').innerHTML = yen(t)+'<small>税込</small>';
+  var extra = document.getElementById('r-price-extra'), glassLabel = excludedGlassLabel();
+  extra.textContent = glassLabel ? '＋'+glassLabel+'（現地確認後）' : '';
+  extra.hidden = !glassLabel;
   document.getElementById('r-bd').innerHTML =
     '<tr><td>'+(hk ? '引戸本体・鍵・引手' : 'ドア本体・鍵・ハンドル')+'<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(lp+opt)+'（税抜）の '+Math.round(rate()*100)+'%</span></td><td>'+yen(goods)+'</td></tr>'+
     (glass ? '<tr><td>ガラス（'+(hk ? 'ランマ' : '')+(e.bodyGlass?'本体':'')+(e.bodyGlass&&glass>BODY_GLASS?'・':'')+(!hk && glass>(e.bodyGlass?BODY_GLASS:0)?'ランマ・袖':'')+'）<br><span style="font-size:11px;color:var(--ink-3)">メーカー定価 '+yen(glass)+'（税抜）の '+Math.round(GLASS_RATE*100)+'%</span></td><td>'+yen(glassGoods)+'</td></tr>' : '')+
@@ -1216,16 +1556,20 @@ function summary(){
     '<tr class="sum"><td>合計（100円未満は四捨五入'+(yGlassSep() ? '・袖とランマのガラス代は別' : '')+'）</td><td>'+yen(t)+'</td></tr>';
   var ow = yOpenW();
   document.getElementById('r-size').innerHTML = (yk ? '<b>今の玄関の幅の目安（開口）</b>　'+esc(ow)+'mm' : '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(k.h)+'mm') + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
-  document.getElementById('bar-spec').textContent = (e.label || st.design)+'型・'+kindLabel()+'・'+(c?c.name:'');
+  document.getElementById('bar-spec').textContent = makerName()+'・'+gname(st.grade)+'・'+kindLabel();
   document.getElementById('bar-price').textContent = yen(t);
-  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+(st.photo?'｜玄関の写真あり':'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）'+(yGlassSep() ? '　袖とランマのガラス代は別にお伝えします' : '');
-  st._quote = {design: title, kind: kindLabel() + (yGlassSep() ? '・袖/ランマのガラスは別途' : ''), sub: k.sub, glass: glass, color: c ? c.name+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+(ch.code ? '（'+ch.code+'）' : ''), product: hk ? '玄関引戸' : '玄関ドア', maker: makerName(), measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt + lock.add + glass, total: t, size: yk ? '今の開口の幅の目安 '+ow : '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
+  var barExtra = document.getElementById('bar-extra');
+  barExtra.textContent = glassLabel ? '別途：'+glassLabel : '';
+  barExtra.hidden = !glassLabel;
+  document.getElementById('chosen').innerHTML = '選んだ内容<b>'+title+'｜'+kindLabel()+'｜'+(c?esc(c.name):'')+'｜'+lock.name+'｜'+(hk ? '' : 'ハンドル ')+hname+(st.coop?'｜写真掲載・アンケート協力':'')+(fit?'｜採寸 '+esc(fit.measured):'')+'</b>工事費込み <span class="num">'+yen(t)+'</span>（税込）'+(glassLabel ? '　'+glassLabel+'は現地調査後にお伝えします' : '');
+  st._quote = {design: title, kind: kindLabel() + (yGlassSep() ? '・袖/ランマのガラスは別途' : ''), sub: k.sub, glass: glass, color: c ? colorDisplayName(e, st.kind, c)+'（'+c.code+'）' : '', colorClass: c ? c.cls : '', lock: lock.name, handle: hname+(ch.code ? '（'+ch.code+'）' : ''), product: hk ? '玄関引戸' : '玄関ドア', maker: makerName(), measured: fit ? fit.measured : '', fit: fit ? fit.label : '', coop: st.coop, listPrice: lp + opt + lock.add + glass, total: t, size: yk ? '今の開口の幅の目安 '+ow : '幅 '+k.w+'・高さ '+k.h, catalogPage: e.page};
+  saveChoices();
 }
 
 document.addEventListener('change', function(ev){
   var t = ev.target;
-  if (t.name === 'product'){ var np = productKey(t.value, MAKER); if (np !== PRODUCT) setProduct(np); }
-  else if (t.name === 'maker'){ var nm2 = productKey(isHK() ? 'hikido' : 'door', t.value); if (nm2 !== PRODUCT) setProduct(nm2); }
+  if (t.name === 'product'){ var np = productKey(t.value, MAKER); if (np !== PRODUCT){ switchProduct(np); return; } }
+  else if (t.name === 'maker'){ var nm2 = productKey(isHK() ? 'hikido' : 'door', t.value); if (nm2 !== PRODUCT){ switchProduct(nm2); return; } }
   else if (t.name === 'grade') st.grade = t.value;
   else if (t.name === 'kind') st.base = t.value;
   else if (t.name === 'ranma') st.ranma = t.value === '1';
@@ -1237,8 +1581,13 @@ document.addEventListener('change', function(ev){
   else if (t.name === 'dstyle') st.dstyle = t.value;
   else if (t.id === 'coop' || t.id === 'coop2') st.coop = t.checked;
   else return;
-  var id = t.name, val = t.value;
+  var id = t.name, val = t.value, previousBase = st.base, previousRanma = st.ranma;
   render();
+  var switchNote = document.getElementById('switch-note');
+  if (id === 'grade' && (st.base !== previousBase || st.ranma !== previousRanma)){
+    switchNote.textContent = 'この断熱仕様では選べない形のため、'+kindLabel()+'に変更しました。金額の条件をご確認ください。';
+    switchNote.hidden = false;
+  } else switchNote.hidden = true;
   var again = document.querySelector('input[name="'+id+'"][value="'+val+'"]') || document.getElementById(t.id);
   if (again) again.focus({preventScroll:true});
 });
@@ -1247,126 +1596,12 @@ document.addEventListener('change', function(ev){
   document.getElementById(id).addEventListener('input', function(ev){ st[id==='m-w'?'mw':'mh'] = ev.target.value; summary(); });
 });
 
-// ===== 写真から開き方を読み取る =====
-function shrink(src, max, q, cb){
-  var im = new Image();
-  im.onload = function(){
-    var r = Math.min(1, max / Math.max(im.width, im.height)), cv = document.createElement('canvas');
-    cv.width = Math.round(im.width * r); cv.height = Math.round(im.height * r);
-    cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
-    cb(cv.toDataURL('image/jpeg', q));
-  };
-  im.onerror = function(){ cb(null); };
-  im.src = src;
-}
-function aiMsg(cls, text){ var r = document.getElementById('ai-res'); r.hidden = false; r.className = 'res' + (cls ? ' ' + cls : ''); r.textContent = text; }
-var BASE_OK = {'片開き':1,'親子':1,'片袖':1,'両袖':1,'両開き':1};
-function applyAI(j){
-  if (!j || !j.ok){
-    aiMsg('ng', j && j.error === 'limit' ? '今日の読み取りの回数が上限に達しました。お手数ですが、下から選んでください。' : '写真の読み取りは準備中です。お手数ですが、下から選んでください。写真は申し込みのときに添えて送れます。');
-    return;
-  }
-  var note = j.note ? j.note + ' ' : '';
-  document.getElementById('ai-ask').hidden = true;
-  if (BASE_OK[j.door_type]){
-    if (isHK()) setProduct(productKey('door', MAKER));
-    // 読み取りで形が変わると、そのデザインに無い形なら別のデザインに移る。確認で選び直したときに戻せるよう覚えておく
-    st._prevDesign = st.design; st._prevColor = st.color;
-    st.base = j.door_type; st.ranma = !!j.has_transom;
-    render();
-    if (ASK_TYPES[j.door_type]) askOpens(j.door_type);
-    var lbl = j.door_type + (j.has_transom ? '（ランマ付き）' : '');
-    var fell = st.kind !== kindKey(j.door_type, !!j.has_transom);
-    var asking = !!ASK_TYPES[j.door_type];
-    aiMsg('ok', '写真から「' + lbl + '」と読み取り、開き方と金額に反映しました。' +
-      (fell ? '選んだ断熱の性能にはこの形がないため、近い形にしています。' : '') +
-      (asking ? '' : (j.confidence < 0.6 ? '読み取りに自信がないので、確かめてください。' : '') + '違っていたら、下の STEP 2 で選び直せます。'));
-  } else if (j.door_type === '引戸'){
-    if (!isHK()) setProduct(productKey('hikido', MAKER));
-    st.ranma = !!j.has_transom;
-    render();
-    aiMsg('ok', '写真から「引戸' + (j.has_transom ? '（ランマ付き）' : '') + '」と読み取り、引戸の見積に切り替えました。戸が2枚か4枚かを、下の STEP 2 で確かめてください。');
-  } else {
-    aiMsg('ng', '写真から開き方を読み取れませんでした。' + note + 'お手数ですが、下から選んでください。');
-  }
-}
-// 親子と片袖は写真では見分けにくいので、細い部分が開くかをお客様に聞いて決める（家の人なら一目で分かる）
-function priceFor(base, prefer){
-  var key = kindKey(base, st.ranma), pd = prefer && designs()[prefer];
-  var e = pd && pd.kinds[key] ? pd : cur();
-  if (!e.kinds[key]) return null;
-  var c = e.colors.filter(function(x){ return x.code === st.color; })[0];
-  var lp = listPrice(e, key, c ? c.cls : '');
-  if (lp == null) return null;
-  var lock = lockOptions().filter(function(o){ return o.id === st.lock; })[0];
-  return total(lp, curHandle().h.add, st.coop, lock.add, glassAdd(e, key));
-}
-// 片開き・親子・片袖は写真だけでは取り違えやすい（細い子扉が見えにくい、子扉と袖が似ている）。
-// 家の人なら一目で分かるので、扉の横の細い部分について1問だけ聞いて決める
-// 夜の写真などで、親子を両開きと読むことがある（社員の試し 2026-09-29）。両開きも確認に入れる
-var ASK_TYPES = {'片開き':1, '親子':1, '片袖':1, '両開き':1};
-function askOpens(guess){
-  var box = document.getElementById('ai-ask');
-  var opts = [['片開き','扉は1枚だけ'], ['親子','大きい扉の横に、細い扉（これも開く）'], ['片袖','扉の横に、開かないガラス・格子'], ['両開き','同じ幅の扉が2枚']];
-  box.innerHTML = '<b>念のため確認です。今の玄関はどれに近いですか？</b><div class="btns">' +
-    opts.map(function(o){
-      var pr = priceFor(o[0], st._prevDesign);
-      return '<button type="button" data-base="' + o[0] + '"' + (o[0] === guess ? ' class="guess"' : '') + (pr == null ? ' disabled' : '') + '><b>' + o[1] + (o[0] === guess ? '<em>AIの読み取り</em>' : '') + '</b><span>' + o[0] + (st.ranma ? '（ランマ付き）' : '') + '・' + (pr == null ? 'このデザインにはありません' : man(pr)) + '</span></button>';
-    }).join('') + '</div>';
-  box.hidden = false;
-  box.querySelectorAll('button').forEach(function(b){
-    b.addEventListener('click', function(){
-      st.base = b.getAttribute('data-base');
-      var pd = st._prevDesign && designs()[st._prevDesign];
-      if (pd && pd.kinds[kindKey(st.base, st.ranma)]){ st.design = st._prevDesign; st.color = st._prevColor || st.color; }
-      render();
-      box.hidden = true;
-      aiMsg('ok', '「' + kindLabel() + '」で金額を出しました。違っていたら、下の STEP 2 で選び直せます。');
-    });
-  });
-}
-
-document.getElementById('ai-photo').addEventListener('change', function(ev){
-  var f = ev.target.files[0]; if (!f) return;
-  aiMsg('', '写真を読み取っています（10秒ほどかかります）…');
-  var fr = new FileReader();
-  fr.onload = function(){
-    shrink(fr.result, 1600, 0.82, function(big){
-      if (!big){ aiMsg('ng', 'この写真は読み込めませんでした。別の写真を選ぶか、下から選んでください。'); return; }
-      st.photo = {name: f.name, data: big};
-      var th = document.getElementById('ai-thumb'); th.src = big; th.hidden = false;
-      summary();
-      if (!ENDPOINT || ENDPOINT.indexOf('__') === 0){ aiMsg('ng', 'このページは確認用のため、写真の読み取りは動きません。下から選んでください。'); return; }
-      shrink(big, 1024, 0.8, function(small){
-        fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'analyze', image: small})})
-          .then(function(r){ return r.json(); }).then(applyAI)
-          .catch(function(){ aiMsg('ng', '通信がうまくいきませんでした。もう一度写真を選ぶか、下から選んでください。'); });
-      });
-    });
-  };
-  fr.readAsDataURL(f);
-});
-
 var form = document.getElementById('applyForm');
-// 知ったきっかけ：押した順に順位を付ける（台帳には「1位 YouTube、2位 チラシ」の形で入る）
-var srcOrder = [];
-function srcRender(){
-  form.querySelectorAll('input[name="source"]').forEach(function(i){
-    var n = srcOrder.indexOf(i.value);
-    i.parentNode.querySelector('.rk').textContent = n < 0 ? '' : String(n + 1);
-  });
+// きっかけは複数選択の文字列で台帳へ渡す。順位は求めない。
+function selectedSources(){
+  return Array.from(form.querySelectorAll('input[name="source"]:checked')).map(function(i){ return i.value; });
 }
-form.querySelectorAll('input[name="source"]').forEach(function(i){
-  i.addEventListener('change', function(){
-    var n = srcOrder.indexOf(i.value);
-    if (i.checked && n < 0) srcOrder.push(i.value);
-    if (!i.checked && n >= 0) srcOrder.splice(n, 1);
-    srcRender();
-  });
-});
-function srcText(){
-  return srcOrder.length === 1 ? srcOrder[0] : srcOrder.map(function(v, k){ return (k + 1) + '位 ' + v; }).join('、');
-}
+function srcText(){ return selectedSources().join('、'); }
 // 電話番号・メールアドレスの形（fkenzai-ai-hisho の ai-hisho/contact.js と同じ判定）
 function contactOk(raw, method){
   var s = String(raw == null ? '' : raw);
@@ -1388,7 +1623,7 @@ form.addEventListener('submit', function(ev){
   if (!String(f.get('name')||'').trim()) miss.push('お名前');
   if (!String(f.get('tel')||'').trim()) miss.push('電話番号');
   if (!String(f.get('address')||'').trim()) miss.push('ご住所');
-  if (!srcOrder.length) miss.push('知ったきっかけ');
+  if (!selectedSources().length) miss.push('知ったきっかけ');
   var err = document.getElementById('err');
   if (miss.length){ err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   // 返信先の形を確かめる（返信できない申し込みを受け付けない。判定は fkenzai-ai-hisho の ai-hisho/contact.js と同じ）
@@ -1414,7 +1649,7 @@ form.addEventListener('submit', function(ev){
       .then(function(r){ return r.json(); }).then(function(j){ finish(j && j.ok); })
       .catch(function(){ finish(false); });
   }
-  if (!photo) { send(st.photo || null); return; }
+  if (!photo) { send(null); return; }
   // 写真は長い辺1600pxに縮めてから送る
   var fr = new FileReader();
   fr.onload = function(){
@@ -1632,13 +1867,220 @@ function start(data){
     if (p[0] === 'y'){ var ye = D.ydoor && D.ydoor.grades.d4[p[1]]; return ye && ye.thumb ? '<img src="'+img(ye.thumb)+'" alt="">' : ''; }
     var e = D.grades[p[0]] && D.grades[p[0]][p[1]]; return e && e.kinds['片開き'] ? '<img src="'+img(e.kinds['片開き'].img)+'" alt="">' : '';
   }).join('');
+  restoreChoices();
   render();
 }
+document.getElementById('reset-choice').addEventListener('click', function(){
+  try { localStorage.removeItem(CHOICE_KEY); } catch(e) {}
+  location.reload();
+});
 if (window.__DATA) start(window.__DATA);
 else fetch('data.json').then(function(r){ return r.json(); }).then(start);
 })();
 </script>
 <!-- フクろう親方 AIチャット（f-kenzai.com と同じ相談ボタン） -->
+<script>
+/* 見た目の層の動き（飾りは入れない。問い合わせの役に立つものだけ）。選択や金額の処理は読むだけ */
+(function(){
+'use strict';
+// 申し込み欄の横に、いま選んでいる玄関の写真を出す（何を申し込むのかが分かる）
+var src = document.getElementById('st-color'), t = document.querySelector('#apply .sec-title');
+if (src && t){
+  var f = document.createElement('div'); f.className = 'fx-pick'; f.setAttribute('aria-hidden', 'true');
+  f.innerHTML = '<img alt=""><small>いま選んでいる玄関</small>'; t.appendChild(f);
+  var im = f.querySelector('img');
+  var sync = function(){ if (src.getAttribute('src')) im.src = src.getAttribute('src'); };
+  new MutationObserver(sync).observe(src, {attributes:true, attributeFilter:['src']}); sync();
+}
+})();
+/* UI 強化。選択や金額の処理は読むだけで、書き換えない */
+(function(){
+'use strict';
+var sim = document.getElementById('sim'); if (!sim) return;
+var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function txt(el){ return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+// 選ぶ欄（はじめに＋STEP）を集める
+var cards = [];
+Array.prototype.forEach.call(sim.querySelectorAll('.q'), function(q){
+  var st = q.querySelector('.q-head .step'), h = q.querySelector('.q-head h3'); if (!st || !h) return;
+  var m = /STEP\s*(\d+)/.exec(st.textContent);
+  var key = m ? m[1] : (txt(st) === '割引' ? '' : '0');
+  if (key === '') return;
+  if (q.id === 'q-product'){
+    // はじめに（種類）とつぎに（メーカー）は1つのカードにあるので、道しるべでは2つに分ける
+    cards.push({q:q, no:'', label:'種類', pick:function(){ return val(q.querySelector('#o-product')); }});
+    cards.push({q:q, no:'', label:'メーカー', pick:function(){ return val(q.querySelector('#o-maker')); }});
+    return;
+  }
+  if (q.querySelector('#m-w')){
+    // サイズは数字の入力。空なら「現地で測ります」と出す（空欄でも申し込めることが伝わる）
+    cards.push({q:q, no:key, label:'サイズ', pick:function(){
+      var w = (document.getElementById('m-w') || {}).value, hh = (document.getElementById('m-h') || {}).value;
+      return w && hh ? '幅' + w + '×高さ' + hh + 'cm' : '現地で測ります';
+    }});
+    return;
+  }
+  cards.push({q:q, no:key, label:txt(h), pick:function(){ return val(q); }});
+});
+
+// その欄で選ばれている値（絞り込みの選択は除く）
+function val(box){
+  if (!box) return '';
+  var out = [];
+  Array.prototype.forEach.call(box.querySelectorAll('input:checked'), function(i){
+    if (i.name === 'dstyle' || i.type === 'checkbox' && i.name !== 'coop') return;
+    var lab = i.closest('label'); if (!lab) return;
+    var b = lab.querySelector('.tx b, .top b, b') || lab.querySelector('small') || lab;
+    var s = txt(b);
+    if (i.name === 'ranma') s = (i.value === '1' ? 'ランマあり' : '');
+    if (s) out.push(s);
+  });
+  return out.join('・');
+}
+
+// 道しるべを作る
+var trail = document.createElement('nav'); trail.id = 'ui-trail'; trail.setAttribute('aria-label', '選んだ内容');
+trail.innerHTML = '<ol></ol>';
+var simGrid = sim.querySelector('.sim'); simGrid.parentNode.insertBefore(trail, simGrid);
+var ol = trail.querySelector('ol');
+cards.forEach(function(c, i){
+  var li = document.createElement('li');
+  li.innerHTML = '<button type="button"><i>' + (c.no || '・') + '</i><span><span class="k">' + esc(c.label) + '</span> <b></b></span></button>';
+  li.querySelector('button').addEventListener('click', function(){ go(c); });
+  c.li = li; ol.appendChild(li);
+  // 見出しの横の値
+  if (c.no){ var v = document.createElement('span'); v.className = 'ui-val'; var head = c.q.querySelector('.q-head'); var h3 = head.querySelector('h3'); h3.parentNode.insertBefore(v, h3.nextSibling); c.val = v; }
+});
+function go(c){
+  var y = c.q.getBoundingClientRect().top + scrollY - (document.querySelector('header.site').offsetHeight + trail.offsetHeight + 12);
+  if (c.label === 'メーカー'){ var mk = document.getElementById('o-maker'); if (mk) y = mk.getBoundingClientRect().top + scrollY - (document.querySelector('header.site').offsetHeight + trail.offsetHeight + 60); }
+  scrollTo({top: y, behavior: reduce ? 'auto' : 'smooth'});
+}
+
+// 見積パネルの「選んだ内容」一覧
+var rbody = document.querySelector('.result .r-body'), list = null;
+if (rbody){ list = document.createElement('ul'); list.className = 'ui-chosen'; list.setAttribute('aria-label', '選んだ内容'); var nm = rbody.querySelector('.r-name'); rbody.insertBefore(list, nm ? nm.nextSibling : rbody.firstChild); }
+
+function refresh(){
+  var rows = [];
+  cards.forEach(function(c){
+    var hidden = c.q.offsetParent === null;
+    c.li.hidden = hidden;
+    var v = hidden ? '' : c.pick();
+    c.li.querySelector('b').textContent = v || '未選択';
+    if (c.val) c.val.textContent = v;
+    if (!hidden && v && c.no) rows.push(c);
+  });
+  if (list){
+    list.innerHTML = '';
+    rows.forEach(function(c){
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="k">' + esc(c.label) + '</span><b title="' + esc(c.pick()) + '">' + esc(c.pick()) + '</b><button type="button">変更</button>';
+      li.querySelector('button').addEventListener('click', function(){ go(c); });
+      list.appendChild(li);
+    });
+  }
+}
+var t = 0; function soon(){ clearTimeout(t); t = setTimeout(refresh, 60); }
+new MutationObserver(soon).observe(sim, {childList:true, subtree:true});
+sim.addEventListener('change', soon);
+sim.addEventListener('input', soon);
+refresh();
+
+// いま見ている欄を、道しるべで目立たせる（見えている分を横スクロールで寄せる）
+var ticking = false, lastCur = -1;
+function onScroll(){
+  ticking = false;
+  var line = innerHeight * .4, cur = 0;
+  cards.forEach(function(c, i){ if (!c.li.hidden && c.q.getBoundingClientRect().top < line) cur = i; });
+  if (cur === lastCur) return; lastCur = cur;
+  cards.forEach(function(c, i){ c.li.classList.toggle('cur', i === cur); });
+  var li = cards[cur] && cards[cur].li; if (li) ol.scrollTo({left: li.offsetLeft - 16, behavior: reduce ? 'auto' : 'smooth'});
+}
+addEventListener('scroll', function(){ if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+onScroll();
+
+// 申し込みフォーム：入力できた印と、必須の残り
+(function(){
+  var form = document.getElementById('applyForm'); if (!form) return;
+  var req = [
+    {el: document.getElementById('f-name'), ok: function(v){ return v.trim().length > 0; }},
+    {el: document.getElementById('f-tel'), ok: function(v){ var d = v.replace(/[^0-9０-９]/g,''); return d.length >= 10 && d.length <= 11; }, err: '0から始まる10桁か11桁で入れてください'},
+    {el: document.getElementById('f-city'), ok: function(v){ return v.trim().length > 0; }}
+  ].filter(function(r){ return r.el; });
+  req.forEach(function(r){
+    var f = r.el.closest('.field'), lab = f && f.querySelector('label');
+    if (lab){ var s = document.createElement('span'); s.className = 'ui-ok'; s.textContent = '入力できました'; lab.appendChild(s); }
+    if (r.err && f){ var e = document.createElement('span'); e.className = 'ui-err'; e.textContent = r.err; f.appendChild(e); }
+    r.el.addEventListener('input', function(){ mark(r, false); count(); });
+    r.el.addEventListener('blur', function(){ mark(r, true); count(); });
+  });
+  function mark(r, strict){ var f = r.el.closest('.field'); var v = r.el.value, ok = r.ok(v); f.classList.toggle('ok', ok); f.classList.toggle('ng', strict && !ok && v.trim().length > 0); if (ok) f.classList.remove('ng'); }
+  var srcOk = function(){ return !!form.querySelector('input[name=source]:checked'); };
+  var left = document.createElement('p'); left.id = 'ui-left'; left.setAttribute('aria-live', 'polite');
+  var sub = form.querySelector('button[type=submit], .btn-main'); if (sub) sub.parentNode.insertBefore(left, sub);
+  function count(){
+    var n = req.filter(function(r){ return !r.ok(r.el.value); }).length + (srcOk() ? 0 : 1);
+    left.classList.toggle('done', n === 0);
+    left.innerHTML = n ? '必須の項目、あと <b>' + n + '</b>' : '<b>✓</b> 必須の項目はそろいました';
+  }
+  form.addEventListener('change', count);
+  count();
+})();
+
+// ===== 問い合わせまでの手間を減らす =====
+(function(){
+  var form = document.getElementById('applyForm'); if (!form) return;
+  // 1. 任意の項目はたたむ（必須の4つだけが先に見える）。項目は同じフォームの中なので、そのまま送られる
+  var opt = [];
+  Array.prototype.forEach.call(form.querySelectorAll('.field'), function(f){ if (f.querySelector('.any')) opt.push(f); });
+  if (opt.length){
+    var d = document.createElement('details'); d.className = 'ui-more';
+    d.innerHTML = '<summary><span>メール・希望日・写真など<small>任意。書かなくても申し込めます</small></span></summary><div class="ui-more-in"></div>';
+    var box = d.querySelector('.ui-more-in');
+    var anchor = form.querySelector('#err') || form.querySelector('button[type=submit]');
+    form.insertBefore(d, anchor);
+    opt.forEach(function(f){ box.appendChild(f); });
+  }
+  // 2. 申し込みボタンのすぐそばに、不安を消す一言
+  var sub = form.querySelector('button[type=submit]');
+  if (sub){
+    var ok = document.createElement('ul'); ok.className = 'ui-assure';
+    ok.innerHTML = '<li>現地調査・お見積りは無料</li><li>ご契約は、最終のお見積りを見てから</li><li>工事の日に金額が増えることはありません</li>';
+    sub.parentNode.insertBefore(ok, sub.nextSibling);
+  }
+  // 見積パネルの申し込みボタンにも同じ一言
+  var rb = document.querySelector('.result .r-body > a.btn-main');
+  if (rb){ var s = document.createElement('p'); s.className = 'ui-free'; s.textContent = '現地調査・お見積りは無料です'; rb.parentNode.insertBefore(s, rb.nextSibling); }
+})();
+
+// 申し込み欄と見積パネルが画面にある間は、相談の丸ボタンを引っ込める（入力枠や「変更」に重なって押しにくいため）
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var on = new Set();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) on.add(e.target); else on.delete(e.target); });
+    document.documentElement.classList.toggle('ui-quiet', on.size > 0);
+  });
+  ['applyForm'].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  var ul = document.querySelector('.ui-chosen'); if (ul) io.observe(ul);
+})();
+
+// 3. スマホの下の帯に、電話ボタン
+(function(){
+  var bar = document.querySelector('.pricebar .in'); if (!bar) return;
+  var tel = document.querySelector('header .tel b'); var no = tel ? tel.textContent.replace(/[^0-9]/g, '') : '';
+  if (!no) return;
+  var a = document.createElement('a'); a.className = 'ui-tel'; a.href = 'tel:' + no; a.setAttribute('aria-label', '電話で相談する（' + tel.textContent.trim() + '）');
+  a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg><span>電話</span>';
+  var btn = bar.querySelector('.btn'); bar.insertBefore(a, btn);
+  // 見出しの電話番号も、スマホでは押せるように
+  if (tel){ var wrap = tel.closest('.tel'); if (wrap && !wrap.querySelector('a')){ var link = document.createElement('a'); link.href = 'tel:' + no; link.className = 'ui-tel-link'; tel.parentNode.insertBefore(link, tel); link.appendChild(tel); } }
+})();
+})();
+</script>
 <script src="https://fkenzai-ai-hisho.pages.dev/widget/fkenzai-ai.js" defer></script>
 </body>
 </html>
