@@ -12,12 +12,16 @@ const sections=Array.from(main.children).filter(e=>e!==sim&&e.id!=='apply');
 const quoteBody=$('.r-body'),stage=$('.stage'),cap=$('#st-cap'),notice=$('.notice'),oldFooter=$('body > footer'),loading=$('#studio-loading');
 document.body.classList.add('studio-app');
 main.className='app-main';
+$('.studio-skip').href='#workspace';
 const workspace=document.createElement('section');workspace.id='workspace';workspace.className='app-workspace';
 workspace.innerHTML='<div class="app-topline"><div class="app-kicker"><span>ENTRANCE / ESTIMATE STUDIO</span><h1>玄関を、あなたの暮らしに。</h1><p>選ぶたびに、工事費込みの金額がわかります。</p></div><button type="button" class="app-config" data-mode="conditions"><span>今の条件</span><b class="app-condition-label">断熱 k4・片開き</b><i aria-hidden="true">↗</i></button></div><div class="app-editor"><nav class="app-modes" aria-label="玄関を選ぶ項目"><button type="button" data-mode="conditions"><span aria-hidden="true">01</span><b>条件</b><small>種類・断熱・形</small></button><button type="button" data-mode="design"><span aria-hidden="true">02</span><b>デザイン</b><small>好きな扉を探す</small></button><button type="button" data-mode="finish"><span aria-hidden="true">03</span><b>色と鍵</b><small>毎日の使い心地</small></button><button type="button" data-mode="measure"><span aria-hidden="true">04</span><b>サイズ</b><small>寸法・ご協力</small></button></nav><section class="app-exhibit" aria-label="選んだ玄関"><div class="app-exhibit-meta"><span class="app-door-sub">LIXIL / RECHENT</span><h2 class="app-door-title">M83型</h2><span class="app-counter" aria-hidden="true">02 / DESIGN</span></div><div class="app-exhibit-actions"><button type="button" class="app-add">＋ 候補に保存</button><button type="button" class="app-compare">候補を比較 <span class="app-compare-count">0/2</span></button><button type="button" class="app-preview-toggle" aria-expanded="true">写真を小さく</button></div></section><aside class="app-panel" aria-label="玄関の選択"><div class="app-panel-head"><div><span class="app-panel-label">COLLECTION</span><h2 class="app-panel-title" tabindex="-1">好きな扉を選ぶ</h2><p class="app-panel-description">写真を押すと、金額も変わります。</p></div><button type="button" class="app-next" data-mode="finish">色を選ぶ ↗</button></div><div class="app-panel-scroll"></div></aside></div>';
 const exhibit=workspace.querySelector('.app-exhibit'),actions=exhibit.querySelector('.app-exhibit-actions');
 exhibit.insertBefore(stage,actions);
 const photoNote=document.createElement('p');photoNote.className='app-photo-note';photoNote.textContent='参考写真です。選んだ色は色見本で確認。';exhibit.insertBefore(photoNote,actions);
 const photoHelp=document.createElement('button');photoHelp.type='button';photoHelp.className='app-photo-help';photoHelp.textContent='ⓘ';photoHelp.setAttribute('aria-label','写真と色見本について');exhibit.querySelector('.app-exhibit-meta').append(photoHelp);photoHelp.addEventListener('click',()=>window.fkAtelier.info('<h2 id="info-h">写真と色見本について</h2><p>'+escape(cap.textContent)+'</p><p>参考写真と色見本は、実物と色味が少し違って見えることがあります。色見本の貸出もしています。</p>'));
+const panelModes=workspace.querySelector('.app-modes').cloneNode(true);panelModes.className='app-panel-modes';panelModes.setAttribute('aria-label','商品一覧で選ぶ項目');workspace.querySelector('.app-panel').prepend(panelModes);
+const panelTotal=document.createElement('div');panelTotal.className='app-panel-total';panelTotal.innerHTML='<div><small>選んだ玄関の概算</small><b></b><span>税込・工事費込み／現地調査で最終確定</span><span class="app-panel-extra"></span></div><button type="button" data-screen="quote">内訳・保存へ ↗</button><button type="button" class="app-show-photo">選んだ写真を見る ↑</button>';workspace.querySelector('.app-panel-head').after(panelTotal);
+panelTotal.querySelector('.app-show-photo').addEventListener('click',()=>exhibit.scrollIntoView({block:'start',behavior:reduce?'instant':'smooth'}));
 const groupNames=['conditions','design','finish','measure'],groups={};
 groupNames.forEach(name=>{const e=document.createElement('div');e.className='app-panel-group';e.dataset.mode=name;groups[name]=e;workspace.querySelector('.app-panel-scroll').append(e);});
 [0,1,2].forEach(i=>groups.conditions.append(cards[i]));groups.design.append(cards[3]);groups.finish.append(cards[4]);
@@ -46,32 +50,33 @@ const apply=document.createElement('section');apply.className='app-screen app-ap
 apply.innerHTML='<div class="app-screen-head"><button type="button" class="app-back" data-screen="workspace">← 選んだ玄関に戻る</button><span>REQUEST A FREE SURVEY</span></div>';
 apply.append($('#apply'));
 apply.querySelector('.sec-title h2').innerHTML='選んだ内容で、<br>現地調査を申し込む';
+story.hidden=true;
 sim.replaceChildren();sim.className='app-engine-anchor';sim.hidden=true;
 main.replaceChildren(workspace,quote,story,apply,sim);
 if(loading)main.prepend(loading);
 // 初期の案内は全画面を占有しない。信頼情報と会社への入口はいつも見える場所に置く。
 const globalNav=$('.studio-links');globalNav.className='app-global-nav';
-globalNav.innerHTML='<button type="button" data-screen="workspace" class="current">玄関選び</button><button type="button" data-screen="story">工事・会社</button><a href="#reviews" class="app-review-link" aria-label="Googleクチコミ4.8。口コミを読む"><span>Google</span><b>4.8 <i aria-hidden="true">★</i></b></a>';
+globalNav.innerHTML='<button type="button" data-screen="workspace" class="current">玄関選び</button><a href="company.html">工事・会社</a><a href="company.html#reviews" class="app-review-link" aria-label="Googleクチコミ4.8。口コミを読む"><span>Google</span><b>4.8 <i aria-hidden="true">★</i></b></a>';
 const tel=$('header .tel b'),phone=tel.textContent.replace(/\D/g,'');
 const telLink=document.createElement('a');telLink.href='tel:'+phone;tel.replaceWith(telLink);telLink.append(tel);
 const dock=$('.pricebar');dock.classList.add('app-dock');
 const priceBox=dock.querySelector('.p'),dockIn=dock.querySelector('.in');
 const note=document.createElement('span');note.className='app-total-note';note.textContent='税込・工事費込み／現地調査で最終確定';priceBox.append(note);
 const breakdown=document.createElement('button');breakdown.type='button';breakdown.className='app-quote-btn';breakdown.dataset.screen='quote';breakdown.textContent='料金内訳・保存';dockIn.insertBefore(breakdown,dockIn.lastElementChild);
-const status=document.createElement('p');status.className='app-toast';status.setAttribute('role','status');status.hidden=true;document.body.append(status);
+const status=document.createElement('p');status.className='app-toast';status.setAttribute('role','status');status.hidden=true;exhibit.append(status);
 let toastTimer;
 function toast(text){status.textContent=text;status.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{status.hidden=true;},3500);}
-const screenNodes={workspace,quote,story,apply};
+const screenNodes={workspace,quote,apply};
 const modeCopy={conditions:['SET YOUR CONDITIONS','今の玄関に合わせる','種類、メーカー、断熱、開き方を選んでください。','デザインへ ↗','design'],design:['COLLECTION','好きな扉を選ぶ','写真を押すと、金額も変わります。','色を選ぶ ↗','finish'],finish:['MAKE IT YOURS','色と使い心地を選ぶ','色、鍵、ハンドルを好みに合わせて。','サイズへ ↗','measure'],measure:['ONE LAST DETAIL','サイズと、ご協力','サイズは空欄でも大丈夫です。私たちが現地で測ります。','見積を見る ↗','quote']};
 function setText(e,text){if(e&&e.textContent!==text)e.textContent=text;}
 function setMode(name,focus){
  currentMode=name;groupNames.forEach(n=>groups[n].hidden=n!==name);
- $$('.app-modes button').forEach(b=>{b.classList.toggle('current',b.dataset.mode===name);b.setAttribute('aria-pressed',String(b.dataset.mode===name));});
+ $$('.app-modes button,.app-panel-modes button').forEach(b=>{b.classList.toggle('current',b.dataset.mode===name);b.setAttribute('aria-pressed',String(b.dataset.mode===name));});
  const copy=modeCopy[name];setText($('.app-panel-label'),copy[0]);setText($('.app-panel-title'),copy[1]);setText($('.app-panel-description'),copy[2]);
  const next=$('.app-next');next.textContent=copy[3];delete next.dataset.mode;delete next.dataset.screen;if(copy[4]==='quote')next.dataset.screen='quote';else next.dataset.mode=copy[4];
  setText($('.app-counter'),String(groupNames.indexOf(name)+1).padStart(2,'0'));
  $('.app-panel-scroll').scrollTop=0;
- if(focus)$('.app-panel-title').focus({preventScroll:true});
+ if(focus){$('.app-panel-title').focus({preventScroll:true});requestAnimationFrame(()=>$('.app-panel').scrollIntoView({block:'start',behavior:'instant'}));}
 }
 function showScreen(name,focus){
  screen=name;Object.entries(screenNodes).forEach(([n,e])=>e.hidden=n!==name);document.body.dataset.screen=name;
@@ -79,14 +84,14 @@ function showScreen(name,focus){
  document.documentElement.classList.toggle('studio-quiet',name!=='story');
  if(focus){const heading=screenNodes[name].querySelector('h1,h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}
  if(name==='quote')renderCandidates();
+ if(focus&&name!=='workspace')window.scrollTo({top:0,behavior:'instant'});
 }
 function route(focus){
  const key=location.hash.slice(1);
  if(groupNames.includes(key)){showScreen('workspace',false);setMode(key,focus);}
  else if(key==='quote'||key==='apply'){showScreen(key,focus);}
  else if(['company','flow','reviews','greeting','madolabo'].includes(key)){
-  showScreen('story',focus);
-  const target=document.getElementById(key);if(target&&story.contains(target))requestAnimationFrame(()=>target.scrollIntoView({block:'start',behavior:reduce?'instant':'smooth'}));
+  location.assign('company.html#'+key);return;
  }else{showScreen('workspace',false);setMode(currentMode,focus);}
 }
 function navigate(key){if(location.hash==='#'+key)route(true);else{location.hash=key;route(true);}}
@@ -96,7 +101,7 @@ document.addEventListener('click',event=>{
  const candidate=event.target.closest('[data-restore-candidate]');if(candidate){restoreCandidate(Number(candidate.dataset.restoreCandidate));}
  const remove=event.target.closest('[data-remove-candidate]');if(remove){candidates.splice(Number(remove.dataset.removeCandidate),1);renderCandidates();toast('候補を外しました');}
 });
-window.addEventListener('hashchange',()=>route(false));
+window.addEventListener('hashchange',()=>route(true));
 // モーダル内ではTabを循環させ、候補の操作中に背後へフォーカスを移さない。
 $('#info').addEventListener('keydown',event=>{
  if(event.key!=='Tab')return;
@@ -117,6 +122,7 @@ function value(card,index){
  return Array.from(card.querySelectorAll('input:checked')).filter(i=>i.name!=='dstyle').map(i=>{if(i.name==='ranma')return i.value==='1'?'ランマあり':'ランマなし';const label=i.closest('label'),text=label&&(label.querySelector('.tx b,.top b,b,small')||label);return text?text.textContent.replace(/\s+/g,' ').trim():'';}).filter(Boolean).join('・');
 }
 function refresh(){
+ setText(panelTotal.querySelector('b'),$('#bar-price').textContent);setText(panelTotal.querySelector('.app-panel-extra'),$('#bar-extra').hidden?'':$('#bar-extra').textContent);
  setText(photoNote,/イメージ図/.test(cap.textContent)?'形のイメージ図です。扉のデザインは拡大で確認。':'参考写真です。選んだ色は色見本で確認。');
  const title=$('#r-name b');setText($('.app-door-title'),title?title.textContent.replace(/^.*?\s(?=[A-Z0-9]+型)/,''): '読み込み中');
  const state=window.fkAtelier&&window.fkAtelier.read(),q=state&&state.quote;

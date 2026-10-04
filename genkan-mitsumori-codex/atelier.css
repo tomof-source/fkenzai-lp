@@ -652,3 +652,262 @@ dialog.info .info-x{width:44px;height:44px;min-width:44px;min-height:44px}
 .app-panel-group[data-mode="design"] .dstyles{margin-bottom:6px}
 .app-panel-scroll{padding-top:9px}
 }
+
+/* 2026-10-04: natural document scrolling replaces the viewport canvas. */
+html{height:auto;overflow:visible;scroll-behavior:smooth}
+body.studio-app{display:block;height:auto;min-height:100vh;min-height:100dvh;overflow:visible;padding:0}
+header.site{position:static}
+.app-main{display:block;height:auto;min-height:0;padding-bottom:0;overflow:visible}
+.app-workspace{display:block;height:auto;min-height:0;padding:0;overflow:visible}
+.app-topline{height:auto;min-height:96px;display:flex;padding:24px 30px;gap:24px;align-items:center}
+.app-kicker span{display:block}
+.app-kicker h1{font-family:var(--serif);font-size:30px;line-height:1.55;letter-spacing:-.035em}
+.app-kicker p{display:block;font-size:14px;line-height:1.85;margin-top:7px}
+button.app-config{min-height:48px}
+.app-editor{display:grid;grid-template-columns:88px minmax(0,.44fr) minmax(0,.56fr);grid-template-rows:auto;align-items:start;min-height:0;overflow:visible}
+.app-modes{position:static;height:auto;min-height:0;overflow:visible}
+.app-modes button{min-height:87px}
+.app-exhibit{position:static;height:auto;min-height:0;display:flex;flex-direction:column;overflow:visible;padding:30px 28px 22px}
+.app-exhibit::before{inset:20px}
+.app-exhibit-meta{display:grid;grid-template-columns:minmax(0,1fr) auto 44px;grid-template-rows:auto auto;gap:5px 14px}
+.app-door-title{font-size:21px;line-height:1.5}
+.app-door-sub{font-size:13px;line-height:1.7}
+.app-exhibit-meta .app-counter{display:block;grid-column:2;grid-row:1 / 3;font-size:31px}
+.app-exhibit-meta .app-photo-help{grid-column:3;grid-row:1 / 3;position:static;min-height:44px}
+.app-exhibit .stage{display:grid;grid-template-columns:minmax(0,1fr) 78px;grid-template-rows:minmax(0,1fr);min-height:405px;height:auto;flex:none;align-items:center;padding:25px 7px 20px;gap:22px}
+.app-exhibit .stage .main{height:auto;min-height:0;width:100%;max-height:none}
+.app-exhibit .stage .main img{height:360px;max-height:none;max-width:100%;width:auto;object-fit:contain}
+.app-exhibit .stage .side{display:grid;width:78px;font-size:11px;line-height:1.6;padding:0;align-self:center;gap:9px}
+.app-exhibit .stage .side img{width:57px;height:57px}
+.app-photo-note{display:block;padding:0 4px 16px;font-size:12px;line-height:1.75}
+.app-exhibit-actions{position:static;display:flex;flex-wrap:wrap;height:auto;min-height:44px;gap:8px;padding:15px 0 0;align-items:center}
+.app-exhibit-actions button{min-height:44px;font-size:12px;padding:10px 12px}
+.app-panel{position:static;display:block;height:auto;min-height:0;overflow:visible}
+.app-panel-head{position:static;height:auto;min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px 18px}
+.app-panel-head > div{min-width:0}
+.app-panel-label{display:block;font-size:9px;margin-bottom:6px}
+.app-panel-head .app-panel-title{font-size:23px;line-height:1.5;white-space:normal;overflow:visible}
+.app-panel-head .app-panel-description{display:block;font-size:14px;line-height:1.8;margin-top:6px}
+.app-next{min-height:44px;font-size:12px}
+.app-panel-scroll{display:block;height:auto;min-height:0;flex:none;overflow:visible;padding:24px}
+.app-panel-group{height:auto;overflow:visible}
+.app-panel-group[data-mode="design"] .q-head{display:flex;min-height:0;padding:0;border:0;margin:0 0 12px}
+.app-panel-group[data-mode="design"] .q-head h3{display:none}
+.app-panel-group[data-mode="design"] .q-head small{margin:0;font-size:12px;line-height:1.5}
+.app-panel-group[data-mode="design"] .dstyles{display:flex;flex-wrap:wrap;min-width:0;max-width:100%;width:100%;overflow:visible;gap:7px;margin:0 0 20px;padding:0}
+.app-panel-group[data-mode="design"] .dstyles label{position:relative;flex:none;min-height:44px;padding:8px 11px;font-size:12px;white-space:normal}
+.designs{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.designs .tile .in{padding-top:46px}
+.designs .tile .in img{height:170px}
+.app-panel-modes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#f0f6f7;padding:0;margin:0}
+.app-panel-modes button{font:inherit;min-height:48px;min-width:0;padding:11px 7px;border:0;border-right:1px solid var(--line);color:var(--ink-2);background:transparent;font-size:12px;cursor:pointer;font-weight:500;white-space:nowrap}
+.app-panel-modes button:last-child{border-right:0}
+.app-panel-modes button.current,.app-panel-modes button[aria-pressed="true"]{background:#e0eff5;color:var(--blue);box-shadow:inset 0 -3px 0 var(--blue)}
+.app-panel-modes button:hover{background:#e5f0f4;color:var(--blue)}
+.app-panel-modes span,.app-panel-modes small{display:none}
+.app-dock.pricebar{position:static;left:auto;right:auto;bottom:auto;z-index:auto;min-height:95px;padding:20px 28px;background:#fff;box-shadow:none}
+.app-dock .in{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.app-dock .p{flex:1;min-width:210px}
+.app-dock .p b{font-size:35px;line-height:1.15}
+.app-dock .p small{font-size:11px;line-height:1.5}
+.app-dock .p .app-total-note{white-space:normal;overflow:visible;text-overflow:clip;font-size:11px;line-height:1.6;margin-top:5px}
+.app-dock .btn,.app-quote-btn{min-height:48px;font-size:13px;padding:12px 20px}
+.app-screen{height:auto;min-height:0;overflow:visible;padding:30px}
+.app-screen-head{position:static}
+.app-story{display:block;height:auto;overflow:visible;padding:0}
+.app-story > .app-screen-head{position:static}
+.app-story-nav{position:static;flex-wrap:wrap;overflow:visible}
+.app-story-scroll{height:auto;min-height:0;flex:none;overflow:visible}
+.app-apply{overflow:visible}
+.app-apply .sec-title{position:static;top:auto}
+.app-toast{position:static;left:auto;right:auto;top:auto;bottom:auto;transform:none;width:fit-content;max-width:calc(100% - 36px);margin:18px auto;padding:12px 17px;pointer-events:none}
+.studio-skip{position:absolute}
+.preview-compact .app-editor{grid-template-columns:88px minmax(0,.44fr) minmax(0,.56fr);grid-template-rows:auto}
+.preview-compact .app-exhibit{display:flex;grid-template-columns:none;grid-template-rows:none;padding:25px 28px 22px;min-height:0;height:auto}
+.preview-compact .app-exhibit::before{display:block}
+.preview-compact .app-exhibit-meta{align-self:auto;grid-template-columns:minmax(0,1fr) auto 44px}
+.preview-compact .app-exhibit .stage{display:grid;grid-template-columns:minmax(0,1fr) 78px;grid-template-rows:minmax(0,1fr);min-height:255px;max-height:none;padding:20px 7px}
+.preview-compact .app-exhibit .stage .main{width:100%;height:auto;max-height:none}
+.preview-compact .app-exhibit .stage .main img{height:220px;max-height:none;max-width:100%}
+.preview-compact .app-exhibit .stage .side{width:78px;font-size:11px;gap:7px}
+.preview-compact .app-exhibit .stage .side img{width:50px;height:50px}
+.preview-compact .app-photo-note{display:block}
+.preview-compact .app-exhibit-actions{display:flex;min-height:44px;padding-top:15px}
+@media(min-width:980px) and (max-width:1199px){
+.app-editor,.preview-compact .app-editor{grid-template-columns:74px minmax(0,.43fr) minmax(0,.57fr)}
+.app-exhibit,.preview-compact .app-exhibit{padding-inline:20px}
+.app-exhibit .stage{grid-template-columns:minmax(0,1fr) 58px;gap:12px;min-height:350px}
+.app-exhibit .stage .main img{height:310px}
+.app-exhibit .stage .side{width:58px}
+.app-exhibit .stage .side img{width:46px;height:46px}
+.app-panel-head,.app-panel-scroll{padding-inline:20px}
+.designs{gap:9px}.designs .tile .in img{height:140px}
+}
+@media(max-width:979px){
+header.site .wrap{height:auto;min-height:62px;padding-block:10px}
+.app-topline{height:auto;min-height:106px;padding:25px 20px;gap:18px}
+.app-kicker span{display:block;font-size:8px}
+.app-kicker h1{font-size:26px;line-height:1.55}
+.app-kicker p{display:block;font-size:13px;line-height:1.85;margin-top:7px}
+button.app-config{width:116px;max-width:116px;min-height:48px}
+.app-editor,.preview-compact .app-editor{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;align-items:start}
+.app-modes{grid-column:1;grid-row:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:auto;min-height:48px;overflow:visible;padding:0;border-right:0;border-bottom:1px solid var(--line)}
+.app-modes button{min-height:48px;font-size:12px;display:flex;gap:6px;padding:12px 5px}
+.app-modes button b{font-size:12px}.app-modes button > span,.app-modes button > small{display:none}
+.app-modes button.current::before{left:12px;right:12px;top:auto;bottom:-1px;width:auto;height:3px}
+.app-exhibit,.preview-compact .app-exhibit{grid-column:1;grid-row:auto;display:flex;flex-direction:column;padding:24px 20px 20px;min-height:0;height:auto;overflow:visible}
+.app-exhibit::before,.preview-compact .app-exhibit::before{display:block;inset:15px}
+.app-exhibit-meta,.preview-compact .app-exhibit-meta{grid-template-columns:minmax(0,1fr) 44px;grid-template-rows:auto auto;gap:4px 10px;flex:none;align-self:auto}
+.app-exhibit-meta .app-counter{display:none}
+.app-door-title,.preview-compact .app-door-title{font-size:21px;line-height:1.5}
+.app-door-sub,.preview-compact .app-door-sub{font-size:13px;line-height:1.6}
+.app-exhibit-meta .app-photo-help{grid-column:2;grid-row:1 / 3}
+.app-exhibit .stage,.preview-compact .app-exhibit .stage{grid-column:auto;grid-row:auto;display:grid;grid-template-columns:minmax(0,1fr) 73px;grid-template-rows:minmax(0,1fr);min-height:0;height:auto;padding:22px 18px 18px;gap:23px;flex:none}
+.app-exhibit .stage .main,.preview-compact .app-exhibit .stage .main{height:auto;width:100%;max-height:none;min-width:0}
+.app-exhibit .stage .main img{height:310px;max-height:none;max-width:100%;width:auto}
+.app-exhibit .stage .side,.preview-compact .app-exhibit .stage .side{display:grid;align-self:center;width:73px;padding:0;font-size:11px;gap:8px}
+.app-exhibit .stage .side img,.preview-compact .app-exhibit .stage .side img{width:51px;height:51px}
+.app-photo-note,.preview-compact .app-photo-note{grid-column:auto;grid-row:auto;display:block;font-size:12px;line-height:1.75;flex:none;padding:0 4px 15px;text-align:left;align-self:auto}
+.app-exhibit-actions,.preview-compact .app-exhibit-actions{grid-column:auto;grid-row:auto;display:flex;flex-wrap:wrap;height:auto;min-height:44px;padding:15px 0 0;gap:9px}
+.app-exhibit-actions button{font-size:12px;min-height:44px;padding:10px 13px}
+.app-panel{grid-column:1;grid-row:auto;display:block;height:auto;overflow:visible;border-left:0}
+.app-panel-head{height:auto;min-height:83px;padding:22px 20px 18px;display:flex;gap:14px}
+.app-panel-label{display:block}
+.app-panel-head .app-panel-title{font-size:23px;line-height:1.5;white-space:normal;overflow:visible}
+.app-panel-head .app-panel-description{display:block;font-size:13px;line-height:1.8;margin-top:6px}
+.app-panel-scroll{height:auto;overflow:visible;padding:23px 20px}
+.app-panel-group[data-mode="design"] .q-head{display:flex;margin-bottom:12px}
+.app-panel-group[data-mode="design"] .dstyles{display:flex;flex-wrap:wrap;overflow:visible;margin:0 0 20px;padding:0;gap:7px}
+.app-panel-group[data-mode="design"] .dstyles label{white-space:normal;min-height:44px;font-size:12px}
+.designs{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.designs .tile .in img{height:165px}
+.app-panel-modes button{min-height:48px}
+.app-dock.pricebar{position:static;min-height:95px;padding:19px 20px}
+.app-dock .in{display:flex;flex-wrap:wrap;gap:13px 16px}
+.app-dock .p{min-width:210px;flex:1}
+.app-dock .p b{font-size:33px}
+.app-dock .p .app-total-note{font-size:11px;line-height:1.6;white-space:normal;overflow:visible}
+.app-dock .btn,.app-quote-btn{min-height:48px;font-size:13px;padding:12px 18px}
+.app-screen{height:auto;overflow:visible;padding:25px 20px}
+.app-story{padding:0}
+.app-story-scroll{height:auto;overflow:visible}
+.preview-compact .app-exhibit .stage{min-height:0;padding:17px 18px}
+.preview-compact .app-exhibit .stage .main img{height:190px;max-height:none;max-width:100%}
+}
+@media(max-width:599px){
+header.site .wrap{min-height:57px;padding:9px 14px;height:auto}
+.app-topline{height:auto;min-height:108px;padding:23px 16px;gap:12px;align-items:center}
+.app-kicker{min-width:0}
+.app-kicker span{display:block;font-size:7px;line-height:1.5;margin-bottom:5px}
+.app-kicker h1{font-size:23px;line-height:1.55;letter-spacing:-.03em}
+.app-kicker p{display:block;font-size:13px;line-height:1.8;margin-top:7px}
+button.app-config{width:88px;max-width:88px;min-height:48px;flex:none}
+.app-modes button,.app-modes button b{font-size:11px;min-height:48px}
+.app-exhibit,.preview-compact .app-exhibit{padding:22px 16px 19px}
+.app-exhibit-meta,.preview-compact .app-exhibit-meta{gap:3px 9px}
+.app-door-title,.preview-compact .app-door-title{font-size:19px}
+.app-door-sub,.preview-compact .app-door-sub{font-size:12px}
+.app-exhibit .stage,.preview-compact .app-exhibit .stage{display:grid;grid-template-columns:minmax(0,1fr) 61px;min-height:0;height:auto;padding:20px 5px 17px;gap:17px}
+.app-exhibit .stage .main img{height:240px;max-height:none;max-width:100%}
+.app-exhibit .stage .side,.preview-compact .app-exhibit .stage .side{width:61px;font-size:11px;gap:8px}
+.app-exhibit .stage .side img,.preview-compact .app-exhibit .stage .side img{width:45px;height:45px}
+.app-photo-note,.preview-compact .app-photo-note{font-size:11px;line-height:1.8;padding:0 3px 13px}
+.app-exhibit-actions,.preview-compact .app-exhibit-actions{gap:7px;padding-top:13px;min-height:44px}
+.app-exhibit-actions button{font-size:11px;padding:10px 10px;min-height:44px}
+.app-panel-head{height:auto;min-height:89px;padding:21px 16px 17px;gap:10px}
+.app-panel-label{display:block;font-size:8px}
+.app-panel-head .app-panel-title{font-size:21px;line-height:1.5}
+.app-panel-head .app-panel-description{display:block;font-size:13px;line-height:1.8}
+.app-next{min-height:44px;font-size:11px;padding:10px}
+.app-panel-scroll{overflow:visible;height:auto;padding:21px 16px 28px}
+.app-panel-group[data-mode="design"] .dstyles{flex-wrap:wrap;gap:7px;margin-bottom:19px}
+.app-panel-group[data-mode="design"] .dstyles label{font-size:11px;padding-inline:10px;min-height:44px;white-space:normal}
+.designs{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.designs .tile .in img{height:139px}
+.app-panel-modes button{font-size:11px;min-height:48px}
+.app-dock.pricebar{position:static;height:auto;min-height:0;padding:20px 16px}
+.app-dock .in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.app-dock .p{grid-column:1 / -1;grid-row:1;min-width:0}
+.app-dock .p b{font-size:35px}
+.app-dock .p small{font-size:11px;line-height:1.5}
+.app-dock .p .app-total-note{font-size:11px;line-height:1.7;white-space:normal;overflow:visible;max-width:none}
+.app-quote-btn{grid-column:1;grid-row:2}
+.app-dock .btn{grid-column:2;grid-row:2}
+.app-dock .btn,.app-quote-btn{font-size:12px;min-height:48px;padding:12px 10px;white-space:normal}
+.app-screen{height:auto;overflow:visible;padding:23px 16px}
+.app-story{padding:0}
+.app-apply .sec-title{position:static}
+.preview-compact .app-exhibit .stage .main img{height:160px;max-height:none;max-width:100%}
+}
+@media(max-width:359px){
+.app-kicker h1{font-size:21px}
+.app-topline{padding-inline:13px;gap:10px}
+button.app-config{width:78px;max-width:78px}
+.app-exhibit,.preview-compact .app-exhibit{padding-inline:13px}
+.app-exhibit .stage .main img{height:220px}
+.app-exhibit-actions button{font-size:10px;padding-inline:8px}
+.app-panel-head,.app-panel-scroll{padding-inline:13px}
+.app-panel-head .app-panel-title{font-size:20px}
+.designs{gap:7px}.designs .tile .in img{height:120px}
+.app-panel-modes button{font-size:10px}
+.app-dock.pricebar{padding-inline:13px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Inline choices and price sit directly above the gallery in document flow. */
+.app-global-nav > a:not(.app-review-link){display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;font-size:12px;font-weight:500;border:0;border-bottom:2px solid transparent;background:transparent;color:var(--ink-2);text-decoration:none;line-height:1.3}
+.app-global-nav > a:not(.app-review-link):hover{color:var(--blue);background:#eaf2f3}
+.app-panel-total{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line);background:#f3f8f8}
+.app-panel-total > div{min-width:0}
+.app-panel-total small{display:block;font-size:11px;line-height:1.6;color:var(--ink-2)}
+.app-panel-total b{display:block;font-family:Arial,sans-serif;font-size:34px;font-weight:400;letter-spacing:-.045em;line-height:1.15;color:var(--ink);margin-block:4px}
+.app-panel-total span{display:block;font-size:11px;line-height:1.6;color:var(--ink-2)}
+.app-panel-total .app-panel-extra{font-size:12px;line-height:1.7;color:#8a4a00;margin-top:5px}
+.app-panel-total button{font:inherit;min-height:44px;padding:11px 14px;font-size:12px;border:1px solid var(--line-2);background:#fff;color:var(--blue);border-radius:3px;cursor:pointer}
+.app-panel-total button:hover{background:var(--sky-2)}
+@media(max-width:979px){
+.app-panel-total{padding:18px 20px}
+.app-global-nav > a:not(.app-review-link){font-size:11px;padding-inline:10px}
+}
+@media(max-width:599px){
+.app-panel-total{padding:17px 16px;gap:12px}
+.app-panel-total b{font-size:33px}
+.app-panel-total button{font-size:11px;min-height:44px;padding-inline:11px}
+.app-global-nav > a:not(.app-review-link){font-size:10px;padding-inline:7px}
+}
+@media(max-width:359px){
+.app-panel-total{padding-inline:13px;gap:10px}
+.app-panel-total b{font-size:31px}
+.app-global-nav > a:not(.app-review-link){font-size:9px;padding-inline:5px}
+}
+/* Visual review: sentence flow and larger mobile product cards. */
+.app-panel-title:focus,.app-panel-title:focus-visible{outline:none}
+.app-dock .p small{white-space:normal;overflow:visible;text-overflow:clip}
+@media(max-width:599px){
+.app-topline{display:grid;grid-template-columns:minmax(0,1fr);gap:15px;padding-block:24px;align-items:start}
+.app-kicker h1{font-size:23px;line-height:1.6;word-break:keep-all;overflow-wrap:normal}
+button.app-config{grid-column:1;justify-self:start;width:auto;max-width:100%;min-width:155px;min-height:44px;padding:10px 13px}
+button.app-config > b{font-size:12px;line-height:1.5;white-space:normal;overflow:visible;text-overflow:clip}
+button.app-config > i{font-size:16px}
+.designs{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.designs .tile .in{padding:46px 10px 15px;gap:9px}
+.designs .tile .in img{height:198px}
+.designs .tile .in b{font-size:14px;line-height:1.5}
+.designs .tile .in span{font-size:12px;line-height:1.5}
+.designs .tags i{font-size:10px}
+}
+@media(max-width:359px){
+.app-kicker h1{font-size:21px}
+.designs{gap:10px}
+.designs .tile .in{padding-inline:8px}
+.designs .tile .in img{height:170px}
+.designs .tile .in b{font-size:13px}
+}
+/* The price and return-to-photo action stay together without narrow columns. */
+.app-panel-total{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.app-panel-total > div{grid-column:1 / -1}
+.app-panel-total > button{width:100%;min-width:0;min-height:44px;line-height:1.6;white-space:normal}
+.app-panel-total .app-show-photo{background:transparent;border-color:#c2d6db;color:var(--ink)}
+.app-panel-total .app-show-photo:hover{background:#e7f0f2;color:var(--blue)}
+@media(max-width:359px){.app-panel-total{gap:10px}.app-panel-total > button{padding-inline:8px;font-size:11px}}
+/* Screen titles receive focus for navigation, without a control outline. */
+.app-screen h1:focus,.app-screen h1:focus-visible,.app-screen h2:focus,.app-screen h2:focus-visible{outline:none}
