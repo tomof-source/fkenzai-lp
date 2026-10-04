@@ -6,7 +6,7 @@
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <meta name="theme-color" content="#0B1826">
 <title>玄関ドア・引戸 かんたん見積（リシェント・ドアリモ）｜フクシマ建材</title>
-<meta name="description" content="LIXILリシェントとYKK APドアリモの玄関ドア・引戸を選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本・福岡のフクシマ建材。">
+<meta name="description" content="LIXILリシェントとYKK APドアリモの玄関ドア・引戸を選んで、工事費込みの金額をその場で確認。そのまま現地調査を申し込めます。熊本のフクシマ建材。">
 <style>
 :root{
   color-scheme:light;
@@ -676,15 +676,16 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 @media (max-width:600px){.q-head .ui-val{max-width:100%;order:9;margin-left:0}}
 
 /* 見積パネルの「選んだ内容」一覧と変更ボタン */
-.ui-chosen{order:3;margin:0;padding:0;list-style:none;border:1px solid rgba(11,24,38,.08);border-radius:14px;overflow:hidden}
+.ui-chosen{order:4;margin:0;padding:0;list-style:none;border:1px solid rgba(11,24,38,.08);border-radius:14px;overflow:hidden}
 .ui-chosen li{display:grid;grid-template-columns:72px 1fr auto;gap:8px;align-items:center;padding:8px 12px;font-size:13px}
 .ui-chosen li + li{border-top:1px solid rgba(11,24,38,.06)}
 .ui-chosen .k{color:var(--ink-3);font-size:12px}
 .ui-chosen b{font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ui-chosen button{font:inherit;font-size:12px;color:var(--blue);background:none;border:0;padding:6px 4px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 .ui-chosen button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
-.r-body > .btn-main{order:4}
+.r-body > .btn-main{order:3}
 .r-body > .bd{order:5}
+.r-body > .size{order:5}
 
 /* デザインの絞り込み：スマホでは横に1行で流す */
 @media (max-width:700px){
@@ -725,7 +726,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 .ui-assure{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center}
 .ui-assure li{font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:6px}
 .ui-assure li::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:#2E7D32 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.5 2.5 5.3-5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat}
-.ui-free{order:4;margin:-4px 0 0;text-align:center;font-size:12.5px;color:#2E7D32;font-weight:700}
+.ui-free{order:3;margin:-4px 0 0;text-align:center;font-size:12.5px;color:#2E7D32;font-weight:700}
 /* 下の帯の電話ボタン */
 .ui-tel{display:none}
 @media (max-width:979px){
@@ -736,20 +737,74 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 .ui-tel-link{color:inherit;text-decoration:none}
 /* 申し込み欄の入力中は、相談の丸ボタンを引っ込める（ui.js が html に ui-quiet を付ける） */
 .ui-quiet #fkenzai-ai-launcher{opacity:0!important;pointer-events:none!important;transform:scale(.6)!important;transition:opacity .2s,transform .2s}
+
+/* ===== 2026-10-04 検証役の1周目の指摘への対応 ===== */
+/* 高2：PCの相談の吹き出しは、選ぶ画面と申し込み欄が見えている間は出さない（丸ボタンは残す） */
+.ui-sim #fkenzai-ai-teaser,.ui-quiet #fkenzai-ai-teaser{display:none!important}
+/* 中4：スマホの相談の丸ボタンは小さくして、文字に重なる面積を減らす */
+@media (max-width:979px){html:not(.ui-quiet) #fkenzai-ai-launcher{transform:scale(.68)!important;transform-origin:100% 100%}}
+/* 高3：必須の入れ忘れを、その欄の場所で知らせる */
+.field.miss > input{border-color:#C62828!important;background:#fffafa;box-shadow:0 0 0 3px rgba(198,40,40,.12)}
+.field .ui-miss{display:none;margin-top:6px;font-size:13px;color:#C62828;font-weight:700}
+.field.miss .ui-miss{display:block}
+.field.miss .opts{outline:2px solid rgba(198,40,40,.5);outline-offset:6px;border-radius:12px}
+/* 中5：押せる範囲を44pxに（見た目の大きさは控えめのまま） */
+.zoom{width:40px!important;height:40px!important;top:6px!important;right:6px!important}
+.zoom::after{content:"";position:absolute;inset:-4px}
+.ui-chosen button{min-height:44px;min-width:44px}
+#ui-trail button{min-height:44px!important}
+.q-head .more,.reset-choice{min-height:44px}
+.reset-choice{display:inline-flex;align-items:center;justify-content:center}
+.ui-tel-link{display:flex;justify-content:flex-end;align-items:center;min-height:44px}
+/* 中9：小さすぎる文字を上げる */
+.tel{font-size:12px!important}
+@media (max-width:520px){.tel{font-size:0!important}}
+#ui-trail .k{font-size:12px}
+.badge,.pop{font-size:12px!important}
+.tags i,.handles .tag,.lcard .kit span,.lcard .kit .none,.kit.ykit>span{font-size:12px!important}
+.kicker{font-size:13px!important}
+/* 低10：上の注意書きの帯は、金額のすぐ下へ移す（ui.js） */
+.notice{display:none}
+.ui-pricenote{margin:6px 0 0;font-size:12.5px;line-height:1.7;color:var(--ink-3)}
+/* 低12：LINEボタンの文字を太く大きく */
+.btn-line{font-size:17px!important;font-weight:800!important}
+/* 中6：人気の順位で、この開き方に出ないデザインの説明 */
+.ui-ranknote{margin:10px 0 0;font-size:13px;color:var(--ink-2)}
+
+/* ===== 2026-10-04 検証役の2周目の指摘への対応 ===== */
+/* 中2：PCの相談の吹き出しは出さない（本文を隠すため）。右下の丸ボタンはそのまま */
+#fkenzai-ai-teaser{display:none!important}
+/* 中5：スマホでは、ページを動かしている間だけ相談の丸ボタンを引っ込める（止まると戻る） */
+@media (max-width:979px){html.ui-scrolling #fkenzai-ai-launcher{opacity:0!important;pointer-events:none!important;transition:opacity .15s}}
+/* 中3：選んだ印は、拡大ボタンと重ならないカードの右下へ */
+.tile input:checked + .in .zoom{top:40px!important}
+.tile input:checked + .in::after{z-index:3}
+/* 中4：見えている文字は12px以上に */
+.hero .photo figcaption,.sec-title .en,#ui-trail i,.q-head .step,.dstyles small,.chip small,.rm,.stage .side,.req,.any,.pricebar .p small,.ui-tel span,.logo .co small{font-size:12px!important}
+.stage-cap,.bd span{font-size:12.5px!important}
+.measure svg text{font-size:12px}
+.rm b,.rm{font-size:12px!important}
+/* 低6：スマホのヘッダーでも、電話番号の下に受付時間を出す */
+.ui-hours{display:none}
+@media (max-width:520px){.ui-tel-link{flex-direction:column;align-items:flex-end;justify-content:center}.ui-hours{display:block;font-size:12px;color:var(--ink-3);line-height:1.2;white-space:nowrap}}
+/* PCの相談の案内（ページ上部で出る大きい方）は、右下へ。左の実績の欄に重ならないように */
+@media (min-width:980px){#fkenzai-ai-banner{left:auto!important;right:20px!important;bottom:12px!important}}
+/* 低4：人気のバッジがあるカードは、拡大ボタンをバッジの下へ */
+.tile .in:has(.pop) .zoom{top:40px!important}
 </style>
 </head>
 <body>
 <div class="notice"><div class="wrap">金額はメーカーの定価をもとにした目安です（LIXILは2026年10月の値上げ後の定価、YKK APは2026年5月版カタログの価格）。</div></div>
 
 <header class="site"><div class="wrap">
-  <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本・福岡 窓と玄関のリフォーム専門店</small></span></a>
+  <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本 窓と玄関のリフォーム専門店</small></span></a>
   <div class="tel">無料相談 平日 8:00〜17:00<b>0120-914-180</b></div>
 </div></header>
 
 <main>
 <section class="hero" style="padding-block:0"><div class="wrap">
   <div>
-    <div class="kicker">フクシマ建材株式会社｜LIXIL リシェント・YKK AP ドアリモ 玄関ドア・引戸 かんたん見積</div>
+    <div class="kicker">玄関ドア・引戸 かんたん見積</div>
     <h1><span class="ph">選んだ玄関の</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
     <p class="lead">気になる玄関を選ぶと、取り付け工事と古いドアの処分まで入れた概算がその場で分かります。サイズは現地調査で私たちが測ります。</p>
@@ -884,7 +939,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <li>防火地域などで、防火戸が必要なとき</li>
       <li>ポストや手すりの付け替え</li>
       <li>今の枠の下の部分（下枠）を取り外す必要があるとき</li>
-      <li>遠方の方の出張費（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）</li>
+      <li>遠方の方の出張費・諸経費（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）</li>
     </ul>
   </div>
 </div></section>
@@ -990,7 +1045,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 
 <footer><div class="wrap">
   <b>フクシマ建材株式会社</b>
-  <span>熊本オフィス 熊本県菊池市泗水町南田島1099</span>
+  <span>本社 熊本県菊池市泗水町南田島1099</span>
   <span>フリーダイヤル 0120-914-180（平日 8:00〜17:00・日祝休み）</span>
 </div></footer>
 
@@ -1019,7 +1074,7 @@ var HOJO = 10000;
 
 // 性能の説明はカタログ45ページ（断熱性の比較・地域のおすすめ仕様）から。並びはおすすめの順
 var GRADES = [
-  {id:'k4', name:'断熱 k4', badge:'おすすめ', sub:'熊本・福岡の玄関なら、まずはこれで十分です', desc:'扉の中に厚さ40mmの断熱材が入り、ガラスは2枚重ねの複層ガラスです。アルミの玄関と比べて、冬の冷たさが伝わりにくくなります。'},
+  {id:'k4', name:'断熱 k4', badge:'おすすめ', sub:'熊本の玄関なら、まずはこれで十分です', desc:'扉の中に厚さ40mmの断熱材が入り、ガラスは2枚重ねの複層ガラスです。アルミの玄関と比べて、冬の冷たさが伝わりにくくなります。'},
   {id:'k2', name:'断熱 k2', badge:'こだわるなら', sub:'寒さが気になる玄関に', desc:'k4と同じ40mmの断熱材に加えて、枠にも断熱の工夫が入ります。ガラスは熱を通しにくいLow-E複層ガラスです。'},
   {id:'hi', name:'高断熱', badge:'最高クラス', sub:'いちばん暖かい玄関にしたい方に', desc:'扉の断熱材が60mmと厚くなり、ガラスはアルゴンガス入りのLow-E複層ガラスです。'},
   {id:'al', name:'アルミ', badge:'価格重視', sub:'断熱はありません', desc:'扉はアルミで、断熱材は入りません。寒さより金額を優先したい場合の選び方です。'}
@@ -1065,7 +1120,7 @@ var HK_LOCK_RATE = 0.75;
 var Y_RATE = 0.60;
 // 性能の説明はドアリモ 玄関ドア カタログ21ページ（断熱ドアはD50、D30（D2仕様・D4仕様）があります）
 var GRADES_YD = [
-  {id:'d4', name:'D30 D4仕様', badge:'おすすめ', sub:'熊本・福岡の玄関なら、まずはこれで十分です', desc:'厚さ42mmの扉の中に断熱材が入り、ガラスは2枚重ねの複層ガラスです。カタログでも、比較的温暖な地域ならD4仕様で十分とされています。'},
+  {id:'d4', name:'D30 D4仕様', badge:'おすすめ', sub:'熊本の玄関なら、まずはこれで十分です', desc:'厚さ42mmの扉の中に断熱材が入り、ガラスは2枚重ねの複層ガラスです。カタログでも、比較的温暖な地域ならD4仕様で十分とされています。'},
   {id:'d2', name:'D30 D2仕様', badge:'こだわるなら', sub:'冷え込みの強い玄関に', desc:'D4仕様と同じ厚さ42mmの扉に、熱を通しにくいLow-E複層ガラスを組み合わせます。'},
   {id:'d50', name:'D50 高断熱', badge:'最高クラス', sub:'いちばん暖かい玄関にしたい方に', desc:'扉の厚さが70mmになり、ガラスはアルゴンガス入りのトリプルガラス（Low-E膜が2枚）です。'},
   {id:'yal', name:'アルミ', badge:'価格重視', sub:'断熱はありません', desc:'扉はアルミで、断熱材は入りません。寒さより金額を優先したい場合の選び方です。'}
@@ -1695,7 +1750,7 @@ function buildPdfSheet(no, now){
   el.className = 'pdfq';
   var row = function(k, v){ return v ? '<tr><th>'+k+'</th><td>'+esc(v)+'</td></tr>' : ''; };
   el.innerHTML =
-    '<div class="ph"><div class="co"><div><b>フクシマ建材株式会社</b><span>熊本オフィス 熊本県菊池市泗水町南田島1099</span><span>福岡オフィス 福岡市中央区天神2丁目3番10号</span><span>フリーダイヤル 0120-914-180（平日 8:00〜17:00）</span></div></div>'+
+    '<div class="ph"><div class="co"><div><b>フクシマ建材株式会社</b><span>本社 熊本県菊池市泗水町南田島1099</span><span>フリーダイヤル 0120-914-180（平日 8:00〜17:00）</span></div></div>'+
     '<div class="meta">番号 '+no+'<br>作成日 '+now.getFullYear()+'年'+(now.getMonth()+1)+'月'+now.getDate()+'日</div></div>'+
     '<h1>'+(isHK() ? '玄関引戸' : '玄関ドア')+' 概算お見積り</h1><p class="sub">Webの見積シミュレーションで選んだ内容です。金額は工事費込み・税込です。</p>'+
     '<div class="body"><div class="pics"><img class="door" src="'+document.getElementById('st-color').src+'" alt="">'+
@@ -1707,7 +1762,7 @@ function buildPdfSheet(no, now){
     '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年5月版）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
       '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
       (yGlassSep() ? '<li>・袖とランマのガラスはメーカーの別売り品で、この金額に入っていません。ガラス代は現地調査のあとでお伝えします。</li>' : '')+
-      '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費をいただく場合があります。</li>'+
+      '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費・諸経費をいただく場合があります。</li>'+
       '<li>・写真と色見本はカタログから取ったもので、実物と色味が少し違って見えることがあります。</li></ul></div>'+
     '<div class="cta"><b>現地調査のお申し込み・ご相談</b>　フリーダイヤル 0120-914-180／LINE https://lin.ee/UmuaYxJ<br>このページからもお申し込みいただけます：'+esc(location.href.split('#')[0].split('?')[0])+'</div>';
   var wrap = document.createElement('div'); wrap.className = 'pdfq-wrap'; wrap.appendChild(el);
@@ -1967,10 +2022,16 @@ var rbody = document.querySelector('.result .r-body'), list = null;
 if (rbody){ list = document.createElement('ul'); list.className = 'ui-chosen'; list.setAttribute('aria-label', '選んだ内容'); var nm = rbody.querySelector('.r-name'); rbody.insertBefore(list, nm ? nm.nextSibling : rbody.firstChild); }
 
 function refresh(){
-  var rows = [];
+  var rows = [], n = 0;
   cards.forEach(function(c){
     var hidden = c.q.offsetParent === null;
     c.li.hidden = hidden;
+    // 引戸のようにハンドルの手順が無いときも、番号が飛ばないように見えている手順だけで振り直す
+    if (c.no && !hidden){
+      n++;
+      var st = c.q.querySelector('.q-head .step'); if (st && st.textContent !== 'STEP ' + n) st.textContent = 'STEP ' + n;
+      var ic = c.li.querySelector('i'); if (ic && ic.textContent !== String(n)) ic.textContent = n;
+    }
     var v = hidden ? '' : c.pick();
     c.li.querySelector('b').textContent = v || '未選択';
     if (c.val) c.val.textContent = v;
@@ -2069,6 +2130,7 @@ onScroll();
   });
   ['applyForm'].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
   var ul = document.querySelector('.ui-chosen'); if (ul) io.observe(ul);
+  var dg = document.getElementById('o-design'); if (dg) io.observe(dg);
 })();
 
 // 3. スマホの下の帯に、電話ボタン
@@ -2080,7 +2142,95 @@ onScroll();
   a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg><span>電話</span>';
   var btn = bar.querySelector('.btn'); bar.insertBefore(a, btn);
   // 見出しの電話番号も、スマホでは押せるように
-  if (tel){ var wrap = tel.closest('.tel'); if (wrap && !wrap.querySelector('a')){ var link = document.createElement('a'); link.href = 'tel:' + no; link.className = 'ui-tel-link'; tel.parentNode.insertBefore(link, tel); link.appendChild(tel); } }
+  if (tel){ var wrap = tel.closest('.tel'); if (wrap && !wrap.querySelector('a')){ var link = document.createElement('a'); link.href = 'tel:' + no; link.className = 'ui-tel-link'; tel.parentNode.insertBefore(link, tel); link.appendChild(tel); var hr = document.createElement('span'); hr.className = 'ui-hours'; hr.textContent = '平日 8:00〜17:00'; link.appendChild(hr); } }
+})();
+
+// ===== 2026-10-04 検証役の1周目の指摘への対応 =====
+// 高2：選ぶ画面が見えている間は html に ui-sim を付ける（PCの相談の吹き出しを出さない）
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ document.documentElement.classList.toggle('ui-sim', e.isIntersecting); }); });
+  io.observe(sim);
+})();
+
+// 高3：必須の入れ忘れを、その欄の場所で知らせ、最初の欄へ戻す
+(function(){
+  var form = document.getElementById('applyForm'); if (!form) return;
+  var defs = [
+    {id:'f-name', msg:'お名前を入れてください'},
+    {id:'f-tel', msg:'電話番号を入れてください（0から始まる10桁か11桁）'},
+    {id:'f-city', msg:'ご住所を入れてください（市町村まででも大丈夫です）'}
+  ];
+  defs.forEach(function(d){
+    var el = document.getElementById(d.id); if (!el) return;
+    el.setAttribute('aria-required', 'true');
+    var f = el.closest('.field'), m = document.createElement('span');
+    m.className = 'ui-miss'; m.id = d.id + '-miss'; m.textContent = d.msg; f.appendChild(m);
+    el.setAttribute('aria-describedby', ((el.getAttribute('aria-describedby') || '') + ' ' + m.id).trim());
+    d.el = el; d.f = f;
+    el.addEventListener('input', function(){ if (ok(d)){ f.classList.remove('miss'); el.removeAttribute('aria-invalid'); } });
+  });
+  var src = form.querySelector('input[name=source]'), srcField = src && src.closest('.field');
+  if (srcField){
+    var m = document.createElement('span'); m.className = 'ui-miss'; m.textContent = '知ったきっかけを1つ以上選んでください'; srcField.appendChild(m);
+    srcField.setAttribute('role', 'group'); srcField.setAttribute('aria-required', 'true');
+    form.addEventListener('change', function(e){ if (e.target.name === 'source' && form.querySelector('input[name=source]:checked')) srcField.classList.remove('miss'); });
+  }
+  function ok(d){
+    var v = d.el.value.trim();
+    if (d.id === 'f-tel'){ var dg = v.replace(/[^0-9０-９]/g, ''); return dg.length >= 10 && dg.length <= 11; }
+    return v.length > 0;
+  }
+  // 元の送信処理より先に動いて印を付ける。送るかどうかの判断は元の処理のまま
+  form.addEventListener('submit', function(){
+    var first = null;
+    defs.forEach(function(d){ if (!d.el) return; var bad = !ok(d); d.f.classList.toggle('miss', bad); if (bad){ d.el.setAttribute('aria-invalid', 'true'); first = first || d.el; } else d.el.removeAttribute('aria-invalid'); });
+    if (srcField){ var none = !form.querySelector('input[name=source]:checked'); srcField.classList.toggle('miss', none); if (none && !first) first = src; }
+    if (first) setTimeout(function(){ first.focus({preventScroll:true}); first.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'}); }, 0);
+  }, true);
+})();
+
+// 低10：定価の注意書きを、金額のすぐ下へ
+(function(){
+  var n = document.querySelector('.notice .wrap') || document.querySelector('.notice'), price = document.getElementById('r-price');
+  if (!n || !price) return;
+  var p = document.createElement('p'); p.className = 'ui-pricenote'; p.textContent = n.textContent.trim();
+  price.parentNode.appendChild(p);
+})();
+
+// 低14：「申し込む」を押したら、お名前の欄が画面の中ほどに来る位置で止める（キーボードは開かない）
+(function(){
+  var name = document.getElementById('f-name'); if (!name) return;
+  Array.prototype.forEach.call(document.querySelectorAll('a[href="#apply"]'), function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var y = name.getBoundingClientRect().top + scrollY - innerHeight * 0.4;
+      scrollTo({top: y, behavior: reduce ? 'auto' : 'smooth'});
+    });
+  });
+})();
+
+// 中6：人気の順位で、今の開き方に出ないデザインがあるときの一言
+(function(){
+  var grid = document.getElementById('o-design'); if (!grid) return;
+  var note = document.createElement('p'); note.className = 'ui-ranknote'; note.hidden = true;
+  grid.parentNode.insertBefore(note, grid.nextSibling);
+  function check(){
+    var ranks = Array.prototype.map.call(grid.querySelectorAll('.pop'), function(i){ return parseInt(i.textContent.replace(/[^0-9]/g, ''), 10); }).filter(Boolean).sort(function(a, b){ return a - b; });
+    var gap = false;
+    for (var i = 0; i < ranks.length; i++){ if (ranks[i] > (i ? ranks[i - 1] + 1 : 1) && ranks[i] !== ranks[i - 1]) gap = true; }
+    var t = gap ? '人気の順位で表示されていないデザインは、今の開き方では選べない型です。開き方を変えると出てきます。' : '';
+    if (note.textContent !== t) note.textContent = t;
+    note.hidden = !t;
+  }
+  new MutationObserver(check).observe(grid, {childList:true, subtree:true});
+  check();
+})();
+
+// 中5：ページを動かしている間は html に ui-scrolling を付ける（スマホの相談の丸ボタンが文字に重なり続けないように）
+(function(){
+  var t = 0, root = document.documentElement;
+  addEventListener('scroll', function(){ root.classList.add('ui-scrolling'); clearTimeout(t); t = setTimeout(function(){ root.classList.remove('ui-scrolling'); }, 700); }, {passive:true});
 })();
 })();
 </script>
