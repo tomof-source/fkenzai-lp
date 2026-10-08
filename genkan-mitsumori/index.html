@@ -792,6 +792,43 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 /* 低4：人気のバッジがあるカードは、拡大ボタンをバッジの下へ */
 .tile .in:has(.pop) .zoom{top:40px!important}
 </style>
+<style>
+/* First small simplification: presentation only. Pricing and choices unchanged. */
+.hero h1,.sec-title h2,.q-head h3{font-family:var(--sans);letter-spacing:0}
+.hero h1{font-size:clamp(30px,4vw,48px);line-height:1.5}
+.sim-intro .steps,.sim-intro .doors{display:none}
+.sim-intro{display:block;margin-bottom:24px}
+#sim .sec-title .en{display:none}
+@media(max-width:979px){
+ #ui-trail{display:none}
+ .hero{background:#f4f8fb;color:var(--ink)}
+ .hero::before,.hero::after{display:none}
+ .hero .wrap{display:block;padding-block:24px 28px}
+ .hero .kicker{color:var(--blue);font-size:12px;letter-spacing:.04em}
+ .hero .kicker::before{display:none}
+ .hero h1{color:var(--ink);font-size:30px;line-height:1.5;margin-top:10px}
+ .hero h1 .hl{color:var(--blue);background:none}
+ .hero .lead{color:var(--ink-2);font-size:14px;margin-top:12px;line-height:1.8}
+ .hero .photo,.hero .facts,.hero .review-big{display:none}
+ .hero .cta{display:block;margin:20px 0 0}
+ .hero .cta .btn-main{width:100%;box-shadow:none;border-radius:12px;padding:17px 12px;font-size:16px;background:var(--blue)}
+ .hero .cta .btn-sub{display:none}
+ #sim{padding-top:28px}
+ .sim-intro .sec-title{gap:8px}
+ .sim-intro h2{font-size:22px}
+ .sim-intro p{font-size:14px}
+ .q{padding:20px 14px;border-radius:14px;box-shadow:none}
+ .q-head{gap:8px}
+ .q-head h3{font-size:20px}
+ .q-head .ui-val{display:none}
+ .q-head .step{min-width:auto;padding:4px 9px;letter-spacing:0;background:#e8f3fa;color:var(--blue)}
+ .q-note{line-height:1.75}
+ .pricebar .ui-tel{display:none}
+ .pricebar .btn{box-shadow:none;border-radius:10px;min-height:48px}
+ .tile:hover .in,.tile:hover .in img{transform:none}
+ .btn:hover{transform:none}
+}
+</style>
 </head>
 <body>
 <div class="notice"><div class="wrap">金額はメーカーの定価をもとにした目安です（LIXILは2026年10月の値上げ後の定価、YKK APは2026年5月版カタログの価格）。</div></div>
@@ -805,9 +842,9 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 <section class="hero" style="padding-block:0"><div class="wrap">
   <div>
     <div class="kicker">玄関ドア・引戸 かんたん見積</div>
-    <h1><span class="ph">選んだ玄関の</span><span class="ph"><span class="hl">工事費込みの金額</span>が、</span><span class="ph">この画面で</span><span class="ph">わかります。</span></h1>
+    <h1>玄関を選ぶと、<br><span class="hl">工事費込みの目安</span>が<br>すぐわかります。</h1>
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
-    <p class="lead">気になる玄関を選ぶと、取り付け工事と古いドアの処分まで入れた概算がその場で分かります。サイズは現地調査で私たちが測ります。</p>
+    <p class="lead">工事・古いドアの処分まで含めた概算です。<br>サイズは、あとで私たちが測ります。</p>
     <div class="cta"><a class="btn btn-main" href="#sim">玄関を選んで金額を見る</a><a class="btn btn-sub" href="#flow">申し込みの流れ</a></div>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
@@ -820,7 +857,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 
 <section id="sim"><div class="wrap">
   <div class="sim-intro">
-    <div class="sec-title" style="margin-bottom:0"><span class="en">SIMULATION</span><h2>好きな玄関を選んで、金額を見てみましょう</h2><p>LIXILのリシェントと、YKK APのドアリモから選べます。上から順に選ぶと、写真と金額がその都度変わります。スマホでは、画面のいちばん下に金額が出ます。</p>
+    <div class="sec-title" style="margin-bottom:0"><span class="en">SIMULATION</span><h2>上から順に、選ぶだけ。</h2><p>選び直しても大丈夫です。写真と金額がその場で変わります。</p>
       <ol class="steps"><li><i>1</i>断熱</li><li><i>2</i>開き方</li><li><i>3</i>デザイン</li><li><i>4</i>色</li><li><i>5</i>鍵</li><li><i>6</i>ハンドル</li></ol></div>
     <div class="doors" id="intro-doors" aria-hidden="true"></div>
   </div>
@@ -924,14 +961,14 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 </div></section>
 
 <section class="band"><div class="wrap">
-  <div class="sec-title"><span class="en">PROMISE</span><h2>金額のことで、あとから困らないように</h2></div>
+  <div class="sec-title"><span class="en">PROMISE</span><h2>提示している金額について</h2></div>
   <div class="promise">
-    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。本体の値段だけを小さく見せる出し方はしません。遠方の出張費など、画面の金額に加わるものがある場合は、現地調査の前にお伝えします。</p></div>
+    <div><h3>金額は工事費込み・税込</h3><p>ドア本体、取り付け工事、取り付けに使う部材、古いドアの処分まで入れた金額です。通常の工事であれば、表示金額から大幅に変わることはありません。遠方の出張費など、画面の金額に加わるものがある場合は、現地調査の前にお伝えします。</p></div>
     <div><h3>表示はメーカーの定価が元</h3><p>メーカーのカタログに載っている寸法での定価をもとにしています。背の低い玄関などは、実際の寸法で少し変わることがあります。</p></div>
-    <div><h3>現地調査の日に確定</h3><p>寸法と今の枠の状態を確認し、その場で最終の金額をお出しします。工事の日に金額が増えることはありません。</p></div>
+    <div><h3>正式なお見積もりは調査当日に</h3><p>現地調査後、その日のうちに正式なお見積もりをご連絡します。寸法や玄関の状態を確認した内容をご案内し、ご納得いただいてから工事を進めます。</p></div>
   </div>
   <div class="extra">
-    <h3>画面の金額に加わることがあるもの（現地調査で先にお伝えします）</h3>
+    <h3>画面の金額に加わることがあるもの</h3><p>追加工事が必要な場合は、事前に内容と費用をご説明し、ご確認いただいたうえで進めます。</p>
     <ul>
       <li>実際の寸法によって、メーカーの価格の区分が変わるとき</li>
       <li>測った寸法が、選んだドアの取り付けられる範囲から外れたとき</li>
@@ -957,7 +994,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
   <ol class="flow">
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="M9 8.5h6M9 11.5h6M9 14.5h3"/></svg></span><span class="no">STEP 1</span><h3>この画面で金額を確かめる</h3><p>気になるドアを選ぶと、工事費込みの金額がすぐに出ます。ご家族と相談するときは、見積書をPDFで保存しておくと便利です。</p></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v11H8l-4 3.5z"/><path d="M8 9.5h8M8 12.5h5"/></svg></span><span class="no">STEP 2</span><h3>現地調査を申し込む</h3><p>選んだドアと金額は、そのまま私たちに届きます。今の玄関の写真を1枚付けていただけると、当日の確認がぐっと早くなります。</p></li>
-    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v4M11 7v3M15 7v4M19 7v3"/></svg></span><span class="no">STEP 3</span><h3>現地調査にお伺いします</h3><p>寸法と今の枠の状態を確かめて、その場で最終のお見積りをお出しします。何度もお時間をいただくことはありません。</p><span class="tag">30分ほど</span></li>
+    <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v4M11 7v3M15 7v4M19 7v3"/></svg></span><span class="no">STEP 3</span><h3>現地調査にお伺いします</h3><p>寸法と今の枠の状態を確かめます。現地調査後、その日のうちに正式なお見積もりをご連絡します。</p><span class="tag">30分ほど</span></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 11h16M4 16h10"/><path d="M17 15l2 2 3-4"/></svg></span><span class="no">STEP 4</span><h3>お見積りの内容を検討</h3><p>最終の金額と工事内容を見て、ご家族とも相談しながらご検討ください。</p></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></span><span class="no">STEP 5</span><h3>ご契約・工事日を相談</h3><p>内容が決まったら、ご契約と工事の日程を相談します。</p></li>
     <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="1"/><path d="M15 12h.01"/><path d="M3 21.5h18"/></svg></span><span class="no">STEP 6</span><h3>工事は1日で終わります</h3><p>今のドア枠の上から新しい枠をかぶせるカバー工法なので、壁や床を壊しません。その日のうちに、新しい玄関ドアで過ごせます。</p><span class="tag">1日で交換</span></li>
@@ -966,7 +1003,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 
 <section class="band"><div class="wrap">
   <div class="sec-title"><span class="en">Q&amp;A</span><h2>申し込みの前に</h2></div>
-  <details><summary>本当に画面の金額から変わりませんか</summary><p>画面の金額はメーカーの定価をもとにした目安です。実際の寸法や今の玄関の状態で変わる場合は、現地調査の場で理由と金額をお伝えし、納得いただいてから決めていただきます。工事の日に金額が増えることはありません。</p></details>
+  <details><summary>表示金額と正式なお見積もりはどう違いますか</summary><p>表示金額はメーカーの定価をもとにした目安です。通常の工事であれば、大幅に変わることはありません。寸法による価格区分の違いや追加工事がある場合は、理由と費用をご説明します。現地調査後、その日のうちに正式なお見積もりをご連絡し、ご確認いただいたうえで進めます。</p></details>
   <details><summary>補助金は使えますか</summary><p>断熱の性能によっては、国の補助金の対象になる場合があります。対象かどうかと金額は、時期や条件により異なります。現地調査のときに確認してお伝えします。</p></details>
   <details><summary>工事の日は家にいないといけませんか</summary><p>工事の始めと終わりの確認のために、いていただきます。工事は1日で終わります。</p></details>
   <details><summary>実物を見てから決めたいです</summary><p>菊池市泗水町の体験型ショールーム「マドラボ」で、玄関ドアの実物を見て触っていただけます。色見本の貸出もしています。</p></details>
@@ -982,7 +1019,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <p>会社を始めた父が一番大事にしていたのは、誠実であることでした。その姿を見て育ったので、私もお客様には正直に向き合うと決めています。</p>
       <p>玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で取り替えます。壁や床を壊さないので、工事は1日で終わります。以前、玄関を取り替えたお客様から、軽く開けやすくなったと言っていただきました。毎日何度も開け閉めする場所だからこそ、こういう一言が一番うれしいものです。</p>
       <p>このページの金額は、取り付け工事と古いドアの処分まで入れた金額です。あとから工事費が足されて高くなる、ということがないようにしました。</p>
-      <p>現地調査では私たちが寸法を測り、その場で最終の金額をお伝えします。御見積りまでは無料です。お気軽にどうぞ。</p>
+      <p>現地調査では私たちが寸法と玄関の状態を確認し、その日のうちに正式なお見積もりをご連絡します。お見積もりまでは無料です。お気軽にどうぞ。</p>
     </div>
   </div>
 </div></section>
@@ -1404,7 +1441,7 @@ function fitCheck(){
   } else if (res.partial){
     res.text = (w ? '幅' : '高さ') + 'は範囲に入っています。もう一方も入れると確かめられます。';
   } else {
-    res.text = '取り付けられる範囲に入っています。金額は現地調査で寸法を確かめて確定します。';
+    res.text = '取り付けられる範囲に入っています。正式なお見積もりは、現地調査後、その日のうちにご連絡します。';
   }
   res.label = res.ng ? '範囲外の見込み' : res.ok ? '範囲内の見込み' : '一部のみ入力';
   res.measured = (w ? '幅 '+(w/10).toFixed(1)+'cm' : '') + (w && h ? '・' : '') + (h ? '高さ '+(h/10).toFixed(1)+'cm' : '');
@@ -1759,7 +1796,7 @@ function buildPdfSheet(no, now){
       row('取り付けられるサイズ', q.size ? q.size + 'mm（新しい枠）' : '')+row('お客様の採寸', q.measured ? q.measured + '（' + q.fit + '）' : '')+'</table>'+
     '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
     '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
-    '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年5月版）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめて、最終の金額をお出しします。</li>'+
+    '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年5月版）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめた後、その日のうちに正式なお見積もりをご連絡します。</li>'+
       '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
       (yGlassSep() ? '<li>・袖とランマのガラスはメーカーの別売り品で、この金額に入っていません。ガラス代は現地調査のあとでお伝えします。</li>' : '')+
       '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費・諸経費をいただく場合があります。</li>'+
@@ -2112,7 +2149,7 @@ onScroll();
   var sub = form.querySelector('button[type=submit]');
   if (sub){
     var ok = document.createElement('ul'); ok.className = 'ui-assure';
-    ok.innerHTML = '<li>現地調査・お見積りは無料</li><li>ご契約は、最終のお見積りを見てから</li><li>工事の日に金額が増えることはありません</li>';
+    ok.innerHTML = '<li>現地調査・お見積りは無料</li><li>ご契約は、最終のお見積りを見てから</li><li>追加工事が必要な場合は、事前に内容と費用をご説明します</li>';
     sub.parentNode.insertBefore(ok, sub.nextSibling);
   }
   // 見積パネルの申し込みボタンにも同じ一言
@@ -2237,3 +2274,4 @@ onScroll();
 <script src="https://fkenzai-ai-hisho.pages.dev/widget/fkenzai-ai.js" defer></script>
 </body>
 </html>
+
