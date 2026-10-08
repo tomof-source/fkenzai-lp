@@ -809,7 +809,18 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
  .hero h1{color:var(--ink);font-size:30px;line-height:1.5;margin-top:10px}
  .hero h1 .hl{color:var(--blue);background:none}
  .hero .lead{color:var(--ink-2);font-size:14px;margin-top:12px;line-height:1.8}
- .hero .photo,.hero .facts,.hero .review-big{display:none}
+ .hero .photo{display:none}
+ /* 2026-10-08 福嶋さん指示：口コミと実績の数字はスマホの最初の画面にも残す（明るい背景用の色） */
+ .hero .review-big{display:grid;max-width:none;margin-top:14px;background:#FFFBEF;border-color:#F1D48A;color:var(--ink)}
+ .hero .review-big .g{color:var(--ink-2)}
+ .hero .review-big .g b{color:var(--ink)}
+ .hero .review-big .stars{color:#F4B400}
+ .hero .review-big .cnt{color:var(--ink-2)}
+ .hero .review-big u{color:var(--blue)}
+ .hero .facts{display:grid;margin-top:18px;border-color:var(--line)}
+ .hero .facts div{color:var(--ink-2)}
+ .hero .facts div+div{border-color:var(--line)}
+ .hero .facts b{color:var(--ink);font-size:17px}
  .hero .cta{display:block;margin:20px 0 0}
  .hero .cta .btn-main{width:100%;box-shadow:none;border-radius:12px;padding:17px 12px;font-size:16px;background:var(--blue)}
  .hero .cta .btn-sub{display:none}
@@ -1018,7 +1029,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <p>私はサッシ屋の2代目で、もともとは現場の職人でした。今も現場に出ると、やっぱり楽しくなります。</p>
       <p>会社を始めた父が一番大事にしていたのは、誠実であることでした。その姿を見て育ったので、私もお客様には正直に向き合うと決めています。</p>
       <p>玄関ドアは、今の枠の上から新しい枠をかぶせるカバー工法で取り替えます。壁や床を壊さないので、工事は1日で終わります。以前、玄関を取り替えたお客様から、軽く開けやすくなったと言っていただきました。毎日何度も開け閉めする場所だからこそ、こういう一言が一番うれしいものです。</p>
-      <p>このページの金額は、取り付け工事と古いドアの処分まで入れた金額です。あとから工事費が足されて高くなる、ということがないようにしました。</p>
+      <p>このページの金額は、取り付け工事と古いドアの処分まで入れた金額です。通常の工事であれば、ここから大きく変わることはありません。追加の工事が必要なときは、先に内容と費用をご説明します。</p>
       <p>現地調査では私たちが寸法と玄関の状態を確認し、その日のうちに正式なお見積もりをご連絡します。お見積もりまでは無料です。お気軽にどうぞ。</p>
     </div>
   </div>
