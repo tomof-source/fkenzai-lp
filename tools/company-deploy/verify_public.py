@@ -44,20 +44,25 @@ refs = sorted(set(re.findall(r'img/[^"\'\\\s<>]+?\?v=[0-9a-f]{10}', built.decode
 
 
 def head(ref):
-    for _ in range(3):
+    # 共有サーバーが一時的に断ったとき（429・5xx・通信の失敗）に誤って「欠けている」と判定して
+    # 戻しが起きないよう、間を広げながら4回まで聞き直す。404 は本当に無いのですぐ失敗にする
+    for wait in (3, 8, 15, 0):
         try:
             # 日本語の名前の画像（img/ydoor/kind/両袖.svg など）があるので、URL用に変換して問い合わせる
             status, _ = fetch(public_url + urllib.parse.quote(ref, safe='/?=-_.~'), 'HEAD')
             return ref, status
         except urllib.error.HTTPError as e:
             last = e.code
+            if e.code == 404:
+                return ref, last
         except Exception as e:
             last = str(e)
-        time.sleep(2)
+        time.sleep(wait)
     return ref, last
 
 
-with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:
+# 会社サイトと同じ共有サーバーなので、同時に聞くのは4本までにする
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
     bad = [(r, s) for r, s in ex.map(head, refs) if s != 200]
 if bad:
     sys.exit(f'公開URLで読めない画像が {len(bad)} 件: ' + ', '.join(f'{r} ({s})' for r, s in bad[:10]))
