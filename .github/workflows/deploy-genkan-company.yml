@@ -1,0 +1,105 @@
+# 玄関見積LPを会社サーバー（https://f-kenzai.com/genkan-mitsumori/）へ送る。
+# genkan-mitsumori/ を直して main に入れると自動で動く。Actions 画面の「Run workflow」からも動かせる。
+# 流れ：組み立て → ブラウザで確認（落ちたら送らない）→ サーバーの今の版を控える → 画像 → index.html の順に送る → 公開URLと突き合わせ
+# 設定と戻し方は tools/company-deploy/README.md
+name: 玄関見積LPを会社サーバーへ反映
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'genkan-mitsumori/**'
+      - 'tools/company-deploy/**'
+      - '.github/workflows/deploy-genkan-company.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-genkan-company
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SSH_HOST: ${{ vars.XSERVER_HOST }}
+      SSH_USER: ${{ vars.XSERVER_USER }}
+      SSH_PORT: '10022'
+      REMOTE_DIR: ${{ vars.XSERVER_GENKAN_DIR }}
+      PUBLIC_URL: https://f-kenzai.com/genkan-mitsumori/
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 組み立て（data.json を index.html に埋め込む）
+        run: python3 tools/company-deploy/build_genkan.py genkan-mitsumori dist/genkan-mitsumori
+
+      - name: 送る前にブラウザで確認
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+          node tools/company-deploy/check_built.mjs dist/genkan-mitsumori
+
+      - name: サーバーの設定がそろっているか
+        id: ready
+        env:
+          SSH_KEY: ${{ secrets.XSERVER_SSH_KEY }}
+          KNOWN_HOSTS: ${{ vars.XSERVER_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$REMOTE_DIR" ] || [ -z "$SSH_KEY" ] || [ -z "$KNOWN_HOSTS" ]; then
+            echo "::warning::サーバーの設定が未登録なので、組み立てと確認だけで終わります（送信はしていません）"
+            echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: SSH の準備
+        if: steps.ready.outputs.go == 'true'
+        env:
+          SSH_KEY: ${{ secrets.XSERVER_SSH_KEY }}
+          KNOWN_HOSTS: ${{ vars.XSERVER_KNOWN_HOSTS }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          # 相手のサーバーが本物かは、登録しておいた指紋で確かめる（毎回取り直さない）
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts && chmod 644 ~/.ssh/known_hosts
+          echo "SSH_CMD=ssh -p $SSH_PORT -i $HOME/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o BatchMode=yes" >> "$GITHUB_ENV"
+
+      - name: サーバーの今の版を控える（直近10回分）
+        if: steps.ready.outputs.go == 'true'
+        run: |
+          $SSH_CMD "$SSH_USER@$SSH_HOST" bash -s -- "$REMOTE_DIR" <<'EOS'
+          set -eu
+          dir="$1"
+          mkdir -p "$HOME/lp_backup"
+          if [ -d "$dir" ]; then
+            tar czf "$HOME/lp_backup/genkan-mitsumori_$(date +%Y%m%d-%H%M%S).tgz" -C "$(dirname "$dir")" "$(basename "$dir")"
+          fi
+          ls -1t "$HOME"/lp_backup/genkan-mitsumori_*.tgz 2>/dev/null | tail -n +11 | xargs -r rm --
+          ls -1t "$HOME"/lp_backup/ | head -3
+          EOS
+
+      - name: 送る（画像を先に、index.html を最後に）
+        if: steps.ready.outputs.go == 'true'
+        run: |
+          $SSH_CMD "$SSH_USER@$SSH_HOST" "mkdir -p '$REMOTE_DIR/img'"
+          rsync -rlptz --chmod=D755,F644 -e "$SSH_CMD" dist/genkan-mitsumori/img/ "$SSH_USER@$SSH_HOST:$REMOTE_DIR/img/"
+          rsync -lptz --chmod=F644 -e "$SSH_CMD" dist/genkan-mitsumori/index.html "$SSH_USER@$SSH_HOST:$REMOTE_DIR/index.html"
+
+      - name: 公開URLと突き合わせ
+        if: steps.ready.outputs.go == 'true'
+        run: |
+          want=$(sha256sum dist/genkan-mitsumori/index.html | cut -d' ' -f1)
+          for i in 1 2 3 4 5 6; do
+            got=$(curl -fsS -H 'Cache-Control: no-cache' "${PUBLIC_URL}?v=${GITHUB_SHA}-${i}" | sha256sum | cut -d' ' -f1 || true)
+            if [ "$got" = "$want" ]; then echo "公開ページが新しい版になりました: $PUBLIC_URL"; exit 0; fi
+            sleep 10
+          done
+          echo "::error::送ったファイルと公開ページの中身が一致しません（キャッシュか置き場所の違いを確認）"
+          exit 1
