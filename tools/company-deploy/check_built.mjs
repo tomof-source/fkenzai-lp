@@ -44,22 +44,28 @@ try {
     await page.waitForTimeout(1500);
     const result = await page.evaluate(async () => {
       for (let y = 0; y <= document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
-      await new Promise(r => setTimeout(r, 1500));
       const imgs = [...document.images].filter(i => i.getAttribute('src'));
+      // 読み込み途中の画像を「欠けていない」と見なさないよう、全部の読み込みが終わるまで待つ（最大15秒）
+      for (let t = 0; t < 150 && imgs.some(i => !i.complete); t++) await new Promise(r => setTimeout(r, 100));
+      const priceText = (document.body.innerText.match(/¥\s?([0-9]{1,3}(?:,[0-9]{3})+)/) || [])[1] || '';
       return {
-        fetchedJson: performance.getEntriesByType('resource').some(e => e.name.endsWith('data.json')),
-        price: (document.body.innerText.match(/¥\s?[0-9]{3},[0-9]{3}/) || [])[0] || null,
+        fetchedJson: performance.getEntriesByType('resource').some(e => e.name.split('?')[0].endsWith('data.json')),
+        price: priceText ? Number(priceText.replace(/,/g, '')) : null,
+        pending: imgs.filter(i => !i.complete).map(i => i.getAttribute('src')).slice(0, 10),
         broken: imgs.filter(i => i.complete && i.naturalWidth === 0).map(i => i.getAttribute('src')).slice(0, 10),
         hscroll: document.documentElement.scrollWidth > window.innerWidth,
         tel: !!document.querySelector('a[href^="tel:0120914180"]'),
       };
     });
     if (result.fetchedJson) problems.push(`[${width}] data.json を読みに行っている`);
+    // 最初の金額は値上げなどで変わるので固定はしない。ただし桁がおかしい（0円・数千万円）なら止める
     if (!result.price) problems.push(`[${width}] 金額が表示されない`);
+    else if (result.price < 100000 || result.price > 3000000) problems.push(`[${width}] 最初の金額が想定外: ¥${result.price.toLocaleString()}`);
+    if (result.pending.length) problems.push(`[${width}] 読み込みが終わらない画像: ${result.pending.join(', ')}`);
     if (result.broken.length) problems.push(`[${width}] 表示されない画像: ${result.broken.join(', ')}`);
     if (result.hscroll) problems.push(`[${width}] 横にはみ出している`);
     if (!result.tel) problems.push(`[${width}] 電話のリンク（0120914180）が無い`);
-    console.log(`幅${width}: 最初の金額 ${result.price}`);
+    console.log(`幅${width}: 最初の金額 ¥${result.price ? result.price.toLocaleString() : '-'}`);
     await page.close();
   }
 } finally {
