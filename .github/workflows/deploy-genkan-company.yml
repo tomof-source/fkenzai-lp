@@ -1,7 +1,8 @@
 # 玄関見積LPを会社サーバー（https://f-kenzai.com/genkan-mitsumori/）へ送る。
 # genkan-mitsumori/ を直して main に入れると自動で動く。Actions 画面の「Run workflow」からも動かせる（main のときだけ送る）。
 # 流れ：組み立て → ブラウザで確認（落ちたら送らない）→ サーバーの今の版を控える → 画像 → index.html の順に送る
-#       → 公開URLで index.html と全画像を確認 → 落ちたらその回の控えから自動で戻す
+#       → 公開URLで index.html と全画像を確認 → 落ちたらその回の控えから自動で戻し、戻ったかも確かめる
+# 接続先（ホスト・ユーザー・置き場所・指紋）も Secrets に置く。公開リポジトリの実行ログでは *** に伏せられる
 # 設定・止め方・戻し方は tools/company-deploy/README.md
 name: 玄関見積LPを会社サーバーへ反映
 
@@ -28,10 +29,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      SSH_HOST: ${{ vars.XSERVER_HOST }}
-      SSH_USER: ${{ vars.XSERVER_USER }}
+      SSH_HOST: ${{ secrets.XSERVER_HOST }}
+      SSH_USER: ${{ secrets.XSERVER_USER }}
       SSH_PORT: '10022'
-      REMOTE_DIR: ${{ vars.XSERVER_GENKAN_DIR }}
+      REMOTE_DIR: ${{ secrets.XSERVER_GENKAN_DIR }}
       PUBLIC_URL: https://f-kenzai.com/genkan-mitsumori/
     steps:
       - uses: actions/checkout@v5
@@ -53,10 +54,8 @@ jobs:
         id: ready
         env:
           SSH_KEY: ${{ secrets.XSERVER_SSH_KEY }}
-          KNOWN_HOSTS: ${{ vars.XSERVER_KNOWN_HOSTS }}
+          KNOWN_HOSTS: ${{ secrets.XSERVER_KNOWN_HOSTS }}
         run: |
-          # 公開リポジトリの実行ログに接続先が出ないよう伏せる
-          for v in "$SSH_HOST" "$SSH_USER" "$REMOTE_DIR"; do [ -n "$v" ] && echo "::add-mask::$v"; done
           if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$REMOTE_DIR" ] || [ -z "$SSH_KEY" ] || [ -z "$KNOWN_HOSTS" ]; then
             if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
               echo "::warning::サーバーの設定が未登録なので、組み立てと確認だけで終わります（送信はしていません）"
@@ -76,7 +75,7 @@ jobs:
         if: steps.ready.outputs.go == 'true'
         env:
           SSH_KEY: ${{ secrets.XSERVER_SSH_KEY }}
-          KNOWN_HOSTS: ${{ vars.XSERVER_KNOWN_HOSTS }}
+          KNOWN_HOSTS: ${{ secrets.XSERVER_KNOWN_HOSTS }}
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
@@ -129,4 +128,15 @@ jobs:
           dir="$1"; name="$2"
           tar xzf "$HOME/lp_backup/$name" -C "$(dirname "$dir")"
           EOS
-          echo "::error::公開ページを送る前の版（~/lp_backup/${{ steps.backup.outputs.name }}）に戻しました。原因を直してから main に入れ直してください"
+          # 戻したあと、公開ページが控えの index.html と同じになったかを確かめる
+          want=$($SSH_CMD "$SSH_USER@$SSH_HOST" "tar -xzOf \"\$HOME/lp_backup/${{ steps.backup.outputs.name }}\" genkan-mitsumori/index.html" | sha256sum | cut -d' ' -f1)
+          for i in 1 2 3 4 5 6; do
+            got=$(curl -fsS -H 'Cache-Control: no-cache' "${PUBLIC_URL}?rollback=${GITHUB_RUN_ID}-${i}" | sha256sum | cut -d' ' -f1 || true)
+            if [ "$got" = "$want" ]; then
+              echo "::error::公開ページを送る前の版（~/lp_backup/${{ steps.backup.outputs.name }}）に戻しました（公開URLで一致を確認）。原因を直してから main に入れ直してください"
+              exit 1
+            fi
+            sleep 10
+          done
+          echo "::error::送る前の版に戻そうとしましたが、公開ページが控えと一致しません。公開ページを開いて表示を確かめ、README の「サーバーから直接戻すとき」の手順か、TASARTさんへの連絡で対応してください"
+          exit 1
