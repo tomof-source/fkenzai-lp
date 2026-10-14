@@ -48,7 +48,11 @@ async function checkAnalytics(page, width) {
     if (radio) { radio.click(); await wait(300); }
     document.getElementById('r-price').scrollIntoView({ block: 'center' }); await wait(800);
     click('a[href="#apply"]'); await wait(300);
-    const name = document.getElementById('f-name'); name.focus(); name.value = 'テスト確認太郎'; await wait(200);
+    const name = document.getElementById('f-name'); name.focus(); name.value = 'テスト確認太郎';
+    // 名前・電話・住所・メールは記録に入ってはいけない。入れたうえで、あとで記録の中を探す
+    const fill = (id, v) => { const el = document.getElementById(id); if (el) { el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); } };
+    fill('f-tel', '090-1234-9876'); fill('f-city', '熊本県テスト市確認町'); fill('f-mail', 'pii-check@example.com'); fill('f-memo', 'メモの確認文');
+    await wait(200);
     click('a[href^="tel:"]'); click('a[href*="lin.ee"]'); click('#pdfBtn'); await wait(300);
     document.getElementById('done').hidden = false; await wait(300);
     const events = (window.dataLayer || []).filter(x => x && x[0] === 'event').map(x => ({ name: x[1], params: x[2] || {} }));
@@ -61,7 +65,9 @@ async function checkAnalytics(page, width) {
   }
   // フクろう親方のチャット（chat_*）も gtag があれば自分で記録を送る。ここで見るのはこのページの記録（genkan_*・tap_*）だけ
   if (r.events.some(e => /^(genkan_|tap_)/.test(e.name) && e.params.send_to !== 'G-9WQ5XXEYR8')) problems.push(`[${width}] 送り先が G-9WQ5XXEYR8 でない記録がある`);
-  if (r.raw.includes('テスト確認太郎')) problems.push(`[${width}] 入力した名前が記録に入っている`);
+  for (const v of ['テスト確認太郎', '090-1234-9876', '09012349876', 'テスト市確認町', 'pii-check@example.com', 'メモの確認文']) {
+    if (r.raw.includes(v)) problems.push(`[${width}] 入力した個人の情報が記録に入っている: ${v}`);
+  }
   const done = r.events.find(e => e.name === 'genkan_apply_complete');
   if (done && !(done.params.value > 0)) problems.push(`[${width}] 申し込み完了の記録に金額が無い`);
   console.log(`幅${width}: 記録 ${names.join(', ')}`);
