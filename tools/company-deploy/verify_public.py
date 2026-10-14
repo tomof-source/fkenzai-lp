@@ -11,6 +11,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 
 built_path, public_url = sys.argv[1], sys.argv[2]
@@ -45,7 +46,8 @@ refs = sorted(set(re.findall(r'img/[^"\'\\\s<>]+?\?v=[0-9a-f]{10}', built.decode
 def head(ref):
     for _ in range(3):
         try:
-            status, _ = fetch(public_url + ref, 'HEAD')
+            # 日本語の名前の画像（img/ydoor/kind/両袖.svg など）があるので、URL用に変換して問い合わせる
+            status, _ = fetch(public_url + urllib.parse.quote(ref, safe='/?=-_.~'), 'HEAD')
             return ref, status
         except urllib.error.HTTPError as e:
             last = e.code
