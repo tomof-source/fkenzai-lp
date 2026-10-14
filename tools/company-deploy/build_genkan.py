@@ -64,6 +64,19 @@ js = (json.dumps(data, ensure_ascii=False, separators=(',', ':'))
 pos = html.rfind('<script', 0, html.index(MARKER))
 html = html[:pos] + '<script>window.__DATA=' + js + ';</script>\n' + html[pos:]
 
+# アクセス解析（GA4「公式」）。会社サーバー版にだけ入れ、GitHub Pages の試験用の写しには入れない
+GA_ID = 'G-9WQ5XXEYR8'
+GA_HEAD = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>\n'
+           '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+           "gtag('js',new Date());gtag('config','" + GA_ID + "');</script>\n")
+analytics = (pathlib.Path(__file__).parent / 'analytics.js').read_text(encoding='utf-8')
+if '</script' in analytics.lower():
+    sys.exit('analytics.js に </script が含まれていて、ページに埋め込めない')
+if html.count('</head>') != 1 or html.count('</body>') != 1:
+    sys.exit('index.html の </head> か </body> が1つではないので、計測を差し込めない')
+html = html.replace('</head>', GA_HEAD + '</head>', 1)
+html = html.replace('</body>', '<script>\n' + analytics + '</script>\n</body>', 1)
+
 if OUT.exists():
     shutil.rmtree(OUT)
 OUT.mkdir(parents=True)

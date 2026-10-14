@@ -31,6 +31,42 @@ const server = http.createServer((req, res) => {
 await new Promise(r => server.listen(0, '127.0.0.1', r));
 const base = `http://127.0.0.1:${server.address().port}/`;
 
+// アクセス解析：お客様と同じ操作をして、GA4 へ送る記録（dataLayer）が作られるかを見る。
+// 個人の情報（入力した名前）が記録に入っていないことも確かめる
+async function checkAnalytics(page, width) {
+  const r = await page.evaluate(async () => {
+    const wait = ms => new Promise(res => setTimeout(res, ms));
+    // 電話・LINE のリンクは押しても移動しないようにする（記録だけ見る）
+    window.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a');
+      if (a && /^tel:|lin\.ee/.test(a.getAttribute('href') || '')) e.preventDefault();
+    }, true);
+    const click = sel => { const el = document.querySelector(sel); if (el) el.click(); return !!el; };
+    window.scrollTo(0, 0); await wait(200);
+    click('a[href="#sim"]'); await wait(300);
+    const radio = [...document.querySelectorAll('#sim input[type=radio]')].find(x => !x.checked && !x.disabled);
+    if (radio) { radio.click(); await wait(300); }
+    document.getElementById('r-price').scrollIntoView({ block: 'center' }); await wait(800);
+    click('a[href="#apply"]'); await wait(300);
+    const name = document.getElementById('f-name'); name.focus(); name.value = 'テスト確認太郎'; await wait(200);
+    click('a[href^="tel:"]'); click('a[href*="lin.ee"]'); click('#pdfBtn'); await wait(300);
+    document.getElementById('done').hidden = false; await wait(300);
+    const events = (window.dataLayer || []).filter(x => x && x[0] === 'event').map(x => ({ name: x[1], params: x[2] || {} }));
+    return { hasGtag: typeof window.gtag === 'function', events, raw: JSON.stringify(window.dataLayer || []) };
+  });
+  const names = r.events.map(e => e.name);
+  if (!r.hasGtag) problems.push(`[${width}] GA4 のタグ（gtag）が入っていない`);
+  for (const n of ['genkan_start', 'genkan_select', 'genkan_quote_view', 'genkan_apply_open', 'genkan_form_start', 'tap_tel', 'tap_line', 'genkan_pdf_save', 'genkan_apply_complete']) {
+    if (!names.includes(n)) problems.push(`[${width}] 記録が作られない: ${n}`);
+  }
+  // フクろう親方のチャット（chat_*）も gtag があれば自分で記録を送る。ここで見るのはこのページの記録（genkan_*・tap_*）だけ
+  if (r.events.some(e => /^(genkan_|tap_)/.test(e.name) && e.params.send_to !== 'G-9WQ5XXEYR8')) problems.push(`[${width}] 送り先が G-9WQ5XXEYR8 でない記録がある`);
+  if (r.raw.includes('テスト確認太郎')) problems.push(`[${width}] 入力した名前が記録に入っている`);
+  const done = r.events.find(e => e.name === 'genkan_apply_complete');
+  if (done && !(done.params.value > 0)) problems.push(`[${width}] 申し込み完了の記録に金額が無い`);
+  console.log(`幅${width}: 記録 ${names.join(', ')}`);
+}
+
 // 手元で試すときは CHROMIUM_PATH で入っているブラウザを指せる（GitHub上では指定しない）
 const browser = await chromium.launch(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {});
 try {
@@ -38,6 +74,8 @@ try {
     const page = await browser.newPage({ viewport: { width, height: 844 } });
     // 外への送信（申し込み・PDF保存）は止める。確かめるのは表示だけ
     await page.route(/script\.google\.com/, r => r.abort());
+    // GA4 への通信も止める（試験の記録を本番の数字に混ぜない）。記録が作られたかは dataLayer で見る
+    await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.abort());
     page.on('pageerror', e => problems.push(`[${width}] 画面のエラー: ${e.message}`));
     page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400) problems.push(`[${width}] 読めない: ${r.url().slice(base.length)} (${r.status()})`); });
     await page.goto(base, { waitUntil: 'load' });
@@ -45,8 +83,8 @@ try {
     const result = await page.evaluate(async () => {
       for (let y = 0; y <= document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
       const imgs = [...document.images].filter(i => i.getAttribute('src'));
-      // 読み込み途中の画像を「欠けていない」と見なさないよう、全部の読み込みが終わるまで待つ（最大15秒）
-      for (let t = 0; t < 150 && imgs.some(i => !i.complete); t++) await new Promise(r => setTimeout(r, 100));
+      // 読み込み途中の画像を「欠けていない」と見なさないよう、全部の読み込みが終わるまで待つ（最大30秒）
+      for (let t = 0; t < 300 && imgs.some(i => !i.complete); t++) await new Promise(r => setTimeout(r, 100));
       const priceText = (document.body.innerText.match(/¥\s?([0-9]{1,3}(?:,[0-9]{3})+)/) || [])[1] || '';
       return {
         fetchedJson: performance.getEntriesByType('resource').some(e => e.name.split('?')[0].endsWith('data.json')),
@@ -66,6 +104,7 @@ try {
     if (result.hscroll) problems.push(`[${width}] 横にはみ出している`);
     if (!result.tel) problems.push(`[${width}] 電話のリンク（0120914180）が無い`);
     console.log(`幅${width}: 最初の金額 ¥${result.price ? result.price.toLocaleString() : '-'}`);
+    if (width === 390) await checkAnalytics(page, width);
     await page.close();
   }
 } finally {
