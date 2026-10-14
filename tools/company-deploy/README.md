@@ -11,7 +11,7 @@ GitHub Pages（https://tomof-source.github.io/fkenzai-lp/genkan-mitsumori/）は
 2. check_built.mjs：組み立てたものをブラウザで開き、金額が出る（10万〜300万円の範囲）・画像が全部出る・横にはみ出さない・申し込み先・電話・LINE がそろっている、を幅390と1280で確かめる。1つでも落ちたら送らない
 3. サーバーの今の genkan-mitsumori フォルダを ~/lp_backup/ に固めて控える
    ・genkan-mitsumori_original.tgz：TASARTさんが最初に置いた版。消さない
-   ・genkan-mitsumori_日時.tgz：送るたびの控え。直近10回分を残す（1回あたり約20MB。写真が約22MBあり、jpg はほとんど縮まないため）
+   ・genkan-mitsumori_日時.tgz：送るたびの控え。直近10回分を残す（1回あたり約15MB。2026-10-14 の実測。写真がほとんど縮まないため、写真の量にほぼ比例する）
 4. 画像を先に、index.html を最後に送る（rsync。途中で切れても古いページが欠けた画像を探す形にしない）。サーバー側の不要ファイル（古い data.json など）は消さない
 5. verify_public.py：公開URLの index.html が送ったものと同じか、参照している画像が全部 200 で返るかを外から確かめる（画像の確認に数分かかる。全体で10分前後）
 6. 3〜5 のどこかで落ちたら、その回の控えから自動で戻し、公開ページが控えと同じになったかも確かめる
@@ -28,6 +28,15 @@ GitHub Pages（https://tomof-source.github.io/fkenzai-lp/genkan-mitsumori/）は
 　・「送る」「公開URLで確認」で落ちた：最後の段で、送る前の版へ自動で戻している。ログに「戻しました（公開URLで一致を確認）」と出ていれば、お客様には前の版が見えている。原因を直して入れ直す
 　・ログに「控えと一致しません」と出た：戻しがうまくいっていない。公開ページを開いて表示を確かめ、下の「サーバーから直接戻すとき」で戻すか、SSH が使えなければTASARTさんに控え（~/lp_backup）からの復元を頼む
 　・SSH でつながらない：TASARTさんにSSH設定がオンのままか、公開鍵が登録されたままか、国外アクセス制限がオフかを確認してもらう
+
+アクセス解析（GA4）
+・会社サーバー版にだけ、GA4「公式」（G-9WQ5XXEYR8）のタグと analytics.js を差し込む（build_genkan.py）。GitHub Pages の試験用の写しには入らない
+・記録の名前：genkan_start（見積開始）／genkan_select（選択。field と choice）／genkan_quote_view（金額欄を初めて見た）／genkan_apply_open（申し込み欄へ）／genkan_form_start（入力を始めた）／genkan_apply_complete（申し込み完了。value・item_name・source・with_photo）／genkan_apply_error／genkan_pdf_save／genkan_info_open
+・電話と LINE は会社サイトの WordPress と同じ tap_tel ／ tap_line（cta_area は genkan_lp）。会社全体の問い合わせ数にも入る
+・名前・電話番号・住所・メールは送らない（check_built.mjs が、入力した名前が記録に入らないことを確かめる）
+・送る前の確認では GA4 への通信を止めて、記録が作られることだけを見る（試験の記録を本番の数字に混ぜない）
+・ページ本体のコードは変えていない。部品の id（bar-price・r-name・r-price・done・err・applyForm・pdfBtn・sim）や href="#sim"・"#apply" を変えると記録が取れなくなるので、そのときは analytics.js も直す（確認で止まる）
+・数字は GA4ウォッチの週次レポートの「玄関見積ページ」の欄に出る
 
 手動で動かす
 GitHub の Actions →「玄関見積LPを会社サーバーへ反映」→ Run workflow（main を選ぶ）。
