@@ -13,7 +13,7 @@ GitHub Pages（https://tomof-source.github.io/fkenzai-lp/genkan-mitsumori/）は
    ・genkan-mitsumori_original.tgz：TASARTさんが最初に置いた版。消さない
    ・genkan-mitsumori_日時.tgz：送るたびの控え。直近10回分を残す（1回あたり約20MB。写真が約22MBあり、jpg はほとんど縮まないため）
 4. 画像を先に、index.html を最後に送る（rsync。途中で切れても古いページが欠けた画像を探す形にしない）。サーバー側の不要ファイル（古い data.json など）は消さない
-5. verify_public.py：公開URLの index.html が送ったものと同じか、参照している画像が全部 200 で返るかを外から確かめる
+5. verify_public.py：公開URLの index.html が送ったものと同じか、参照している画像が全部 200 で返るかを外から確かめる（画像の確認に数分かかる。全体で10分前後）
 6. 3〜5 のどこかで落ちたら、その回の控えから自動で戻し、公開ページが控えと同じになったかも確かめる
 
 止まる・送らないとき

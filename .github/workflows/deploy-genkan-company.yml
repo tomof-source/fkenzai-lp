@@ -121,7 +121,8 @@ jobs:
         run: python3 tools/company-deploy/verify_public.py dist/genkan-mitsumori/index.html "$PUBLIC_URL"
 
       - name: 失敗したので、この回の控えから戻す
-        if: failure() && steps.send.outcome != 'skipped' && steps.backup.outputs.name != ''
+        # 時間切れ（cancelled）で止まったときも戻す
+        if: (failure() || cancelled()) && steps.send.outcome != 'skipped' && steps.backup.outputs.name != ''
         run: |
           $SSH_CMD "$SSH_USER@$SSH_HOST" bash -s -- "$REMOTE_DIR" "${{ steps.backup.outputs.name }}" <<'EOS'
           set -eu

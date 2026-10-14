@@ -61,9 +61,15 @@ def head(ref):
     return ref, last
 
 
-# 会社サイトと同じ共有サーバーなので、同時に聞くのは4本までにする
+# 会社サイトと同じ共有サーバーなので、同時に聞くのは4本までにする（2,199件で数分かかる）
+print(f'画像 {len(refs)} 件を公開URLで確認します（数分かかります）', flush=True)
+bad = []
 with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
-    bad = [(r, s) for r, s in ex.map(head, refs) if s != 200]
+    for n, (r, s) in enumerate(ex.map(head, refs), 1):
+        if s != 200:
+            bad.append((r, s))
+        if n % 500 == 0:
+            print(f'  {n} / {len(refs)} 件まで確認', flush=True)
 if bad:
     sys.exit(f'公開URLで読めない画像が {len(bad)} 件: ' + ', '.join(f'{r} ({s})' for r, s in bad[:10]))
 print(f'画像 {len(refs)} 件すべて公開URLで 200')
