@@ -1075,7 +1075,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
   </form>
   <div class="done" id="done" hidden>
     <h3>お申し込みを受け付けました</h3>
-    <p id="done-msg">担当から、お電話で現地調査の日を決めさせていただきます。2営業日たっても連絡がない場合は、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
+    <p id="done-msg">担当から、お電話で現地調査の日を決めるご連絡をします。お申し込みの電話番号あてにおかけします。連絡がないときは、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
   </div>
 </div></section>
 </main>
@@ -1739,11 +1739,20 @@ form.addEventListener('submit', function(ev){
   err.hidden = true;
   var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:srcText(), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
   var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = '送信しています…';
-  function finish(ok){
+  // 受付GASが返す連絡の期限（deadlineText）と受付確認メールの送信結果（mailSent）で、完了画面の文を作る。
+  // 時間の計算はGAS側だけが持つ（LPには持たない）。古いGASで返らないときは時間を言わない文になる
+  function doneText(j){
+    var t = (j && j.mailSent) ? '受付確認のメールもお送りしました。' : '';
+    t += (j && j.deadlineText) ? '担当から、' + j.deadlineText + 'に、お電話で現地調査の日を決めるご連絡をします。' : '担当から、お電話で現地調査の日を決めるご連絡をします。';
+    if (j && j.mailSent) t += 'メールが届かないときは、迷惑メールのフォルダも見てください。';
+    return t + 'お急ぎのときや、連絡がないときは、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。';
+  }
+  function finish(ok, j){
     btn.disabled = false; btn.textContent = 'この内容で現地調査を申し込む';
     if (!ok){ err.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。お急ぎの場合はフリーダイヤル 0120-914-180 へどうぞ。'; err.hidden = false; return; }
     form.hidden = true; document.getElementById('done').hidden = false;
-    if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) document.getElementById('done-msg').textContent = 'このページは確認用のため、送信はしていません。本番では、担当からお電話で現地調査の日を決めさせていただきます。';
+    if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) document.getElementById('done-msg').textContent = 'このページは確認用のため、送信はしていません。本番では、担当からお電話で現地調査の日を決めるご連絡をします。';
+    else document.getElementById('done-msg').textContent = doneText(j);
     document.getElementById('done').scrollIntoView({block:'center'});
   }
   var photo = document.getElementById('f-photo').files[0];
@@ -1752,7 +1761,7 @@ form.addEventListener('submit', function(ev){
     if (photoData) payload.photo = photoData;
     // GASは別ドメインなので、プリフライトの起きない text/plain で送る
     fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload)})
-      .then(function(r){ return r.json(); }).then(function(j){ finish(j && j.ok); })
+      .then(function(r){ return r.json(); }).then(function(j){ finish(j && j.ok, j); })
       .catch(function(){ finish(false); });
   }
   if (!photo) { send(null); return; }
