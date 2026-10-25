@@ -16,6 +16,8 @@ const must = [
   [/0120-914-180/, '電話 0120-914-180'],
   [/https:\/\/lin\.ee\/UmuaYxJ/, 'LINE https://lin.ee/UmuaYxJ'],
   [/window\.__DATA=/, '埋め込みデータ'],
+  // ?from= 付きのURLやGitHub Pagesの写しを、Googleに別ページと数えさせないため（2026-10-26 Search Consoleの重複の知らせ）
+  [/<link rel="canonical" href="https:\/\/f-kenzai\.com\/genkan-mitsumori\/">/, '正規URLの宣言（canonical）'],
 ];
 for (const [re, label] of must) if (!re.test(html)) problems.push(`見つからない: ${label}`);
 
