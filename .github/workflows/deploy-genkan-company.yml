@@ -26,7 +26,8 @@ jobs:
   deploy:
     # 試作ブランチから本番へ送れないようにする
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    # ubuntu-latest は 2026-10-19 から Ubuntu 26 になり、playwright 1.56.1 が chromium を入れられない（2026-10-26 送信前の確認で停止）
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     env:
       SSH_HOST: ${{ secrets.XSERVER_HOST }}
