@@ -985,6 +985,50 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
   </div>
 </div></section>
 
+<!-- 2026-11-01 申し込み欄を金額欄のすぐ後ろへ移した（要件：01_案件/2026-10-31_玄関見積LPの計測と動線/01_要件/要件_申し込み欄を金額の後ろへ・割引を1か所に_20261101.md） -->
+<section id="apply"><div class="wrap">
+  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は1分ほどです。担当からお電話で、調査の日を決めさせていただきます。現地調査とお見積りは無料です。工事のご契約は、最終のお見積りを見てからご検討いただけます。</p></div>
+  <form class="form" id="applyForm" novalidate>
+    <div class="chosen" id="chosen"></div>
+    <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" placeholder="例 福嶋 太郎"></div>
+    <div class="field"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例 090-0000-0000"></div>
+    <div class="field"><label for="f-city">ご住所<span class="req">必須</span></label><input type="text" id="f-city" name="address" autocomplete="street-address" placeholder="例 熊本県菊池市泗水町"><span class="help">市町村までで大丈夫です。</span></div>
+    <div class="field"><label for="f-mail">メールアドレス<span class="any">任意</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"></div>
+    <div class="field">
+      <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="req">必須</span></span>
+      <span class="help" id="src-help">当てはまるものを選んでください。複数選べます。</span>
+      <div class="opts sources" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
+        <label><input type="checkbox" name="source" value="YouTube">YouTube</label>
+        <label><input type="checkbox" name="source" value="Instagram">Instagram</label>
+        <label><input type="checkbox" name="source" value="ネット検索">ネット検索</label>
+        <label><input type="checkbox" name="source" value="AIでの検索">AIでの検索</label>
+        <label><input type="checkbox" name="source" value="Googleの口コミ">Googleの口コミ</label>
+        <label><input type="checkbox" name="source" value="チラシ">チラシ</label>
+        <label><input type="checkbox" name="source" value="知人の紹介">知人の紹介</label>
+        <label><input type="checkbox" name="source" value="以前に依頼した">以前に依頼した</label>
+        <label><input type="checkbox" name="source" value="その他">その他</label>
+      </div>
+    </div>
+    <div class="field"><label for="f-date">現地調査の希望日<span class="any">任意</span></label><input type="text" id="f-date" name="dates" placeholder="例 10月5日の午前、10月7日の午後"><span class="help">第2希望まで書いていただくと、日程が早く決まります。</span></div>
+    <div class="field">
+      <span class="lbl">あわせて希望すること<span class="any">任意</span></span>
+      <div class="opts">
+        <label><input type="checkbox" name="sample" value="1">色見本を貸してほしい</label>
+        <label><input type="checkbox" name="window" value="1">窓（内窓など）も一緒に見てほしい</label>
+      </div>
+    </div>
+    <div class="field"><label for="f-photo">今の玄関の写真<span class="any">任意</span></label><input type="file" id="f-photo" accept="image/*"><span class="help">スマホで1枚で大丈夫です。少し離れて、上や横のガラスまで入るように撮ってください。</span></div>
+    <div class="field"><label for="f-memo">気になっていること<span class="any">任意</span></label><textarea id="f-memo" name="memo" placeholder="例 冬の玄関が寒い、鍵が回りにくい"></textarea></div>
+    <p class="err" id="err" hidden></p>
+    <p class="help" style="margin-bottom:12px">お預かりした情報は、現地調査のご連絡とお見積りのためだけに使います。</p>
+    <button class="btn btn-main btn-block" type="submit" id="submitBtn">この内容で現地調査を申し込む</button>
+  </form>
+  <div class="done" id="done" hidden>
+    <h3>お申し込みを受け付けました</h3>
+    <p id="done-msg">担当から、お電話で現地調査の日を決めさせていただきます。2営業日たっても連絡がない場合は、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
+  </div>
+</div></section>
+
 <section class="band"><div class="wrap">
   <div class="sec-title"><span class="en">PROMISE</span><h2>提示している金額について</h2></div>
   <div class="promise">
@@ -1046,50 +1090,6 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <p>このページの金額は、取り付け工事と古いドアの処分まで入れた金額です。通常の工事であれば、ここから大きく変わることはありません。追加の工事が必要なときは、先に内容と費用をご説明します。</p>
       <p>現地調査では私たちが寸法と玄関の状態を確認し、その日のうちに正式なお見積もりをご連絡します。お見積もりまでは無料です。お気軽にどうぞ。</p>
     </div>
-  </div>
-</div></section>
-
-<section id="apply"><div class="wrap">
-  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は1分ほどです。担当からお電話で、調査の日を決めさせていただきます。現地調査とお見積りは無料です。工事のご契約は、最終のお見積りを見てからご検討いただけます。</p></div>
-  <form class="form" id="applyForm" novalidate>
-    <div class="chosen" id="chosen"></div>
-    <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" placeholder="例 福嶋 太郎"></div>
-    <div class="field"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例 090-0000-0000"></div>
-    <div class="field"><label for="f-city">ご住所<span class="req">必須</span></label><input type="text" id="f-city" name="address" autocomplete="street-address" placeholder="例 熊本県菊池市泗水町"><span class="help">市町村までで大丈夫です。</span></div>
-    <div class="field"><label for="f-mail">メールアドレス<span class="any">任意</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"></div>
-    <div class="field">
-      <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="req">必須</span></span>
-      <span class="help" id="src-help">当てはまるものを選んでください。複数選べます。</span>
-      <div class="opts sources" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
-        <label><input type="checkbox" name="source" value="YouTube">YouTube</label>
-        <label><input type="checkbox" name="source" value="Instagram">Instagram</label>
-        <label><input type="checkbox" name="source" value="ネット検索">ネット検索</label>
-        <label><input type="checkbox" name="source" value="AIでの検索">AIでの検索</label>
-        <label><input type="checkbox" name="source" value="Googleの口コミ">Googleの口コミ</label>
-        <label><input type="checkbox" name="source" value="チラシ">チラシ</label>
-        <label><input type="checkbox" name="source" value="知人の紹介">知人の紹介</label>
-        <label><input type="checkbox" name="source" value="以前に依頼した">以前に依頼した</label>
-        <label><input type="checkbox" name="source" value="その他">その他</label>
-      </div>
-    </div>
-    <div class="field"><label for="f-date">現地調査の希望日<span class="any">任意</span></label><input type="text" id="f-date" name="dates" placeholder="例 10月5日の午前、10月7日の午後"><span class="help">第2希望まで書いていただくと、日程が早く決まります。</span></div>
-    <div class="field">
-      <span class="lbl">あわせて希望すること<span class="any">任意</span></span>
-      <div class="opts">
-        <label><input type="checkbox" name="sample" value="1">色見本を貸してほしい</label>
-        <label><input type="checkbox" name="window" value="1">窓（内窓など）も一緒に見てほしい</label>
-        <label><input type="checkbox" id="coop2" name="coop" value="1">写真掲載とアンケートに協力する（5,000円引き）</label>
-      </div>
-    </div>
-    <div class="field"><label for="f-photo">今の玄関の写真<span class="any">任意</span></label><input type="file" id="f-photo" accept="image/*"><span class="help">スマホで1枚で大丈夫です。少し離れて、上や横のガラスまで入るように撮ってください。</span></div>
-    <div class="field"><label for="f-memo">気になっていること<span class="any">任意</span></label><textarea id="f-memo" name="memo" placeholder="例 冬の玄関が寒い、鍵が回りにくい"></textarea></div>
-    <p class="err" id="err" hidden></p>
-    <p class="help" style="margin-bottom:12px">お預かりした情報は、現地調査のご連絡とお見積りのためだけに使います。</p>
-    <button class="btn btn-main btn-block" type="submit" id="submitBtn">この内容で現地調査を申し込む</button>
-  </form>
-  <div class="done" id="done" hidden>
-    <h3>お申し込みを受け付けました</h3>
-    <p id="done-msg">担当から、お電話で現地調査の日を決めさせていただきます。2営業日たっても連絡がない場合は、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
   </div>
 </div></section>
 </main>
@@ -1609,7 +1609,7 @@ function render(){
     return '<label class="lcard"><input type="radio" name="lock" value="'+o.id+'"'+(st.lock===o.id?' checked':'')+'><span class="in"><span class="pic">'+lockPic(o)+'</span><span class="tx">'+(o.rec?'<i class="badge rec">おすすめ</i>':'')+'<b>'+o.name+'</b><span>'+o.desc+'</span></span><span class="pr">'+(o.add > 0 ? '＋'+man(o.add*lockRate()*(1+TAX)) : o.add < 0 ? '－'+man(-o.add*lockRate()*(1+TAX)) : '標準（＋0円）')+'</span></span></label>';
   }).join('');
   // STEP 6（引戸とドアリモは、デザインの標準のハンドル・引手のまま）
-  if (hk || yk){ document.getElementById('coop').checked = st.coop; document.getElementById('coop2').checked = st.coop; summary(); return; }
+  if (hk || yk){ document.getElementById('coop').checked = st.coop; summary(); return; }
   var ch = curHandle(), def = cur().handle || {};
   document.getElementById('o-handle').innerHTML = handleOpts().map(function(o){
     var hi = D.handles[o.id];
@@ -1620,7 +1620,6 @@ function render(){
     return '<label><input type="radio" name="hcolor" value="'+cc+'"'+(ch.color===cc?' checked':'')+'><i style="background:'+HCOLOR[cc][1]+'"></i>'+HCOLOR[cc][0]+'</label>';
   }).join('');
   document.getElementById('coop').checked = st.coop;
-  document.getElementById('coop2').checked = st.coop;
   summary();
 }
 
