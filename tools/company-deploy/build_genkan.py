@@ -66,9 +66,17 @@ html = html[:pos] + '<script>window.__DATA=' + js + ';</script>\n' + html[pos:]
 
 # アクセス解析（GA4「公式」）。会社サーバー版にだけ入れ、GitHub Pages の試験用の写しには入れない
 GA_ID = 'G-9WQ5XXEYR8'
+# 社員のブラウザ（?staff=1 で印を付けたもの）は、ページを開いた記録から traffic_type=internal を付ける。
+# GA4 のテスト中フィルタ「Internal Traffic」がこれを見分け、週次の数からは外す（analytics.js も同じ印を見る）
+# ページの変数と重ならないよう、即時関数の中で設定を作って渡す
+GA_CONFIG = ("(function(){var c={};try{var s=location.search,k='fk_genkan_staff';"
+             "if(/[?&]staff=1(&|$)/.test(s))localStorage.setItem(k,'1');"
+             "if(/[?&]staff=0(&|$)/.test(s))localStorage.removeItem(k);"
+             "if(localStorage.getItem(k)==='1')c.traffic_type='internal';}catch(e){}"
+             "gtag('config','" + GA_ID + "',c);})();")
 GA_HEAD = ('<script async src="https://www.googletagmanager.com/gtag/js?id=' + GA_ID + '"></script>\n'
            '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
-           "gtag('js',new Date());gtag('config','" + GA_ID + "');</script>\n")
+           "gtag('js',new Date());" + GA_CONFIG + "</script>\n")
 analytics = (pathlib.Path(__file__).parent / 'analytics.js').read_text(encoding='utf-8')
 if '</script' in analytics.lower():
     sys.exit('analytics.js に </script が含まれていて、ページに埋め込めない')
