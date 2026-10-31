@@ -6,15 +6,57 @@
   'use strict';
   var GA_ID = 'G-9WQ5XXEYR8';
   var AREA = 'genkan_lp';
+  // 社員のブラウザの印。?staff=1 で付け、?staff=0 で消す（GA4 の最初の設定でも同じ印を見る。build_genkan.py の GA_HEAD）
+  // 要件MD: 01_案件/2026-10-31_玄関見積LPの計測と動線/01_要件/要件_玄関LPの計測と週次と入口_20261031.md
+  var STAFF_KEY = 'fk_genkan_staff';
+  try {
+    if (/[?&]staff=1(&|$)/.test(location.search)) localStorage.setItem(STAFF_KEY, '1');
+    if (/[?&]staff=0(&|$)/.test(location.search)) localStorage.removeItem(STAFF_KEY);
+  } catch (e) { /* 印を残せないブラウザでは何もしない */ }
+  function isStaff() {
+    try { return localStorage.getItem(STAFF_KEY) === '1'; } catch (e) { return false; }
+  }
 
   function send(name, params) {
     try {
       var p = params || {};
       p.send_to = GA_ID;
       p.page_path = location.pathname;
+      // GA4 のテスト中フィルタ「Internal Traffic」は traffic_type=internal の記録を見分ける。週次ではこれを数から外す
+      if (isStaff()) p.traffic_type = 'internal';
       if (typeof window.gtag === 'function') window.gtag('event', name, p);
     } catch (e) { /* 記録の失敗で見積を止めない */ }
   }
+
+  // 受付GASへの通信の返事を横から読む（通信そのものは変えない。返事の写しを読むだけ）。
+  // PDF は「お客様のスマホでは保存できたのに、お店に届いていない」を見分けるため、申し込みは送信の結果を残すため。
+  // 送った中身（名前・電話など）は読まない・送らない。読むのは返事の ok と error の短い印だけ
+  try {
+    var origFetch = window.fetch;
+    if (typeof origFetch === 'function') {
+      window.fetch = function (input, init) {
+        var res = origFetch.apply(this, arguments);
+        try {
+          var url = typeof input === 'string' ? input : (input && input.url) || '';
+          var body = init && typeof init.body === 'string' ? init.body : '';
+          if (/script\.google\.com\/macros\//.test(url) && body) {
+            var kind = body.indexOf('"action":"save_pdf"') !== -1 ? 'pdf'
+              : (body.indexOf('"action":') === -1 ? 'apply' : '');   // 写真の読み取り（analyze）は数えない
+            if (kind) {
+              res.then(function (r) { return r.clone().json().catch(function () { return { ok: false, error: 'parse' }; }); })
+                .then(function (j) {
+                  if (j && j.ok) send(kind === 'pdf' ? 'genkan_pdf_sent' : 'genkan_apply_sent', {});
+                  else send(kind === 'pdf' ? 'genkan_pdf_sent_ng' : 'genkan_apply_sent_ng', { reason: String((j && j.error) || 'not_ok').slice(0, 20) });
+                }, function () {
+                  send(kind === 'pdf' ? 'genkan_pdf_sent_ng' : 'genkan_apply_sent_ng', { reason: 'network' });
+                });
+            }
+          }
+        } catch (e) { /* 読み取りの失敗で通信を止めない */ }
+        return res;
+      };
+    }
+  } catch (e) { /* 何もしない */ }
   function text(id) {
     var el = document.getElementById(id);
     return el ? (el.textContent || '').replace(/\s+/g, ' ').trim() : '';
@@ -122,6 +164,22 @@
       });
       if (done) mo.observe(done, { attributes: true, attributeFilter: ['hidden'] });
       if (err) mo.observe(err, { attributes: true, childList: true, characterData: true, subtree: true, attributeFilter: ['hidden'] });
+    } catch (e) { /* 何もしない */ }
+
+    // PDF がお客様のスマホでできたか。ページは結果を #pdfNote の印（ok／ng）で出すので、それを見る
+    try {
+      var note = document.getElementById('pdfNote');
+      if (note) {
+        var lastPdf = '';
+        new MutationObserver(function () {
+          try {
+            var c = ' ' + (note.className || '') + ' ';
+            var state = c.indexOf(' ok ') !== -1 ? 'ok' : (c.indexOf(' ng ') !== -1 ? 'ng' : '');
+            if (state && state !== lastPdf) send(state === 'ok' ? 'genkan_pdf_made' : 'genkan_pdf_fail', quote({}));
+            lastPdf = state;
+          } catch (e) { /* 何もしない */ }
+        }).observe(note, { attributes: true, attributeFilter: ['class'] });
+      }
     } catch (e) { /* 何もしない */ }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watch);

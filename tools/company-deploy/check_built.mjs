@@ -56,15 +56,27 @@ async function checkAnalytics(page, width) {
     fill('f-tel', '090-1234-9876'); fill('f-city', '熊本県テスト市確認町'); fill('f-mail', 'pii-check@example.com'); fill('f-memo', 'メモの確認文');
     await wait(200);
     click('a[href^="tel:"]'); click('a[href*="lin.ee"]'); click('#pdfBtn'); await wait(300);
+    // PDF の結果（スマホでできた／できなかった）と、お店への送信の結果を待つ（ここでは通信を止めているので、できても届かない）
+    const evNames = () => (window.dataLayer || []).filter(x => x && x[0] === 'event').map(x => x[1]);
+    for (let t = 0; t < 200 && !evNames().some(n => n === 'genkan_pdf_fail' || n === 'genkan_pdf_sent_ng'); t++) await wait(100);
+    // 申し込みの送信結果：受付へ送る形の通信を1回作る（通信は止めてあるので届かない）。返事の読み取りが記録になるかを見る
+    // 送り先の変数はページの内側（即時関数の中）にあるので、ページの文字から同じURLを取る
+    const endpoint = (document.documentElement.innerHTML.match(/https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec/) || [])[0];
+    try { await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ name: 'テスト確認太郎', tel: '090-1234-9876' }) }); } catch (e) { /* 止めてあるので失敗してよい */ }
+    await wait(300);
     document.getElementById('done').hidden = false; await wait(300);
     const events = (window.dataLayer || []).filter(x => x && x[0] === 'event').map(x => ({ name: x[1], params: x[2] || {} }));
     return { hasGtag: typeof window.gtag === 'function', events, raw: JSON.stringify(window.dataLayer || []) };
   });
   const names = r.events.map(e => e.name);
   if (!r.hasGtag) problems.push(`[${width}] GA4 のタグ（gtag）が入っていない`);
-  for (const n of ['genkan_start', 'genkan_select', 'genkan_quote_view', 'genkan_apply_open', 'genkan_form_start', 'tap_tel', 'tap_line', 'genkan_pdf_save', 'genkan_apply_complete']) {
+  for (const n of ['genkan_start', 'genkan_select', 'genkan_quote_view', 'genkan_apply_open', 'genkan_form_start', 'tap_tel', 'tap_line', 'genkan_pdf_save', 'genkan_apply_complete', 'genkan_apply_sent_ng']) {
     if (!names.includes(n)) problems.push(`[${width}] 記録が作られない: ${n}`);
   }
+  // PDF はスマホでできたか・できなかったかのどちらかが残る。できたなら、お店への送信（止めてあるので届かない）の結果も残る
+  if (!names.includes('genkan_pdf_made') && !names.includes('genkan_pdf_fail')) problems.push(`[${width}] PDFの結果（genkan_pdf_made／genkan_pdf_fail）が記録されない`);
+  if (names.includes('genkan_pdf_made') && !names.includes('genkan_pdf_sent_ng')) problems.push(`[${width}] PDFのお店への送信の結果（genkan_pdf_sent_ng）が記録されない`);
+  if (r.events.some(e => e.params.traffic_type)) problems.push(`[${width}] 社員の印が無いのに traffic_type が付いている`);
   // フクろう親方のチャット（chat_*）も gtag があれば自分で記録を送る。ここで見るのはこのページの記録（genkan_*・tap_*）だけ
   if (r.events.some(e => /^(genkan_|tap_)/.test(e.name) && e.params.send_to !== 'G-9WQ5XXEYR8')) problems.push(`[${width}] 送り先が G-9WQ5XXEYR8 でない記録がある`);
   for (const v of ['テスト確認太郎', '090-1234-9876', '09012349876', 'テスト市確認町', 'pii-check@example.com', 'メモの確認文']) {
@@ -73,6 +85,40 @@ async function checkAnalytics(page, width) {
   const done = r.events.find(e => e.name === 'genkan_apply_complete');
   if (done && !(done.params.value > 0)) problems.push(`[${width}] 申し込み完了の記録に金額が無い`);
   console.log(`幅${width}: 記録 ${names.join(', ')}`);
+}
+
+// 社員の印：?staff=1 で開くと印が残り、ページを開いた記録（config）とボタンの記録に traffic_type=internal が付く。?staff=0 で消える
+async function checkStaff(browser) {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  try {
+    const page = await ctx.newPage();
+    await page.route(/script\.google\.com/, r => r.abort());
+    await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.abort());
+    // フクろう親方の窓口の記録（小窓の表示など）も止める（試験の記録を親方の会話ログに混ぜない）
+    await page.route(/fkenzai-ai-hisho\.pages\.dev\/api\//, r => r.abort());
+    const cfg = () => page.evaluate(() => {
+      const c = (window.dataLayer || []).find(x => x && x[0] === 'config');
+      return c ? String((c[2] || {}).traffic_type || '') : null;
+    });
+    await page.goto(base + '?staff=1', { waitUntil: 'load' });
+    const first = await cfg();
+    await page.goto(base, { waitUntil: 'load' });
+    const again = await cfg();
+    const evType = await page.evaluate(() => {
+      document.querySelector('a[href="#sim"]').click();
+      const e = (window.dataLayer || []).filter(x => x && x[0] === 'event' && x[1] === 'genkan_start')[0];
+      return e ? String((e[2] || {}).traffic_type || '') : null;
+    });
+    await page.goto(base + '?staff=0', { waitUntil: 'load' });
+    const cleared = await cfg();
+    if (first !== 'internal') problems.push(`?staff=1 で開いても社員の印が付かない（${first}）`);
+    if (again !== 'internal') problems.push(`社員の印が次に開いたときに残っていない（${again}）`);
+    if (evType !== 'internal') problems.push(`社員の印があるのにボタンの記録に traffic_type が付かない（${evType}）`);
+    if (cleared !== '') problems.push(`?staff=0 で社員の印が消えない（${cleared}）`);
+    console.log(`社員の印: 付ける ${first}／次も ${again}／ボタン ${evType}／消す ${cleared || '（なし）'}`);
+  } finally {
+    await ctx.close();
+  }
 }
 
 // 手元で試すときは CHROMIUM_PATH で入っているブラウザを指せる（GitHub上では指定しない）
@@ -84,6 +130,8 @@ try {
     await page.route(/script\.google\.com/, r => r.abort());
     // GA4 への通信も止める（試験の記録を本番の数字に混ぜない）。記録が作られたかは dataLayer で見る
     await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.abort());
+    // フクろう親方の窓口の記録（小窓の表示など）も止める（試験の記録を親方の会話ログに混ぜない）
+    await page.route(/fkenzai-ai-hisho\.pages\.dev\/api\//, r => r.abort());
     page.on('pageerror', e => problems.push(`[${width}] 画面のエラー: ${e.message}`));
     page.on('response', r => { if (r.url().startsWith(base) && r.status() >= 400) problems.push(`[${width}] 読めない: ${r.url().slice(base.length)} (${r.status()})`); });
     await page.goto(base, { waitUntil: 'load' });
@@ -115,6 +163,7 @@ try {
     if (width === 390) await checkAnalytics(page, width);
     await page.close();
   }
+  await checkStaff(browser);
 } finally {
   await browser.close();
   server.close();
