@@ -848,7 +848,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
  .tile:hover .in,.tile:hover .in img{transform:none}
  .btn:hover{transform:none}
 }
-.hero-line{margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--ink-2,#555)}.hero-line a{color:#06A54A;font-weight:700;text-decoration:underline;text-underline-offset:3px}.hero-line span{font-size:12.5px}
+.hero-line{margin:10px 0 0;font-size:14px;line-height:1.7;color:#3f4650}.hero-line p{margin:0}.hero .hero-line a.btn.btn-line{display:flex;justify-content:center;margin:0 0 6px;padding:8px 14px;font-size:16px;line-height:1.3;min-height:46px;align-items:center;border-radius:12px}.hero-line .s{font-size:12.5px}
 </style>
 </head>
 <body>
@@ -867,7 +867,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
     <p class="lead">工事・古いドアの処分まで含めた概算です。<br>サイズは、あとで私たちが測ります。</p>
     <div class="cta"><a class="btn btn-main" href="#sim">玄関を選んで金額を見る</a><a class="btn btn-sub" href="#flow">申し込みの流れ</a></div>
-    <p class="hero-line">選ぶのが面倒な方は　<a href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">玄関の写真をLINEで送るだけ</a><br><span>写真で確認（無料）。正確なご提案は現地確認後</span></p>
+    <div class="hero-line"><a class="btn btn-line" href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">写真をLINEで送るだけでも大丈夫</a><p class="s">選ぶのが面倒な方へ。写真で確認（無料）。正確なご提案は現地確認後。<br>電話が苦手な方は、お名前とメールだけでも申し込めます。</p></div>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
       <div><b>1日で交換</b>今の枠の上から取り付け</div>
@@ -1758,6 +1758,7 @@ form.addEventListener('submit', function(ev){
     btn.disabled = false; btn.textContent = 'この内容で現地調査を申し込む';
     if (!ok){ err.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。お急ぎの場合はフリーダイヤル 0120-914-180 へどうぞ。'; err.hidden = false; return; }
     form.hidden = true; document.getElementById('done').hidden = false;
+    var applyLead = document.querySelector('#apply .sec-title p'); if (applyLead) applyLead.hidden = true;
     if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) document.getElementById('done-msg').textContent = 'このページは確認用のため、送信はしていません。本番では、入れていただいた電話かメールで、担当から現地調査の日をご相談します。';
     document.getElementById('done').scrollIntoView({block:'center'});
   }
@@ -2156,7 +2157,9 @@ onScroll();
   function count(){
     // お名前と、電話番号かメールアドレスのどちらか
     var nameR = req[0], telR = req[1];
-    var n = (nameR && nameR.ok(nameR.el.value) ? 0 : 1) + ((telR && telR.ok(telR.el.value)) || mailOk() ? 0 : 1);
+    // 電話が入っていて形が違うときは、メールがあってもそろった扱いにしない（送るときに電話の形で止まるため）
+    var telV = telR ? telR.el.value.trim() : '', telGood = !!telR && telR.ok(telV);
+    var n = (nameR && nameR.ok(nameR.el.value) ? 0 : 1) + (telGood || (!telV && mailOk()) ? 0 : 1);
     left.classList.toggle('done', n === 0);
     left.innerHTML = n ? '必須の項目、あと <b>' + n + '</b>' : '<b>✓</b> 必須の項目はそろいました';
   }
