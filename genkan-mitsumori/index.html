@@ -848,6 +848,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
  .tile:hover .in,.tile:hover .in img{transform:none}
  .btn:hover{transform:none}
 }
+.hero-line{margin:12px 0 0;font-size:14px;line-height:1.7;color:var(--ink-2,#555)}.hero-line a{color:#06A54A;font-weight:700;text-decoration:underline;text-underline-offset:3px}.hero-line span{font-size:12.5px}
 </style>
 </head>
 <body>
@@ -866,6 +867,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
     <a class="review-big" href="https://www.google.com/search?q=%E3%83%95%E3%82%AF%E3%82%B7%E3%83%9E%E5%BB%BA%E6%9D%90+%E8%8F%8A%E6%B1%A0%E5%B8%82" target="_blank" rel="noopener"><span class="g">Google<br>クチコミ<b>4.8</b></span><span class="stars" aria-label="5点中4.8">★★★★★</span><span class="cnt">194件の口コミ（2026年9月時点）<u>口コミを読む ›</u></span></a>
     <p class="lead">工事・古いドアの処分まで含めた概算です。<br>サイズは、あとで私たちが測ります。</p>
     <div class="cta"><a class="btn btn-main" href="#sim">玄関を選んで金額を見る</a><a class="btn btn-sub" href="#flow">申し込みの流れ</a></div>
+    <p class="hero-line">選ぶのが面倒な方は　<a href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">玄関の写真をLINEで送るだけ</a><br><span>写真で確認（無料）。正確なご提案は現地確認後</span></p>
     <div class="facts">
       <div><b class="num">5,000件以上</b>窓と玄関の工事実績</div>
       <div><b>1日で交換</b>今の枠の上から取り付け</div>
@@ -987,15 +989,15 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 
 <!-- 2026-11-01 申し込み欄を金額欄のすぐ後ろへ移した（要件：01_案件/2026-10-31_玄関見積LPの計測と動線/01_要件/要件_申し込み欄を金額の後ろへ・割引を1か所に_20261101.md） -->
 <section id="apply"><div class="wrap">
-  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は1分ほどです。担当からお電話で、調査の日を決めさせていただきます。現地調査とお見積りは無料です。工事のご契約は、最終のお見積りを見てからご検討いただけます。</p></div>
+  <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は、お名前と、電話番号かメールアドレスのどちらか1つだけです。入れていただいた方法で、調査の日をご相談します。現地調査とお見積りは無料です。工事のご契約は、最終のお見積りを見てからご検討いただけます。</p></div>
   <form class="form" id="applyForm" novalidate>
     <div class="chosen" id="chosen"></div>
     <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" placeholder="例 福嶋 太郎"></div>
-    <div class="field"><label for="f-tel">電話番号<span class="req">必須</span></label><input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例 090-0000-0000"></div>
-    <div class="field"><label for="f-city">ご住所<span class="req">必須</span></label><input type="text" id="f-city" name="address" autocomplete="street-address" placeholder="例 熊本県菊池市泗水町"><span class="help">市町村までで大丈夫です。</span></div>
-    <div class="field"><label for="f-mail">メールアドレス<span class="any">任意</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"></div>
+    <div class="field"><label for="f-tel">電話番号<span class="req">どちらか1つ</span></label><input type="tel" id="f-tel" name="tel" autocomplete="tel" placeholder="例 090-0000-0000"></div>
+    <div class="field"><label for="f-mail">メールアドレス<span class="req">どちらか1つ</span></label><input type="email" id="f-mail" name="email" autocomplete="email" placeholder="例 name@example.com"><span class="help">電話番号かメールアドレスの、どちらか1つで申し込めます。LINEでのやりとりがよい方は、<a href="https://lin.ee/UmuaYxJ" target="_blank" rel="noopener">LINEで玄関の写真を送る</a>からどうぞ。</span></div>
+    <div class="field"><label for="f-city">ご住所<span class="any">任意</span></label><input type="text" id="f-city" name="address" autocomplete="street-address" placeholder="例 熊本県菊池市泗水町"><span class="help">市町村までで大丈夫です。</span></div>
     <div class="field">
-      <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="req">必須</span></span>
+      <span class="lbl" id="src-lbl">このページを知ったきっかけ<span class="any">任意</span></span>
       <span class="help" id="src-help">当てはまるものを選んでください。複数選べます。</span>
       <div class="opts sources" role="group" aria-labelledby="src-lbl" aria-describedby="src-help">
         <label><input type="checkbox" name="source" value="YouTube">YouTube</label>
@@ -1025,7 +1027,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
   </form>
   <div class="done" id="done" hidden>
     <h3>お申し込みを受け付けました</h3>
-    <p id="done-msg">担当から、お電話で現地調査の日を決めさせていただきます。2営業日たっても連絡がない場合は、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
+    <p id="done-msg">入れていただいた電話かメールで、担当から現地調査の日をご相談します。2営業日たっても連絡がない場合は、お手数ですがフリーダイヤル 0120-914-180 へご連絡ください。</p>
   </div>
 </div></section>
 
@@ -1739,16 +1741,16 @@ function contactOk(raw, method){
 form.addEventListener('submit', function(ev){
   ev.preventDefault();
   var f = new FormData(form), miss = [];
+  // 必須はお名前と、電話番号かメールアドレスのどちらか（2026-11-02 智和さん。住所・知ったきっかけは任意。受付GASも同じ決まり）
   if (!String(f.get('name')||'').trim()) miss.push('お名前');
-  if (!String(f.get('tel')||'').trim()) miss.push('電話番号');
-  if (!String(f.get('address')||'').trim()) miss.push('ご住所');
-  if (!selectedSources().length) miss.push('知ったきっかけ');
+  var hasTel = !!String(f.get('tel')||'').trim(), hasMail = !!String(f.get('email')||'').trim();
+  if (!hasTel && !hasMail) miss.push('電話番号かメールアドレスのどちらか');
   var err = document.getElementById('err');
   if (miss.length){ err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   // 返信先の形を確かめる（返信できない申し込みを受け付けない。判定は fkenzai-ai-hisho の ai-hisho/contact.js と同じ）
   // 要件MD: docs/requirements/20261001-genkan-mitsumori-publish-and-tel-check.md
-  if (!contactOk(f.get('tel'), 'tel')){ err.textContent = '電話番号は、0から始まる10桁か11桁でご入力ください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
-  if (String(f.get('email')||'').trim() && !contactOk(f.get('email'), 'email')){ err.textContent = 'メールアドレスの形をご確認ください（空欄でも大丈夫です）。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
+  if (hasTel && !contactOk(f.get('tel'), 'tel')){ err.textContent = '電話番号は、0から始まる10桁か11桁でご入力ください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
+  if (String(f.get('email')||'').trim() && !contactOk(f.get('email'), 'email')){ err.textContent = 'メールアドレスの形をご確認ください。'; err.hidden = false; err.scrollIntoView({block:'center'}); return; }
   err.hidden = true;
   var payload = {name:f.get('name'), tel:f.get('tel'), address:f.get('address'), email:f.get('email')||'', source:srcText(), dates:f.get('dates')||'', sample:!!f.get('sample'), window:!!f.get('window'), memo:f.get('memo')||'', quote: st._quote, page: location.href.split('#')[0], ua: navigator.userAgent, vid: vid()};
   var btn = document.getElementById('submitBtn'); btn.disabled = true; btn.textContent = '送信しています…';
@@ -1756,7 +1758,7 @@ form.addEventListener('submit', function(ev){
     btn.disabled = false; btn.textContent = 'この内容で現地調査を申し込む';
     if (!ok){ err.textContent = '送信できませんでした。通信の状態を確かめて、もう一度押してください。お急ぎの場合はフリーダイヤル 0120-914-180 へどうぞ。'; err.hidden = false; return; }
     form.hidden = true; document.getElementById('done').hidden = false;
-    if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) document.getElementById('done-msg').textContent = 'このページは確認用のため、送信はしていません。本番では、担当からお電話で現地調査の日を決めさせていただきます。';
+    if (!ENDPOINT || ENDPOINT.indexOf('__') === 0) document.getElementById('done-msg').textContent = 'このページは確認用のため、送信はしていません。本番では、入れていただいた電話かメールで、担当から現地調査の日をご相談します。';
     document.getElementById('done').scrollIntoView({block:'center'});
   }
   var photo = document.getElementById('f-photo').files[0];
@@ -2132,8 +2134,7 @@ onScroll();
   var form = document.getElementById('applyForm'); if (!form) return;
   var req = [
     {el: document.getElementById('f-name'), ok: function(v){ return v.trim().length > 0; }},
-    {el: document.getElementById('f-tel'), ok: function(v){ var d = v.replace(/[^0-9０-９]/g,''); return d.length >= 10 && d.length <= 11; }, err: '0から始まる10桁か11桁で入れてください'},
-    {el: document.getElementById('f-city'), ok: function(v){ return v.trim().length > 0; }}
+    {el: document.getElementById('f-tel'), ok: function(v){ var d = v.replace(/[^0-9０-９]/g,''); return d.length >= 10 && d.length <= 11; }, err: '0から始まる10桁か11桁で入れてください'}
   ].filter(function(r){ return r.el; });
   req.forEach(function(r){
     var f = r.el.closest('.field'), lab = f && f.querySelector('label');
@@ -2143,11 +2144,19 @@ onScroll();
     r.el.addEventListener('blur', function(){ mark(r, true); count(); });
   });
   function mark(r, strict){ var f = r.el.closest('.field'); var v = r.el.value, ok = r.ok(v); f.classList.toggle('ok', ok); f.classList.toggle('ng', strict && !ok && v.trim().length > 0); if (ok) f.classList.remove('ng'); }
-  var srcOk = function(){ return !!form.querySelector('input[name=source]:checked'); };
+  var mailEl = document.getElementById('f-mail');
+  function mailOk(){ return !!mailEl && /^[^@\s]+@[^@\s]+\.[^@.\s]+$/.test(mailEl.value.trim()); }
+  if (mailEl){
+    var mf = mailEl.closest('.field'), ml = mf && mf.querySelector('label');
+    if (ml){ var ms = document.createElement('span'); ms.className = 'ui-ok'; ms.textContent = '入力できました'; ml.appendChild(ms); }
+    mailEl.addEventListener('input', function(){ mf.classList.toggle('ok', mailOk()); count(); });
+  }
   var left = document.createElement('p'); left.id = 'ui-left'; left.setAttribute('aria-live', 'polite');
   var sub = form.querySelector('button[type=submit], .btn-main'); if (sub) sub.parentNode.insertBefore(left, sub);
   function count(){
-    var n = req.filter(function(r){ return !r.ok(r.el.value); }).length + (srcOk() ? 0 : 1);
+    // お名前と、電話番号かメールアドレスのどちらか
+    var nameR = req[0], telR = req[1];
+    var n = (nameR && nameR.ok(nameR.el.value) ? 0 : 1) + ((telR && telR.ok(telR.el.value)) || mailOk() ? 0 : 1);
     left.classList.toggle('done', n === 0);
     left.innerHTML = n ? '必須の項目、あと <b>' + n + '</b>' : '<b>✓</b> 必須の項目はそろいました';
   }
@@ -2163,7 +2172,7 @@ onScroll();
   Array.prototype.forEach.call(form.querySelectorAll('.field'), function(f){ if (f.querySelector('.any')) opt.push(f); });
   if (opt.length){
     var d = document.createElement('details'); d.className = 'ui-more';
-    d.innerHTML = '<summary><span>メール・希望日・写真など<small>任意。書かなくても申し込めます</small></span></summary><div class="ui-more-in"></div>';
+    d.innerHTML = '<summary><span>ご住所・希望日・写真など<small>任意。書かなくても申し込めます</small></span></summary><div class="ui-more-in"></div>';
     var box = d.querySelector('.ui-more-in');
     var anchor = form.querySelector('#err') || form.querySelector('button[type=submit]');
     form.insertBefore(d, anchor);
@@ -2226,8 +2235,7 @@ onScroll();
   var form = document.getElementById('applyForm'); if (!form) return;
   var defs = [
     {id:'f-name', msg:'お名前を入れてください'},
-    {id:'f-tel', msg:'電話番号を入れてください（0から始まる10桁か11桁）'},
-    {id:'f-city', msg:'ご住所を入れてください（市町村まででも大丈夫です）'}
+    {id:'f-tel', msg:'電話番号かメールアドレスの、どちらか1つを入れてください'}
   ];
   defs.forEach(function(d){
     var el = document.getElementById(d.id); if (!el) return;
@@ -2238,22 +2246,18 @@ onScroll();
     d.el = el; d.f = f;
     el.addEventListener('input', function(){ if (ok(d)){ f.classList.remove('miss'); el.removeAttribute('aria-invalid'); } });
   });
-  var src = form.querySelector('input[name=source]'), srcField = src && src.closest('.field');
-  if (srcField){
-    var m = document.createElement('span'); m.className = 'ui-miss'; m.textContent = '知ったきっかけを1つ以上選んでください'; srcField.appendChild(m);
-    srcField.setAttribute('role', 'group'); srcField.setAttribute('aria-required', 'true');
-    form.addEventListener('change', function(e){ if (e.target.name === 'source' && form.querySelector('input[name=source]:checked')) srcField.classList.remove('miss'); });
-  }
+  // 知ったきっかけは任意になった（2026-11-02）。電話の欄は、メールアドレスが入っていればそろったとみなす
+  var mailIn = document.getElementById('f-mail');
+  if (mailIn) mailIn.addEventListener('input', function(){ defs.forEach(function(d){ if (d.id === 'f-tel' && d.el && ok(d)){ d.f.classList.remove('miss'); d.el.removeAttribute('aria-invalid'); } }); });
   function ok(d){
     var v = d.el.value.trim();
-    if (d.id === 'f-tel'){ var dg = v.replace(/[^0-9０-９]/g, ''); return dg.length >= 10 && dg.length <= 11; }
+    if (d.id === 'f-tel'){ var dg = v.replace(/[^0-9０-９]/g, ''); return (dg.length >= 10 && dg.length <= 11) || (!!mailIn && mailIn.value.trim().length > 0); }
     return v.length > 0;
   }
   // 元の送信処理より先に動いて印を付ける。送るかどうかの判断は元の処理のまま
   form.addEventListener('submit', function(){
     var first = null;
     defs.forEach(function(d){ if (!d.el) return; var bad = !ok(d); d.f.classList.toggle('miss', bad); if (bad){ d.el.setAttribute('aria-invalid', 'true'); first = first || d.el; } else d.el.removeAttribute('aria-invalid'); });
-    if (srcField){ var none = !form.querySelector('input[name=source]:checked'); srcField.classList.toggle('miss', none); if (none && !first) first = src; }
     if (first) setTimeout(function(){ first.focus({preventScroll:true}); first.scrollIntoView({block:'center', behavior: reduce ? 'auto' : 'smooth'}); }, 0);
   }, true);
 })();
