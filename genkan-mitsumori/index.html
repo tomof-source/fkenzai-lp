@@ -851,7 +851,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 </style>
 </head>
 <body>
-<div class="notice"><div class="wrap">金額はメーカーの定価をもとにした目安です（LIXILは2026年10月の値上げ後の定価、YKK APは2026年5月版カタログの価格）。</div></div>
+<div class="notice"><div class="wrap">金額はメーカーの定価をもとにした目安です（LIXILは2026年10月の値上げ後の定価、YKK APは2026年11月の値上げ後のカタログの価格）。</div></div>
 
 <header class="site"><div class="wrap">
   <a class="logo" href="https://f-kenzai.com/" target="_blank" rel="noopener"><img src="img/logo.svg" alt=""><span class="co"><b>フクシマ建材株式会社</b><small>熊本 窓と玄関のリフォーム専門店</small></span></a>
@@ -1176,7 +1176,7 @@ var HK_KOUJI = {'2枚建':60000, '4枚建':70000};
 // 引戸の電気錠（簡易タッチキー・CAZAS）は部品の仕入れが高い。掛率表の「簡易タッチキー 75」から定価の差額の75%で見る
 var HK_LOCK_RATE = 0.75;
 
-// ===== YKK AP ドアリモ（玄関ドア・玄関引戸 2026年5月版カタログ）=====
+// ===== YKK AP ドアリモ（玄関ドア・玄関引戸。写真は2026年5月版カタログ、定価は2026年11月の値上げ後のカタログ（玄関ドア XAAAA-H26-130-2・玄関引戸 XAAAA-H26-438-2））=====
 // 掛率は【売値】工賃 掛率 の「玄関・勝手口」シート（ドアリモ・直販）：ドア60・引戸60。
 // ドアリモの電気錠（スマートコントロールキー）はドアの定価に最初から入っているので、カギの差額も同じ60%で見る
 var Y_RATE = 0.60;
@@ -1339,10 +1339,10 @@ function cur(){ return designs()[st.design]; }
 // 色の区分ごとの定価。区分の無い表（M78など）は '' に1つだけ入っている
 function listPrice(e, kind, cls){ var p = e.kinds[kind] && e.kinds[kind].p; if(!p) return null; var v = p[cls] != null ? p[cls] : (p[''] != null ? p[''] : null); return v != null && PRODUCT === 'ydoor' ? v + yManual(e, kind) : v; }
 // ドアリモ 玄関ドアの価格表はピタットキー付きの値段。手動キーを標準にする（2026-10-01 福嶋さん）ので、手動錠の差額（マイナス）を足す。
-// 差額はデザインのページの値段から。両開きの手動錠は仕様変更の表（D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －78,000）
+// 差額はデザインのページの値段から。両開きの手動錠は仕様変更の表（2026年11月版：D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －74,000）
 function yManual(e, kind){
   var lk = (e && e.lock) || {manual:-83000};
-  if (String(kind).indexOf('両開き') === 0) return e.grade === 'd50' ? -137000 : (/ロートアイアン/.test(e.manualHandle || '') ? -78000 : -95000);
+  if (String(kind).indexOf('両開き') === 0) return e.grade === 'd50' ? -137000 : (/ロートアイアン/.test(e.manualHandle || '') ? -74000 : -95000);
   return lk.manual;
 }
 // 引戸は枚数ごとに選べる色が違う（4枚建は色が少ない）ので、その形で選べる色だけにする
@@ -1365,7 +1365,7 @@ function lockOptions(){
   if (PRODUCT === 'yhk') return [{id:'manual', name:'手動キー', desc:'差して回すカギです。ドアリモの引戸は手動キーです。', add:0, y:'manual'}];
   if (PRODUCT === 'ydoor'){
     // 差額はデザインのページの値段（ピタットキーが基準）。両開きの手動錠は仕様変更の表
-    // （D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －78,000）
+    // （2026年11月版：D50 －137,000、D30・アルミ －95,000、ロートアイアン調ハンドル －74,000）
     // 手動キーが標準。電気錠は手動キーとの差額を上乗せする
     var ye = cur(), lk = (ye && ye.lock) || {pocket:57000, manual:-83000};
     var man = yManual(ye, st.kind);
@@ -1821,7 +1821,7 @@ function buildPdfSheet(no, now){
       row('取り付けられるサイズ', q.size ? q.size + 'mm（新しい枠）' : '')+row('お客様の採寸', q.measured ? q.measured + '（' + q.fit + '）' : '')+'</table>'+
     '<div class="total"><span>工事費込みの金額（税込）</span><b>'+yen(q.total)+'</b></div>'+
     '<table class="bd">'+document.getElementById('r-bd').innerHTML+'</table></div></div>'+
-    '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年5月版）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめた後、その日のうちに正式なお見積もりをご連絡します。</li>'+
+    '<div class="notes"><b>この見積りについて</b><ul><li>・'+(isY() ? 'YKK APのカタログ価格（2026年11月の値上げ後）' : 'LIXILの定価（2026年10月の値上げ後）')+'をもとにした目安です。現地調査で寸法と今の玄関の状態を確かめた後、その日のうちに正式なお見積もりをご連絡します。</li>'+
       '<li>・実際の寸法でメーカーの価格の区分が変わるときや、防火戸が必要なとき、ポストや手すりの付け替え、下枠の取り外しがあるときは、金額が変わることがあります。変わる場合は、工事の前に理由と金額をお伝えします。</li>'+
       (yGlassSep() ? '<li>・袖とランマのガラスはメーカーの別売り品で、この金額に入っていません。ガラス代は現地調査のあとでお伝えします。</li>' : '')+
       '<li>・遠方の方（八代・阿蘇・人吉・天草、福岡県、佐賀・大分・宮崎・鹿児島など）は、別に出張費・諸経費をいただく場合があります。</li>'+
@@ -1880,7 +1880,7 @@ var INFO = {
       '<div><b>複層ガラス</b><span>2枚の板ガラスの間に、乾いた空気を閉じ込めたガラスです。標準の仕様です。<b style="color:#E8590C">おすすめ</b></span></div>'+
       '<div><b>Low-E複層ガラス</b><span>複層ガラスに金属の膜を加えて、断熱の性能をさらに高めたガラスです。日差しの熱もさえぎるタイプです。値段は、複層ガラスの値段に、戸とランマ（袖付は袖）の差額を足しています。</span></div></div>'+
       '<h4>補助金について</h4><p>断熱の性能によっては、国の補助金の対象になることがあります。対象になるか、いくら出るかは時期や条件で変わるので、現地調査のときに確かめてお伝えします。</p>'+
-      '<p class="src">YKK AP ドアリモ 玄関引戸 カタログ（2026年5月版）26ページと、基本セット価格表より。</p>';
+      '<p class="src">YKK AP ドアリモ 玄関引戸 カタログ（2026年5月版）26ページと、2026年11月版の基本セット価格表より。</p>';
   },
   lock_y: function(){
     var kit = function(k, t){ return '<figure><img src="'+yClip(k)+'" alt="">'+t+'</figure>'; };
