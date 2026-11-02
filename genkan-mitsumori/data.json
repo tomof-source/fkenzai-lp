@@ -27012,10 +27012,10 @@
        "frame": ""
       },
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S01/c-KE.jpg",
+       "img": "img/ydoor/yal-S01/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27141,10 +27141,10 @@
      },
      "colors": [
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S02/c-KE.jpg",
+       "img": "img/ydoor/yal-S02/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27295,10 +27295,10 @@
      },
      "colors": [
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S03/c-KE.jpg",
+       "img": "img/ydoor/yal-S03/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27431,10 +27431,10 @@
      },
      "colors": [
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S05/c-KE.jpg",
+       "img": "img/ydoor/yal-S05/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27574,10 +27574,10 @@
        "frame": ""
       },
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S06/c-KE.jpg",
+       "img": "img/ydoor/yal-S06/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27728,10 +27728,10 @@
        "frame": ""
       },
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S08/c-KE.jpg",
+       "img": "img/ydoor/yal-S08/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27857,10 +27857,10 @@
      },
      "colors": [
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S11/c-KE.jpg",
+       "img": "img/ydoor/yal-S11/c-PR.jpg",
        "frame": ""
       },
       {
@@ -27993,10 +27993,10 @@
      },
      "colors": [
       {
-       "code": "KE",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/ydoor/yal-S12/c-KE.jpg",
+       "img": "img/ydoor/yal-S12/c-PR.jpg",
        "frame": ""
       },
       {
@@ -28577,11 +28577,6 @@
     "img": "img/ydoor/swatch/B1.jpg",
     "page": 124
    },
-   "KE": {
-    "name": "キャラメルチーク",
-    "img": "img/ydoor/swatch/KE.jpg",
-    "page": 154
-   },
    "YW": {
     "name": "ホワイト",
     "img": "img/ydoor/swatch/YW.jpg",
@@ -28686,10 +28681,10 @@
        "img": "img/yhk/Y01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y01/c-YF.jpg"
+       "img": "img/yhk/Y01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -28744,10 +28739,10 @@
        "img": "img/yhk/Y02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y02/c-YF.jpg"
+       "img": "img/yhk/Y02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -28802,10 +28797,10 @@
        "img": "img/yhk/Y03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y03/c-YF.jpg"
+       "img": "img/yhk/Y03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -28860,10 +28855,10 @@
        "img": "img/yhk/Y04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y04/c-YF.jpg"
+       "img": "img/yhk/Y04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -28927,10 +28922,10 @@
        "img": "img/yhk/C01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C01/c-YF.jpg"
+       "img": "img/yhk/C01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -28994,10 +28989,10 @@
        "img": "img/yhk/C02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C02/c-YF.jpg"
+       "img": "img/yhk/C02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29061,10 +29056,10 @@
        "img": "img/yhk/C03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C03/c-YF.jpg"
+       "img": "img/yhk/C03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29128,10 +29123,10 @@
        "img": "img/yhk/C04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C04/c-YF.jpg"
+       "img": "img/yhk/C04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29195,10 +29190,10 @@
        "img": "img/yhk/C05/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C05/c-YF.jpg"
+       "img": "img/yhk/C05/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29262,10 +29257,10 @@
        "img": "img/yhk/B01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B01/c-YF.jpg"
+       "img": "img/yhk/B01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29329,10 +29324,10 @@
        "img": "img/yhk/B02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B02/c-YF.jpg"
+       "img": "img/yhk/B02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29396,10 +29391,10 @@
        "img": "img/yhk/B03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B03/c-YF.jpg"
+       "img": "img/yhk/B03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29463,10 +29458,10 @@
        "img": "img/yhk/B04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B04/c-YF.jpg"
+       "img": "img/yhk/B04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29530,10 +29525,10 @@
        "img": "img/yhk/B09/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B09/c-YF.jpg"
+       "img": "img/yhk/B09/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29597,10 +29592,10 @@
        "img": "img/yhk/C06/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C06/c-YF.jpg"
+       "img": "img/yhk/C06/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29664,10 +29659,10 @@
        "img": "img/yhk/C08/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C08/c-YF.jpg"
+       "img": "img/yhk/C08/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29731,10 +29726,10 @@
        "img": "img/yhk/C09/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C09/c-YF.jpg"
+       "img": "img/yhk/C09/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29798,10 +29793,10 @@
        "img": "img/yhk/C10/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C10/c-YF.jpg"
+       "img": "img/yhk/C10/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29865,10 +29860,10 @@
        "img": "img/yhk/A11/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/A11/c-YF.jpg"
+       "img": "img/yhk/A11/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29932,10 +29927,10 @@
        "img": "img/yhk/C16/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C16/c-YF.jpg"
+       "img": "img/yhk/C16/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -29999,10 +29994,10 @@
        "img": "img/yhk/C17/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C17/c-YF.jpg"
+       "img": "img/yhk/C17/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -30066,10 +30061,10 @@
        "img": "img/yhk/B10/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B10/c-YF.jpg"
+       "img": "img/yhk/B10/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -30985,10 +30980,10 @@
        "img": "img/yhk/Y01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y01/c-YF.jpg"
+       "img": "img/yhk/Y01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31044,10 +31039,10 @@
        "img": "img/yhk/Y02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y02/c-YF.jpg"
+       "img": "img/yhk/Y02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31103,10 +31098,10 @@
        "img": "img/yhk/Y03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y03/c-YF.jpg"
+       "img": "img/yhk/Y03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31162,10 +31157,10 @@
        "img": "img/yhk/Y04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/Y04/c-YF.jpg"
+       "img": "img/yhk/Y04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31231,10 +31226,10 @@
        "img": "img/yhk/C01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C01/c-YF.jpg"
+       "img": "img/yhk/C01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31300,10 +31295,10 @@
        "img": "img/yhk/C02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C02/c-YF.jpg"
+       "img": "img/yhk/C02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31369,10 +31364,10 @@
        "img": "img/yhk/C03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C03/c-YF.jpg"
+       "img": "img/yhk/C03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31438,10 +31433,10 @@
        "img": "img/yhk/C04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C04/c-YF.jpg"
+       "img": "img/yhk/C04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31507,10 +31502,10 @@
        "img": "img/yhk/C05/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C05/c-YF.jpg"
+       "img": "img/yhk/C05/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31576,10 +31571,10 @@
        "img": "img/yhk/B01/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B01/c-YF.jpg"
+       "img": "img/yhk/B01/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31645,10 +31640,10 @@
        "img": "img/yhk/B02/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B02/c-YF.jpg"
+       "img": "img/yhk/B02/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31714,10 +31709,10 @@
        "img": "img/yhk/B03/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B03/c-YF.jpg"
+       "img": "img/yhk/B03/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31783,10 +31778,10 @@
        "img": "img/yhk/B04/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B04/c-YF.jpg"
+       "img": "img/yhk/B04/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31852,10 +31847,10 @@
        "img": "img/yhk/B09/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B09/c-YF.jpg"
+       "img": "img/yhk/B09/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31921,10 +31916,10 @@
        "img": "img/yhk/C06/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C06/c-YF.jpg"
+       "img": "img/yhk/C06/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -31990,10 +31985,10 @@
        "img": "img/yhk/C08/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C08/c-YF.jpg"
+       "img": "img/yhk/C08/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32059,10 +32054,10 @@
        "img": "img/yhk/C09/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C09/c-YF.jpg"
+       "img": "img/yhk/C09/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32128,10 +32123,10 @@
        "img": "img/yhk/C10/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C10/c-YF.jpg"
+       "img": "img/yhk/C10/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32197,10 +32192,10 @@
        "img": "img/yhk/A11/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/A11/c-YF.jpg"
+       "img": "img/yhk/A11/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32266,10 +32261,10 @@
        "img": "img/yhk/C16/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C16/c-YF.jpg"
+       "img": "img/yhk/C16/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32335,10 +32330,10 @@
        "img": "img/yhk/C17/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/C17/c-YF.jpg"
+       "img": "img/yhk/C17/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -32404,10 +32399,10 @@
        "img": "img/yhk/B10/c-KG.jpg"
       },
       {
-       "code": "YF",
-       "name": "キャラメルチーク",
+       "code": "PR",
+       "name": "ドライチーク",
        "cls": "木目調",
-       "img": "img/yhk/B10/c-YF.jpg"
+       "img": "img/yhk/B10/c-PR.jpg"
       },
       {
        "code": "YA",
@@ -33367,11 +33362,6 @@
     "img": "img/yhk/swatch/KG.jpg",
     "page": 26
    },
-   "YF": {
-    "name": "キャラメルチーク",
-    "img": "img/yhk/swatch/YF.jpg",
-    "page": 26
-   },
    "YA": {
     "name": "ステイン",
     "img": "img/yhk/swatch/YA.jpg",
@@ -33385,6 +33375,11 @@
    "LG": {
     "name": "ひのき",
     "img": "img/yhk/swatch/LG.jpg",
+    "page": 26
+   },
+   "PR": {
+    "name": "ドライチーク",
+    "img": "img/yhk/swatch/PR.jpg",
     "page": 26
    }
   },
