@@ -1182,6 +1182,8 @@ var HK_LOCK_RATE = 0.75;
 // 掛率は【売値】工賃 掛率 の「玄関・勝手口」シート（ドアリモ・直販）：ドア58・引戸58（2026-11-04 智和さん。前は60）。
 // ドアリモの電気錠（スマートコントロールキー）はドアの定価に最初から入っているので、カギの差額も同じ58%で見る
 var Y_RATE = 0.58;
+// 引戸の掛率。台帳ではドアと別の欄（リシェント 引戸・ドアリモ 引戸）なので、台帳を読んだときに分けて差し替える
+var HK_RATE = 0.58, YHK_RATE = 0.58;
 // 性能の説明はドアリモ 玄関ドア カタログ21ページ（断熱ドアはD50、D30（D2仕様・D4仕様）があります）
 var GRADES_YD = [
   {id:'d4', name:'D30 D4仕様', badge:'おすすめ', sub:'熊本の玄関なら、まずはこれで十分です', desc:'厚さ42mmの扉の中に断熱材が入り、ガラスは2枚重ねの複層ガラスです。カタログでも、比較的温暖な地域ならD4仕様で十分とされています。'},
@@ -1213,9 +1215,9 @@ function isHK(){ return PRODUCT === 'hikido' || PRODUCT === 'yhk'; }
 function isY(){ return PRODUCT === 'ydoor' || PRODUCT === 'yhk'; }
 function productKey(type, maker){ return maker === 'ykk' ? (type === 'hikido' ? 'yhk' : 'ydoor') : type; }
 function gradesData(){ return PRODUCT === 'yhk' ? D.yhk.grades : PRODUCT === 'ydoor' ? D.ydoor.grades : PRODUCT === 'hikido' ? D.hikido.grades : D.grades; }
-function rate(){ return isY() ? Y_RATE : RATE; }
+function rate(){ return {door:RATE, hikido:HK_RATE, ydoor:Y_RATE, yhk:YHK_RATE}[PRODUCT]; }
 function kouji(){ return isHK() ? (HK_KOUJI[st.base] || 60000) : KOUJI; }
-function lockRate(){ return PRODUCT === 'hikido' ? HK_LOCK_RATE : PRODUCT === 'door' ? FAMI_RATE : Y_RATE; }
+function lockRate(){ return PRODUCT === 'hikido' ? HK_LOCK_RATE : PRODUCT === 'door' ? FAMI_RATE : rate(); }
 function swatch(code){
   var src = PRODUCT === 'yhk' ? D.yhk : PRODUCT === 'ydoor' ? D.ydoor : PRODUCT === 'hikido' ? D.hikido : null;
   return (src && src.swatches[code]) || (!isY() && D.swatches[code]) || null;
@@ -1996,8 +1998,33 @@ document.getElementById('reset-choice').addEventListener('click', function(){
   try { localStorage.removeItem(CHOICE_KEY); } catch(e) {}
   location.reload();
 });
+// 台帳「【売値】工賃 掛率」の数字を受け口から読み、合っていればページに書いた値と差し替えて描き直す（2026-11-04 智和さん）。
+// 読めない・遅い・ありえない値のときは、上に書いた値のまま計算する。受け口が台帳を10分覚えるので、台帳を直すと最大10分ほどで効く
+function loadRates(){
+  if (!ENDPOINT || !window.fetch) return;
+  var late = false, ctl = window.AbortController ? new AbortController() : null;
+  var timer = setTimeout(function(){ late = true; if (ctl) ctl.abort(); }, 8000);
+  var test = /[?&]rates=test(&|$)/.test(location.search) ? '&test=1' : '';
+  fetch(ENDPOINT + '?action=rates' + test, ctl ? {signal: ctl.signal} : {}).then(function(r){ return r.json(); }).then(function(j){
+    clearTimeout(timer);
+    if (late || !j || !j.ok) return;
+    var r = j.rate || {}, k = j.kouji || {}, changed = false;
+    function pick(cur, v, lo, hi){
+      if (typeof v !== 'number' || !isFinite(v) || v < lo || v > hi || v === cur) return cur;
+      changed = true; return v;
+    }
+    RATE = pick(RATE, r.door, 0.4, 0.95); HK_RATE = pick(HK_RATE, r.hikido, 0.4, 0.95);
+    Y_RATE = pick(Y_RATE, r.ydoor, 0.4, 0.95); YHK_RATE = pick(YHK_RATE, r.yhk, 0.4, 0.95);
+    FAMI_RATE = pick(FAMI_RATE, r.fami, 0.4, 0.95); GLASS_RATE = pick(GLASS_RATE, r.glass, 0.3, 0.95);
+    KOUJI = pick(KOUJI, k.door, 30000, 150000);
+    HK_KOUJI['2枚建'] = pick(HK_KOUJI['2枚建'], k.hk2, 30000, 150000); HK_KOUJI['4枚建'] = pick(HK_KOUJI['4枚建'], k.hk4, 30000, 150000);
+    SHOKEI = pick(SHOKEI, j.shokei, 0, 50000);
+    if (changed && D) render();
+  }).catch(function(){ clearTimeout(timer); });
+}
 if (window.__DATA) start(window.__DATA);
 else fetch('data.json').then(function(r){ return r.json(); }).then(start);
+loadRates();
 })();
 </script>
 <!-- フクろう親方 AIチャット（f-kenzai.com と同じ相談ボタン） -->
