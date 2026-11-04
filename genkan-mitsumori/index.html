@@ -1843,7 +1843,10 @@ document.getElementById('pdfBtn').addEventListener('click', function(){
   var no = 'W' + String(now.getFullYear()).slice(2) + pad(now.getMonth()+1) + pad(now.getDate()) + '-' + pad(now.getHours()) + pad(now.getMinutes()) + '-' + (10 + Math.floor(Math.random()*90));
   var fname = 'フクシマ建材_' + (isHK() ? '玄関引戸' : '玄関ドア') + '概算見積_' + no + '.pdf';
   var el = null;
+  var quote = null;
   loadPdfLib().then(function(){
+    // PDFに載せた金額と、お店へ知らせる金額をそろえる（作り始めた時点の見積を写しておく）
+    quote = st._quote;
     el = buildPdfSheet(no, now);
     var imgs = Array.prototype.slice.call(el.querySelectorAll('img'));
     return Promise.all(imgs.map(function(i){ return i.decode ? i.decode().catch(function(){}) : null; }));
@@ -1856,7 +1859,7 @@ document.getElementById('pdfBtn').addEventListener('click', function(){
     note.className = 'pdf-note ok'; note.textContent = '見積書を保存しました（' + no + '）。';
     // お店への知らせ（失敗してもお客様の保存には影響しない）
     if (ENDPOINT && ENDPOINT.indexOf('__') !== 0){
-      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'save_pdf', id:no, vid:vid(), pdf:data, quote:st._quote, page:location.href.split('#')[0], ua:navigator.userAgent})}).catch(function(){});
+      fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'save_pdf', id:no, vid:vid(), pdf:data, quote:quote, page:location.href.split('#')[0], ua:navigator.userAgent})}).catch(function(){});
     }
   }).catch(function(){
     btn.disabled = false; btn.textContent = 'この見積書をPDFで保存する';
@@ -2018,9 +2021,22 @@ function loadRates(){
     FAMI_RATE = pick(FAMI_RATE, r.fami, 0.4, 0.95); GLASS_RATE = pick(GLASS_RATE, r.glass, 0.3, 0.95);
     KOUJI = pick(KOUJI, k.door, 30000, 150000);
     HK_KOUJI['2枚建'] = pick(HK_KOUJI['2枚建'], k.hk2, 30000, 150000); HK_KOUJI['4枚建'] = pick(HK_KOUJI['4枚建'], k.hk4, 30000, 150000);
-    SHOKEI = pick(SHOKEI, j.shokei, 0, 50000);
-    if (changed && D) render();
+    SHOKEI = pick(SHOKEI, j.shokei, 1000, 50000);
+    if (changed) applyRates();
   }).catch(function(){ clearTimeout(timer); });
+}
+// PDFを作っている・申し込みを送っている最中は、金額が途中で変わらないよう終わるまで待ってから描き直す
+function applyRates(){
+  var pdf = document.getElementById('pdfBtn'), sub = document.getElementById('submitBtn');
+  if (!D || (pdf && pdf.disabled) || (sub && sub.disabled)) return setTimeout(applyRates, 500);
+  render();
+  // 見ていた金額が黙って変わらないよう、ひとこと添える
+  var price = document.getElementById('r-price-extra'), n = document.getElementById('r-rate-note');
+  if (!n && price && price.parentNode){
+    n = document.createElement('p'); n.id = 'r-rate-note'; n.className = 'price-extra';
+    n.textContent = '最新の価格表に合わせて、金額を更新しました。';
+    price.parentNode.insertBefore(n, price.nextSibling);
+  }
 }
 if (window.__DATA) start(window.__DATA);
 else fetch('data.json').then(function(r){ return r.json(); }).then(start);
