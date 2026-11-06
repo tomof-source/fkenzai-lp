@@ -901,7 +901,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <div class="q">
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
         <div class="kind-guide" id="kind-guide-hk" hidden><span>今の玄関の<b>戸の枚数</b>で選びます。</span><span>・戸が2枚　→　<b>2枚建</b></span><span>・戸が4枚（間口の広い玄関）　→　<b>4枚建</b></span><span>・戸の上に明かり取りのガラスがあれば「ランマあり」です。</span></div>
-        <div class="kind-guide" id="kind-guide"><span>扉の横に細い部分があるときは、<b>そこが開くか</b>で見分けます。</span><span>・細い部分も扉で開く　→　<b>親子</b></span><span>・細い部分はガラスや格子で開かない　→　<b>片袖</b>（両側なら<b>両袖</b>）</span><span>・同じ幅の扉が2枚で、両方開く　→　<b>両開き</b></span></div>
+        <div class="kind-guide" id="kind-guide"><span>扉の横に細い部分があるときは、<b>そこが開くか</b>で見分けます。</span><span>・細い部分も扉で開く　→　<b>親子</b></span><span>・細い部分はガラスや格子で開かない　→　<b>片袖</b>（両側なら<b>両袖</b>）</span><span id="kind-guide-yso" hidden>・親子の横に、さらに開かないガラスがある　→　<b>袖付親子</b></span><span>・同じ幅の扉が2枚で、両方開く　→　<b>両開き</b></span></div>
         <div class="kinds" id="o-kind"></div>
         <div class="ranma" id="o-ranma"></div>
         <p class="q-note" id="kind-note">袖とランマのガラスはドアとは別の料金ですが、金額には入れています。</p>
@@ -1165,6 +1165,8 @@ var BODY_GLASS = 64000; // アルミ仕様の本体ガラス別途品（C20N・C
 // ===== 玄関引戸（リシェント玄関引戸2・写真と寸法は2026年5月価格掲載版。定価は2026年10月の値上げ後をクラスフルで取得）=====
 var PRODUCT = 'door';
 var GRADES_DOOR = GRADES, BASES_DOOR = BASES;
+// ドアリモ 玄関ドアは袖付親子もある（D30・アルミドア。袖は親扉の吊元側）。リシェントの形の並びは変えない
+var BASES_YD = BASES.slice(0, 4).concat([['袖付親子','親子＋横のガラス']], BASES.slice(4));
 // 性能の説明はカタログ11ページ（PG仕様＝断熱性能あり・SG仕様＝断熱性能なし）
 var GRADES_HK = [
   {id:'pg', name:'PG仕様（断熱）', badge:'おすすめ', sub:'冬の玄関を暖かくしたい方に', desc:'戸のガラスは2枚重ねの複層ガラスで、断熱性能があります。熱を通しにくいLow-E複層ガラスにも変えられます。'},
@@ -1228,7 +1230,7 @@ function setProduct(p){
   PRODUCT = p;
   MAKER = isY() ? 'ykk' : 'lixil';
   GRADES = {door:GRADES_DOOR, hikido:GRADES_HK, ydoor:GRADES_YD, yhk:GRADES_YHK}[p];
-  BASES = {door:BASES_DOOR, hikido:BASES_HK, ydoor:BASES_DOOR, yhk:BASES_YHK}[p];
+  BASES = {door:BASES_DOOR, hikido:BASES_HK, ydoor:BASES_YD, yhk:BASES_YHK}[p];
   var d = DEF[p];
   st.grade = d.grade; st.base = d.base; st.ranma = false; st.design = d.design; st.color = d.color;
   st.lock = p === 'ydoor' ? 'y_manual' : 'manual'; st.handle = null; st.hcolor = null; st.dstyle = 'all';
@@ -1291,11 +1293,12 @@ function switchProduct(p){
   note.hidden = false;
 }
 // ドアリモ 玄関ドアの袖とランマのガラスは、メーカーの別売り品（カタログに値段が無い）。金額に入れず「別途」と出す
-function yGlassSep(){ return PRODUCT === 'ydoor' && (st.ranma || st.base === '片袖' || st.base === '両袖'); }
+function hasSode(){ return st.base === '片袖' || st.base === '両袖' || st.base === '袖付親子'; }
+function yGlassSep(){ return PRODUCT === 'ydoor' && (st.ranma || hasSode()); }
 function excludedGlassLabel(){
   if (!yGlassSep()) return '';
   var parts = [];
-  if (st.base === '片袖' || st.base === '両袖') parts.push('袖');
+  if (hasSode()) parts.push('袖');
   if (st.ranma) parts.push('ランマ');
   return parts.join('・')+'のガラス代';
 }
@@ -1531,6 +1534,7 @@ function render(){
     yhk: 'ドアリモの引戸は、ガラスで選びます。標準の'+B('複層ガラス')+'でも断熱の性能があります。もっと暖かくしたいなら'+B('Low-E複層ガラス')+'にできます。'
   }[PRODUCT];
   document.getElementById('kind-guide').hidden = hk;
+  document.getElementById('kind-guide-yso').hidden = PRODUCT !== 'ydoor';
   document.getElementById('kind-note').textContent = {
     door: '袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸を選ぶときは、いちばん上の「玄関の種類」で切り替えてください。',
     hikido: 'PG仕様でランマがあるときは、ランマのガラスが別の料金ですが、金額には入れています。',
