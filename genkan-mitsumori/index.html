@@ -901,7 +901,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
       <div class="q">
         <div class="q-head"><span class="step">STEP 2</span><h3>開き方</h3></div>
         <div class="kind-guide" id="kind-guide-hk" hidden><span>今の玄関の<b>戸の枚数</b>で選びます。</span><span>・戸が2枚　→　<b>2枚建</b></span><span>・戸が4枚（間口の広い玄関）　→　<b>4枚建</b></span><span>・戸の上に明かり取りのガラスがあれば「ランマあり」です。</span></div>
-        <div class="kind-guide" id="kind-guide"><span>扉の横に細い部分があるときは、<b>そこが開くか</b>で見分けます。</span><span>・細い部分も扉で開く　→　<b>親子</b></span><span>・細い部分はガラスや格子で開かない　→　<b>片袖</b>（両側なら<b>両袖</b>）</span><span id="kind-guide-yso" hidden>・親子の横に、さらに開かないガラスがある　→　<b>袖付親子</b></span><span>・同じ幅の扉が2枚で、両方開く　→　<b>両開き</b></span></div>
+        <div class="kind-guide" id="kind-guide"><span>扉の横に細い部分があるときは、<b>そこが開くか</b>で見分けます。</span><span>・細い部分も扉で開く　→　<b>親子</b></span><span>・細い部分はガラスや格子で開かない　→　<b>片袖</b>（両側なら<b>両袖</b>）</span><span id="kind-guide-yso" hidden>・親子の横に、さらに開かないガラスがある　→　<b>袖付親子</b>（ガラスは子扉と反対の端。D30とアルミドアだけ）</span><span>・同じ幅の扉が2枚で、両方開く　→　<b>両開き</b></span></div>
         <div class="kinds" id="o-kind"></div>
         <div class="ranma" id="o-ranma"></div>
         <p class="q-note" id="kind-note">袖とランマのガラスはドアとは別の料金ですが、金額には入れています。</p>
@@ -1166,7 +1166,7 @@ var BODY_GLASS = 64000; // アルミ仕様の本体ガラス別途品（C20N・C
 var PRODUCT = 'door';
 var GRADES_DOOR = GRADES, BASES_DOOR = BASES;
 // ドアリモ 玄関ドアは袖付親子もある（D30・アルミドア。袖は親扉の吊元側）。リシェントの形の並びは変えない
-var BASES_YD = BASES.slice(0, 4).concat([['袖付親子','親子＋横のガラス']], BASES.slice(4));
+var BASES_YD = BASES.slice(0, 4).concat([['袖付親子','親子＋袖ガラス']], BASES.slice(4));
 // 性能の説明はカタログ11ページ（PG仕様＝断熱性能あり・SG仕様＝断熱性能なし）
 var GRADES_HK = [
   {id:'pg', name:'PG仕様（断熱）', badge:'おすすめ', sub:'冬の玄関を暖かくしたい方に', desc:'戸のガラスは2枚重ねの複層ガラスで、断熱性能があります。熱を通しにくいLow-E複層ガラスにも変えられます。'},
@@ -1534,7 +1534,7 @@ function render(){
     yhk: 'ドアリモの引戸は、ガラスで選びます。標準の'+B('複層ガラス')+'でも断熱の性能があります。もっと暖かくしたいなら'+B('Low-E複層ガラス')+'にできます。'
   }[PRODUCT];
   document.getElementById('kind-guide').hidden = hk;
-  document.getElementById('kind-guide-yso').hidden = PRODUCT !== 'ydoor';
+  document.getElementById('kind-guide-yso').hidden = PRODUCT !== 'ydoor' || st.grade === 'd50';
   document.getElementById('kind-note').textContent = {
     door: '袖とランマのガラスはドアとは別の料金ですが、金額には入れています。引戸を選ぶときは、いちばん上の「玄関の種類」で切り替えてください。',
     hikido: 'PG仕様でランマがあるときは、ランマのガラスが別の料金ですが、金額には入れています。',
@@ -1601,7 +1601,8 @@ function render(){
     var tim = PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
     return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button>'+(popRank(k)?'<i class="pop r'+popRank(k)+'">人気'+popRank(k)+'位</i>':'')+'<img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
-  document.getElementById('design-count').textContent = all.length + 'デザイン';
+  // D30 のハイサイズ（F03S など）は袖付親子の設定が無く、一覧から消えるので理由を添える
+  document.getElementById('design-count').textContent = all.length + 'デザイン' + (PRODUCT === 'ydoor' && st.base === '袖付親子' && st.grade !== 'yal' ? '（ハイサイズは袖付親子の設定なし）' : '');
   // STEP 4
   var cs = colorsWithPrice(e, st.kind), base = minPrice(e, st.kind);
   document.getElementById('o-color').innerHTML = CLASS_ORDER.map(function(cls){
