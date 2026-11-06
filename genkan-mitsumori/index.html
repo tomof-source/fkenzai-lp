@@ -1166,7 +1166,7 @@ var BODY_GLASS = 64000; // アルミ仕様の本体ガラス別途品（C20N・C
 var PRODUCT = 'door';
 var GRADES_DOOR = GRADES, BASES_DOOR = BASES;
 // ドアリモ 玄関ドアは袖付親子もある（D30・アルミドア。袖は親扉の吊元側）。リシェントの形の並びは変えない
-var BASES_YD = BASES.slice(0, 4).concat([['袖付親子','親子＋袖ガラス']], BASES.slice(4));
+var BASES_YD = BASES.slice(0, 4).concat([['袖付親子','親子と袖']], BASES.slice(4));
 // 性能の説明はカタログ11ページ（PG仕様＝断熱性能あり・SG仕様＝断熱性能なし）
 var GRADES_HK = [
   {id:'pg', name:'PG仕様（断熱）', badge:'おすすめ', sub:'冬の玄関を暖かくしたい方に', desc:'戸のガラスは2枚重ねの複層ガラスで、断熱性能があります。熱を通しにくいLow-E複層ガラスにも変えられます。'},
