@@ -1533,7 +1533,7 @@ function render(){
   var pd = D.grades.k4 && D.grades.k4.M83, ph = D.hikido && D.hikido.grades.pg && D.hikido.grades.pg.P11;
   var yd = D.ydoor && D.ydoor.grades.d4 && D.ydoor.grades.d4[DEF.ydoor.design], yh = D.yhk && D.yhk.grades.yf && D.yhk.grades.yf[DEF.yhk.design];
   var pImg = {door: pd && pd.kinds['片開き'] && pd.kinds['片開き'].img, hikido: ph && ph.kinds['2枚建'] && ph.kinds['2枚建'].img,
-    ydoor: yd && (yd.hero ? yd.hero.replace(/hero\.jpg$/, 'card.jpg') : yd.thumb), yhk: yh && yh.kinds['2枚建'] && yh.kinds['2枚建'].img};
+    ydoor: yd && (yd.card || yd.thumb), yhk: yh && yh.kinds['2枚建'] && yh.kinds['2枚建'].img};
   var ty = isHK() ? 'hikido' : 'door';
   var tile = function(name, o, on){ return '<label class="tile"><input type="radio" name="'+name+'" value="'+o[0]+'"'+(on?' checked':'')+'><span class="in">'+(o[3]?'<img src="'+img(o[3])+'" alt="" loading="lazy">':'')+'<b>'+o[1]+'</b><span>'+o[2]+'</span></span></label>'; };
   document.getElementById('o-product').innerHTML = [
@@ -1617,8 +1617,9 @@ function render(){
   document.getElementById('o-design').innerHTML = list.map(function(k){
     var d = ds[k], sy = styleOf(k, d), nm = (d.label || k) + '型';
     // ドアリモ 玄関ドアは形ごとの写真が無いので、デザインの写真（片開きの形）を並べる
-    // 2026-11-07 小さな写真を拡大するとぼけるので、カタログの大きな写真を縮めたカード用の写真（card.jpg）を使う
-    var tim = PRODUCT === 'ydoor' && d.hero ? d.hero.replace(/hero\.jpg$/, 'card.jpg') : PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
+    // 2026-11-07 小さな写真を拡大するとぼけるので、カタログの大きな写真を縮めたカード用の写真（data.json の card）を使う
+    // （会社サーバーでは画像の名前に ?v=指紋 が付くので、hero の名前を書き換える方法は使えない）
+    var tim = PRODUCT === 'ydoor' ? (d.card || d.thumb) : d.kinds[st.kind].img;
     return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button>'+(popRank(k)?'<i class="pop r'+popRank(k)+'">人気'+popRank(k)+'位</i>':'')+'<img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
   // D30 のハイサイズ（F03S など）は袖付親子の設定が無く、一覧から消えるので理由を添える
