@@ -11499,7 +11499,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-N40N/card.jpg"
     },
     "N41N": {
      "page": 74,
@@ -11604,7 +11605,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-N41N/card.jpg"
     },
     "N42N": {
      "page": 75,
@@ -11693,7 +11695,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-N42N/card.jpg"
     },
     "N43N": {
      "page": 75,
@@ -11782,7 +11785,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-N43N/card.jpg"
     },
     "F61N": {
      "page": 76,
@@ -11843,7 +11847,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-F61N/card.jpg"
     },
     "F62N": {
      "page": 76,
@@ -11904,7 +11909,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-F62N/card.jpg"
     },
     "F63N": {
      "page": 77,
@@ -12011,7 +12017,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-F63N/card.jpg"
     },
     "F64N": {
      "page": 77,
@@ -12099,7 +12106,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-F64N/card.jpg"
     },
     "C60N": {
      "page": 78,
@@ -12224,7 +12232,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C60N/card.jpg"
     },
     "C62N": {
      "page": 78,
@@ -12306,7 +12315,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C62N/card.jpg"
     },
     "C63N": {
      "page": 79,
@@ -12424,7 +12434,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C63N/card.jpg"
     },
     "C64N": {
      "page": 79,
@@ -12524,7 +12535,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C64N/card.jpg"
     },
     "C66N": {
      "page": 80,
@@ -12606,7 +12618,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C66N/card.jpg"
     },
     "C40N": {
      "page": 80,
@@ -12688,7 +12701,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-C40N/card.jpg"
     },
     "E62N": {
      "page": 82,
@@ -12763,7 +12777,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E62N/card.jpg"
     },
     "E63N": {
      "page": 82,
@@ -12854,7 +12869,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E63N/card.jpg"
     },
     "E64N": {
      "page": 83,
@@ -12929,7 +12945,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E64N/card.jpg"
     },
     "E65N": {
      "page": 83,
@@ -13004,7 +13021,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E65N/card.jpg"
     },
     "E66N": {
      "page": 84,
@@ -13079,7 +13097,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E66N/card.jpg"
     },
     "E67N": {
      "page": 84,
@@ -13154,7 +13173,8 @@
       "manual": -104000
      },
      "wind": false,
-     "grade": "d50"
+     "grade": "d50",
+     "card": "img/ydoor/d50-E67N/card.jpg"
     }
    },
    "d2": {
@@ -13279,7 +13299,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N04H/card.jpg"
     },
     "N05T": {
      "page": 95,
@@ -13430,7 +13451,8 @@
       "manual": -96000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N05T/card.jpg"
     },
     "N05N": {
      "page": 95,
@@ -13581,7 +13603,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N05N/card.jpg"
     },
     "N06K": {
      "page": 96,
@@ -13704,7 +13727,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N06K/card.jpg"
     },
     "N06H": {
      "page": 96,
@@ -13843,7 +13867,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N06H/card.jpg"
     },
     "N07T": {
      "page": 97,
@@ -13966,7 +13991,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N07T/card.jpg"
     },
     "N07N": {
      "page": 97,
@@ -14089,7 +14115,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N07N/card.jpg"
     },
     "N08N": {
      "page": 98,
@@ -14212,7 +14239,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N08N/card.jpg"
     },
     "N09N": {
      "page": 98,
@@ -14363,7 +14391,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N09N/card.jpg"
     },
     "N10N": {
      "page": 99,
@@ -14486,7 +14515,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N10N/card.jpg"
     },
     "N12N": {
      "page": 99,
@@ -14637,7 +14667,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N12N/card.jpg"
     },
     "N13N": {
      "page": 100,
@@ -14788,7 +14819,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N13N/card.jpg"
     },
     "N14N": {
      "page": 100,
@@ -14939,7 +14971,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-N14N/card.jpg"
     },
     "F03T": {
      "page": 101,
@@ -15097,7 +15130,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F03T/card.jpg"
     },
     "F03N": {
      "page": 101,
@@ -15255,7 +15289,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F03N/card.jpg"
     },
     "F04H": {
      "page": 102,
@@ -15416,7 +15451,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F04H/card.jpg"
     },
     "F05K": {
      "page": 103,
@@ -15577,7 +15613,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F05K/card.jpg"
     },
     "F05H": {
      "page": 103,
@@ -15738,7 +15775,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F05H/card.jpg"
     },
     "F06K": {
      "page": 104,
@@ -15899,7 +15937,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F06K/card.jpg"
     },
     "F06H": {
      "page": 104,
@@ -16078,7 +16117,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F06H/card.jpg"
     },
     "F08H": {
      "page": 105,
@@ -16239,7 +16279,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F08H/card.jpg"
     },
     "C02N": {
      "page": 106,
@@ -16386,7 +16427,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C02N/card.jpg"
     },
     "C03N": {
      "page": 106,
@@ -16558,7 +16600,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C03N/card.jpg"
     },
     "C04T": {
      "page": 107,
@@ -16719,7 +16762,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C04T/card.jpg"
     },
     "C04N": {
      "page": 107,
@@ -16898,7 +16942,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C04N/card.jpg"
     },
     "C05N": {
      "page": 108,
@@ -17059,7 +17104,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C05N/card.jpg"
     },
     "C07T": {
      "page": 109,
@@ -17220,7 +17266,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C07T/card.jpg"
     },
     "C07N": {
      "page": 109,
@@ -17381,7 +17428,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C07N/card.jpg"
     },
     "C08K": {
      "page": 110,
@@ -17542,7 +17590,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C08K/card.jpg"
     },
     "C08H": {
      "page": 110,
@@ -17703,7 +17752,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C08H/card.jpg"
     },
     "C09T": {
      "page": 111,
@@ -17864,7 +17914,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C09T/card.jpg"
     },
     "C09N": {
      "page": 111,
@@ -18025,7 +18076,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C09N/card.jpg"
     },
     "C10N": {
      "page": 112,
@@ -18207,7 +18259,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C10N/card.jpg"
     },
     "C11T": {
      "page": 113,
@@ -18368,7 +18421,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C11T/card.jpg"
     },
     "C11N": {
      "page": 113,
@@ -18529,7 +18583,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C11N/card.jpg"
     },
     "E01N": {
      "page": 114,
@@ -18696,7 +18751,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E01N/card.jpg"
     },
     "E02N": {
      "page": 114,
@@ -18847,7 +18903,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E02N/card.jpg"
     },
     "E03N": {
      "page": 115,
@@ -18977,7 +19034,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E03N/card.jpg"
     },
     "E04N": {
      "page": 115,
@@ -19107,7 +19165,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E04N/card.jpg"
     },
     "E07N": {
      "page": 116,
@@ -19237,7 +19296,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E07N/card.jpg"
     },
     "E08N": {
      "page": 116,
@@ -19367,7 +19427,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E08N/card.jpg"
     },
     "E09T": {
      "page": 117,
@@ -19518,7 +19579,8 @@
       "manual": -86000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E09T/card.jpg"
     },
     "E09N": {
      "page": 117,
@@ -19669,7 +19731,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E09N/card.jpg"
     },
     "E10N": {
      "page": 118,
@@ -19836,7 +19899,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E10N/card.jpg"
     },
     "E11N": {
      "page": 118,
@@ -20003,7 +20067,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E11N/card.jpg"
     },
     "E12N": {
      "page": 119,
@@ -20154,7 +20219,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-E12N/card.jpg"
     },
     "F03S": {
      "page": 120,
@@ -20229,7 +20295,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F03S/card.jpg"
     },
     "F03M": {
      "page": 120,
@@ -20304,7 +20371,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F03M/card.jpg"
     },
     "F04M": {
      "page": 121,
@@ -20383,7 +20451,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-F04M/card.jpg"
     },
     "C07S": {
      "page": 121,
@@ -20469,7 +20538,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C07S/card.jpg"
     },
     "C07M": {
      "page": 122,
@@ -20555,7 +20625,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C07M/card.jpg"
     },
     "C09S": {
      "page": 122,
@@ -20641,7 +20712,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C09S/card.jpg"
     },
     "C09M": {
      "page": 123,
@@ -20727,7 +20799,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C09M/card.jpg"
     },
     "C10M": {
      "page": 123,
@@ -20813,7 +20886,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d2"
+     "grade": "d2",
+     "card": "img/ydoor/d2-C10M/card.jpg"
     }
    },
    "d4": {
@@ -20938,7 +21012,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N04H/card.jpg"
     },
     "N05T": {
      "page": 95,
@@ -21089,7 +21164,8 @@
       "manual": -96000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N05T/card.jpg"
     },
     "N05N": {
      "page": 95,
@@ -21240,7 +21316,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N05N/card.jpg"
     },
     "N06K": {
      "page": 96,
@@ -21363,7 +21440,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N06K/card.jpg"
     },
     "N06H": {
      "page": 96,
@@ -21502,7 +21580,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N06H/card.jpg"
     },
     "N07T": {
      "page": 97,
@@ -21625,7 +21704,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N07T/card.jpg"
     },
     "N07N": {
      "page": 97,
@@ -21748,7 +21828,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N07N/card.jpg"
     },
     "N08N": {
      "page": 98,
@@ -21871,7 +21952,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N08N/card.jpg"
     },
     "N09N": {
      "page": 98,
@@ -22022,7 +22104,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N09N/card.jpg"
     },
     "N10N": {
      "page": 99,
@@ -22145,7 +22228,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N10N/card.jpg"
     },
     "N12N": {
      "page": 99,
@@ -22296,7 +22380,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N12N/card.jpg"
     },
     "N13N": {
      "page": 100,
@@ -22447,7 +22532,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N13N/card.jpg"
     },
     "N14N": {
      "page": 100,
@@ -22598,7 +22684,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-N14N/card.jpg"
     },
     "F03T": {
      "page": 101,
@@ -22756,7 +22843,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F03T/card.jpg"
     },
     "F03N": {
      "page": 101,
@@ -22914,7 +23002,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F03N/card.jpg"
     },
     "F04H": {
      "page": 102,
@@ -23075,7 +23164,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F04H/card.jpg"
     },
     "F05K": {
      "page": 103,
@@ -23236,7 +23326,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F05K/card.jpg"
     },
     "F05H": {
      "page": 103,
@@ -23397,7 +23488,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F05H/card.jpg"
     },
     "F06K": {
      "page": 104,
@@ -23558,7 +23650,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F06K/card.jpg"
     },
     "F06H": {
      "page": 104,
@@ -23737,7 +23830,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F06H/card.jpg"
     },
     "F08H": {
      "page": 105,
@@ -23898,7 +23992,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F08H/card.jpg"
     },
     "C02N": {
      "page": 106,
@@ -24045,7 +24140,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C02N/card.jpg"
     },
     "C03N": {
      "page": 106,
@@ -24217,7 +24313,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C03N/card.jpg"
     },
     "C04T": {
      "page": 107,
@@ -24378,7 +24475,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C04T/card.jpg"
     },
     "C04N": {
      "page": 107,
@@ -24557,7 +24655,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C04N/card.jpg"
     },
     "C05N": {
      "page": 108,
@@ -24718,7 +24817,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C05N/card.jpg"
     },
     "C07T": {
      "page": 109,
@@ -24879,7 +24979,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C07T/card.jpg"
     },
     "C07N": {
      "page": 109,
@@ -25040,7 +25141,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C07N/card.jpg"
     },
     "C08K": {
      "page": 110,
@@ -25201,7 +25303,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C08K/card.jpg"
     },
     "C08H": {
      "page": 110,
@@ -25362,7 +25465,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C08H/card.jpg"
     },
     "C09T": {
      "page": 111,
@@ -25523,7 +25627,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C09T/card.jpg"
     },
     "C09N": {
      "page": 111,
@@ -25684,7 +25789,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C09N/card.jpg"
     },
     "C10N": {
      "page": 112,
@@ -25866,7 +25972,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C10N/card.jpg"
     },
     "C11T": {
      "page": 113,
@@ -26027,7 +26134,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C11T/card.jpg"
     },
     "C11N": {
      "page": 113,
@@ -26188,7 +26296,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C11N/card.jpg"
     },
     "E01N": {
      "page": 114,
@@ -26355,7 +26464,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E01N/card.jpg"
     },
     "E02N": {
      "page": 114,
@@ -26506,7 +26616,8 @@
       "manual": -96000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E02N/card.jpg"
     },
     "E03N": {
      "page": 115,
@@ -26636,7 +26747,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E03N/card.jpg"
     },
     "E04N": {
      "page": 115,
@@ -26766,7 +26878,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E04N/card.jpg"
     },
     "E07N": {
      "page": 116,
@@ -26896,7 +27009,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E07N/card.jpg"
     },
     "E08N": {
      "page": 116,
@@ -27026,7 +27140,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E08N/card.jpg"
     },
     "E09T": {
      "page": 117,
@@ -27177,7 +27292,8 @@
       "manual": -86000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E09T/card.jpg"
     },
     "E09N": {
      "page": 117,
@@ -27328,7 +27444,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E09N/card.jpg"
     },
     "E10N": {
      "page": 118,
@@ -27495,7 +27612,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E10N/card.jpg"
     },
     "E11N": {
      "page": 118,
@@ -27662,7 +27780,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E11N/card.jpg"
     },
     "E12N": {
      "page": 119,
@@ -27813,7 +27932,8 @@
       "manual": -86000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-E12N/card.jpg"
     },
     "F03S": {
      "page": 120,
@@ -27888,7 +28008,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F03S/card.jpg"
     },
     "F03M": {
      "page": 120,
@@ -27963,7 +28084,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F03M/card.jpg"
     },
     "F04M": {
      "page": 121,
@@ -28042,7 +28164,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-F04M/card.jpg"
     },
     "C07S": {
      "page": 121,
@@ -28128,7 +28251,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C07S/card.jpg"
     },
     "C07M": {
      "page": 122,
@@ -28214,7 +28338,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C07M/card.jpg"
     },
     "C09S": {
      "page": 122,
@@ -28300,7 +28425,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C09S/card.jpg"
     },
     "C09M": {
      "page": 123,
@@ -28386,7 +28512,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C09M/card.jpg"
     },
     "C10M": {
      "page": 123,
@@ -28472,7 +28599,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "d4"
+     "grade": "d4",
+     "card": "img/ydoor/d4-C10M/card.jpg"
     }
    },
    "yal": {
@@ -28628,7 +28756,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S01/card.jpg"
     },
     "S02": {
      "page": 146,
@@ -28782,7 +28911,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S02/card.jpg"
     },
     "S03": {
      "page": 147,
@@ -28954,7 +29084,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S03/card.jpg"
     },
     "S05": {
      "page": 147,
@@ -29108,7 +29239,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S05/card.jpg"
     },
     "S06": {
      "page": 148,
@@ -29262,7 +29394,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S06/card.jpg"
     },
     "S08": {
      "page": 148,
@@ -29434,7 +29567,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S08/card.jpg"
     },
     "S11": {
      "page": 149,
@@ -29588,7 +29722,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S11/card.jpg"
     },
     "S12": {
      "page": 149,
@@ -29742,7 +29877,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S12/card.jpg"
     },
     "S50": {
      "page": 150,
@@ -29872,7 +30008,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S50/card.jpg"
     },
     "S51": {
      "page": 150,
@@ -30002,7 +30139,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S51/card.jpg"
     },
     "S52": {
      "page": 151,
@@ -30132,7 +30270,8 @@
       "manual": -83000
      },
      "wind": true,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-S52/card.jpg"
     },
     "G50": {
      "page": 152,
@@ -30262,7 +30401,8 @@
       "manual": -83000
      },
      "wind": false,
-     "grade": "yal"
+     "grade": "yal",
+     "card": "img/ydoor/yal-G50/card.jpg"
     }
    }
   },
