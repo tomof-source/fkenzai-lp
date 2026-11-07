@@ -427,6 +427,9 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
   .gcard .sub{font-size:14px}
   .bd td{font-size:14px}
   .stage-cap,.pdf-note{font-size:12.5px}
+  /* 2026-11-07 社員の感想：開き方の絵と色見本を一回り大きく */
+  .tile .in img,.kinds .tile .in img{height:140px}
+  .chips{grid-template-columns:repeat(auto-fill,minmax(88px,1fr))}
 }
 /* 開き方の見分け方 */
 .kind-guide{display:grid;gap:6px;background:var(--sky-3);border:1px solid var(--sky-2);border-left:4px solid var(--blue);border-radius:6px;padding:10px 12px;margin-bottom:12px;font-size:13.5px;color:var(--ink)}
@@ -445,6 +448,20 @@ dialog.info::backdrop{background:rgba(20,30,40,.55)}
 .zoom-view img{max-height:70vh;width:auto;margin:0 auto}
 .zoom-view .row{display:flex;justify-content:center;align-items:flex-end;gap:14px;flex-wrap:wrap}
 .zoom-view .row img.kind{max-height:40vh}
+/* 2026-11-07 社員の感想：画面上部の写真を大きく見るボタン・選んだ色を大きく・PDFの保存先の案内 */
+.stage{grid-template-columns:1fr 96px}
+.stage .side img{width:84px;height:84px}
+.stage-zoom{display:flex;align-items:center;gap:6px;margin:8px auto 0;border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:9px 18px;font-size:14px;font-weight:700;cursor:pointer}
+.stage-zoom svg,.stage-mag svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round}
+/* 扉の写真の右下にも虫めがねを重ね、押せば大きく見られると分かるように（検品2回目の指摘） */
+.stage .main{position:relative}
+.stage-mag{position:absolute;right:-6px;bottom:6px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.95);color:var(--blue);display:grid;place-items:center;cursor:pointer;padding:0;box-shadow:0 2px 8px rgba(11,24,38,.18)}
+.kinds .tile .in{position:relative}
+/* 開き方のカードは右上に選んだ印が出るので、拡大ボタンは左上に置き、絵に重ならないよう小さめに */
+.kinds .zoom{left:4px!important;right:auto!important;top:4px!important;width:34px!important;height:34px!important}
+.kinds .tile input:checked + .in .zoom,.kinds .tile .in:has(.pop) .zoom{top:4px!important}
+.r-body > .btn-sub.pdf-share{order:7}
+.pdf-share[hidden]{display:none}
 .prod{grid-template-columns:repeat(2,1fr)!important;max-width:460px}
 .prod .tile .in img{height:118px}
 .prod .tile .in span{font-size:12.5px}
@@ -962,10 +979,11 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 
     <aside class="result" aria-live="polite">
       <div class="stage">
-        <div class="main"><img id="st-color" src="" alt="" data-zoom-current="1" title="押すと大きく見られます"></div>
+        <div class="main"><img id="st-color" src="" alt="" data-zoom-current="1" title="押すと大きく見られます"><button type="button" class="stage-mag" data-zoom-current="1" aria-label="写真を大きく見る"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button></div>
         <div class="side"><img id="st-sw" src="" alt=""><span id="st-sw-cap"></span></div>
       </div>
       <p class="stage-cap" id="st-cap"></p>
+      <button type="button" class="stage-zoom" data-zoom-current="1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg>カタログの大きい写真で見る</button>
       <div class="r-body">
         <div class="r-name" id="r-name"></div>
         <div><div class="r-price-label">工事費込みの概算（税込）</div><div class="r-price" id="r-price">―</div><p class="price-extra" id="r-price-extra" hidden></p></div>
@@ -980,6 +998,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
         </div>
         <button type="button" class="btn btn-sub btn-block" id="pdfBtn">この見積書をPDFで保存する</button>
         <p class="pdf-note" id="pdfNote">ご家族との相談用に。お名前などの入力はいりません。</p>
+        <button type="button" class="btn btn-sub btn-block pdf-share" id="pdfShare" hidden>LINEや「ファイル」に送る</button>
         <p class="save-note" id="save-note">選んだ内容は、この端末に自動保存します。金額は開いた時点の価格で計算し直します。</p>
         <button type="button" class="reset-choice" id="reset-choice">最初から選び直す</button>
       </div>
@@ -1514,7 +1533,7 @@ function render(){
   var pd = D.grades.k4 && D.grades.k4.M83, ph = D.hikido && D.hikido.grades.pg && D.hikido.grades.pg.P11;
   var yd = D.ydoor && D.ydoor.grades.d4 && D.ydoor.grades.d4[DEF.ydoor.design], yh = D.yhk && D.yhk.grades.yf && D.yhk.grades.yf[DEF.yhk.design];
   var pImg = {door: pd && pd.kinds['片開き'] && pd.kinds['片開き'].img, hikido: ph && ph.kinds['2枚建'] && ph.kinds['2枚建'].img,
-    ydoor: yd && yd.thumb, yhk: yh && yh.kinds['2枚建'] && yh.kinds['2枚建'].img};
+    ydoor: yd && (yd.hero ? yd.hero.replace(/hero\.jpg$/, 'card.jpg') : yd.thumb), yhk: yh && yh.kinds['2枚建'] && yh.kinds['2枚建'].img};
   var ty = isHK() ? 'hikido' : 'door';
   var tile = function(name, o, on){ return '<label class="tile"><input type="radio" name="'+name+'" value="'+o[0]+'"'+(on?' checked':'')+'><span class="in">'+(o[3]?'<img src="'+img(o[3])+'" alt="" loading="lazy">':'')+'<b>'+o[1]+'</b><span>'+o[2]+'</span></span></label>'; };
   document.getElementById('o-product').innerHTML = [
@@ -1559,7 +1578,7 @@ function render(){
   document.getElementById('design-note').textContent = {
     door: '人気の順位は、2025年10月〜2026年9月の私たちの玄関ドア施工実績をもとにしています。5位は同率で2つのデザインがあります。「風を通せる」ドアは、カギをかけたまま扉の中の小窓を開けて、風を入れられます。雰囲気の目印は、形から私たちが付けたものです。色でも印象が変わります。',
     hikido: '色でも印象が変わります。',
-    ydoor: '「風を通せる」ドアは、扉の中の小窓（内開き）を開けて、風を入れられます。雰囲気の目印は、カタログの分け方（ナチュラル・シンプル・シック・エレガント）です。',
+    ydoor: 'カードの写真はカタログの見本で、色と開き方は選んだものと違うことがあります。色は、次の「色」で選べます。「風を通せる」ドアは、扉の中の小窓（内開き）を開けて、風を入れられます。雰囲気の目印は、カタログの分け方（ナチュラル・シンプル・シック・エレガント）です。',
     yhk: '雰囲気の目印は、カタログの分け方（現代和風・洋風・伝統和風・袖付）です。'
   }[PRODUCT];
   // STEP 1
@@ -1576,7 +1595,7 @@ function render(){
     var any = Object.keys(ds).some(function(d){ return ds[d].kinds[key]; });
     var alt = ok ? e : (any ? ds[Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; })[0]] : null);
     var src = alt ? img(alt.kinds[key].img) : '';
-    return '<label class="tile"><input type="radio" name="kind" value="'+b+'"'+(st.base===b?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<img src="'+src+'" alt="'+st.design+' '+b+'" loading="lazy">':'')+'<b>'+b+'</b><span>'+(any?bs[1]+(ok?'':'<br>（'+Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).map(function(d){ return d+'型'; }).slice(0,3).join('・')+(Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).length>3?'など':'')+'）'):'この性能にはありません')+'</span></span></label>';
+    return '<label class="tile"><input type="radio" name="kind" value="'+b+'"'+(st.base===b?' checked':'')+(any?'':' disabled')+'><span class="in">'+(src?'<button type="button" class="zoom" data-zoom-kind="'+esc(src)+'" data-zoom-title="'+esc(b)+'" aria-label="'+b+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button><img src="'+src+'" alt="'+st.design+' '+b+'" loading="lazy">':'')+'<b>'+b+'</b><span>'+(any?bs[1]+(ok?'':'<br>（'+Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).map(function(d){ return d+'型'; }).slice(0,3).join('・')+(Object.keys(ds).filter(function(d){ return ds[d].kinds[key]; }).length>3?'など':'')+'）'):'この性能にはありません')+'</span></span></label>';
   }).join('');
   var canR = Object.keys(ds).some(function(d){ return ds[d].kinds[kindKey(st.base, true)]; });
   document.getElementById('o-ranma').innerHTML = '<b>上のガラス（ランマ）</b>'+
@@ -1598,7 +1617,8 @@ function render(){
   document.getElementById('o-design').innerHTML = list.map(function(k){
     var d = ds[k], sy = styleOf(k, d), nm = (d.label || k) + '型';
     // ドアリモ 玄関ドアは形ごとの写真が無いので、デザインの写真（片開きの形）を並べる
-    var tim = PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
+    // 2026-11-07 小さな写真を拡大するとぼけるので、カタログの大きな写真を縮めたカード用の写真（card.jpg）を使う
+    var tim = PRODUCT === 'ydoor' && d.hero ? d.hero.replace(/hero\.jpg$/, 'card.jpg') : PRODUCT === 'ydoor' && d.thumb ? d.thumb : d.kinds[st.kind].img;
     return '<label class="tile"><input type="radio" name="design" value="'+k+'"'+(st.design===k?' checked':'')+'><span class="in"><button type="button" class="zoom" data-zoom="'+k+'" aria-label="'+nm+'を大きく見る"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5M10.5 8v5M8 10.5h5"/></svg></button>'+(popRank(k)?'<i class="pop r'+popRank(k)+'">人気'+popRank(k)+'位</i>':'')+'<img src="'+img(tim)+'" alt="'+nm+' '+st.kind+'" loading="lazy"><b>'+nm+'</b><span class="tags">'+(PRODUCT==='hikido' && d.sub?'<i class="s-simple">'+esc(d.sub)+'</i>':'')+(sy && SN[sy]?'<i class="s-'+(STYLE_CSS[sy]||sy)+'">'+SN[sy]+'</i>':'')+(windOf(k, d)?'<i class="wind">風を通せる</i>':'')+'</span><span>'+man(total(minPrice(d, st.kind), 0, false, 0, glassAdd(d, st.kind)))+'〜</span></span></label>';
   }).join('');
   // D30 のハイサイズ（F03S など）は袖付親子の設定が無く、一覧から消えるので理由を添える
@@ -1861,7 +1881,17 @@ document.getElementById('pdfBtn').addEventListener('click', function(){
     var data = pdf.output('datauristring');
     pdf.save(fname);
     btn.disabled = false; btn.textContent = 'もう一度PDFで保存する';
-    note.className = 'pdf-note ok'; note.textContent = '見積書を保存しました（' + no + '）。';
+    note.className = 'pdf-note ok';
+    // 2026-11-07 社員の感想「スマホで保存したら、どこに入ったか分からない」。保存先を案内し、送り先を選べるボタンも出す
+    var file = null;
+    try { file = new File([pdf.output('blob')], fname, {type:'application/pdf'}); } catch(e){}
+    var canShare = !!(file && navigator.canShare && navigator.share && navigator.canShare({files:[file]}));
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(navigator.userAgent);
+    note.textContent = '見積書を保存しました（' + no + '）。' + (ios ? 'iPhoneでは「ファイル」アプリの「ダウンロード」に入ります。' : android ? 'Androidでは「ファイル」アプリの「ダウンロード」に入ります。' : '') + (canShare ? '見つからないときは、下のボタンからLINEや「ファイル」に送れます。' : '');
+    var share = document.getElementById('pdfShare');
+    share.hidden = !canShare;
+    share.onclick = canShare ? function(){ navigator.share({files:[file], title:fname}).catch(function(){}); } : null;
     // お店への知らせ（失敗してもお客様の保存には影響しない）
     if (ENDPOINT && ENDPOINT.indexOf('__') !== 0){
       fetch(ENDPOINT, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action:'save_pdf', id:no, vid:vid(), pdf:data, quote:quote, page:location.href.split('#')[0], ua:navigator.userAgent})}).catch(function(){});
@@ -1976,6 +2006,15 @@ function zoomHtml(k){
     '</div><p class="src">写真は'+makerName()+'のカタログ（2026年5月版）のものです。'+bigCap+'小さい写真は'+esc(smallKind)+'の形です。</p></div>';
 }
 document.addEventListener('click', function(ev){
+  var zk = ev.target.closest('[data-zoom-kind]');
+  if (zk){ ev.preventDefault(); ev.stopPropagation(); openInfo('<h3 id="info-h">'+esc(zk.getAttribute('data-zoom-title'))+'</h3><div class="zoom-view"><img src="'+zk.getAttribute('data-zoom-kind')+'" alt="'+esc(zk.getAttribute('data-zoom-title'))+'" style="max-height:none;width:auto"></div>');
+    // 元の絵が小さい（LIXILの写真は横70〜100ピクセル）ので、そのままではカードと同じ大きさにしかならない。
+    // 幅を画面に合わせて広げる（写真は元の3倍まで。絵＝SVGは画面の幅いっぱいまで）。高さは画面の6割まで
+    var zi = document.querySelector('.zoom-view img');
+    var fit = function(){ var nw = zi.naturalWidth || 160, nh = zi.naturalHeight || 230, svg = /\.svg(\?|$)/.test(zi.getAttribute('src'));
+      var w = Math.min(svg ? 340 : nw * 3, 340, window.innerHeight * 0.6 * nw / nh); zi.style.width = Math.round(w) + 'px'; };
+    if (zi){ if (zi.complete && zi.naturalWidth) fit(); else zi.addEventListener('load', fit); }
+    return; }
   var z = ev.target.closest('[data-zoom]');
   if (z && D){ ev.preventDefault(); ev.stopPropagation(); openInfo(zoomHtml(z.getAttribute('data-zoom'))); return; }
   if (ev.target.closest('[data-zoom-current]') && D){ openInfo(zoomHtml(st.design)); return; }
