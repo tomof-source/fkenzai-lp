@@ -33,6 +33,7 @@ GitHub Pages（https://tomof-source.github.io/fkenzai-lp/genkan-mitsumori/）は
 ・会社サーバー版にだけ、GA4「公式」（G-9WQ5XXEYR8）のタグと analytics.js を差し込む（build_genkan.py）。GitHub Pages の試験用の写しには入らない
 ・記録の名前：genkan_start（見積開始）／genkan_select（選択。field と choice）／genkan_quote_view（金額欄を初めて見た）／genkan_apply_open（申し込み欄へ）／genkan_form_start（入力を始めた）／genkan_apply_complete（申し込み完了。value・item_name・source・with_photo）／genkan_apply_error／genkan_pdf_save／genkan_info_open
 ・電話と LINE は会社サイトの WordPress と同じ tap_tel ／ tap_line（cta_area は genkan_lp）。会社全体の問い合わせ数にも入る
+・2026-11-10 追加：genkan_quick_view（最初の画面のすぐ下の金額の欄を初めて見た）／genkan_fold_toggle（たたんだ欄を開いた・たたんだ。fold は design・color・handle・size、to は open・close）。押した場所の印 cta_pos（hero＝最初の画面、quick＝すぐ下の金額の欄、kind＝開き方の下、design＝デザインの下、result＝選ぶ欄の下の金額、apply＝申し込み欄）を genkan_start・tap_line に、genkan_apply_open の from に入れる。下の帯から押した申し込みは from＝bar（前は page と数えていた）
 ・名前・電話番号・住所・メールは送らない（check_built.mjs が、入力した名前が記録に入らないことを確かめる）
 ・送る前の確認では GA4 への通信を止めて、記録が作られることだけを見る（試験の記録を本番の数字に混ぜない）
 ・ページ本体のコードは変えていない。部品の id（bar-price・r-name・r-price・done・err・applyForm・pdfBtn・sim）や href="#sim"・"#apply" を変えると記録が取れなくなるので、そのときは analytics.js も直す（確認で止まる）
