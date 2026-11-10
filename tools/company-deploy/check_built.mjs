@@ -137,6 +137,9 @@ try {
     await page.goto(base, { waitUntil: 'load' });
     await page.waitForTimeout(1500);
     const result = await page.evaluate(async () => {
+      // 2026-11-10 たたんだ欄（デザインの残り・色・ハンドル・サイズ）を全部開いてから見る。隠れた写真は読み込まれないので、開かないと全部の画像を確かめられない
+      document.querySelectorAll('button[data-fold][aria-expanded="false"]').forEach(b => b.click());
+      await new Promise(r => setTimeout(r, 300));
       for (let y = 0; y <= document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 60)); }
       const imgs = [...document.images].filter(i => i.getAttribute('src'));
       // 読み込み途中の画像を「欠けていない」と見なさないよう、全部の読み込みが終わるまで待つ（最大30秒）
