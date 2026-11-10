@@ -89,13 +89,19 @@
       var a = closest(ev.target, 'a,button');
       if (!a) return;
       var href = a.getAttribute('href') || '';
-      if (href === '#sim') return send('genkan_start', { link_text: (a.textContent || '').trim().slice(0, 40) });
-      if (href === '#apply') return send('genkan_apply_open', quote({ from: closest(a, '.result') ? 'result' : (closest(a, '.bar') ? 'bar' : 'page') }));
+      // 2026-11-10 どのボタンから押されたか（最初の画面のすぐ下＝quick、開き方の下＝kind、デザインの下＝design）
+      var pos = a.getAttribute('data-cta') || '';
+      // 最初の画面の「工事費込みの金額を見る」は、すぐ下の金額の欄（#quick）へ飛ぶ。これも見積の開始として数える
+      if (href === '#sim' || href === '#quick') return send('genkan_start', { link_text: (a.textContent || '').trim().slice(0, 40), cta_pos: pos || 'page' });
+      // 下の帯の class は pricebar（前は '.bar' を見ていて、帯から押しても page と数えていた）
+      if (href === '#apply') return send('genkan_apply_open', quote({ from: pos || (closest(a, '.result') ? 'result' : (closest(a, '.pricebar') ? 'bar' : 'page')) }));
+      // たたんだ欄を開いた・たたんだ（デザイン・色・ハンドル・サイズ）
+      if (a.getAttribute('data-fold')) return send('genkan_fold_toggle', { fold: a.getAttribute('data-fold'), to: a.getAttribute('aria-expanded') === 'true' ? 'close' : 'open' });
       if (a.id === 'pdfBtn') return send('genkan_pdf_save', quote({}));
       if (a.getAttribute('data-info')) return send('genkan_info_open', { topic: a.getAttribute('data-info') });
       // 会社サイトの WordPress と同じ名前で送る（会社全体の問い合わせ数に入る）
       if (/^tel:/i.test(href)) return send('tap_tel', { link_url: a.href, cta_area: AREA });
-      if (/line\.me\/|lin\.ee\//i.test(href)) return send('tap_line', { link_url: a.href, cta_area: AREA });
+      if (/line\.me\/|lin\.ee\//i.test(href)) return send('tap_line', { link_url: a.href, cta_area: AREA, cta_pos: pos || (closest(a, '.hero') ? 'hero' : (closest(a, '.result') ? 'result' : (closest(a, '#apply') ? 'apply' : 'page'))) });
     } catch (e) { /* 何もしない */ }
   }, true);
 
@@ -142,6 +148,22 @@
           });
         }, { threshold: 0.6 });
         io.observe(r);
+      }
+    } catch (e) { /* 何もしない */ }
+
+    // 2026-11-10 最初の画面のすぐ下の金額の欄（#quick）が初めて画面に入った。前からの genkan_quote_view（選ぶ欄の下の金額）とは別に数える
+    try {
+      var q = document.getElementById('qk-price');
+      if (q && 'IntersectionObserver' in window) {
+        var qSeen = false;
+        var qio = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            if (qSeen || !e.isIntersecting || !price()) return;
+            qSeen = true; qio.disconnect();
+            send('genkan_quick_view', quote({}));
+          });
+        }, { threshold: 0.6 });
+        qio.observe(q);
       }
     } catch (e) { /* 何もしない */ }
 
