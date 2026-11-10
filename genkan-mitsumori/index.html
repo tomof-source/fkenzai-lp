@@ -888,6 +888,7 @@ h1,h2,h3{word-break:auto-phrase;overflow-wrap:anywhere;line-break:strict}
 .so-assure li{font-size:15px;line-height:1.55;color:#1f3a2b;padding-left:22px;position:relative}
 .so-assure li::before{content:"✓";position:absolute;left:2px;top:0;color:#2E7D32;font-weight:900}
 .r-body > .so-assure{order:3;margin:0}
+.so-assure[hidden]{display:none}
 /* 提案2：分からなければ、そのままで大丈夫 */
 .so-ok{display:block;margin-top:6px;font-weight:700;color:#2E7D32}
 .ranma .so-ok{display:block;width:100%;margin-top:4px;font-size:13px}
@@ -916,6 +917,8 @@ html.so-nobar .pricebar{transform:translateY(110%);pointer-events:none}
 .q:not(.so-closed) .so-fold p{display:none}
 .q:not(.so-closed) .so-fold{justify-content:flex-end}
 .q.so-closed .q-head small{display:none}
+.zoom::after{inset:-7px!important}
+#apply .help a[href*="lin.ee"]{display:inline-block;padding:10px 0;margin:-10px 0}
 .hero-line{margin:10px 0 0;font-size:14px;line-height:1.7;color:#3f4650}.hero-line p{margin:0}.hero .hero-line a.btn.btn-line{display:flex;justify-content:center;margin:0 0 6px;padding:8px 14px;font-size:16px;line-height:1.3;min-height:46px;align-items:center;border-radius:12px}.hero-line .s{font-size:12.5px}
 </style>
 </head>
@@ -950,7 +953,7 @@ html.so-nobar .pricebar{transform:translateY(110%);pointer-events:none}
   <p class="qk-h" id="qk-h">人気1位のデザインで、工事費込みの金額は</p>
   <p class="qk-spec" id="qk-spec"></p>
   <p class="qk-price"><b id="qk-price">―</b><small>工事費込み・税込</small></p>
-  <p class="qk-from" id="qk-from" hidden><small>同じ断熱と開き方なら</small><span id="qk-from-v"></span></p>
+  <p class="qk-from" id="qk-from" hidden><small>同じ断熱と開き方で、デザインと色しだいで</small><span id="qk-from-v"></span></p>
   <ul class="qk-ok"><li>今日は金額を見るだけで大丈夫です</li><li>サイズは、あとで私たちが測ります</li></ul>
   <div class="qk-btns">
     <a class="btn btn-main btn-block" href="#apply" data-cta="quick">このまま無料の現地調査を申し込む</a>
@@ -1067,7 +1070,7 @@ html.so-nobar .pricebar{transform:translateY(110%);pointer-events:none}
         <div><div class="r-price-label">工事費込みの概算（税込）</div><div class="r-price" id="r-price">―</div><p class="price-extra" id="r-price-extra" hidden></p></div>
         <table class="bd" id="r-bd"></table>
         <p class="size" id="r-size"></p>
-        <ul class="so-assure"><li>今日は金額を見るだけで大丈夫です</li><li>現地調査は30分ほど、1回だけです。無料です</li><li>ご連絡は、入れていただいた方法（電話かメール）でします。メールで申し込まれた方に、お電話はしません</li></ul>
+        <ul class="so-assure"><li>今日は金額を見るだけで大丈夫です</li><li>メールだけで申し込まれた方に、お電話はしません</li></ul>
         <a class="btn btn-main btn-block" href="#apply">この内容で現地調査を申し込む</a>
         <div class="r-next">
           <p class="r-next-h">申し込む前に、写真で確認できます</p>
@@ -1088,7 +1091,7 @@ html.so-nobar .pricebar{transform:translateY(110%);pointer-events:none}
 <!-- 2026-11-01 申し込み欄を金額欄のすぐ後ろへ移した（要件：01_案件/2026-10-31_玄関見積LPの計測と動線/01_要件/要件_申し込み欄を金額の後ろへ・割引を1か所に_20261101.md） -->
 <section id="apply"><div class="wrap">
   <div class="sec-title"><span class="en">APPLY</span><h2>選んだ内容で、現地調査を申し込む</h2><p>入力は、お名前と、電話番号かメールアドレスのどちらか1つだけです。</p>
-    <ul class="so-assure"><li>現地調査は30分ほど、1回だけです。現地調査とお見積りは無料です</li><li>入れていただいた方法で、調査の日をご相談します。メールで申し込まれた方に、お電話はしません</li><li>工事のご契約は、最終のお見積りを見てからご検討いただけます</li></ul></div>
+    <ul class="so-assure"><li>ご契約までの現地調査は、30分ほど、1回だけです。現地調査とお見積りは無料です</li><li>入れていただいた方法で、調査の日をご相談します。メールだけで申し込まれた方に、お電話はしません</li><li>工事のご契約は、最終のお見積りを見てからご検討いただけます</li></ul></div>
   <form class="form" id="applyForm" novalidate>
     <div class="chosen" id="chosen"></div>
     <div class="field"><label for="f-name">お名前<span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" placeholder="例 福嶋 太郎"></div>
@@ -1708,8 +1711,8 @@ function render(){
   var soMore = 0;
   document.getElementById('o-design').innerHTML = list.map(function(k, i){
     var d = ds[k], sy = styleOf(k, d), nm = (d.label || k) + '型';
-    // 提案8：たたんでいる間は、並びの先頭4つ（ドアは人気の1〜4位）と、選んでいるデザインだけを見せる
-    var soHide = soFold && i >= 4 && k !== st.design; if (soHide) soMore++;
+    // 提案8：たたんでいる間は、並びの先頭6つ（ドアは人気の順。3列で2段にそろう）と、選んでいるデザインだけを見せる
+    var soHide = soFold && i >= 6 && k !== st.design; if (soHide) soMore++;
     // ドアリモ 玄関ドアは形ごとの写真が無いので、デザインの写真（片開きの形）を並べる
     // 2026-11-07 小さな写真を拡大するとぼけるので、カタログの大きな写真を縮めたカード用の写真（data.json の card）を使う
     // （会社サーバーでは画像の名前に ?v=指紋 が付くので、hero の名前を書き換える方法は使えない）
@@ -1718,8 +1721,8 @@ function render(){
   }).join('');
   var dq = document.getElementById('o-design').closest('.q'), db = document.getElementById('so-dbtn');
   dq.classList.toggle('so-dfold', soFold);
-  db.hidden = soFold ? !soMore : list.length <= 4;
-  db.textContent = soFold ? 'ほかの'+soMore+'デザインも見る' : (PRODUCT === 'door' ? '人気の4つだけにたたむ' : '4つだけにたたむ');
+  db.hidden = soFold ? !soMore : list.length <= 6;
+  db.textContent = soFold ? 'ほかの'+soMore+'デザインも見る' : (PRODUCT === 'door' ? '人気の6つだけにたたむ' : '6つだけにたたむ');
   db.setAttribute('aria-expanded', soFold ? 'false' : 'true');
   // D30 のハイサイズ（F03S など）は袖付親子の設定が無く、一覧から消えるので理由を添える
   document.getElementById('design-count').textContent = all.length + 'デザイン' + (PRODUCT === 'ydoor' && st.base === '袖付親子' && st.grade !== 'yal' ? '（ハイサイズは袖付親子の設定なし）' : '');
@@ -1804,11 +1807,11 @@ function summary(){
     '<tr class="sum"><td>合計（100円未満は四捨五入'+(yGlassSep() ? '・袖とランマのガラス代は別' : '')+'）</td><td>'+yen(t)+'</td></tr>';
   var ow = yOpenW();
   document.getElementById('r-size').innerHTML = (yk ? '<b>今の玄関の幅の目安（開口）</b>　'+esc(ow)+'mm' : '<b>取り付けられるサイズ（新しい枠）</b>　幅 '+esc(k.w)+'mm・高さ '+esc(k.h)+'mm') + (fit ? '<br><b>お客様の採寸</b>　'+esc(fit.measured)+'｜'+esc(fit.label) : '');
-  document.getElementById('bar-spec').textContent = makerName()+'・'+gname(st.grade)+'・'+kindLabel();
+  document.getElementById('bar-spec').textContent = makerName()+'・'+(SO_PLAIN[st.grade] ? SO_PLAIN[st.grade].replace(/（.*$/, '') : gname(st.grade))+'・'+kindLabel();
   document.getElementById('bar-price').textContent = yen(t);
   // 2026-11-10 提案7：最初の画面のすぐ下の金額。同じ断熱と開き方で、いちばんお手ごろなデザインの金額も添える
   document.getElementById('qk-h').textContent = (PRODUCT === 'door' && popRank(st.design) === 1 ? '人気1位のデザインで' : 'いま選んでいる内容で') + '、工事費込みの金額は';
-  document.getElementById('qk-spec').textContent = title+'・'+kindLabel()+(c ? '・'+colorDisplayName(e, st.kind, c) : '')+'・'+lock.name+(glassLabel ? '（'+glassLabel+'は別途）' : '');
+  document.getElementById('qk-spec').textContent = (SO_PLAIN[st.grade] ? title.replace(gname(st.grade), SO_PLAIN[st.grade].replace(/（.*$/, '')) : title)+'・'+kindLabel()+(c ? '・'+colorDisplayName(e, st.kind, c) : '')+'・'+lock.name+(glassLabel ? '（'+glassLabel+'は別途）' : '');
   document.getElementById('qk-price').textContent = yen(t);
   var dsAll = designs(), qkMin = Infinity;
   Object.keys(dsAll).forEach(function(k2){ if (dsAll[k2].kinds[st.kind]) qkMin = Math.min(qkMin, total(minPrice(dsAll[k2], st.kind), 0, false, 0, glassAdd(dsAll[k2], st.kind))); });
@@ -2516,7 +2519,13 @@ onScroll();
   check();
 })();
 
-// 2026-11-10 提案4：申し込み欄と、上の金額の欄が見えている間は、下の帯を隠す（入力欄に重ならないように）
+// 2026-11-10 申し込みが済んだら、申し込み欄の上の安心の3行も隠す（完了の表示と並べない）
+(function(){
+  var done = document.getElementById('done'), as = document.querySelector('#apply .so-assure'); if (!done || !as) return;
+  new MutationObserver(function(){ as.hidden = !done.hidden; }).observe(done, {attributes:true, attributeFilter:['hidden']});
+})();
+
+// 2026-11-10 提案4：申し込み欄と、上の大きな金額が見えている間は、下の帯を隠す（入力欄に重ならないように。最初の画面では帯の金額を残す）
 (function(){
   if (!('IntersectionObserver' in window)) return;
   var on = new Set();
@@ -2524,7 +2533,7 @@ onScroll();
     es.forEach(function(e){ if (e.isIntersecting) on.add(e.target); else on.delete(e.target); });
     document.documentElement.classList.toggle('so-nobar', on.size > 0);
   });
-  ['apply', 'quick'].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  ['apply', 'qk-price'].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
 })();
 
 // 中5：ページを動かしている間は html に ui-scrolling を付ける（スマホの相談の丸ボタンが文字に重なり続けないように）
